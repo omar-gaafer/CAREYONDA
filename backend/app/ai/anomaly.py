@@ -3,14 +3,20 @@
 from __future__ import annotations
 
 import pickle
+from collections.abc import Mapping, Sequence
 from pathlib import Path
-from typing import Any, Sequence
+from typing import Any
 
 import numpy as np
 from numpy.typing import NDArray
-from sklearn.ensemble import IsolationForest
-from sklearn.impute import SimpleImputer
-from sklearn.pipeline import Pipeline
+from sklearn.ensemble import IsolationForest  # type: ignore[import-untyped]
+from sklearn.impute import SimpleImputer  # type: ignore[import-untyped]
+from sklearn.pipeline import Pipeline  # type: ignore[import-untyped]
+
+MatrixInput = (
+    Sequence[Mapping[str, Any] | Sequence[float | int | None | str]]
+    | NDArray[np.float64]
+)
 
 
 class IsolationForestAnomalyModel:
@@ -56,96 +62,136 @@ class IsolationForestAnomalyModel:
 
     def _coerce_matrix(
         self,
-        values: Sequence[Sequence[float | int | None | str]] | NDArray[np.float64],
+        values: MatrixInput,
     ) -> NDArray[np.float64]:
         if isinstance(values, np.ndarray):
-            return np.asarray(values, dtype=float)
+            return np.asarray(values, dtype=np.float64)
+
         rows: list[list[float]] = []
+
         for row in values:
-            if isinstance(row, dict):
-                rows.append(
-                    [
-                        np.nan if row.get(name) in (None, "", "nan", "NaN") else float(row.get(name))
-                        for name in self.feature_names
-                    ]
-                )
+            converted: list[float] = []
+
+            if isinstance(row, Mapping):
+                for name in self.feature_names:
+                    raw = row.get(name)
+
+                    if raw is None or raw == "" or raw in ("nan", "NaN"):
+                        converted.append(float("nan"))
+                    else:
+                        converted.append(float(raw))
             else:
-                rows.append(
-                    [
-                        np.nan if cell in (None, "", "nan", "NaN") else float(cell)
-                        for cell in row
-                    ]
-                )
-        return np.asarray(rows, dtype=float)
+                for cell in row:
+                    if cell is None or cell == "" or cell in ("nan", "NaN"):
+                        converted.append(float("nan"))
+                    else:
+                        converted.append(float(cell))
+
+            rows.append(converted)
+
+        return np.asarray(rows, dtype=np.float64)
 
     def fit(
         self,
-        X: Sequence[Sequence[float | int | None | str]] | NDArray[np.float64],
+        X: MatrixInput,
         *,
         episode_ids: Sequence[str] | None = None,
-    ) -> "IsolationForestAnomalyModel":
+    ) -> IsolationForestAnomalyModel:
         matrix = self._coerce_matrix(X)
         self.pipeline.fit(matrix)
-        transformed = self.pipeline.named_steps["imputer"].transform(matrix)
+
+        transformed = np.asarray(
+            self.pipeline.named_steps["imputer"].transform(matrix),
+            dtype=np.float64,
+        )
+
         self.feature_means_ = np.mean(transformed, axis=0)
         self.feature_stds_ = np.std(transformed, axis=0)
-        self.feature_stds_ = np.where(self.feature_stds_ == 0.0, 1.0, self.feature_stds_)
+        self.feature_stds_ = np.where(
+            self.feature_stds_ == 0.0,
+            1.0,
+            self.feature_stds_,
+        )
+
         self.training_episode_ids = tuple(episode_ids or ())
         return self
 
     def _transform(
         self,
-        X: Sequence[Sequence[float | int | None | str]] | NDArray[np.float64],
+        X: MatrixInput,
     ) -> NDArray[np.float64]:
         matrix = self._coerce_matrix(X)
-        return self.pipeline.named_steps["imputer"].transform(matrix)
+
+        return np.asarray(
+            self.pipeline.named_steps["imputer"].transform(matrix),
+            dtype=np.float64,
+        )
 
     def decision_function(
         self,
-        X: Sequence[Sequence[float | int | None | str]] | NDArray[np.float64],
+        X: MatrixInput,
     ) -> NDArray[np.float64]:
         model = self.pipeline.named_steps["model"]
-        return np.asarray(model.decision_function(self._transform(X)), dtype=float)
+
+        return np.asarray(
+            model.decision_function(self._transform(X)),
+            dtype=np.float64,
+        )
 
     def score_samples(
         self,
-        X: Sequence[Sequence[float | int | None | str]] | NDArray[np.float64],
+        X: MatrixInput,
     ) -> NDArray[np.float64]:
         model = self.pipeline.named_steps["model"]
-        return np.asarray(model.score_samples(self._transform(X)), dtype=float)
+
+        return np.asarray(
+            model.score_samples(self._transform(X)),
+            dtype=np.float64,
+        )
 
     def anomaly_score(
         self,
-        X: Sequence[Sequence[float | int | None | str]] | NDArray[np.float64],
+        X: MatrixInput,
     ) -> NDArray[np.float64]:
-        return self.score_samples(X)
+        """Return scores where larger values indicate more anomalous samples."""
+        return -self.score_samples(X)
 
     def predict(
         self,
-        X: Sequence[Sequence[float | int | None | str]] | NDArray[np.float64],
+        X: MatrixInput,
     ) -> NDArray[np.int64]:
         model = self.pipeline.named_steps["model"]
-        return np.asarray(model.predict(self._transform(X)), dtype=np.int64)
+
+        return np.asarray(
+            model.predict(self._transform(X)),
+            dtype=np.int64,
+        )
 
     def explain(
         self,
-        X: Sequence[Sequence[float | int | None | str]] | NDArray[np.float64],
+        X: MatrixInput,
         *,
         top_k: int = 3,
     ) -> list[list[dict[str, Any]]]:
         if self.feature_means_ is None or self.feature_stds_ is None:
             raise ValueError("model is not fitted")
+
         matrix = self._transform(X)
+
         if matrix.ndim == 1:
             matrix = matrix.reshape(1, -1)
+
         explanations: list[list[dict[str, Any]]] = []
+
         for row in matrix:
             ranked: list[dict[str, Any]] = []
+
             for idx, name in enumerate(self.feature_names):
                 value = float(row[idx])
                 baseline_mean = float(self.feature_means_[idx])
                 baseline_std = float(self.feature_stds_[idx])
                 deviation = (value - baseline_mean) / baseline_std
+
                 ranked.append(
                     {
                         "feature": name,
@@ -154,17 +200,25 @@ class IsolationForestAnomalyModel:
                         "baseline_std": baseline_std,
                         "deviation_z": float(deviation),
                         "direction": (
-                            "above_baseline" if value > baseline_mean else "below_baseline"
+                            "above_baseline"
+                            if value > baseline_mean
+                            else "below_baseline"
                         ),
                     }
                 )
-            ranked.sort(key=lambda item: abs(float(item["deviation_z"])), reverse=True)
+
+            ranked.sort(
+                key=lambda item: abs(float(item["deviation_z"])),
+                reverse=True,
+            )
             explanations.append(ranked[:top_k])
+
         return explanations
 
     def save(self, path: str | Path) -> Path:
         target = Path(path)
         target.parent.mkdir(parents=True, exist_ok=True)
+
         with target.open("wb") as handle:
             pickle.dump(
                 {
@@ -182,13 +236,16 @@ class IsolationForestAnomalyModel:
                 },
                 handle,
             )
+
         return target
 
     @classmethod
-    def load(cls, path: str | Path) -> "IsolationForestAnomalyModel":
+    def load(cls, path: str | Path) -> IsolationForestAnomalyModel:
         target = Path(path)
+
         with target.open("rb") as handle:
             payload = pickle.load(handle)
+
         detector = cls(
             feature_names=payload["feature_names"],
             random_state=int(payload["random_state"]),
@@ -196,8 +253,10 @@ class IsolationForestAnomalyModel:
             max_samples=int(payload["max_samples"]),
             contamination=payload["contamination"],
         )
+
         detector.pipeline = payload["pipeline"]
         detector.training_episode_ids = tuple(payload.get("training_episode_ids", ()))
         detector.feature_means_ = payload.get("feature_means_")
         detector.feature_stds_ = payload.get("feature_stds_")
+
         return detector
