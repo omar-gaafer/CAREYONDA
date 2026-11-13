@@ -156,3 +156,9 @@ Both documented full-size dataset commands were executed from a clean staged-sou
 ### Training-ready branch verification
 
 Verified in the separate training worktree: Ruff lint and formatting passed for 43 files; strict mypy passed for 43 source files; **163 tests passed** using the separately provisioned local NASA inputs. Both full dataset commands reproduced the validated manifests and exact feature schemas: synthetic 960 samples/5,760 observations; NASA 12,087 environmental samples with 8,460/1,813/1,814 chronological splits. The existing provisioned interpreter was reused for checks; no packages were installed. Raw NASA files were accessed through an ignored local symlink, not committed. Teammates must obtain authorized originals separately. The original M2 worktree is preserved.
+
+## Windows PowerShell handoff
+
+Use [WINDOWS_TRAINING_HANDOFF.md](WINDOWS_TRAINING_HANDOFF.md) for Windows x64 CPython 3.14 setup and generation commands. It uses `backend/requirements-windows.txt`, a direct `Scripts\python.exe` invocation without activation, and PowerShell environment syntax. Windows binary dependency resolution and Windows-marker closure were checked; native Windows installation/execution was not available for testing. See [WINDOWS_DEPENDENCY_VERIFICATION.json](WINDOWS_DEPENDENCY_VERIFICATION.json). Existing Linux commands remain supported.
+
+The [NASA permission review](NASA_RR1_PERMISSION_REVIEW.md) checks official policy and identifies the official EDA acquisition route. Exact local-copy redistribution provenance remains unverified, so raw CSVs and processed datasets remain ignored and must be provisioned separately. No model implementation or training is added.

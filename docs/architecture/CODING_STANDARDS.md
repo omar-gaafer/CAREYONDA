@@ -67,7 +67,7 @@ python -m mypy
 python -m pytest
 ```
 
-These are check commands; formatting modifications require an intentional edit. mypy checks tests as well as application code. Pytest treats warnings as errors, rejects unknown markers/configuration, and searches only `backend/tests`. Add narrow documented warning exceptions only for demonstrated issues. Tool caches go under `/tmp` while the root `.gitignore` is still empty; those caches are disposable and not part of the project. The backend configuration does not automatically cover the sibling simulator; configure its scope when simulator behavior is implemented.
+These are check commands; formatting modifications require an intentional edit. mypy checks tests as well as application code. Pytest treats warnings as errors, rejects unknown markers/configuration, and searches only `backend/tests`. Add narrow documented warning exceptions only for demonstrated issues. Tool caches use ignored relative `.ruff_cache`, `.mypy_cache`, and `.pytest_cache` directories so checks work on Linux and Windows without writing to a Unix-only absolute path. Include `../simulator` in the Ruff commands; the configured mypy file list already includes the sibling simulator.
 
 A zero-test pytest run exits with code 5 and is not a passing suite. Empty modules may pass lint/type checks without providing functionality. For each feature, review test coverage of behavior, dependency direction, provenance, safety, and offline operation alongside tool results. Tools alone do not enforce layer boundaries or clinical validity. Introduce automated import-boundary enforcement only when actual code creates a demonstrated need.
 

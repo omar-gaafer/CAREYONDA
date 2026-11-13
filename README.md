@@ -54,3 +54,5 @@ PYTHONPATH=backend backend/.venv/bin/python -m app.ingestion.nasa_rr1_export \
 ```
 
 Use a new output directory. Real NASA environment features and synthetic scenario features remain separate; no paired human-health dataset or trained model is claimed. Local M2 reasoning work is intentionally excluded from this data-integration synchronization.
+
+Windows teammates: use the [PowerShell training handoff](docs/architecture/WINDOWS_TRAINING_HANDOFF.md) for platform-specific dependency setup, raw-data provisioning, generation, and quality-check commands. Native Windows execution is not yet verified; compatible Windows wheels and dependency constraints have been checked.
