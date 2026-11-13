@@ -5,7 +5,7 @@
 Repository: https://github.com/omar-gaafer/CAREYONDA.git
 Development branch: `feature/hazard-reasoning`. Expected parent: `bdb29e5f0b9d4b07870cf0423c7e5a454f74cf8f`. This commit contains D2/D3, the implementation inventory, and this handoff; M2 reasoning changes remain outside the commit. The branch needs review/merge before these changes become available on `main`. No remote work is overwritten.
 
-There were no existing “Model A” / “Model B” definitions in the repository. Unless the team specifies otherwise, this handoff uses **A = real NASA environmental anomaly detection**, **B = synthetic scenario classification**. These are proposed training roles, not implemented models or claims about their architectures. Both concrete dataset schemas below are authoritative regardless of naming.
+The team confirmed these training roles: **Model A — NASA Environmental Anomaly Detection**, an unsupervised Isolation Forest trained on real NASA RR-1 CO2, temperature, and humidity features; **Model B — Synthetic Multimodal Health Anomaly Detection**, an unsupervised Isolation Forest trained on CAREYONDA synthetic physiological and mission-context features, evaluated against synthetic scenario labels. Neither model nor its training framework is implemented or installed yet. The existing feature schemas below remain unchanged.
 
 ## Clone or update
 
@@ -47,7 +47,7 @@ PYTHONPATH=backend backend/.venv/bin/python -m simulator.run_simulation \
   --output datasets/synthetic/m1_2_seed42
 ```
 
-Defaults produce 5,760 observations, 960 samples, 16 features, and 240 samples per scenario. Read `features.csv` and join `labels.csv` by `sample_id` for target `synthetic_scenario`. Drop sample IDs from predictors; never use label-bearing provenance or mapping context as predictors. Split by whole episode using `evidence_mapping.json`, preferably holding out a separate seed. Fit preprocessing only on training. Labels and physiological relationships are toy generator assumptions, not medical diagnoses or validated causation. This is current-scenario classification, not forecasting.
+Defaults produce 5,760 observations, 960 samples, 16 features, and 240 samples per scenario. Train Model B without labels using the listed predictors from `features.csv`. Join `labels.csv` by `sample_id` only for held-out evaluation against `synthetic_scenario`; do not use those labels as fitting targets or predictors. Drop sample IDs from predictors; never use label-bearing provenance or mapping context as predictors. Split by whole episode using `evidence_mapping.json`, preferably holding out a separate seed. Fit preprocessing only on training. Labels and physiological relationships are toy generator assumptions, not medical diagnoses or validated causation. This is unsupervised detection of synthetic multimodal deviations, evaluated using scenario assignments. Scenario labels are evaluation annotations, not proof that every non-baseline sample is anomalous; any binary mapping and evaluation protocol must be documented by the training developer.
 
 ## Transfer and reproduce NASA data (Model A)
 
@@ -102,7 +102,7 @@ Machine-readable copy: [NASA_ENVIRONMENT_FEATURE_SCHEMA.json](NASA_ENVIRONMENT_F
 
 Windows are `(t-1800 seconds,t]` and reset at each chronological split boundary. Means are arithmetic sample means, not time-weighted. Delta means current minus most recent earlier valid reading inside the window. Count/missing are unitless; gap is actual elapsed time since the preceding sample in the same split. Nulls stay null. No future or cross-split observation enters these features.
 
-## Exact Model B input schema — synthetic scenarios
+## Exact Model B input schema — synthetic multimodal health anomalies
 
 Machine-readable copy: [SYNTHETIC_FEATURE_SCHEMA.json](SYNTHETIC_FEATURE_SCHEMA.json), generated from `feature_schema(300)`. CSV order:
 

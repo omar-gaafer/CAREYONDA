@@ -21,3 +21,5 @@ Audit date: 2026-11-13. Based on executable source, file sizes, and tests, not r
 M1.3 can begin as independent training work using existing, separate data contracts. Model frameworks, training code, evaluation, and artifacts remain to be implemented by the teammate under an approved scope. Synthetic labels are not medical diagnoses. NASA training data is unlabeled and is not certified anomaly-free. Radiation and human health data are not paired or merged.
 
 See [TRAINING_HANDOFF.md](TRAINING_HANDOFF.md) for exact setup, dataset reproduction, feature schemas, raw-file handoff, branch boundaries, and verified test results. No redistribution permission for the supplied CSV copies was found locally, so raw data and generated datasets are excluded from this push.
+
+The confirmed M1.3 plan is two unsupervised Isolation Forests: Model A on real NASA RR-1 CO2/temperature/humidity features; Model B on synthetic physiological/mission-context features, with scenario labels reserved for evaluation. These are approved model definitions, not implemented training code or trained artifacts.
