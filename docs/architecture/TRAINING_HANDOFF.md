@@ -3,7 +3,7 @@
 ## Branch and scope
 
 Repository: https://github.com/omar-gaafer/CAREYONDA.git
-Development branch: `feature/hazard-reasoning`. Expected parent: `bdb29e5f0b9d4b07870cf0423c7e5a454f74cf8f`. This commit contains D2/D3, the implementation inventory, and this handoff; M2 reasoning changes remain outside the commit. The branch needs review/merge before these changes become available on `main`. No remote work is overwritten.
+Development branch: `feature/training-ready`. Shared data-pipeline baseline: `bfc19cbdeab9e71cb1ab16d4e62e954d2ef4969c`. This commit contains D2/D3, the implementation inventory, and this handoff; M2 reasoning changes remain outside the commit. The branch needs review/merge before these changes become available on `main`. No remote work is overwritten.
 
 The team confirmed these training roles: **Model A — NASA Environmental Anomaly Detection**, an unsupervised Isolation Forest trained on real NASA RR-1 CO2, temperature, and humidity features; **Model B — Synthetic Multimodal Health Anomaly Detection**, an unsupervised Isolation Forest trained on CAREYONDA synthetic physiological and mission-context features, evaluated against synthetic scenario labels. Neither model nor its training framework is implemented or installed yet. The existing feature schemas below remain unchanged.
 
@@ -12,7 +12,7 @@ The team confirmed these training roles: **Model A — NASA Environmental Anomal
 Fresh checkout:
 
 ```sh
-git clone --branch feature/hazard-reasoning https://github.com/omar-gaafer/CAREYONDA.git
+git clone --branch feature/training-ready https://github.com/omar-gaafer/CAREYONDA.git
 cd CAREYONDA
 ```
 
@@ -20,11 +20,11 @@ For an existing clean checkout (preserve/stash personal work before changing bra
 
 ```sh
 git fetch origin
-git switch feature/hazard-reasoning
-git pull --ff-only origin feature/hazard-reasoning
+git switch feature/training-ready
+git pull --ff-only origin feature/training-ready
 ```
 
-If the local branch does not exist, `git switch --track origin/feature/hazard-reasoning` creates it instead. Do not copy unfinished local M2 files into this data-integration checkout.
+If the local branch does not exist, `git switch --track origin/feature/training-ready` creates it instead. Do not copy unfinished local M2 files into this data-integration checkout.
 
 ## Dependencies
 
@@ -144,6 +144,15 @@ Data/contracts are ready for M1.3 experiments; model implementation/training/eva
 
 ### Verified synchronization snapshot
 
-The full local tree passes Ruff lint/format, strict mypy for 46 files, and **192 tests**. The independently checked M2-free staged snapshot passes Ruff lint/format, strict mypy for 43 files, and **163 tests** with the separately provisioned local NASA inputs. A clone without those inputs runs 162 tests and skips the one raw-file integration test. The 29 M2-only cases are deliberately not published by this commit.
+The original development worktree passed Ruff lint/format, strict mypy for 46 files, and **192 tests**. The independently checked M2-free staged snapshot passes Ruff lint/format, strict mypy for 43 files, and **163 tests** with the separately provisioned local NASA inputs. A clone without those inputs runs 162 tests and skips the one raw-file integration test. The 29 M2-only cases are deliberately not published by this commit.
 
 Both documented full-size dataset commands were executed from a clean staged-source snapshot using the existing provisioned interpreter. The synthetic export reproduced 960 samples/5,760 observations; the NASA export reproduced 12,087 samples and the validated manifest. Both generated feature schemas match the checked-in schema copies exactly. No raw CSVs, generated datasets, environments, credentials, model binaries, or M2 source files are staged. Source permissions remain unverified; transfer has not been performed by this synchronization.
+
+
+## Dedicated training branch
+
+`feature/training-ready` is created from the shared corrected handoff at `bfc19cb`. All D2/D3 source, tests, and registry changes were already committed there; no data-pipeline changes were left uncommitted. The only uncommitted implementation in the original worktree is M2, which is not copied here. The dedicated training worktree contains no executable M2 reasoning/explanation code. Model A and Model B remain the two confirmed unsupervised Isolation Forest training tasks; neither training implementation nor an ML framework is supplied by the data pipeline.
+
+### Training-ready branch verification
+
+Verified in the separate training worktree: Ruff lint and formatting passed for 43 files; strict mypy passed for 43 source files; **163 tests passed** using the separately provisioned local NASA inputs. Both full dataset commands reproduced the validated manifests and exact feature schemas: synthetic 960 samples/5,760 observations; NASA 12,087 environmental samples with 8,460/1,813/1,814 chronological splits. The existing provisioned interpreter was reused for checks; no packages were installed. Raw NASA files were accessed through an ignored local symlink, not committed. Teammates must obtain authorized originals separately. The original M2 worktree is preserved.

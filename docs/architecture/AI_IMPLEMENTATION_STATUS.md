@@ -1,8 +1,8 @@
 # CAREYONDA AI implementation inventory
 
-Audit date: 2026-11-13. Based on executable source, file sizes, and tests, not roadmap names. This synchronization publishes D2/D3 on the existing `feature/hazard-reasoning` branch and deliberately excludes the separate uncommitted M2 files. No trained model is present.
+Audit date: 2026-11-13. Based on executable source, file sizes, and tests, not roadmap names. This synchronization publishes D2/D3 on the existing `feature/training-ready` branch and deliberately excludes the separate uncommitted M2 files. No trained model is present.
 
-| Component | Actual local implementation | Included in synchronized source |
+| Component | Original development workspace / implementation | Included in synchronized source |
 | --- | --- | --- |
 | Evidence schema / validation | Implemented: versioned observations, typed scope/measurement/provenance/quality, metric registry, safe validation wrapper, physical quality evaluation | Yes: `schemas/observation.py`, `quality/validator.py`. M2 `evidence.py` and `investigation.py` remain local only; their published placeholders are empty. |
 | Synthetic mission simulator | Implemented: seeded four-scenario generator, missingness, JSON/CSV/schema/lineage export | Yes: `simulator/mission_generator.py`, `simulator/run_simulation.py` |
@@ -23,3 +23,5 @@ M1.3 can begin as independent training work using existing, separate data contra
 See [TRAINING_HANDOFF.md](TRAINING_HANDOFF.md) for exact setup, dataset reproduction, feature schemas, raw-file handoff, branch boundaries, and verified test results. No redistribution permission for the supplied CSV copies was found locally, so raw data and generated datasets are excluded from this push.
 
 The confirmed M1.3 plan is two unsupervised Isolation Forests: Model A on real NASA RR-1 CO2/temperature/humidity features; Model B on synthetic physiological/mission-context features, with scenario labels reserved for evaluation. These are approved model definitions, not implemented training code or trained artifacts.
+
+This dedicated training branch starts at the shared handoff `bfc19cb`. References above to local M2 describe the original development worktree only; the training worktree and published branch contain no executable M2 implementation.
