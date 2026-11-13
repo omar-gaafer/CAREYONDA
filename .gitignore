@@ -1,0 +1,56 @@
+# Local Python environments and generated caches
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
+
+# Secrets and local runtime databases
+.env
+.env.*
+!.env.example
+*.sqlite
+*.sqlite3
+
+# Generated datasets; regenerate with the versioned simulator
+/datasets/raw/
+/datasets/processed/
+/datasets/synthetic/
+
+# Trained models and experiment outputs
+/models/
+/artifacts/
+/checkpoints/
+/runs/
+/wandb/
+/mlruns/
+*.pt
+*.pth
+*.ckpt
+*.onnx
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.joblib
+*.safetensors
+
+# Local credentials, agent state, and temporary files
+/.aws/
+/.codex/
+/.agents/
+credentials.json
+credentials.*.json
+service-account*.json
+*.pem
+*.key
+*.p12
+*.pfx
+*.tmp
+*.temp
+*.log
+*.swp
+.DS_Store

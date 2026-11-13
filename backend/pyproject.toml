@@ -1,0 +1,47 @@
+[project]
+name = "careyonda-backend"
+version = "0.0.0"
+description = "Offline-first astronaut health and spaceflight hazard decision support"
+requires-python = ">=3.11"
+dependencies = ["pydantic>=2,<3"]
+
+[dependency-groups]
+dev = [
+    "ruff>=0.9,<1",
+    "mypy>=1.14,<2",
+    "pytest>=8,<10",
+]
+
+[tool.ruff]
+target-version = "py311"
+line-length = 88
+src = [".", ".."]
+cache-dir = "/tmp/careyonda-ruff-cache"
+
+[tool.ruff.lint]
+select = ["E4", "E7", "E9", "F", "I", "B", "UP"]
+
+[tool.ruff.format]
+quote-style = "double"
+indent-style = "space"
+
+[tool.mypy]
+python_version = "3.11"
+files = ["app", "tests", "../simulator"]
+mypy_path = [".", ".."]
+strict = true
+show_error_codes = true
+warn_unreachable = true
+cache_dir = "/tmp/careyonda-mypy-cache"
+
+[tool.pytest.ini_options]
+minversion = "8.0"
+testpaths = ["tests"]
+pythonpath = [".", ".."]
+addopts = "--strict-config --strict-markers -ra"
+cache_dir = "/tmp/careyonda-pytest-cache"
+markers = [
+    "unit: isolated module behavior",
+    "integration: interaction between components using local or synthetic resources",
+]
+filterwarnings = ["error"]
