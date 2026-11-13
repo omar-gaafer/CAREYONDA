@@ -4,7 +4,7 @@ Offline-first astronaut health and spaceflight hazard research platform. M1.1 pr
 
 ## Clone and prepare
 
-Python 3.14.8 is the tested runtime; source syntax targets Python 3.11+. Other interpreter versions require validation. The virtual environment and generated datasets are intentionally excluded from Git.
+Python 3.14.8 is the tested runtime; source syntax targets Python 3.11+. Other interpreter versions require validation. The virtual environment and unapproved datasets remain excluded. Approved dataset snapshots are listed in the complete publication inventory.
 
 ```sh
 git clone https://github.com/omar-gaafer/CAREYONDA.git
@@ -22,7 +22,7 @@ Run from the repository root:
 ```sh
 PYTHONPATH=backend backend/.venv/bin/python -m simulator.run_simulation \
   --seed 42 --episodes-per-scenario 8 --steps 30 \
-  --output datasets/synthetic/m1_2_seed42
+  --output datasets/synthetic/m1_2_seed42_regenerated
 ```
 
 Choose a new output directory on each run; existing directories are never overwritten. Default output: 5,760 observations, 960 samples, 16 features, and 240 samples per synthetic scenario. Files are `features.csv`, `labels.csv`, `observations.json`, `feature_schema.json`, `evidence_mapping.json`, `manifest.json`, and `README.md`.
@@ -50,9 +50,13 @@ The three original NASA CSVs must be provisioned separately under `datasets/raw/
 ```sh
 PYTHONPATH=backend backend/.venv/bin/python -m app.ingestion.nasa_rr1_export \
   --raw datasets/raw/nasa_eda \
-  --output datasets/processed/nasa_rr1_eda_d2d3_validated
+  --output datasets/processed/nasa_rr1_eda_local
 ```
 
 Use a new output directory. Real NASA environment features and synthetic scenario features remain separate; no paired human-health dataset or trained model is claimed. Local M2 reasoning work is intentionally excluded from this data-integration synchronization.
 
 Windows teammates: use the [PowerShell training handoff](docs/architecture/WINDOWS_TRAINING_HANDOFF.md) for platform-specific dependency setup, raw-data provisioning, generation, and quality-check commands. Native Windows execution is not yet verified; compatible Windows wheels and dependency constraints have been checked.
+
+## Dataset publication status
+
+See [the complete dataset inventory](docs/research/COMPLETE_DATASET_INVENTORY.md): 50 paths inventoried across both worktrees; 23 approved payloads published, including both complete synthetic snapshots and NASA structural metadata. All 27 NASA measurement-bearing files remain blocked pending source-rights confirmation; Model A data must still be provisioned locally. The published synthetic snapshot can be used directly without regeneration. SHA-256 checksums cover every published payload, and dataset byte preservation is enforced for Windows checkouts.

@@ -1,5 +1,7 @@
 # Windows PowerShell training preparation
 
+> Dataset publication update: 23 approved payload files are now included, covering both full synthetic snapshots and NASA structural README/schema/manifest files. The 27 NASA measurement-bearing files remain blocked, including all Model A split CSVs. See [the complete inventory](../research/COMPLETE_DATASET_INVENTORY.md). Some historical verification notes below predate this release. Use published Model B data directly or choose a new regeneration directory; NASA generation also needs a fresh output directory because metadata-only directories now exist.
+
 Branch: `feature/training-ready`. Model A is an unsupervised Isolation Forest on real NASA RR-1 CO2, temperature, and humidity features. Model B is an unsupervised Isolation Forest on synthetic physiological/mission-context features, with scenario labels reserved for evaluation. Models, training scripts, and scikit-learn are not implemented or installed by this task.
 
 ## Verification scope
@@ -39,7 +41,7 @@ The Unix syntax `PYTHONPATH=backend ...`, `.venv/bin/python`, and shell backslas
 From the repository root after setup:
 
 ```powershell
-& $careyondaPython -m simulator.run_simulation --seed 42 --episodes-per-scenario 8 --steps 30 --output datasets/synthetic/m1_2_seed42
+& $careyondaPython -m simulator.run_simulation --seed 42 --episodes-per-scenario 8 --steps 30 --output datasets/synthetic/m1_2_seed42_regenerated
 if ($LASTEXITCODE -ne 0) { throw 'Synthetic export failed.' }
 ```
 
@@ -72,11 +74,11 @@ Compare with the exact source hashes in [TRAINING_HANDOFF.md](TRAINING_HANDOFF.m
 ## Prepare Model A inputs
 
 ```powershell
-& $careyondaPython -m app.ingestion.nasa_rr1_export --raw datasets/raw/nasa_eda --output datasets/processed/nasa_rr1_eda_d2d3_validated
+& $careyondaPython -m app.ingestion.nasa_rr1_export --raw datasets/raw/nasa_eda --output datasets/processed/nasa_rr1_eda_local
 if ($LASTEXITCODE -ne 0) { throw 'NASA export failed.' }
 ```
 
-A new output directory is required. The validated originals produce 12,087 samples: 8,460 train, 1,813 validation, 1,814 test. Inputs: `datasets/processed/nasa_rr1_eda_d2d3_validated/train.csv`, `validation.csv`, and `test.csv`. Use the sixteen features in `feature_schema.json`; drop `sample_id` and `event_time_utc`. Preserve chronological splits, and fit preprocessing only on training. Training data is not certified anomaly-free.
+A new output directory is required. The validated originals produce 12,087 samples: 8,460 train, 1,813 validation, 1,814 test. After local regeneration, inputs are `datasets/processed/nasa_rr1_eda_local/train.csv`, `validation.csv`, and `test.csv`. Use the sixteen features in `feature_schema.json`; drop `sample_id` and `event_time_utc`. Preserve chronological splits, and fit preprocessing only on training. Training data is not certified anomaly-free.
 
 NASA CO2 is ppm, not the synthetic partial-pressure metric in Pa. Never combine them as if they were paired human physiological records. Radiation remains daily and separate; accumulated-dose units are ambiguous and its typed values remain unavailable/excluded. Original raw values and provenance are retained in `source_records.jsonl`.
 

@@ -1,0 +1,46 @@
+{
+  "authoritative_local_copy_to_release_record": null,
+  "confirmed_facts": [
+    "Official EDA provides environmental/radiation raw and summary tables.",
+    "NASA policy provides CC0 for qualifying NASA-led mission data unless restricted and distinguishes other/third-party data.",
+    "Local filenames, byte sizes and SHA-256 hashes are directly verified."
+  ],
+  "download_date": null,
+  "download_date_status": "not established; filesystem timestamps and mission dates are not download evidence",
+  "files": [
+    {
+      "path": "datasets/raw/nasa_eda/RR-1_EDA_Radiation_table.csv",
+      "sha256": "15be9a9d0166eaf1d03bac0fe6056926574a1de5c4822262092a4806a93c27a1",
+      "size_bytes": 1683
+    },
+    {
+      "path": "datasets/raw/nasa_eda/RR-1_EDA_Summary_table.csv",
+      "sha256": "968829a6335fcc10e014eb42a83e03d677da42993ef686865081fccfe95442b1",
+      "size_bytes": 700
+    },
+    {
+      "path": "datasets/raw/nasa_eda/RR-1_EDA_Telemetry_table.csv",
+      "sha256": "1117dd51b7e869119b0426dd1a57c7c42a0a4edf502b7b18a8a280f0b7d0c531",
+      "size_bytes": 856347
+    }
+  ],
+  "mission": "Rodent Research-1 (RR-1)",
+  "official_sources_checked": [
+    "https://science.data.nasa.gov/about/license",
+    "https://visualization.osdr.nasa.gov/eda/"
+  ],
+  "publication_decision": "Block measurement-bearing NASA originals and derivatives pending applicable-source-rights confirmation; not a claim NASA data is inherently restricted. Publish independent project-authored structural metadata and synthetic data now.",
+  "recorded_on": "2026-11-13",
+  "release_identifier": null,
+  "release_specific_license_record": null,
+  "source_claim": {
+    "statement": "The three local CSVs were manually exported from the official NASA EDA application for RR-1.",
+    "status": "user_attested"
+  },
+  "source_url": "https://visualization.osdr.nasa.gov/eda/",
+  "unverified_details": [
+    "Exact official release/export version and original download date.",
+    "Independent record linking these exact local hashes to the official export.",
+    "Release-specific evidence confirming NASA CC0 default applicability and any third-party notices for these copies."
+  ]
+}

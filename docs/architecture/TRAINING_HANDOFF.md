@@ -1,5 +1,7 @@
 # Training handoff — D2/D3 synchronization
 
+> Dataset publication update: 23 approved payload files are now included, covering both full synthetic snapshots and NASA structural README/schema/manifest files. The 27 NASA measurement-bearing files remain blocked, including all Model A split CSVs. See [the complete inventory](../research/COMPLETE_DATASET_INVENTORY.md). Some historical verification notes below predate this release. Use published Model B data directly or choose a new regeneration directory; NASA generation also needs a fresh output directory because metadata-only directories now exist.
+
 ## Branch and scope
 
 Repository: https://github.com/omar-gaafer/CAREYONDA.git
@@ -44,7 +46,7 @@ From the repository root:
 ```sh
 PYTHONPATH=backend backend/.venv/bin/python -m simulator.run_simulation \
   --seed 42 --episodes-per-scenario 8 --steps 30 \
-  --output datasets/synthetic/m1_2_seed42
+  --output datasets/synthetic/m1_2_seed42_regenerated
 ```
 
 Defaults produce 5,760 observations, 960 samples, 16 features, and 240 samples per scenario. Train Model B without labels using the listed predictors from `features.csv`. Join `labels.csv` by `sample_id` only for held-out evaluation against `synthetic_scenario`; do not use those labels as fitting targets or predictors. Drop sample IDs from predictors; never use label-bearing provenance or mapping context as predictors. Split by whole episode using `evidence_mapping.json`, preferably holding out a separate seed. Fit preprocessing only on training. Labels and physiological relationships are toy generator assumptions, not medical diagnoses or validated causation. This is unsupervised detection of synthetic multimodal deviations, evaluated using scenario assignments. Scenario labels are evaluation annotations, not proof that every non-baseline sample is anomalous; any binary mapping and evaluation protocol must be documented by the training developer.
@@ -68,7 +70,7 @@ Place the originals in `datasets/raw/nasa_eda/` (create that directory if necess
 ```sh
 PYTHONPATH=backend backend/.venv/bin/python -m app.ingestion.nasa_rr1_export \
   --raw datasets/raw/nasa_eda \
-  --output datasets/processed/nasa_rr1_eda_d2d3_validated
+  --output datasets/processed/nasa_rr1_eda_local
 ```
 
 Both exporters require a new output directory and refuse to overwrite existing data. For reruns, choose another output path. Raw data, virtual environments, processed/synthetic datasets, caches, credentials, and model artifacts remain ignored.

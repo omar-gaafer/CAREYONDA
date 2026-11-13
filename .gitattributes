@@ -1,0 +1,3 @@
+# Preserve published dataset bytes and checksums on Windows and Unix.
+datasets/** -text
+docs/research/DATASET_PUBLICATION_SHA256SUMS -text

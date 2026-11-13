@@ -1,0 +1,45 @@
+{
+  "config": {
+    "baseline_co2_pa": 50.0,
+    "baseline_heart_rate": 72.0,
+    "baseline_sleep_hours": 8.0,
+    "co2_heart_rate_increase": 18.0,
+    "co2_increase_pa": 120.0,
+    "communication_delay_seconds": 2.0,
+    "deprived_sleep_hours": 3.0,
+    "episodes_per_scenario": 8,
+    "exercise_decay_minutes": 15.0,
+    "exercise_heart_rate_increase": 45.0,
+    "max_ingestion_delay_seconds": 120,
+    "missing_probability": 0.03,
+    "noise_scale": 1.0,
+    "seed": 42,
+    "start": "2026-11-13T00:00:00Z",
+    "step_seconds": 60,
+    "steps": 30
+  },
+  "dataset_version": "1.0.0",
+  "features": 16,
+  "observations": 5760,
+  "quality_balance": {
+    "missing": 148,
+    "valid": 5612
+  },
+  "samples": 960,
+  "scenario_balance": {
+    "baseline": 240,
+    "elevated_co2": 240,
+    "recent_exercise": 240,
+    "sleep_deprivation": 240
+  },
+  "sha256": {
+    "README.md": "eb201abfb1de35ed31fed1a79cfc7a01287f8bb471b26a55b39cfacfb3398306",
+    "evidence_mapping.json": "cef5149c2ed4d59b97e2a8462b0ce341e18cf9c8c4ed036db0e9fbbea11434a4",
+    "feature_schema.json": "fc0e4db42f1cb92b2230c24fb91fa112738b36d98f4ef3c4bb334201fed8cc69",
+    "features.csv": "879d2f35463d4891925128e180797a7831bfa035603399db3b46fb2bc95d8106",
+    "labels.csv": "8038dd562e62d09ae24682b1c88c851aaab5aed3d13311232b446952bab37945",
+    "observations.json": "be8f5f32b21555f8dc52472de0b8f893dcc5b0a75ae0f0098a2be532cd27b7a8"
+  },
+  "synthetic_only": true,
+  "window_seconds": 300
+}

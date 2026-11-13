@@ -1,0 +1,894 @@
+{
+  "files": [
+    {
+      "available_in": [
+        "original_workspace"
+      ],
+      "dataset_origin": "CAREYONDA project-authored NASA structural metadata",
+      "file_type": "text/markdown",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3/README.md",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-authored structural documentation/schema/counts/checksums; no observed measurement series.",
+      "sha256": "8b9a790f0b8fa16c53cfc68394b8b04a1be79876d74edb0cc09ada2c3a61dcf1",
+      "size_bytes": 1487,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "application/json",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3/audit.json",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "ba9dbe172b428795887def2ab8dd85ae29fa28d3f4c211a4080c3743cf996941",
+      "size_bytes": 18935,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "application/x-ndjson",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3/feature_evidence.jsonl",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "43cd535049c391d9ecb9248a24d6777ec2dc982c8c4d1790455466e666996083",
+      "size_bytes": 38737763,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace"
+      ],
+      "dataset_origin": "CAREYONDA project-authored NASA structural metadata",
+      "file_type": "application/json",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3/feature_schema.json",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-authored structural documentation/schema/counts/checksums; no observed measurement series.",
+      "sha256": "2c9b73e7372fdc6351265cc6ca502b17250c0ae893522fb4b1067a2fb4956da8",
+      "size_bytes": 2897,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace"
+      ],
+      "dataset_origin": "CAREYONDA project-authored NASA structural metadata",
+      "file_type": "application/json",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3/manifest.json",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-authored structural documentation/schema/counts/checksums; no observed measurement series.",
+      "sha256": "b89f872684b7462e14df19c53552fdbe9d315b9fb63be3f82be2630857baaad3",
+      "size_bytes": 1481,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "application/x-ndjson",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3/radiation_observations.jsonl",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "ded32c6729041382ca811a358fa87c9af0fe525edb4befbf29fb66e7f634e504",
+      "size_bytes": 105482,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "application/x-ndjson",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3/source_records.jsonl",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "2eb4f09aaa54513c4368237e2e9360295811fd9e8fd18ebe7729caeb85815e42",
+      "size_bytes": 9639845,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "application/x-ndjson",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3/telemetry_observations.jsonl",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "bdd61d4d0aa36bbe3beed143c427ae90658ccd8e217dd971afb1b3ed93da8bed",
+      "size_bytes": 45076379,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "text/csv",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3/test.csv",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "76b783b07b50794c494cee0eadfde6c47c3eaec04b84faec9dcfcae17fdbf2ec",
+      "size_bytes": 296756,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "text/csv",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3/train.csv",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "3cf9b57affed7301aa6c8739e5796c69c302c7c779815721c93c5fe5d8cc7eeb",
+      "size_bytes": 1355383,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "text/csv",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3/validation.csv",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "204a598bd8d528aecffb588dc8ddad76eedc47104f43e1086d5ddbaa14d6d833",
+      "size_bytes": 296981,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "CAREYONDA project-authored NASA structural metadata",
+      "file_type": "text/markdown",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3_validated/README.md",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-authored structural documentation/schema/counts/checksums; no observed measurement series.",
+      "sha256": "8b9a790f0b8fa16c53cfc68394b8b04a1be79876d74edb0cc09ada2c3a61dcf1",
+      "size_bytes": 1487,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "application/json",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3_validated/audit.json",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "07d4b72b85d47ad0a34fbd3c29dd20e26df6f435b5ff6f48132613606cdeaf0b",
+      "size_bytes": 19560,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "application/x-ndjson",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3_validated/feature_evidence.jsonl",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "43cd535049c391d9ecb9248a24d6777ec2dc982c8c4d1790455466e666996083",
+      "size_bytes": 38737763,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "CAREYONDA project-authored NASA structural metadata",
+      "file_type": "application/json",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3_validated/feature_schema.json",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-authored structural documentation/schema/counts/checksums; no observed measurement series.",
+      "sha256": "2c9b73e7372fdc6351265cc6ca502b17250c0ae893522fb4b1067a2fb4956da8",
+      "size_bytes": 2897,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "CAREYONDA project-authored NASA structural metadata",
+      "file_type": "application/json",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3_validated/manifest.json",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-authored structural documentation/schema/counts/checksums; no observed measurement series.",
+      "sha256": "40005d13160fdf2ea729237f965508fd2864ac1e187a3dcf8753f7cdf928706b",
+      "size_bytes": 1481,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "application/x-ndjson",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3_validated/radiation_observations.jsonl",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "ded32c6729041382ca811a358fa87c9af0fe525edb4befbf29fb66e7f634e504",
+      "size_bytes": 105482,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "application/x-ndjson",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3_validated/source_records.jsonl",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "2eb4f09aaa54513c4368237e2e9360295811fd9e8fd18ebe7729caeb85815e42",
+      "size_bytes": 9639845,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "application/x-ndjson",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3_validated/telemetry_observations.jsonl",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "bdd61d4d0aa36bbe3beed143c427ae90658ccd8e217dd971afb1b3ed93da8bed",
+      "size_bytes": 45076379,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "text/csv",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3_validated/test.csv",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "76b783b07b50794c494cee0eadfde6c47c3eaec04b84faec9dcfcae17fdbf2ec",
+      "size_bytes": 296756,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "text/csv",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3_validated/train.csv",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "3cf9b57affed7301aa6c8739e5796c69c302c7c779815721c93c5fe5d8cc7eeb",
+      "size_bytes": 1355383,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "text/csv",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/nasa_rr1_eda_d2d3_validated/validation.csv",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "204a598bd8d528aecffb588dc8ddad76eedc47104f43e1086d5ddbaa14d6d833",
+      "size_bytes": 296981,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "training_worktree"
+      ],
+      "dataset_origin": "CAREYONDA project-authored NASA structural metadata",
+      "file_type": "text/markdown",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/windows_handoff_verification/README.md",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-authored structural documentation/schema/counts/checksums; no observed measurement series.",
+      "sha256": "8b9a790f0b8fa16c53cfc68394b8b04a1be79876d74edb0cc09ada2c3a61dcf1",
+      "size_bytes": 1487,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "training_worktree"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "application/json",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/windows_handoff_verification/audit.json",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "07d4b72b85d47ad0a34fbd3c29dd20e26df6f435b5ff6f48132613606cdeaf0b",
+      "size_bytes": 19560,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "training_worktree"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "application/x-ndjson",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/windows_handoff_verification/feature_evidence.jsonl",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "43cd535049c391d9ecb9248a24d6777ec2dc982c8c4d1790455466e666996083",
+      "size_bytes": 38737763,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "training_worktree"
+      ],
+      "dataset_origin": "CAREYONDA project-authored NASA structural metadata",
+      "file_type": "application/json",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/windows_handoff_verification/feature_schema.json",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-authored structural documentation/schema/counts/checksums; no observed measurement series.",
+      "sha256": "2c9b73e7372fdc6351265cc6ca502b17250c0ae893522fb4b1067a2fb4956da8",
+      "size_bytes": 2897,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "training_worktree"
+      ],
+      "dataset_origin": "CAREYONDA project-authored NASA structural metadata",
+      "file_type": "application/json",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/windows_handoff_verification/manifest.json",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-authored structural documentation/schema/counts/checksums; no observed measurement series.",
+      "sha256": "40005d13160fdf2ea729237f965508fd2864ac1e187a3dcf8753f7cdf928706b",
+      "size_bytes": 1481,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "training_worktree"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "application/x-ndjson",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/windows_handoff_verification/radiation_observations.jsonl",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "ded32c6729041382ca811a358fa87c9af0fe525edb4befbf29fb66e7f634e504",
+      "size_bytes": 105482,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "training_worktree"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "application/x-ndjson",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/windows_handoff_verification/source_records.jsonl",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "2eb4f09aaa54513c4368237e2e9360295811fd9e8fd18ebe7729caeb85815e42",
+      "size_bytes": 9639845,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "training_worktree"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "application/x-ndjson",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/windows_handoff_verification/telemetry_observations.jsonl",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "bdd61d4d0aa36bbe3beed143c427ae90658ccd8e217dd971afb1b3ed93da8bed",
+      "size_bytes": 45076379,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "training_worktree"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "text/csv",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/windows_handoff_verification/test.csv",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "76b783b07b50794c494cee0eadfde6c47c3eaec04b84faec9dcfcae17fdbf2ec",
+      "size_bytes": 296756,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "training_worktree"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "text/csv",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/windows_handoff_verification/train.csv",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "3cf9b57affed7301aa6c8739e5796c69c302c7c779815721c93c5fe5d8cc7eeb",
+      "size_bytes": 1355383,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "training_worktree"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "text/csv",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/processed/windows_handoff_verification/validation.csv",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "204a598bd8d528aecffb588dc8ddad76eedc47104f43e1086d5ddbaa14d6d833",
+      "size_bytes": 296981,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "text/csv",
+      "git_ignore_check_note": "datasets/raw/ ancestor is ignored; training worktree uses a local-only directory symlink to the original ignored inputs.",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/raw/nasa_eda/RR-1_EDA_Radiation_table.csv",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "15be9a9d0166eaf1d03bac0fe6056926574a1de5c4822262092a4806a93c27a1",
+      "size_bytes": 1683,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "text/csv",
+      "git_ignore_check_note": "datasets/raw/ ancestor is ignored; training worktree uses a local-only directory symlink to the original ignored inputs.",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/raw/nasa_eda/RR-1_EDA_Summary_table.csv",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "968829a6335fcc10e014eb42a83e03d677da42993ef686865081fccfe95442b1",
+      "size_bytes": 700,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "NASA RR-1 EDA, user-attested source; raw or NASA-derived measurement-bearing output",
+      "file_type": "text/csv",
+      "git_ignore_check_note": "datasets/raw/ ancestor is ignored; training worktree uses a local-only directory symlink to the original ignored inputs.",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/raw/nasa_eda/RR-1_EDA_Telemetry_table.csv",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "blocked",
+      "redistribution_permitted": null,
+      "rights_basis_or_block_reason": "NASA measurement-bearing source or derivative: exact-copy applicability of source/release reuse terms and absence of third-party restrictions remain unverified; user-attested export origin is recorded but not independent release evidence.",
+      "sha256": "1117dd51b7e869119b0426dd1a57c7c42a0a4edf502b7b18a8a280f0b7d0c531",
+      "size_bytes": 856347,
+      "target_tracking_after_release": "untracked_ignored",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "CAREYONDA deterministic synthetic simulator",
+      "file_type": "text/markdown",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/synthetic/m1_2_seed42/README.md",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-generated synthetic data; project owner explicitly authorized publication; simulated provenance verified.",
+      "sha256": "eb201abfb1de35ed31fed1a79cfc7a01287f8bb471b26a55b39cfacfb3398306",
+      "size_bytes": 2270,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "CAREYONDA deterministic synthetic simulator",
+      "file_type": "application/json",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/synthetic/m1_2_seed42/evidence_mapping.json",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-generated synthetic data; project owner explicitly authorized publication; simulated provenance verified.",
+      "sha256": "cef5149c2ed4d59b97e2a8462b0ce341e18cf9c8c4ed036db0e9fbbea11434a4",
+      "size_bytes": 5908175,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "CAREYONDA deterministic synthetic simulator",
+      "file_type": "application/json",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/synthetic/m1_2_seed42/feature_schema.json",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-generated synthetic data; project owner explicitly authorized publication; simulated provenance verified.",
+      "sha256": "fc0e4db42f1cb92b2230c24fb91fa112738b36d98f4ef3c4bb334201fed8cc69",
+      "size_bytes": 3534,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "CAREYONDA deterministic synthetic simulator",
+      "file_type": "text/csv",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/synthetic/m1_2_seed42/features.csv",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-generated synthetic data; project owner explicitly authorized publication; simulated provenance verified.",
+      "sha256": "879d2f35463d4891925128e180797a7831bfa035603399db3b46fb2bc95d8106",
+      "size_bytes": 148834,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "CAREYONDA deterministic synthetic simulator",
+      "file_type": "text/csv",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/synthetic/m1_2_seed42/labels.csv",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-generated synthetic data; project owner explicitly authorized publication; simulated provenance verified.",
+      "sha256": "8038dd562e62d09ae24682b1c88c851aaab5aed3d13311232b446952bab37945",
+      "size_bytes": 46110,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "CAREYONDA deterministic synthetic simulator",
+      "file_type": "application/json",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/synthetic/m1_2_seed42/manifest.json",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-generated synthetic data; project owner explicitly authorized publication; simulated provenance verified.",
+      "sha256": "22eb3c7ccf9ca6017ee63e4987dc93f6cacb107fab91e050313bd5b16e776649",
+      "size_bytes": 1458,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "original_workspace",
+        "training_worktree"
+      ],
+      "dataset_origin": "CAREYONDA deterministic synthetic simulator",
+      "file_type": "application/json",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/synthetic/m1_2_seed42/observations.json",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-generated synthetic data; project owner explicitly authorized publication; simulated provenance verified.",
+      "sha256": "be8f5f32b21555f8dc52472de0b8f893dcc5b0a75ae0f0098a2be532cd27b7a8",
+      "size_bytes": 6115013,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "training_worktree"
+      ],
+      "dataset_origin": "CAREYONDA deterministic synthetic simulator",
+      "file_type": "text/markdown",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/synthetic/windows_handoff_verification/README.md",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-generated synthetic data; project owner explicitly authorized publication; simulated provenance verified.",
+      "sha256": "eb201abfb1de35ed31fed1a79cfc7a01287f8bb471b26a55b39cfacfb3398306",
+      "size_bytes": 2270,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "training_worktree"
+      ],
+      "dataset_origin": "CAREYONDA deterministic synthetic simulator",
+      "file_type": "application/json",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/synthetic/windows_handoff_verification/evidence_mapping.json",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-generated synthetic data; project owner explicitly authorized publication; simulated provenance verified.",
+      "sha256": "cef5149c2ed4d59b97e2a8462b0ce341e18cf9c8c4ed036db0e9fbbea11434a4",
+      "size_bytes": 5908175,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "training_worktree"
+      ],
+      "dataset_origin": "CAREYONDA deterministic synthetic simulator",
+      "file_type": "application/json",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/synthetic/windows_handoff_verification/feature_schema.json",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-generated synthetic data; project owner explicitly authorized publication; simulated provenance verified.",
+      "sha256": "fc0e4db42f1cb92b2230c24fb91fa112738b36d98f4ef3c4bb334201fed8cc69",
+      "size_bytes": 3534,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "training_worktree"
+      ],
+      "dataset_origin": "CAREYONDA deterministic synthetic simulator",
+      "file_type": "text/csv",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/synthetic/windows_handoff_verification/features.csv",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-generated synthetic data; project owner explicitly authorized publication; simulated provenance verified.",
+      "sha256": "879d2f35463d4891925128e180797a7831bfa035603399db3b46fb2bc95d8106",
+      "size_bytes": 148834,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "training_worktree"
+      ],
+      "dataset_origin": "CAREYONDA deterministic synthetic simulator",
+      "file_type": "text/csv",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/synthetic/windows_handoff_verification/labels.csv",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-generated synthetic data; project owner explicitly authorized publication; simulated provenance verified.",
+      "sha256": "8038dd562e62d09ae24682b1c88c851aaab5aed3d13311232b446952bab37945",
+      "size_bytes": 46110,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "training_worktree"
+      ],
+      "dataset_origin": "CAREYONDA deterministic synthetic simulator",
+      "file_type": "application/json",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/synthetic/windows_handoff_verification/manifest.json",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-generated synthetic data; project owner explicitly authorized publication; simulated provenance verified.",
+      "sha256": "22eb3c7ccf9ca6017ee63e4987dc93f6cacb107fab91e050313bd5b16e776649",
+      "size_bytes": 1458,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    },
+    {
+      "available_in": [
+        "training_worktree"
+      ],
+      "dataset_origin": "CAREYONDA deterministic synthetic simulator",
+      "file_type": "application/json",
+      "ignored_by_rules_at_inventory": true,
+      "path": "datasets/synthetic/windows_handoff_verification/observations.json",
+      "privacy_review": "No credential patterns found; synthetic health records are simulated; NASA files are experiment/environmental records, not paired human health records.",
+      "publication_status": "approved",
+      "redistribution_permitted": true,
+      "rights_basis_or_block_reason": "Project-generated synthetic data; project owner explicitly authorized publication; simulated provenance verified.",
+      "sha256": "be8f5f32b21555f8dc52472de0b8f893dcc5b0a75ae0f0098a2be532cd27b7a8",
+      "size_bytes": 6115013,
+      "target_tracking_after_release": "tracked",
+      "tracked_at_inventory": false
+    }
+  ],
+  "inventory_date": "2026-11-13",
+  "schema_version": "1.0.0",
+  "scope": "Union of datasets/ in original workspace and existing training worktree. Same path/hash deduplicated; distinct verification directories retained. Git state fields describe the pre-staging inventory snapshot.",
+  "summary": {
+    "additional_worktree_unique_paths": 18,
+    "approved_dataset_files": 23,
+    "approved_total_bytes": 24468383,
+    "blocked_files": 27,
+    "blocked_total_bytes": 287442552,
+    "discovered_total_bytes": 311910935,
+    "git_lfs_required": false,
+    "original_workspace_file_count": 32,
+    "unique_dataset_collections": 6,
+    "unique_relative_paths": 50
+  },
+  "target_branch": "feature/training-ready"
+}
