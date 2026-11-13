@@ -1,0 +1,4 @@
+# Windows x64 CPython 3.14 dependency snapshot; no model framework included.
+-r requirements-m1.1-resolved.txt
+# pytest requires colorama on Windows; Linux snapshot did not include it.
+colorama==0.4.6; sys_platform == "win32"

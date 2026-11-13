@@ -1,0 +1,709 @@
+{
+  "parent_commit": "bfc19cbdeab9e71cb1ab16d4e62e954d2ef4969c",
+  "scope": "exact changed files in local checkpoint; reconstructed baseline was previously uncommitted",
+  "self_reference": "Inventory self size and hash are null; authenticated by Git commit tree",
+  "file_count": 105,
+  "files": [
+    {
+      "path": "README.md",
+      "category": "reconstructed baseline with integration overlay",
+      "size_bytes": 4739,
+      "sha256": "fc31d1a625ed5f38790bc9c312e739f2f5b4599ec34050d0c0aa46e12fe81aef",
+      "snapshot_sha256": "97dd3bbb727ad9c6cf8e5ce00137d95c8c0af0914c6eb61e2c60f9b9044fdb6c"
+    },
+    {
+      "path": "backend/app/ai/explanations.py",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 975,
+      "sha256": "044bedd0a5a5dca77249aa6ce8e9396f0b947e8410eaec495a655cbb6a8b0299",
+      "snapshot_sha256": "044bedd0a5a5dca77249aa6ce8e9396f0b947e8410eaec495a655cbb6a8b0299"
+    },
+    {
+      "path": "backend/app/ai/hazard_reasoning.py",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 13310,
+      "sha256": "08568f4dd47e2917e06f0ee6c39a9f3b4ee52738844fe252f8a9674c1d6c663e",
+      "snapshot_sha256": "08568f4dd47e2917e06f0ee6c39a9f3b4ee52738844fe252f8a9674c1d6c663e"
+    },
+    {
+      "path": "backend/app/ai/nasa_environment_anomaly.py",
+      "category": "Omar Model A source import",
+      "size_bytes": 16103,
+      "sha256": "10c7ae14e42c409b0892ba0fb6a83ea2b602b6d86ca14ed0610f25b78cf9159f"
+    },
+    {
+      "path": "backend/app/api/contracts.py",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 1920,
+      "sha256": "91b18f8ff53a58b386f9712c6becea36ab563a3574af69d5a91eba5d97f403d0",
+      "snapshot_sha256": "91b18f8ff53a58b386f9712c6becea36ab563a3574af69d5a91eba5d97f403d0"
+    },
+    {
+      "path": "backend/app/api/environmental_anomaly.py",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 5207,
+      "sha256": "d14e25b979dcc624f0085480f134e02cb2f4851e8ba92e7c00ff3d0518af5f24"
+    },
+    {
+      "path": "backend/app/api/routes.py",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 4955,
+      "sha256": "9b8dbcf2aa9aaa538892aa8387496ed883afdff4d79089c1033761e2dd98e770",
+      "snapshot_sha256": "9b8dbcf2aa9aaa538892aa8387496ed883afdff4d79089c1033761e2dd98e770"
+    },
+    {
+      "path": "backend/app/api/security.py",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 4582,
+      "sha256": "20786e0041aff80b33b187e61484c441fc49d2f01b5d9edae743123cf6b32f99",
+      "snapshot_sha256": "20786e0041aff80b33b187e61484c441fc49d2f01b5d9edae743123cf6b32f99"
+    },
+    {
+      "path": "backend/app/application/__init__.py",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 60,
+      "sha256": "569072d3470ece4171701d97b81f524bb6bbd65937d1ba4dcce419b994bb71a4",
+      "snapshot_sha256": "569072d3470ece4171701d97b81f524bb6bbd65937d1ba4dcce419b994bb71a4"
+    },
+    {
+      "path": "backend/app/application/environmental_anomaly.py",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 9056,
+      "sha256": "4141158f904d23e0275674eede6f7638e6808f80ef833c859de9ee7a0ee0bbcc"
+    },
+    {
+      "path": "backend/app/application/environmental_api.py",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 3880,
+      "sha256": "21227a79d1a01b41b88b3a37bf493b2f849f5edf1e1215fce7f927ff9e556855"
+    },
+    {
+      "path": "backend/app/application/evidence.py",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 1349,
+      "sha256": "a823c69d87f4e5c28fd96e319851e40ac34d7f9d9feb333b41ce4cc73bb6a002",
+      "snapshot_sha256": "a823c69d87f4e5c28fd96e319851e40ac34d7f9d9feb333b41ce4cc73bb6a002"
+    },
+    {
+      "path": "backend/app/main.py",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 2913,
+      "sha256": "0d50046dc68e79be86ba26c8c6b09ba212f410f0dbb36b0cfeb6aa4e57c6576a",
+      "snapshot_sha256": "0d50046dc68e79be86ba26c8c6b09ba212f410f0dbb36b0cfeb6aa4e57c6576a"
+    },
+    {
+      "path": "backend/app/model_a_main.py",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 4083,
+      "sha256": "f91d7f790185d7b080c556d2fadb2f861f6bc95d94bbf5226668164e87019081"
+    },
+    {
+      "path": "backend/app/schemas/anomaly.py",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 8378,
+      "sha256": "3af3bf6f9dd22af4f6fe6c884ddc17b5039704dc1a3733858b93bbfcc5cf90c9",
+      "snapshot_sha256": "3af3bf6f9dd22af4f6fe6c884ddc17b5039704dc1a3733858b93bbfcc5cf90c9"
+    },
+    {
+      "path": "backend/app/schemas/baseline.py",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 15034,
+      "sha256": "5ff754c21c4ae3d89a03cd3a3d06252bfa3844a9ba59a5b694d7f21725695d02",
+      "snapshot_sha256": "5ff754c21c4ae3d89a03cd3a3d06252bfa3844a9ba59a5b694d7f21725695d02"
+    },
+    {
+      "path": "backend/app/schemas/environmental_anomaly_context.py",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 13267,
+      "sha256": "c34cf1b4ec108c8db0603d666a48b49a118e2addc4856f82d4823bc48f05beeb"
+    },
+    {
+      "path": "backend/app/schemas/evidence.py",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 951,
+      "sha256": "6cb08e290c4d939a7fb6733884d9b610e0969594f318d54d2d42c44ac21ba518",
+      "snapshot_sha256": "6cb08e290c4d939a7fb6733884d9b610e0969594f318d54d2d42c44ac21ba518"
+    },
+    {
+      "path": "backend/app/schemas/fusion.py",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 12034,
+      "sha256": "41253f43c8f3f498e3bc62fb98de9ccaefb5bec521d0ca3ab39f59efa73c8e03",
+      "snapshot_sha256": "41253f43c8f3f498e3bc62fb98de9ccaefb5bec521d0ca3ab39f59efa73c8e03"
+    },
+    {
+      "path": "backend/app/schemas/investigation.py",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 1722,
+      "sha256": "b3ba838d02107be0f3ef55a6ac90b1c2a03aa895646d9627d4b6618819a13203",
+      "snapshot_sha256": "b3ba838d02107be0f3ef55a6ac90b1c2a03aa895646d9627d4b6618819a13203"
+    },
+    {
+      "path": "backend/app/schemas/nasa_environment_model.py",
+      "category": "Omar Model A source import",
+      "size_bytes": 5353,
+      "sha256": "7df2b3211ae65ae12c9e1fb92c6827022e6ce611e098023400740aef6f44132f"
+    },
+    {
+      "path": "backend/app/storage/fixtures/api_evidence.json",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 174974,
+      "sha256": "315ab5ef93416a6bb0662ac4c6554b57b41ceba7fdf7cc4a495143d189ec9202",
+      "snapshot_sha256": "315ab5ef93416a6bb0662ac4c6554b57b41ceba7fdf7cc4a495143d189ec9202"
+    },
+    {
+      "path": "backend/app/storage/local_evidence.py",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 1384,
+      "sha256": "535bdbbf81ddfbf1cf05348a68ca23a01088cf52e5e46ebb8dfd6836f1b35dd1",
+      "snapshot_sha256": "535bdbbf81ddfbf1cf05348a68ca23a01088cf52e5e46ebb8dfd6836f1b35dd1"
+    },
+    {
+      "path": "backend/app/storage/nasa_environment_model_store.py",
+      "category": "Omar Model A source import",
+      "size_bytes": 4360,
+      "sha256": "9fcd0825b0bc017a764811debefac2706d2f84641446e653a056f63d0fa4f44a"
+    },
+    {
+      "path": "backend/pyproject.toml",
+      "category": "reconstructed baseline with integration overlay",
+      "size_bytes": 1493,
+      "sha256": "714d9f676ad8a6cf1bf8ea6fb4a93fe9d72f9bebef1c17078377def79e841830",
+      "snapshot_sha256": "41434d1aa9b836237d1194b2c0eec364e194241a75643ba6ba78479153eb690d"
+    },
+    {
+      "path": "backend/requirements-m3-resolved.txt",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 468,
+      "sha256": "77a0e5db13ad48b43252078fbc7ce243c24ad79307e46f1a8e3eaa9c310f92c5",
+      "snapshot_sha256": "77a0e5db13ad48b43252078fbc7ce243c24ad79307e46f1a8e3eaa9c310f92c5"
+    },
+    {
+      "path": "backend/requirements-model-a-integration.txt",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 140,
+      "sha256": "c0800e2dc57ba30d569a99e18c8d334e1cdf61e24a502dbf74e05d45a6e5cea8"
+    },
+    {
+      "path": "backend/requirements-model-a.txt",
+      "category": "Omar Model A source import",
+      "size_bytes": 524,
+      "sha256": "a8afbcf363cc5324c5f330a6b481a721e6d9a04dbab5f13a815e4d494a3b74a6"
+    },
+    {
+      "path": "backend/requirements-windows.txt",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 226,
+      "sha256": "93db5126cde14b1720a5fe12d3063887fb4cb61b2166234336c72aeec3a4648d"
+    },
+    {
+      "path": "backend/tests/environmental_context_fixtures.py",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 4618,
+      "sha256": "3bdd1d34606e6d70e7bcdc058723b91a31a0221115e1e711d8fdcc493c1275a4"
+    },
+    {
+      "path": "backend/tests/integration/test_environmental_anomaly_adapter.py",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 9920,
+      "sha256": "f5b7c667decc13b529af15f750550c37d9c0d84781c1c95906fe6e0c3b241037"
+    },
+    {
+      "path": "backend/tests/integration/test_environmental_replay.py",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 7707,
+      "sha256": "cfaf2332f45ca1d976cb12d1697be44ff7ae2885531c78a176d32433a5fb2871"
+    },
+    {
+      "path": "backend/tests/integration/test_hazard_investigation.py",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 3972,
+      "sha256": "80131f92766c50ce42b5da7827608d12cf8e6fa011e588b1b9cd6dfc51e16cf9",
+      "snapshot_sha256": "80131f92766c50ce42b5da7827608d12cf8e6fa011e588b1b9cd6dfc51e16cf9"
+    },
+    {
+      "path": "backend/tests/integration/test_local_api.py",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 8720,
+      "sha256": "11e2059fcd579326c303bb473670c06d3a5ca2f37dcbff491080322ff85bf6fe",
+      "snapshot_sha256": "11e2059fcd579326c303bb473670c06d3a5ca2f37dcbff491080322ff85bf6fe"
+    },
+    {
+      "path": "backend/tests/integration/test_model_a_api.py",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 17684,
+      "sha256": "601ba6eeaa64013a4fd030ffca05163b0d5e0753a55f675095c670d66bc6b7fe"
+    },
+    {
+      "path": "backend/tests/integration/test_model_a_replay_local.py",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 7423,
+      "sha256": "e7b60b54e55a47e3fe16e585fed5c7362a0a7e7d0fb2c51965786a0b0e594611"
+    },
+    {
+      "path": "backend/tests/model_a_fixtures.py",
+      "category": "Omar Model A source import",
+      "size_bytes": 3398,
+      "sha256": "6658f33c3db5b92f30193e8db5c28d523e6a76e247f906452fe3eae8de5f9f0d"
+    },
+    {
+      "path": "backend/tests/unit/test_environmental_anomaly_context.py",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 1951,
+      "sha256": "edf1be10032cb457ae2ab0f171c5e391d7269845d46fc5377bfa0a782d7950e0"
+    },
+    {
+      "path": "backend/tests/unit/test_hazard_reasoning.py",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 16184,
+      "sha256": "9fb5759109a843de5fd5bf029305aa9760e6e3a5de9728f91bca65d110bc956f",
+      "snapshot_sha256": "9fb5759109a843de5fd5bf029305aa9760e6e3a5de9728f91bca65d110bc956f"
+    },
+    {
+      "path": "backend/tests/unit/test_nasa_environment_anomaly.py",
+      "category": "Omar Model A source import",
+      "size_bytes": 14445,
+      "sha256": "900e1a792ead26940d7ce2d6062838b2ca19fb52ce9da2263082a2b5b305dc41"
+    },
+    {
+      "path": "backend/tests/unit/test_research_contracts.py",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 29973,
+      "sha256": "980f04d393c7479a72e380373fd02e47444f61f2157feced73239e592aa77df1",
+      "snapshot_sha256": "980f04d393c7479a72e380373fd02e47444f61f2157feced73239e592aa77df1"
+    },
+    {
+      "path": "docs/api/LOCAL_API_V1.md",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 11084,
+      "sha256": "4221d58e8bf9d412491886795bf4a0c3e1bde44cd50cde9314d2717c92d75386",
+      "snapshot_sha256": "4221d58e8bf9d412491886795bf4a0c3e1bde44cd50cde9314d2717c92d75386"
+    },
+    {
+      "path": "docs/api/M3_INTEGRATION_REPORT.md",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 10506,
+      "sha256": "4f609aa053ff4d1fd1a5f1fa2d9dcb19a7279be28f4ffab919d53c4dee830287",
+      "snapshot_sha256": "4f609aa053ff4d1fd1a5f1fa2d9dcb19a7279be28f4ffab919d53c4dee830287"
+    },
+    {
+      "path": "docs/api/MODEL_A_ENVIRONMENTAL_API_V1.md",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 9883,
+      "sha256": "6a2d8d547ea8d118ad5c25f57c19118d1777192356c4bc886b64f4ca778dd521"
+    },
+    {
+      "path": "docs/architecture/M2_HAZARD_REASONING.md",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 15552,
+      "sha256": "a0c092af508d0c5f7c14de13119473e2b4a069deaae773091de1a623c18e34db",
+      "snapshot_sha256": "a0c092af508d0c5f7c14de13119473e2b4a069deaae773091de1a623c18e34db"
+    },
+    {
+      "path": "docs/architecture/M4_2_RESEARCH_CONTRACTS.md",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 13272,
+      "sha256": "0c59f9cf03c60b097ad1ab04cc6c55f28161a3b741074a7ebefcd7c55b7816b8",
+      "snapshot_sha256": "0c59f9cf03c60b097ad1ab04cc6c55f28161a3b741074a7ebefcd7c55b7816b8"
+    },
+    {
+      "path": "docs/architecture/M4_2_VERIFICATION_REPORT.md",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 5593,
+      "sha256": "27571a009eced4bab5d7d19548c46d2644c41b23678bd16b03fc1cd7ed05a4c1",
+      "snapshot_sha256": "27571a009eced4bab5d7d19548c46d2644c41b23678bd16b03fc1cd7ed05a4c1"
+    },
+    {
+      "path": "docs/architecture/MODEL_A_BASELINE_SNAPSHOT.json",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 3190,
+      "sha256": "b33c9fce6ea0dd5e58fda11fc9c326703f91e0783997613d4b10cf585ece72fd"
+    },
+    {
+      "path": "docs/architecture/MODEL_A_CHECKPOINT.md",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 6804,
+      "sha256": "18cea0d0e0a84256a90009fe4d02c3ebb9ec92abe760d4094602ccec41328ba1"
+    },
+    {
+      "path": "docs/architecture/MODEL_A_CHECKPOINT_INVENTORY.json",
+      "category": "checkpoint inventory",
+      "size_bytes": null,
+      "sha256": null
+    },
+    {
+      "path": "docs/architecture/MODEL_A_FRONTEND_INTEGRATION.md",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 8316,
+      "sha256": "cf1505809fd6e4b2ad32d533e995aba8cd7cd06c44ad8671f8cccbce55e148c8"
+    },
+    {
+      "path": "docs/architecture/MODEL_A_FRONTEND_SNAPSHOT.json",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 5173,
+      "sha256": "383e45335af3da346797a247ed5c48b21cfbaea354bb6bf6a4b8d7bc8622fd79"
+    },
+    {
+      "path": "docs/architecture/MODEL_A_HISTORICAL_REPLAY.md",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 5876,
+      "sha256": "f47b1e397caeab35ce392cc6b0bbef8aa4a47a649af8c311e9904179e4a84f91"
+    },
+    {
+      "path": "docs/architecture/MODEL_A_INTEGRATION_EXAMPLE.json",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 7713,
+      "sha256": "c210384b0502371aab487a616551718ab5a20561bdc70731a9e40caa44169f0c"
+    },
+    {
+      "path": "docs/architecture/MODEL_A_INTEGRATION_PHASE1.md",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 7746,
+      "sha256": "072a711c467e15108451ab0d13ed94c930727a6299ff15d0d4a39ceacc66cf1d"
+    },
+    {
+      "path": "frontend/.env.example",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 110,
+      "sha256": "aa06dce693bad7a985fa99947a65961c384338a393a4d15632c6253720f882c6",
+      "snapshot_sha256": "aa06dce693bad7a985fa99947a65961c384338a393a4d15632c6253720f882c6"
+    },
+    {
+      "path": "frontend/.gitignore",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 75,
+      "sha256": "ec7f04d721169032a247e72ed4b132fc9cf7e693cc263a878547c393e2904963",
+      "snapshot_sha256": "ec7f04d721169032a247e72ed4b132fc9cf7e693cc263a878547c393e2904963"
+    },
+    {
+      "path": "frontend/IMPLEMENTATION_REPORT.md",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 7938,
+      "sha256": "b8c1e4a348c74ffeba949901081d1198b88ccdc81572d166b15bfeab7db2543a",
+      "snapshot_sha256": "b8c1e4a348c74ffeba949901081d1198b88ccdc81572d166b15bfeab7db2543a"
+    },
+    {
+      "path": "frontend/PHASE2_CONTRACT_MAPPING.md",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 8537,
+      "sha256": "2ed4d8a3f7828db19e0cb74fa02ae330191404eb0fe53f10071a060318d2fe7b",
+      "snapshot_sha256": "2ed4d8a3f7828db19e0cb74fa02ae330191404eb0fe53f10071a060318d2fe7b"
+    },
+    {
+      "path": "frontend/PHASE2_IMPLEMENTATION_REPORT.md",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 6694,
+      "sha256": "914ed2de1c3c1526844bb7aa2644857ac28082f83221180b2b512d4ecf327cca",
+      "snapshot_sha256": "914ed2de1c3c1526844bb7aa2644857ac28082f83221180b2b512d4ecf327cca"
+    },
+    {
+      "path": "frontend/PHASE3_INTEGRATION.md",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 4944,
+      "sha256": "b1897cab361e525b741e951a67a4bdc30915cf58c8e12a88bfd5f88af20d3c6b",
+      "snapshot_sha256": "b1897cab361e525b741e951a67a4bdc30915cf58c8e12a88bfd5f88af20d3c6b"
+    },
+    {
+      "path": "frontend/README.md",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 8189,
+      "sha256": "c57dd787dd418c00fb9d0792b7b716405bce93ae4bf01a41c7bba7f039dba180",
+      "snapshot_sha256": "c57dd787dd418c00fb9d0792b7b716405bce93ae4bf01a41c7bba7f039dba180"
+    },
+    {
+      "path": "frontend/index.html",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 470,
+      "sha256": "2fe9c27debf40b51e8416d086b542857a9580c4b3f990c548d644707642775b2",
+      "snapshot_sha256": "2fe9c27debf40b51e8416d086b542857a9580c4b3f990c548d644707642775b2"
+    },
+    {
+      "path": "frontend/package-lock.json",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 146287,
+      "sha256": "b573735a53efb5537a138fabaf3fb2bb3b6706e6a8e996a89f1c10279dfac2cd",
+      "snapshot_sha256": "b573735a53efb5537a138fabaf3fb2bb3b6706e6a8e996a89f1c10279dfac2cd"
+    },
+    {
+      "path": "frontend/package.json",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 1170,
+      "sha256": "0a5c560707dbed4c3781d8515d6bf31c9bc4363093e302d9e20939c9be8e219d",
+      "snapshot_sha256": "0a5c560707dbed4c3781d8515d6bf31c9bc4363093e302d9e20939c9be8e219d"
+    },
+    {
+      "path": "frontend/scripts/generate_investigation_fixtures.py",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 8002,
+      "sha256": "847cb41871c89799329fdbfe41a79f7b571500e819619050a013479377b58631",
+      "snapshot_sha256": "847cb41871c89799329fdbfe41a79f7b571500e819619050a013479377b58631"
+    },
+    {
+      "path": "frontend/src/app/App.test.tsx",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 7521,
+      "sha256": "a37dde11245ad625d9255c6bd32b1947817d0ad561fc76d2d8497b247a7275e2",
+      "snapshot_sha256": "a37dde11245ad625d9255c6bd32b1947817d0ad561fc76d2d8497b247a7275e2"
+    },
+    {
+      "path": "frontend/src/app/App.tsx",
+      "category": "reconstructed baseline with integration overlay",
+      "size_bytes": 13931,
+      "sha256": "9785bcf36856d1c85585a01be63d51b0b8b2e62b968345ccc1b2a62d6e70b7bc",
+      "snapshot_sha256": "825880ec8870f7ed404617675dc0f7988322a38560002941e6efdb13a43703e9"
+    },
+    {
+      "path": "frontend/src/app/ConnectedWorkspace.tsx",
+      "category": "reconstructed baseline with integration overlay",
+      "size_bytes": 1199,
+      "sha256": "d19a76e3f28c82874e20427c2a63153c6e3663c8ccf25a23adaba1e5349f4075",
+      "snapshot_sha256": "30cf947e37ec7dae47731343c1175d8189da51219beacf9e13b110c01b2c58e1"
+    },
+    {
+      "path": "frontend/src/app/modules.ts",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 3105,
+      "sha256": "23b07605835bf9d8e3cee446baae49011fd280dea4e2bc0f519aede0a20885ae",
+      "snapshot_sha256": "23b07605835bf9d8e3cee446baae49011fd280dea4e2bc0f519aede0a20885ae"
+    },
+    {
+      "path": "frontend/src/contracts/api.ts",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 1130,
+      "sha256": "f55085ad341e4dd04afab4474d51f113e1f421e16dab7ff8545c06c6f522bbc1",
+      "snapshot_sha256": "f55085ad341e4dd04afab4474d51f113e1f421e16dab7ff8545c06c6f522bbc1"
+    },
+    {
+      "path": "frontend/src/contracts/investigation.test.ts",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 2905,
+      "sha256": "9b07fe78987fbb63aacba1db15b8e21f0e73b25418f87a72c334ebecb4b04513",
+      "snapshot_sha256": "9b07fe78987fbb63aacba1db15b8e21f0e73b25418f87a72c334ebecb4b04513"
+    },
+    {
+      "path": "frontend/src/contracts/investigation.ts",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 7083,
+      "sha256": "9f42e4cb893cf274925a60d1a0e78c05bd83aa7c9624dc7ea3d9bc2f0dedda8d",
+      "snapshot_sha256": "9f42e4cb893cf274925a60d1a0e78c05bd83aa7c9624dc7ea3d9bc2f0dedda8d"
+    },
+    {
+      "path": "frontend/src/contracts/model-a.ts",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 7556,
+      "sha256": "6f7b72570646b5b08f31e37f983150e642b3ad2718456e3816dd91160cba7e71"
+    },
+    {
+      "path": "frontend/src/contracts/observation.test.ts",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 3598,
+      "sha256": "a363b244bc0bd26e5b84e11e62a74444c069b4f5981b3cbf3af56fd5f0070946",
+      "snapshot_sha256": "a363b244bc0bd26e5b84e11e62a74444c069b4f5981b3cbf3af56fd5f0070946"
+    },
+    {
+      "path": "frontend/src/contracts/observation.ts",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 7231,
+      "sha256": "a894f3c870df13cc1bb4f5b8bcd9e2751c8c9edb42a0060e7f22d7eb463ae98a",
+      "snapshot_sha256": "a894f3c870df13cc1bb4f5b8bcd9e2751c8c9edb42a0060e7f22d7eb463ae98a"
+    },
+    {
+      "path": "frontend/src/features/capabilities/Capability.tsx",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 1712,
+      "sha256": "3ac3fbe44073c25a04ddbe5365d0aaba1aa86127e178a509564606c77f4ae313",
+      "snapshot_sha256": "3ac3fbe44073c25a04ddbe5365d0aaba1aa86127e178a509564606c77f4ae313"
+    },
+    {
+      "path": "frontend/src/features/environment/Environment.tsx",
+      "category": "reconstructed baseline with integration overlay",
+      "size_bytes": 2416,
+      "sha256": "969795d3d9434fd4707a0e8093dfc75d4a27d65cbaaa0fa2b90b2dd2b9233424",
+      "snapshot_sha256": "7c8b721cd029579a4d294a309cc26bf36380dca2c318db849a5dc7581e3cbfdb"
+    },
+    {
+      "path": "frontend/src/features/explorer/Explorer.tsx",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 7624,
+      "sha256": "fdc2b6efef01d3eee68f43ee80ee234387f450e43095f94a0ffb614a2cd7050a",
+      "snapshot_sha256": "fdc2b6efef01d3eee68f43ee80ee234387f450e43095f94a0ffb614a2cd7050a"
+    },
+    {
+      "path": "frontend/src/features/health/Health.tsx",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 1169,
+      "sha256": "81d4048da4562c22b627f0991a2162c03e7f100a375a844383d9ca180f6edd69",
+      "snapshot_sha256": "81d4048da4562c22b627f0991a2162c03e7f100a375a844383d9ca180f6edd69"
+    },
+    {
+      "path": "frontend/src/features/incidents/Incidents.tsx",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 8286,
+      "sha256": "95a210bf6f9b208af9789f1b7b09c7fa7dbcefc7d6e4af3f7f0c9222e23a2796",
+      "snapshot_sha256": "95a210bf6f9b208af9789f1b7b09c7fa7dbcefc7d6e4af3f7f0c9222e23a2796"
+    },
+    {
+      "path": "frontend/src/features/incidents/application.test.ts",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 980,
+      "sha256": "66ff44e28018f82d267375f5dac2ea3142a1c40dde58d943797d680f5ffe2ffa",
+      "snapshot_sha256": "66ff44e28018f82d267375f5dac2ea3142a1c40dde58d943797d680f5ffe2ffa"
+    },
+    {
+      "path": "frontend/src/features/incidents/application.ts",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 1015,
+      "sha256": "568fdcb234d3a930522b0c57ac66e030b8f057b1f4e71e584fcf3a32d9e25585",
+      "snapshot_sha256": "568fdcb234d3a930522b0c57ac66e030b8f057b1f4e71e584fcf3a32d9e25585"
+    },
+    {
+      "path": "frontend/src/features/investigations/Intelligence.tsx",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 8868,
+      "sha256": "d5fb2973ac0c778e50c48630f1399d45217292ab8cf765606f183b7f1cdc5c3b",
+      "snapshot_sha256": "d5fb2973ac0c778e50c48630f1399d45217292ab8cf765606f183b7f1cdc5c3b"
+    },
+    {
+      "path": "frontend/src/features/investigations/application.ts",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 1937,
+      "sha256": "fcb6709a36ffab5baf3380b285112811b86fb5ac4f02d068a708f9e341987632",
+      "snapshot_sha256": "fcb6709a36ffab5baf3380b285112811b86fb5ac4f02d068a708f9e341987632"
+    },
+    {
+      "path": "frontend/src/features/investigations/phase2.test.tsx",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 6893,
+      "sha256": "10ed377d0747039710e6b08a64bbb0397be0c04c6f93c6877f8fe4c0571f3d21",
+      "snapshot_sha256": "10ed377d0747039710e6b08a64bbb0397be0c04c6f93c6877f8fe4c0571f3d21"
+    },
+    {
+      "path": "frontend/src/features/model-a/ModelAPanel.tsx",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 10040,
+      "sha256": "30b6ac525e46bb8e1436fc8594f5d7976b3932da2f621c84b543462370250eec"
+    },
+    {
+      "path": "frontend/src/features/model-a/model-a.local.test.tsx",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 1685,
+      "sha256": "f9adb52b4b9211d2174f6785f2c451457932d566156b08d64a23349c11614db0"
+    },
+    {
+      "path": "frontend/src/features/model-a/model-a.test.tsx",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 8518,
+      "sha256": "d6b50c0bb8d9f061fcf634c7e1c593603e36d64e53c257a026ab4b3606d7938b"
+    },
+    {
+      "path": "frontend/src/features/overview/Overview.tsx",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 7371,
+      "sha256": "2e8c38d5c12660c6d9c27dfdc292706c9213212099621bcdde123b7c0cedb841",
+      "snapshot_sha256": "2e8c38d5c12660c6d9c27dfdc292706c9213212099621bcdde123b7c0cedb841"
+    },
+    {
+      "path": "frontend/src/infrastructure/fixtures/investigations.json",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 224953,
+      "sha256": "196687d77501cea755585378a0af3eb44863f19694c3864ffd8c96940e15e6f9",
+      "snapshot_sha256": "196687d77501cea755585378a0af3eb44863f19694c3864ffd8c96940e15e6f9"
+    },
+    {
+      "path": "frontend/src/infrastructure/fixtures/model-a-simulated.json",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 9001,
+      "sha256": "429a1d7175c9fff5cd0bbf6b645f5c729f079f80dec2d5e1ddfd74fb983f8dcb"
+    },
+    {
+      "path": "frontend/src/infrastructure/http.test.tsx",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 7149,
+      "sha256": "e3f028783f39e06ed1d553e8fcccf798fc267136974518e5ac3f3f6e3125d8aa",
+      "snapshot_sha256": "e3f028783f39e06ed1d553e8fcccf798fc267136974518e5ac3f3f6e3125d8aa"
+    },
+    {
+      "path": "frontend/src/infrastructure/http.ts",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 3679,
+      "sha256": "8e20da8be51859e64babb4627bdbf93096e033baeede9418df1cbf31f99ae141",
+      "snapshot_sha256": "8e20da8be51859e64babb4627bdbf93096e033baeede9418df1cbf31f99ae141"
+    },
+    {
+      "path": "frontend/src/infrastructure/investigations.ts",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 471,
+      "sha256": "bbb1aac56b3f92ffe97b28013dd62445745fa16b265ef42e5c4dd79a9baf4e25",
+      "snapshot_sha256": "bbb1aac56b3f92ffe97b28013dd62445745fa16b265ef42e5c4dd79a9baf4e25"
+    },
+    {
+      "path": "frontend/src/infrastructure/model-a.ts",
+      "category": "Model A integration source/tests/documentation",
+      "size_bytes": 3483,
+      "sha256": "e0ef38a52d0971ccb232357e4b6f2241b05d4ba689ccd585016b79d111a2bbfb"
+    },
+    {
+      "path": "frontend/src/infrastructure/observations.ts",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 3920,
+      "sha256": "381850538b78faf9d56b1355fdd22db484088aac0239e46b974b7721cd766562",
+      "snapshot_sha256": "381850538b78faf9d56b1355fdd22db484088aac0239e46b974b7721cd766562"
+    },
+    {
+      "path": "frontend/src/main.tsx",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 462,
+      "sha256": "eb27ef4d9b29bddf599590df599d52e51e2d183375f2fc3f88dba3442cda3dde",
+      "snapshot_sha256": "eb27ef4d9b29bddf599590df599d52e51e2d183375f2fc3f88dba3442cda3dde"
+    },
+    {
+      "path": "frontend/src/shared/investigation/components.tsx",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 11154,
+      "sha256": "4064cfacfbe4866200ac4bb12ee5782a9db2321c433635d068c7f8b94a51aee0",
+      "snapshot_sha256": "4064cfacfbe4866200ac4bb12ee5782a9db2321c433635d068c7f8b94a51aee0"
+    },
+    {
+      "path": "frontend/src/shared/ui.tsx",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 6381,
+      "sha256": "9a0167a68b6e6ecc0a894da88b89a39fb3d6c00cd0144dfbcff0a5fc183e1935",
+      "snapshot_sha256": "9a0167a68b6e6ecc0a894da88b89a39fb3d6c00cd0144dfbcff0a5fc183e1935"
+    },
+    {
+      "path": "frontend/src/styles.css",
+      "category": "reconstructed baseline with integration overlay",
+      "size_bytes": 22964,
+      "sha256": "a394ce28a8c571ce00599a33069c35109b2d75497c0078a2910f786fa5a78375",
+      "snapshot_sha256": "188ecfa15b74194d25fcbf8dbedc346ee21a2dfafb0bda1d2ad2026df801f39a"
+    },
+    {
+      "path": "frontend/src/test-setup.ts",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 644,
+      "sha256": "f935dcd38f64b87dfee3505cb429a10c4f1bd9cd2ccea5509ec8caec43c04a25",
+      "snapshot_sha256": "f935dcd38f64b87dfee3505cb429a10c4f1bd9cd2ccea5509ec8caec43c04a25"
+    },
+    {
+      "path": "frontend/src/vite-env.d.ts",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 38,
+      "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5",
+      "snapshot_sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+    },
+    {
+      "path": "frontend/tsconfig.json",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 331,
+      "sha256": "ef193989047a36198841eb221badcd55ad5bc6e348121b7dc4706ecf693ec00d",
+      "snapshot_sha256": "ef193989047a36198841eb221badcd55ad5bc6e348121b7dc4706ecf693ec00d"
+    },
+    {
+      "path": "frontend/vite.config.ts",
+      "category": "reconstructed baseline snapshot",
+      "size_bytes": 530,
+      "sha256": "7323367e60dc6a0e3979deaf6bf38a4ee210dcdb319eae88c8648fdda3bcfa0b",
+      "snapshot_sha256": "7323367e60dc6a0e3979deaf6bf38a4ee210dcdb319eae88c8648fdda3bcfa0b"
+    }
+  ]
+}

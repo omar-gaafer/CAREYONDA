@@ -1,6 +1,11 @@
+> Local Model A integration checkpoint: this branch includes a documented snapshot
+> of previously uncommitted M2/M3/M4.2/frontend development over `bfc19cb`, plus
+> M-A.1–M-A.5 integration. It is not a merged upstream baseline. See
+> [checkpoint provenance and reproduction](docs/architecture/MODEL_A_CHECKPOINT.md).
+
 # CAREYONDA
 
-Offline-first astronaut health and spaceflight hazard research platform. M1.1 provides validated observation contracts; M1.2 provides a deterministic synthetic mission simulator and causal feature export. AI reasoning, medical validation, API, and frontend implementations are not included yet.
+Offline-first astronaut health and spaceflight hazard research platform. M1.1 provides validated observation contracts; M1.2 provides a deterministic synthetic mission simulator and causal feature export. The local working tree also includes deterministic M2 reasoning, a synthetic local REST API, and a React frontend with fixture/API modes. Trained models and medical validation are not provided.
 
 ## Clone and prepare
 
@@ -54,3 +59,7 @@ PYTHONPATH=backend backend/.venv/bin/python -m app.ingestion.nasa_rr1_export \
 ```
 
 Use a new output directory. Real NASA environment features and synthetic scenario features remain separate; no paired human-health dataset or trained model is claimed. Local M2 reasoning work is intentionally excluded from this data-integration synchronization.
+
+## Local API and connected frontend (M3)
+
+The working tree includes a loopback-only synthetic FastAPI service and explicit fixture/API frontend modes. See [local API v1](docs/api/LOCAL_API_V1.md) for backend startup and [frontend integration](frontend/PHASE3_INTEGRATION.md) for the connected demonstration. This extends the historical milestone status above; no trained models, medical validation, authentication or persistent investigation retrieval is claimed.

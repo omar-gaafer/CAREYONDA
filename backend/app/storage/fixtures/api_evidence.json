@@ -1,0 +1,5441 @@
+{
+  "schema_version": "1.0.0",
+  "presets": [
+    {
+      "title": "CO\u2082 and heart-rate pattern",
+      "context": {
+        "sample_id": "ranked-current",
+        "episode_id": "ranked-episode",
+        "mission_id": "ARES-07",
+        "astronaut_id": "crew-01",
+        "spacecraft_id": "HABITAT-01",
+        "compartment_id": "LAB-01",
+        "timestamp": "2026-11-13T11:55:00Z"
+      },
+      "reference_context": {
+        "sample_id": "ranked-reference",
+        "episode_id": "ranked-episode",
+        "mission_id": "ARES-07",
+        "astronaut_id": "crew-01",
+        "spacecraft_id": "HABITAT-01",
+        "compartment_id": "LAB-01",
+        "timestamp": "2026-11-13T11:40:00Z"
+      },
+      "observations": [
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-current-heart_rate-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 90.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-current-cabin_co2_partial_pressure-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 170.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-current-sleep_duration-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-current-fatigue_self_report-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-current-exercise_active-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-current-communication_delay-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-current-heart_rate-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 90.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-current-cabin_co2_partial_pressure-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 170.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-current-sleep_duration-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-current-fatigue_self_report-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-current-exercise_active-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-current-communication_delay-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-current-heart_rate-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 90.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-current-cabin_co2_partial_pressure-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 170.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-current-sleep_duration-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-current-fatigue_self_report-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-current-exercise_active-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-current-communication_delay-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-reference-heart_rate-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 72.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-reference-cabin_co2_partial_pressure-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 50.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-reference-sleep_duration-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-reference-fatigue_self_report-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-reference-exercise_active-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-reference-communication_delay-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-reference-heart_rate-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 72.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-reference-cabin_co2_partial_pressure-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 50.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-reference-sleep_duration-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-reference-fatigue_self_report-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-reference-exercise_active-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-reference-communication_delay-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-reference-heart_rate-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 72.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-reference-cabin_co2_partial_pressure-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 50.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-reference-sleep_duration-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-reference-fatigue_self_report-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-reference-exercise_active-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ranked-reference-communication_delay-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ranked",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        }
+      ]
+    },
+    {
+      "title": "Incomplete cabin evidence",
+      "context": {
+        "sample_id": "missing-current",
+        "episode_id": "missing-episode",
+        "mission_id": "ARES-07",
+        "astronaut_id": "crew-02",
+        "spacecraft_id": "HABITAT-01",
+        "compartment_id": "LAB-01",
+        "timestamp": "2026-11-13T11:55:00Z"
+      },
+      "reference_context": {
+        "sample_id": "missing-reference",
+        "episode_id": "missing-episode",
+        "mission_id": "ARES-07",
+        "astronaut_id": "crew-02",
+        "spacecraft_id": "HABITAT-01",
+        "compartment_id": "LAB-01",
+        "timestamp": "2026-11-13T11:40:00Z"
+      },
+      "observations": [
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-current-heart_rate-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 90.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-current-cabin_co2_partial_pressure-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "unavailable",
+            "reason": "not_received"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "missing",
+            "reason_codes": [
+              "synthetic_dropout"
+            ],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-current-sleep_duration-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-current-fatigue_self_report-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-current-exercise_active-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-current-communication_delay-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-current-heart_rate-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 90.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-current-cabin_co2_partial_pressure-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "unavailable",
+            "reason": "not_received"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "missing",
+            "reason_codes": [
+              "synthetic_dropout"
+            ],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-current-sleep_duration-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-current-fatigue_self_report-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-current-exercise_active-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-current-communication_delay-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-current-heart_rate-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 90.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-current-cabin_co2_partial_pressure-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "unavailable",
+            "reason": "not_received"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "missing",
+            "reason_codes": [
+              "synthetic_dropout"
+            ],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-current-sleep_duration-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-current-fatigue_self_report-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-current-exercise_active-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-current-communication_delay-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-reference-heart_rate-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 72.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-reference-cabin_co2_partial_pressure-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 50.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-reference-sleep_duration-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-reference-fatigue_self_report-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-reference-exercise_active-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-reference-communication_delay-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-reference-heart_rate-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 72.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-reference-cabin_co2_partial_pressure-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 50.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-reference-sleep_duration-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-reference-fatigue_self_report-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-reference-exercise_active-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-reference-communication_delay-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-reference-heart_rate-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 72.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-reference-cabin_co2_partial_pressure-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 50.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-reference-sleep_duration-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-reference-fatigue_self_report-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-reference-exercise_active-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-02",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "missing-reference-communication_delay-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "missing",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        }
+      ]
+    },
+    {
+      "title": "Competing synthetic patterns",
+      "context": {
+        "sample_id": "ambiguous-current",
+        "episode_id": "ambiguous-episode",
+        "mission_id": "ARES-07",
+        "astronaut_id": "crew-03",
+        "spacecraft_id": "HABITAT-01",
+        "compartment_id": "LAB-01",
+        "timestamp": "2026-11-13T11:55:00Z"
+      },
+      "reference_context": {
+        "sample_id": "ambiguous-reference",
+        "episode_id": "ambiguous-episode",
+        "mission_id": "ARES-07",
+        "astronaut_id": "crew-03",
+        "spacecraft_id": "HABITAT-01",
+        "compartment_id": "LAB-01",
+        "timestamp": "2026-11-13T11:40:00Z"
+      },
+      "observations": [
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-current-heart_rate-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 90.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-current-cabin_co2_partial_pressure-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 170.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-current-sleep_duration-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-current-fatigue_self_report-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-current-exercise_active-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": true
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-current-communication_delay-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-current-heart_rate-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 90.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-current-cabin_co2_partial_pressure-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 170.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-current-sleep_duration-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-current-fatigue_self_report-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-current-exercise_active-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": true
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-current-communication_delay-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-current-heart_rate-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 90.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-current-cabin_co2_partial_pressure-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 170.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-current-sleep_duration-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-current-fatigue_self_report-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-current-exercise_active-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": true
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-current-communication_delay-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-reference-heart_rate-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 72.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-reference-cabin_co2_partial_pressure-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 50.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-reference-sleep_duration-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-reference-fatigue_self_report-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-reference-exercise_active-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-reference-communication_delay-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-reference-heart_rate-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 72.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-reference-cabin_co2_partial_pressure-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 50.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-reference-sleep_duration-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-reference-fatigue_self_report-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-reference-exercise_active-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-reference-communication_delay-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-reference-heart_rate-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 72.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-reference-cabin_co2_partial_pressure-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 50.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-reference-sleep_duration-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-reference-fatigue_self_report-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-reference-exercise_active-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-03",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "ambiguous-reference-communication_delay-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "ambiguous",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        }
+      ]
+    },
+    {
+      "title": "Simultaneous conflicting readings",
+      "context": {
+        "sample_id": "conflicting-current",
+        "episode_id": "conflicting-episode",
+        "mission_id": "ARES-07",
+        "astronaut_id": "crew-01",
+        "spacecraft_id": "HABITAT-01",
+        "compartment_id": "LAB-01",
+        "timestamp": "2026-11-13T11:55:00Z"
+      },
+      "reference_context": {
+        "sample_id": "conflicting-reference",
+        "episode_id": "conflicting-episode",
+        "mission_id": "ARES-07",
+        "astronaut_id": "crew-01",
+        "spacecraft_id": "HABITAT-01",
+        "compartment_id": "LAB-01",
+        "timestamp": "2026-11-13T11:40:00Z"
+      },
+      "observations": [
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-current-heart_rate-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 90.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-current-cabin_co2_partial_pressure-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 170.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-current-sleep_duration-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-current-fatigue_self_report-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-current-exercise_active-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-current-communication_delay-0",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-current-heart_rate-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 90.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-current-cabin_co2_partial_pressure-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 170.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-current-sleep_duration-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-current-fatigue_self_report-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-current-exercise_active-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-current-communication_delay-1",
+          "timestamp": "2026-11-13T11:54:00Z",
+          "ingested_at": "2026-11-13T11:54:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-current-heart_rate-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 90.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-current-cabin_co2_partial_pressure-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 170.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-current-sleep_duration-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-current-fatigue_self_report-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-current-exercise_active-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-current-communication_delay-2",
+          "timestamp": "2026-11-13T11:55:00Z",
+          "ingested_at": "2026-11-13T11:55:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-extra-hr",
+          "timestamp": "2026-11-13T11:53:00Z",
+          "ingested_at": "2026-11-13T11:53:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 110.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-reference-heart_rate-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 72.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-reference-cabin_co2_partial_pressure-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 50.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-reference-sleep_duration-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-reference-fatigue_self_report-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-reference-exercise_active-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-reference-communication_delay-0",
+          "timestamp": "2026-11-13T11:38:00Z",
+          "ingested_at": "2026-11-13T11:38:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-reference-heart_rate-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 72.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-reference-cabin_co2_partial_pressure-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 50.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-reference-sleep_duration-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-reference-fatigue_self_report-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-reference-exercise_active-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-reference-communication_delay-1",
+          "timestamp": "2026-11-13T11:39:00Z",
+          "ingested_at": "2026-11-13T11:39:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-reference-heart_rate-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "physiological",
+          "metric": "heart_rate",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 72.0,
+            "unit": "bpm"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-reference-cabin_co2_partial_pressure-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "environmental",
+          "metric": "cabin_co2_partial_pressure",
+          "scope": {
+            "kind": "compartment",
+            "spacecraft_id": "HABITAT-01",
+            "compartment_id": "LAB-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 50.0,
+            "unit": "Pa"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-reference-sleep_duration-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "behavioral",
+          "metric": "sleep_duration",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 8.0,
+            "unit": "h"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-reference-fatigue_self_report-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "behavioral",
+          "metric": "fatigue_self_report",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "categorical",
+            "value": "rested"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-reference-exercise_active-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "mission_context",
+          "metric": "exercise_active",
+          "scope": {
+            "kind": "astronaut",
+            "astronaut_id": "crew-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "boolean",
+            "value": false
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        },
+        {
+          "schema_version": "1.0.0",
+          "observation_id": "conflicting-reference-communication_delay-2",
+          "timestamp": "2026-11-13T11:40:00Z",
+          "ingested_at": "2026-11-13T11:40:12Z",
+          "domain": "mission_context",
+          "metric": "communication_delay",
+          "scope": {
+            "kind": "spacecraft",
+            "spacecraft_id": "HABITAT-01",
+            "mission_id": "ARES-07"
+          },
+          "measurement": {
+            "kind": "numeric",
+            "value": 2.0,
+            "unit": "s"
+          },
+          "provenance": {
+            "source_type": "simulator",
+            "source_id": "phase2-fixture",
+            "method": "controlled-synthetic-case",
+            "origin": "simulated",
+            "parent_observation_ids": [],
+            "transformation_version": null,
+            "simulation": {
+              "scenario_id": "conflicting",
+              "run_id": "phase2-v1",
+              "generator_version": "1.0.0",
+              "seed": 42
+            }
+          },
+          "quality": {
+            "status": "valid",
+            "reason_codes": [],
+            "sensor_confidence": null
+          }
+        }
+      ]
+    }
+  ]
+}
