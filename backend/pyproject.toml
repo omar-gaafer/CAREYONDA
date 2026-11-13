@@ -3,7 +3,15 @@ name = "careyonda-backend"
 version = "0.0.0"
 description = "Offline-first astronaut health and spaceflight hazard decision support"
 requires-python = ">=3.11"
-dependencies = ["pydantic>=2,<3"]
+dependencies = [
+    "pydantic>=2,<3",
+    # Model A (NASA RR-1 environment Isolation Forest). Saved artifacts must be
+    # loaded with the exact scikit-learn version recorded in their metadata;
+    # requirements-model-a.txt pins the tested resolution.
+    "numpy>=2.0,<2.5",
+    "scikit-learn>=1.9,<1.10",
+    "joblib>=1.4,<2",
+]
 
 [dependency-groups]
 dev = [
@@ -16,7 +24,7 @@ dev = [
 target-version = "py311"
 line-length = 88
 src = [".", ".."]
-cache-dir = "/tmp/careyonda-ruff-cache"
+cache-dir = ".ruff_cache"
 
 [tool.ruff.lint]
 select = ["E4", "E7", "E9", "F", "I", "B", "UP"]
@@ -32,14 +40,14 @@ mypy_path = [".", ".."]
 strict = true
 show_error_codes = true
 warn_unreachable = true
-cache_dir = "/tmp/careyonda-mypy-cache"
+cache_dir = ".mypy_cache"
 
 [tool.pytest.ini_options]
 minversion = "8.0"
 testpaths = ["tests"]
 pythonpath = [".", ".."]
 addopts = "--strict-config --strict-markers -ra"
-cache_dir = "/tmp/careyonda-pytest-cache"
+cache_dir = ".pytest_cache"
 markers = [
     "unit: isolated module behavior",
     "integration: interaction between components using local or synthetic resources",

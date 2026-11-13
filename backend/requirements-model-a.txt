@@ -1,0 +1,13 @@
+# Model A (NASA RR-1 environmental Isolation Forest) tested resolution.
+# Extends the existing Windows snapshot without changing its pins.
+# Tested: Windows 11 x64, CPython 3.12.10, `pip install --only-binary=:all:`.
+# numpy/scipy are held below 2.5/1.18 because those releases require Python >= 3.12,
+# while the project declares requires-python >= 3.11 and mypy targets 3.11.
+-r requirements-windows.txt
+scikit-learn==1.9.1
+numpy==2.4.6
+scipy==1.17.1
+joblib==1.6.0
+threadpoolctl==3.8.0
+narwhals==2.28.0
+cloudpickle==3.1.2

@@ -1,0 +1,139 @@
+{
+  "availability": "retrospective_event_time_not_live_arrival",
+  "boolean_encoding": {
+    "false": 0,
+    "true": 1
+  },
+  "categorical_encoding": {
+    "fatigue_self_report": {
+      "rested": 0.0,
+      "tired": 1.0,
+      "very_tired": 2.0
+    }
+  },
+  "features": [
+    {
+      "aggregation": "latest",
+      "metric": "heart_rate",
+      "name": "heart_rate_latest",
+      "nullable": true,
+      "unit": "bpm"
+    },
+    {
+      "aggregation": "no_usable_value",
+      "metric": "heart_rate",
+      "name": "heart_rate_missing",
+      "nullable": false,
+      "unit": "1"
+    },
+    {
+      "aggregation": "arithmetic_mean",
+      "metric": "heart_rate",
+      "name": "heart_rate_mean",
+      "nullable": true,
+      "unit": "bpm"
+    },
+    {
+      "aggregation": "latest",
+      "metric": "cabin_co2_partial_pressure",
+      "name": "cabin_co2_partial_pressure_latest",
+      "nullable": true,
+      "unit": "Pa"
+    },
+    {
+      "aggregation": "no_usable_value",
+      "metric": "cabin_co2_partial_pressure",
+      "name": "cabin_co2_partial_pressure_missing",
+      "nullable": false,
+      "unit": "1"
+    },
+    {
+      "aggregation": "arithmetic_mean",
+      "metric": "cabin_co2_partial_pressure",
+      "name": "cabin_co2_partial_pressure_mean",
+      "nullable": true,
+      "unit": "Pa"
+    },
+    {
+      "aggregation": "latest",
+      "metric": "sleep_duration",
+      "name": "sleep_duration_latest",
+      "nullable": true,
+      "unit": "h"
+    },
+    {
+      "aggregation": "no_usable_value",
+      "metric": "sleep_duration",
+      "name": "sleep_duration_missing",
+      "nullable": false,
+      "unit": "1"
+    },
+    {
+      "aggregation": "arithmetic_mean",
+      "metric": "sleep_duration",
+      "name": "sleep_duration_mean",
+      "nullable": true,
+      "unit": "h"
+    },
+    {
+      "aggregation": "latest",
+      "metric": "fatigue_self_report",
+      "name": "fatigue_self_report_latest",
+      "nullable": true,
+      "unit": "1"
+    },
+    {
+      "aggregation": "no_usable_value",
+      "metric": "fatigue_self_report",
+      "name": "fatigue_self_report_missing",
+      "nullable": false,
+      "unit": "1"
+    },
+    {
+      "aggregation": "latest",
+      "metric": "communication_delay",
+      "name": "communication_delay_latest",
+      "nullable": true,
+      "unit": "s"
+    },
+    {
+      "aggregation": "no_usable_value",
+      "metric": "communication_delay",
+      "name": "communication_delay_missing",
+      "nullable": false,
+      "unit": "1"
+    },
+    {
+      "aggregation": "arithmetic_mean",
+      "metric": "communication_delay",
+      "name": "communication_delay_mean",
+      "nullable": true,
+      "unit": "s"
+    },
+    {
+      "aggregation": "latest",
+      "metric": "exercise_active",
+      "name": "exercise_active_latest",
+      "nullable": true,
+      "unit": "1"
+    },
+    {
+      "aggregation": "no_usable_value",
+      "metric": "exercise_active",
+      "name": "exercise_active_missing",
+      "nullable": false,
+      "unit": "1"
+    }
+  ],
+  "identifier_columns": [
+    "sample_id"
+  ],
+  "missing_values": "empty CSV cell; no imputation; missing flag means no usable value in window",
+  "observation_schema_version": "1.0.0",
+  "quality_policy": "evaluated valid only; retain all records in evidence",
+  "schema_version": "1.0.0",
+  "scope_policy": "one astronaut; CO2 from specified compartment; communication delay from specified spacecraft",
+  "time_basis": "event_time",
+  "window": "(sample_time-window, sample_time]",
+  "window_seconds": 300
+}

@@ -1,0 +1,35 @@
+{
+  "dataset_version": "1.0.0",
+  "feature_count": 16,
+  "radiation_observations": 156,
+  "sha256": {
+    "README.md": "8b9a790f0b8fa16c53cfc68394b8b04a1be79876d74edb0cc09ada2c3a61dcf1",
+    "audit.json": "ba9dbe172b428795887def2ab8dd85ae29fa28d3f4c211a4080c3743cf996941",
+    "feature_evidence.jsonl": "43cd535049c391d9ecb9248a24d6777ec2dc982c8c4d1790455466e666996083",
+    "feature_schema.json": "2c9b73e7372fdc6351265cc6ca502b17250c0ae893522fb4b1067a2fb4956da8",
+    "radiation_observations.jsonl": "ded32c6729041382ca811a358fa87c9af0fe525edb4befbf29fb66e7f634e504",
+    "source_records.jsonl": "2eb4f09aaa54513c4368237e2e9360295811fd9e8fd18ebe7729caeb85815e42",
+    "telemetry_observations.jsonl": "bdd61d4d0aa36bbe3beed143c427ae90658ccd8e217dd971afb1b3ed93da8bed",
+    "test.csv": "76b783b07b50794c494cee0eadfde6c47c3eaec04b84faec9dcfcae17fdbf2ec",
+    "train.csv": "3cf9b57affed7301aa6c8739e5796c69c302c7c779815721c93c5fe5d8cc7eeb",
+    "validation.csv": "204a598bd8d528aecffb588dc8ddad76eedc47104f43e1086d5ddbaa14d6d833"
+  },
+  "splits": {
+    "test": {
+      "end": "2014-11-01T03:54:00+00:00",
+      "samples": 1814,
+      "start": "2014-10-25T20:51:00+00:00"
+    },
+    "train": {
+      "end": "2014-10-19T13:38:00+00:00",
+      "samples": 8460,
+      "start": "2014-09-20T03:59:00+00:00"
+    },
+    "validation": {
+      "end": "2014-10-25T20:46:00+00:00",
+      "samples": 1813,
+      "start": "2014-10-19T13:43:00+00:00"
+    }
+  },
+  "telemetry_observations": 72522
+}

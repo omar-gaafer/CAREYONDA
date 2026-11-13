@@ -1,0 +1,112 @@
+{
+  "delta": "current valid value minus most recent earlier valid value within window",
+  "features": [
+    {
+      "metric": "cabin_co2_concentration",
+      "name": "cabin_co2_concentration_value",
+      "nullable": true,
+      "unit": "ppm"
+    },
+    {
+      "metric": "cabin_co2_concentration",
+      "name": "cabin_co2_concentration_mean_30m",
+      "nullable": true,
+      "unit": "ppm"
+    },
+    {
+      "metric": "cabin_co2_concentration",
+      "name": "cabin_co2_concentration_delta",
+      "nullable": true,
+      "unit": "ppm"
+    },
+    {
+      "metric": "cabin_co2_concentration",
+      "name": "cabin_co2_concentration_count_30m",
+      "nullable": false,
+      "unit": "1"
+    },
+    {
+      "metric": "cabin_co2_concentration",
+      "name": "cabin_co2_concentration_missing",
+      "nullable": false,
+      "unit": "1"
+    },
+    {
+      "metric": "environment_temperature",
+      "name": "environment_temperature_value",
+      "nullable": true,
+      "unit": "degC"
+    },
+    {
+      "metric": "environment_temperature",
+      "name": "environment_temperature_mean_30m",
+      "nullable": true,
+      "unit": "degC"
+    },
+    {
+      "metric": "environment_temperature",
+      "name": "environment_temperature_delta",
+      "nullable": true,
+      "unit": "degC"
+    },
+    {
+      "metric": "environment_temperature",
+      "name": "environment_temperature_count_30m",
+      "nullable": false,
+      "unit": "1"
+    },
+    {
+      "metric": "environment_temperature",
+      "name": "environment_temperature_missing",
+      "nullable": false,
+      "unit": "1"
+    },
+    {
+      "metric": "relative_humidity",
+      "name": "relative_humidity_value",
+      "nullable": true,
+      "unit": "%"
+    },
+    {
+      "metric": "relative_humidity",
+      "name": "relative_humidity_mean_30m",
+      "nullable": true,
+      "unit": "%"
+    },
+    {
+      "metric": "relative_humidity",
+      "name": "relative_humidity_delta",
+      "nullable": true,
+      "unit": "%"
+    },
+    {
+      "metric": "relative_humidity",
+      "name": "relative_humidity_count_30m",
+      "nullable": false,
+      "unit": "1"
+    },
+    {
+      "metric": "relative_humidity",
+      "name": "relative_humidity_missing",
+      "nullable": false,
+      "unit": "1"
+    },
+    {
+      "name": "gap_seconds",
+      "nullable": true,
+      "unit": "s"
+    }
+  ],
+  "mean": "arithmetic sample mean; not time-weighted",
+  "metadata_columns": [
+    "sample_id",
+    "event_time_utc"
+  ],
+  "missing": "current timestamp has no unique evaluated-valid value; not zero imputation",
+  "scaling": "none; fit preprocessing only on training split",
+  "schema_version": "1.0.0",
+  "scope": "NASA-RR1 ISS only; no ground, radiation, or human physiological pairing",
+  "split_policy": "chronological 70/15/15 by unique timestamps; windows reset per split",
+  "window": "(t-1800 seconds,t]",
+  "window_seconds": 1800
+}

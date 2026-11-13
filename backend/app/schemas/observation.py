@@ -178,6 +178,56 @@ class MetricDefinition(Contract):
 # Synthetic scenario starter vocabulary. Bounds are physical, never clinical.
 METRIC_REGISTRY: Mapping[str, MetricDefinition] = MappingProxyType(
     {
+        "cabin_co2_concentration": MetricDefinition(
+            domain="environmental",
+            measurement_kind="numeric",
+            canonical_unit="ppm",
+            minimum=0,
+            scopes=("spacecraft", "mission"),
+        ),
+        "environment_temperature": MetricDefinition(
+            domain="environmental",
+            measurement_kind="numeric",
+            canonical_unit="degC",
+            minimum=-273.15,
+            scopes=("spacecraft", "mission"),
+        ),
+        "relative_humidity": MetricDefinition(
+            domain="environmental",
+            measurement_kind="numeric",
+            canonical_unit="%",
+            minimum=0,
+            maximum=100,
+            scopes=("spacecraft", "mission"),
+        ),
+        "radiation_gcr_dose_rate": MetricDefinition(
+            domain="radiation",
+            measurement_kind="numeric",
+            canonical_unit="mGy/d",
+            minimum=0,
+            scopes=("spacecraft",),
+        ),
+        "radiation_saa_dose_rate": MetricDefinition(
+            domain="radiation",
+            measurement_kind="numeric",
+            canonical_unit="mGy/d",
+            minimum=0,
+            scopes=("spacecraft",),
+        ),
+        "radiation_total_dose_rate": MetricDefinition(
+            domain="radiation",
+            measurement_kind="numeric",
+            canonical_unit="mGy/d",
+            minimum=0,
+            scopes=("spacecraft",),
+        ),
+        "radiation_accumulated_dose": MetricDefinition(
+            domain="radiation",
+            measurement_kind="numeric",
+            canonical_unit="mGy",
+            minimum=0,
+            scopes=("spacecraft",),
+        ),
         "cabin_co2_partial_pressure": MetricDefinition(
             domain="environmental",
             measurement_kind="numeric",
