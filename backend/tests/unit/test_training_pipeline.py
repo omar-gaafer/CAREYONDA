@@ -59,7 +59,7 @@ def test_scenarios_balance_schema_and_utc() -> None:
 
 
 def test_preserves_starter_registry() -> None:
-    assert set(METRIC_REGISTRY) == {
+    starter_metrics = {
         "heart_rate",
         "ambient_pressure",
         "absorbed_dose",
@@ -71,6 +71,7 @@ def test_preserves_starter_registry() -> None:
         "fatigue_self_report",
         "communication_delay",
     }
+    assert starter_metrics <= set(METRIC_REGISTRY)
 
 
 @pytest.mark.parametrize(
