@@ -1,0 +1,572 @@
+{
+  "interpretation": "synthetic software association only; no clinical or operational accuracy",
+  "case_count": 12,
+  "correct_association_cases": 12,
+  "unsupported_directional_assertions": 0,
+  "expected_contradicting_cases": 2,
+  "correct_contradiction_cases": 2,
+  "reference_evidence_references": 18,
+  "traced_reference_evidence_references": 18,
+  "expected_abstaining_cases": 8,
+  "correct_abstaining_cases": 8,
+  "directional_evidence_references": 40,
+  "traced_directional_references": 40,
+  "deterministic_cases": 12,
+  "cases": [
+    {
+      "case": "A-persistent",
+      "original_m2_status": "ranked",
+      "original_m2_ranks": [
+        [
+          "recent_exercise",
+          1
+        ],
+        [
+          "elevated_co2",
+          2
+        ],
+        [
+          "baseline",
+          3
+        ],
+        [
+          "sleep_deprivation",
+          4
+        ]
+      ],
+      "m2_with_temporal_pattern": "persistent_anomaly",
+      "hybrid_status": "supported_by_available_evidence",
+      "expected_status": "supported_by_available_evidence",
+      "supporting_ids": [
+        "synthetic-1",
+        "synthetic-2",
+        "synthetic-3",
+        "synthetic-4",
+        "synthetic-5",
+        "synthetic-exercise"
+      ],
+      "contradicting_ids": [],
+      "expected_supporting_ids": [
+        "synthetic-1",
+        "synthetic-2",
+        "synthetic-3",
+        "synthetic-4",
+        "synthetic-5",
+        "synthetic-exercise"
+      ],
+      "expected_contradicting_ids": [],
+      "m2_with_temporal_ranks_unchanged": true,
+      "missing_evidence": [],
+      "abstention_reasons": [],
+      "model_exclusion_reasons": []
+    },
+    {
+      "case": "B-isolated",
+      "original_m2_status": "ranked",
+      "original_m2_ranks": [
+        [
+          "recent_exercise",
+          1
+        ],
+        [
+          "elevated_co2",
+          2
+        ],
+        [
+          "baseline",
+          3
+        ],
+        [
+          "sleep_deprivation",
+          4
+        ]
+      ],
+      "m2_with_temporal_pattern": "isolated_spike",
+      "hybrid_status": "insufficient_evidence",
+      "expected_status": "insufficient_evidence",
+      "supporting_ids": [
+        "synthetic-exercise"
+      ],
+      "contradicting_ids": [],
+      "expected_supporting_ids": [
+        "synthetic-exercise"
+      ],
+      "expected_contradicting_ids": [],
+      "m2_with_temporal_ranks_unchanged": true,
+      "missing_evidence": [
+        "heart_rate"
+      ],
+      "abstention_reasons": [
+        "heart_rate",
+        "temporal_pattern_not_eligible"
+      ],
+      "model_exclusion_reasons": []
+    },
+    {
+      "case": "C-conflicting",
+      "original_m2_status": "insufficient_evidence",
+      "original_m2_ranks": [
+        [
+          "elevated_co2",
+          1
+        ],
+        [
+          "recent_exercise",
+          2
+        ],
+        [
+          "baseline",
+          3
+        ],
+        [
+          "sleep_deprivation",
+          4
+        ]
+      ],
+      "m2_with_temporal_pattern": "persistent_anomaly",
+      "hybrid_status": "mixed_evidence",
+      "expected_status": "mixed_evidence",
+      "supporting_ids": [
+        "synthetic-1",
+        "synthetic-2",
+        "synthetic-3",
+        "synthetic-4",
+        "synthetic-5"
+      ],
+      "contradicting_ids": [
+        "synthetic-exercise"
+      ],
+      "expected_supporting_ids": [
+        "synthetic-1",
+        "synthetic-2",
+        "synthetic-3",
+        "synthetic-4",
+        "synthetic-5"
+      ],
+      "expected_contradicting_ids": [
+        "synthetic-exercise"
+      ],
+      "m2_with_temporal_ranks_unchanged": true,
+      "missing_evidence": [],
+      "abstention_reasons": [],
+      "model_exclusion_reasons": []
+    },
+    {
+      "case": "D-missing",
+      "original_m2_status": "ranked",
+      "original_m2_ranks": [
+        [
+          "recent_exercise",
+          1
+        ],
+        [
+          "elevated_co2",
+          2
+        ],
+        [
+          "baseline",
+          3
+        ],
+        [
+          "sleep_deprivation",
+          4
+        ]
+      ],
+      "m2_with_temporal_pattern": "abstained",
+      "hybrid_status": "insufficient_evidence",
+      "expected_status": "insufficient_evidence",
+      "supporting_ids": [
+        "synthetic-exercise"
+      ],
+      "contradicting_ids": [],
+      "expected_supporting_ids": [
+        "synthetic-exercise"
+      ],
+      "expected_contradicting_ids": [],
+      "m2_with_temporal_ranks_unchanged": true,
+      "missing_evidence": [
+        "heart_rate"
+      ],
+      "abstention_reasons": [
+        "heart_rate",
+        "incomplete_valid_sequence",
+        "temporal_pattern_not_eligible"
+      ],
+      "model_exclusion_reasons": []
+    },
+    {
+      "case": "D-stale",
+      "original_m2_status": "ranked",
+      "original_m2_ranks": [
+        [
+          "recent_exercise",
+          1
+        ],
+        [
+          "elevated_co2",
+          2
+        ],
+        [
+          "baseline",
+          3
+        ],
+        [
+          "sleep_deprivation",
+          4
+        ]
+      ],
+      "m2_with_temporal_pattern": "persistent_anomaly",
+      "hybrid_status": "insufficient_evidence",
+      "expected_status": "insufficient_evidence",
+      "supporting_ids": [],
+      "contradicting_ids": [],
+      "expected_supporting_ids": [],
+      "expected_contradicting_ids": [],
+      "m2_with_temporal_ranks_unchanged": true,
+      "missing_evidence": [
+        "exercise_active",
+        "heart_rate"
+      ],
+      "abstention_reasons": [
+        "exercise_active",
+        "heart_rate",
+        "stale_current_evidence",
+        "stale_temporal_evidence"
+      ],
+      "model_exclusion_reasons": []
+    },
+    {
+      "case": "E-other-subject",
+      "original_m2_status": "ranked",
+      "original_m2_ranks": [
+        [
+          "recent_exercise",
+          1
+        ],
+        [
+          "elevated_co2",
+          2
+        ],
+        [
+          "baseline",
+          3
+        ],
+        [
+          "sleep_deprivation",
+          4
+        ]
+      ],
+      "m2_with_temporal_pattern": "persistent_anomaly",
+      "hybrid_status": "incompatible_evidence",
+      "expected_status": "incompatible_evidence",
+      "supporting_ids": [
+        "synthetic-exercise"
+      ],
+      "contradicting_ids": [],
+      "expected_supporting_ids": [
+        "synthetic-exercise"
+      ],
+      "expected_contradicting_ids": [],
+      "m2_with_temporal_ranks_unchanged": true,
+      "missing_evidence": [
+        "heart_rate"
+      ],
+      "abstention_reasons": [
+        "duplicate_or_conflicting_provenance",
+        "heart_rate",
+        "insufficient_current_evidence",
+        "temporal_scope_source_or_window_mismatch"
+      ],
+      "model_exclusion_reasons": []
+    },
+    {
+      "case": "F-replay-mismatch",
+      "original_m2_status": "ranked",
+      "original_m2_ranks": [
+        [
+          "recent_exercise",
+          1
+        ],
+        [
+          "elevated_co2",
+          2
+        ],
+        [
+          "baseline",
+          3
+        ],
+        [
+          "sleep_deprivation",
+          4
+        ]
+      ],
+      "m2_with_temporal_pattern": "persistent_anomaly",
+      "hybrid_status": "insufficient_evidence",
+      "expected_status": "insufficient_evidence",
+      "supporting_ids": [
+        "synthetic-1",
+        "synthetic-2",
+        "synthetic-3",
+        "synthetic-4",
+        "synthetic-5",
+        "synthetic-exercise"
+      ],
+      "contradicting_ids": [],
+      "expected_supporting_ids": [
+        "synthetic-1",
+        "synthetic-2",
+        "synthetic-3",
+        "synthetic-4",
+        "synthetic-5",
+        "synthetic-exercise"
+      ],
+      "expected_contradicting_ids": [],
+      "m2_with_temporal_ranks_unchanged": true,
+      "missing_evidence": [
+        "required_compatible_model_context"
+      ],
+      "abstention_reasons": [
+        "required_compatible_model_context"
+      ],
+      "model_exclusion_reasons": [
+        "historical_replay_not_prospective",
+        "model_context_lineage_unavailable",
+        "model_context_scope_mismatch",
+        "model_finding_cannot_establish_claim",
+        "model_finding_unavailable_or_abstained"
+      ]
+    },
+    {
+      "case": "G-model-abstention",
+      "original_m2_status": "ranked",
+      "original_m2_ranks": [
+        [
+          "recent_exercise",
+          1
+        ],
+        [
+          "elevated_co2",
+          2
+        ],
+        [
+          "baseline",
+          3
+        ],
+        [
+          "sleep_deprivation",
+          4
+        ]
+      ],
+      "m2_with_temporal_pattern": "persistent_anomaly",
+      "hybrid_status": "insufficient_evidence",
+      "expected_status": "insufficient_evidence",
+      "supporting_ids": [
+        "synthetic-1",
+        "synthetic-2",
+        "synthetic-3",
+        "synthetic-4",
+        "synthetic-5",
+        "synthetic-exercise"
+      ],
+      "contradicting_ids": [],
+      "expected_supporting_ids": [
+        "synthetic-1",
+        "synthetic-2",
+        "synthetic-3",
+        "synthetic-4",
+        "synthetic-5",
+        "synthetic-exercise"
+      ],
+      "expected_contradicting_ids": [],
+      "m2_with_temporal_ranks_unchanged": true,
+      "missing_evidence": [
+        "required_compatible_model_context"
+      ],
+      "abstention_reasons": [
+        "required_compatible_model_context"
+      ],
+      "model_exclusion_reasons": [
+        "model_context_lineage_unavailable",
+        "model_context_scope_mismatch",
+        "model_finding_cannot_establish_claim",
+        "model_finding_unavailable_or_abstained"
+      ]
+    },
+    {
+      "case": "H-future-unavailable",
+      "original_m2_status": "ranked",
+      "original_m2_ranks": [
+        [
+          "recent_exercise",
+          1
+        ],
+        [
+          "elevated_co2",
+          2
+        ],
+        [
+          "baseline",
+          3
+        ],
+        [
+          "sleep_deprivation",
+          4
+        ]
+      ],
+      "m2_with_temporal_pattern": "persistent_anomaly",
+      "hybrid_status": "insufficient_evidence",
+      "expected_status": "insufficient_evidence",
+      "supporting_ids": [
+        "synthetic-exercise"
+      ],
+      "contradicting_ids": [],
+      "expected_supporting_ids": [
+        "synthetic-exercise"
+      ],
+      "expected_contradicting_ids": [],
+      "m2_with_temporal_ranks_unchanged": true,
+      "missing_evidence": [
+        "heart_rate"
+      ],
+      "abstention_reasons": [
+        "evidence_unavailable_at_assessment",
+        "heart_rate"
+      ],
+      "model_exclusion_reasons": []
+    },
+    {
+      "case": "I-duplicate-provenance",
+      "original_m2_status": "ranked",
+      "original_m2_ranks": [
+        [
+          "recent_exercise",
+          1
+        ],
+        [
+          "elevated_co2",
+          2
+        ],
+        [
+          "baseline",
+          3
+        ],
+        [
+          "sleep_deprivation",
+          4
+        ]
+      ],
+      "m2_with_temporal_pattern": "persistent_anomaly",
+      "hybrid_status": "incompatible_evidence",
+      "expected_status": "incompatible_evidence",
+      "supporting_ids": [
+        "synthetic-exercise"
+      ],
+      "contradicting_ids": [],
+      "expected_supporting_ids": [
+        "synthetic-exercise"
+      ],
+      "expected_contradicting_ids": [],
+      "m2_with_temporal_ranks_unchanged": true,
+      "missing_evidence": [
+        "heart_rate"
+      ],
+      "abstention_reasons": [
+        "duplicate_or_conflicting_provenance",
+        "heart_rate"
+      ],
+      "model_exclusion_reasons": []
+    },
+    {
+      "case": "J-statistical-return",
+      "original_m2_status": "ranked",
+      "original_m2_ranks": [
+        [
+          "recent_exercise",
+          1
+        ],
+        [
+          "elevated_co2",
+          2
+        ],
+        [
+          "baseline",
+          3
+        ],
+        [
+          "sleep_deprivation",
+          4
+        ]
+      ],
+      "m2_with_temporal_pattern": "recovery",
+      "hybrid_status": "supported_by_available_evidence",
+      "expected_status": "supported_by_available_evidence",
+      "supporting_ids": [
+        "synthetic-1",
+        "synthetic-2",
+        "synthetic-3",
+        "synthetic-4",
+        "synthetic-exercise"
+      ],
+      "contradicting_ids": [],
+      "expected_supporting_ids": [
+        "synthetic-1",
+        "synthetic-2",
+        "synthetic-3",
+        "synthetic-4",
+        "synthetic-exercise"
+      ],
+      "expected_contradicting_ids": [],
+      "m2_with_temporal_ranks_unchanged": true,
+      "missing_evidence": [],
+      "abstention_reasons": [],
+      "model_exclusion_reasons": []
+    },
+    {
+      "case": "C-all-contradict",
+      "original_m2_status": "insufficient_evidence",
+      "original_m2_ranks": [
+        [
+          "baseline",
+          1
+        ],
+        [
+          "elevated_co2",
+          2
+        ],
+        [
+          "recent_exercise",
+          3
+        ],
+        [
+          "sleep_deprivation",
+          4
+        ]
+      ],
+      "m2_with_temporal_pattern": "persistent_anomaly",
+      "hybrid_status": "contradicted_by_available_evidence",
+      "expected_status": "contradicted_by_available_evidence",
+      "supporting_ids": [],
+      "contradicting_ids": [
+        "synthetic-1",
+        "synthetic-2",
+        "synthetic-3",
+        "synthetic-4",
+        "synthetic-5",
+        "synthetic-exercise"
+      ],
+      "expected_supporting_ids": [],
+      "expected_contradicting_ids": [
+        "synthetic-1",
+        "synthetic-2",
+        "synthetic-3",
+        "synthetic-4",
+        "synthetic-5",
+        "synthetic-exercise"
+      ],
+      "m2_with_temporal_ranks_unchanged": true,
+      "missing_evidence": [],
+      "abstention_reasons": [],
+      "model_exclusion_reasons": []
+    }
+  ]
+}
