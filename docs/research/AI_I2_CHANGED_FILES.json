@@ -1,0 +1,826 @@
+{
+  "schema_version": "1.0.0",
+  "branch": "feature/ai-research-assembly",
+  "base_commit": "1bd07edaef9daf7eb192342dfb0d0d10a611f532",
+  "source_commits": {
+    "shared": "1ebdd03a8b29239742074e3ac0bff247d8a5785b",
+    "a": "bbd15972da9988c46cbdc85550bf4296f004f0f3",
+    "b": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+    "c": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+    "hybrid": "1bd07edaef9daf7eb192342dfb0d0d10a611f532"
+  },
+  "source_contributions": [
+    {
+      "path": ".gitignore",
+      "source": "a",
+      "source_commit": "bbd15972da9988c46cbdc85550bf4296f004f0f3",
+      "action": "included",
+      "sha256": "bc155a5e248ddc999c74f8d60500ec9c9c73ae62b86850c259dfa430dda83058",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/app/research/__init__.py",
+      "source": "a",
+      "source_commit": "bbd15972da9988c46cbdc85550bf4296f004f0f3",
+      "action": "included",
+      "sha256": "46ff1fbe2cc8430b7c37cc70e9c268dd361cd916684827a744dea448758b4fa5",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/app/research/model_a_environmental.py",
+      "source": "a",
+      "source_commit": "bbd15972da9988c46cbdc85550bf4296f004f0f3",
+      "action": "included",
+      "sha256": "698e5fa0807c1a9f4b97312aeaf003371031b7960422e1ea06edd2eaa950ed5b",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/pyproject.toml",
+      "source": "a",
+      "source_commit": "bbd15972da9988c46cbdc85550bf4296f004f0f3",
+      "action": "combined_configuration",
+      "reason": "Union optional dependency groups and script typing scope; preserve Hybrid defaults"
+    },
+    {
+      "path": "backend/scripts/__init__.py",
+      "source": "a",
+      "source_commit": "bbd15972da9988c46cbdc85550bf4296f004f0f3",
+      "action": "included",
+      "sha256": "d020fc2937b2258b84b13499e44fc24d0ad18e809f31617569ef5db56e96d781",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/scripts/analyze_model_a_environmental.py",
+      "source": "a",
+      "source_commit": "bbd15972da9988c46cbdc85550bf4296f004f0f3",
+      "action": "included",
+      "sha256": "5e043972c4100e3a5fb671c47514f789f2312a5b002d1388a2777b42712e5534",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/tests/unit/test_model_a_environmental_research.py",
+      "source": "a",
+      "source_commit": "bbd15972da9988c46cbdc85550bf4296f004f0f3",
+      "action": "included",
+      "sha256": "dc2a0327709f2a92aeb0912073afc80efc873cf61e21cd22b1e75962cb0d8ace",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/tests/unit/test_model_a_research_pipeline.py",
+      "source": "a",
+      "source_commit": "bbd15972da9988c46cbdc85550bf4296f004f0f3",
+      "action": "included",
+      "sha256": "b4e1b07dcdd8dfdcff8704cb8ce96e268be7538df3b076098c53712b45657a1c",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "docs/architecture/MODEL_A_ENVIRONMENTAL_RESEARCH.md",
+      "source": "a",
+      "source_commit": "bbd15972da9988c46cbdc85550bf4296f004f0f3",
+      "action": "included",
+      "sha256": "1182d1df55fb16e4bd5ff6b0c68c00c35cae3586755d1d50410c21dcf2495c7c",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "docs/architecture/MODEL_A_ENVIRONMENTAL_RESEARCH_CONTRACT_V1.json",
+      "source": "a",
+      "source_commit": "bbd15972da9988c46cbdc85550bf4296f004f0f3",
+      "action": "included",
+      "sha256": "8482868cc9391d519f7068c7f24e91ae08751b3013642bbb1043ada88d9ea4f7",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "docs/architecture/MODEL_A_ENVIRONMENTAL_RESEARCH_CONTRACT_V2.json",
+      "source": "a",
+      "source_commit": "bbd15972da9988c46cbdc85550bf4296f004f0f3",
+      "action": "included",
+      "sha256": "1eb9bff07b70057bd18c60e63e7cab8d1b15a4627312f76559dfd0dc32957208",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/app/ai/anomaly.py",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "97fdfe43f21acf994a5538dd331f8273e52ccc95856c2b1273cd1e41904ae7db",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/app/ai/baseline.py",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "aa9c0986cb01523f1afbcefa371517e4bc6e3f4f95f00182bb58702848eb54ba",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/app/ai/model_b_anomaly.py",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "ab44de03737a7a7c2f1f3c7e43e1d5d3f3c3262e7e53616fdca5fa257dbcb464",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/app/schemas/model_b.py",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "d6296099ba23b9a447bef4e5f19c81caad008be16dcda9805ffa2f4eda98c7e8",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/app/storage/model_b_smoke.py",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "2b9cea68d06b14f94ebabff415a30270ddcb8e4052c4bf26d78b3411eb9e3964",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/app/storage/model_b_store.py",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "1f6fb1657b2f1585fbc37ecea83fa8c44104d608e76b759d7eccbdbb63f82b1c",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/app/storage/model_b_v1.py",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "df3d79622a3f6c25cffb108be952f3deec6e28f1dcc626ea6bad189b85c78a4e",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/pyproject.toml",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "combined_configuration",
+      "reason": "Union optional dependency groups and script typing scope; preserve Hybrid defaults"
+    },
+    {
+      "path": "backend/requirements-model-b-resolved.txt",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "2e96949ddd22e65500b3f65cc93d702127ff1d02a41495d798c811c53c9f9e11",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/tests/unit/test_benign_exercise_control.py",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "1a59fb2bef0ecc885f01649627163d7caaac19230086a7ad25651ba3a3931659",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/tests/unit/test_model_b_challenger_experiments.py",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "64e08677bbfbbc3c85a07972fc87e467484fef4809b20e3969641686752b5d23",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/tests/unit/test_model_b_inference_contract.py",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "f6621c8853dcb1542576c45c59b45288be857496f6d3ac2b6a6e9693ccfca9ba",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/tests/unit/test_model_b_reconciliation.py",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "09e80cf4ceda53eeae488925cb759347b651871d246210467e6af9df7f476e62",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/tests/unit/test_model_b_v1_compatibility.py",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "412f9c0eeaab0cca58036f012954e3f0dc1401e5669a14511646be6b448d6ac3",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "docs/architecture/MODEL_B_AUDIT.md",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "e7dd0128f0094eda0aed6db0803cff03cf913802f5ccdadc0cf80914f001562e",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "docs/architecture/MODEL_B_BENIGN_EXERCISE_CONTROL.md",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "eb2b1cdf57f030a2c92d8885d2a287db5397f88e153693d91a2ef344c36ee3c4",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "docs/architecture/MODEL_B_VALIDATION_PROTOCOL.md",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "dbcca8fb00ece0d77a1251fba5538973a23d62fb564a21a7bb24a049262bb007",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "docs/research/AI_I1_2_MODEL_B_ARTIFACT_VERIFICATION.md",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "3ba1297f62a896591d55c6bbd97b49eb71d78c2b0a6d027914cc254a67609d99",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "docs/research/AI_I1_MODEL_B_RECONCILIATION.md",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "b73d598d5cdbeddbd89ebf39a54eaba2480de2c76082f9a61dd9a04123bbd8e0",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "docs/research/MODEL_B_PART3_CHALLENGER_EXPERIMENTS.md",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "5e23ee77efa0b78248275240d0603a0b3719a8cf096531b8a2779f5089d33a46",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "docs/research/MODEL_B_PART4_CANDIDATE_EVALUATION_AND_SELECTION.md",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "67e762e1d922dea2bc522c7ef7e767dbf6451ff060b4bb9603ad4b2e002d15fd",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "docs/research/MODEL_B_PART5_FINAL_DELIVERY_REPORT.md",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "50a4dcfd265d240ed5f1a9fcf0a0796f7aecf1c0e0b6952cb3f7ea1b1c5ad0fd",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "simulator/research/__init__.py",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "bd9204d81e60302330265f9b551ae3968159e62370b3a77736865a5d25e03656",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "simulator/research/benign_exercise_control.py",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "62ff35c7ae475ab717c26c65e1630ab71de2c521cf948334c24aa9e792503e3a",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "simulator/research/model_b_challenger_experiments.py",
+      "source": "b",
+      "source_commit": "74ea8b4bfbf5d3b14e352b598037161595cc772a",
+      "action": "included",
+      "sha256": "49d401ca49acd178025afd57a7c52770380eef1f3c3a3a196949714bf3d707de",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/app/ai/isolation_confinement.py",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "included",
+      "sha256": "a6316ec6efb1f406aba041186aaa206ce8da19279786411e81e75dd4923e1efc",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/app/api/model_c.py",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "deferred",
+      "reason": "Application composition deferred: transport/local-entry contracts and helpers, API tests, UI/fixtures and stale-response fix must be integrated together"
+    },
+    {
+      "path": "backend/app/application/model_c_local.py",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "deferred",
+      "reason": "Application composition deferred: transport/local-entry contracts and helpers, API tests, UI/fixtures and stale-response fix must be integrated together"
+    },
+    {
+      "path": "backend/app/model_c_main.py",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "deferred",
+      "reason": "Application composition deferred: transport/local-entry contracts and helpers, API tests, UI/fixtures and stale-response fix must be integrated together"
+    },
+    {
+      "path": "backend/app/schemas/isolation_confinement.py",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "included",
+      "sha256": "5998ee7745ddf864e83902d4edcb600d06e5d81192b545241792555d5c3f6892",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/app/schemas/model_c_local_entry.py",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "deferred",
+      "reason": "Application composition deferred: transport/local-entry contracts and helpers, API tests, UI/fixtures and stale-response fix must be integrated together"
+    },
+    {
+      "path": "backend/tests/integration/test_model_c_api.py",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "deferred",
+      "reason": "Application composition deferred: transport/local-entry contracts and helpers, API tests, UI/fixtures and stale-response fix must be integrated together"
+    },
+    {
+      "path": "backend/tests/unit/test_isolation_confinement.py",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "included",
+      "sha256": "125bd4cabecedf39d11d6db01cdc8ce4abfdf69aaf81fea3ae1957ef27391c6e",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "backend/tests/unit/test_model_c_local_entry.py",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "deferred",
+      "reason": "Application composition deferred: transport/local-entry contracts and helpers, API tests, UI/fixtures and stale-response fix must be integrated together"
+    },
+    {
+      "path": "docs/architecture/AI_IMPLEMENTATION_STATUS.md",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "deferred",
+      "reason": "Keep baseline status document; assembly report describes selected research-only capabilities"
+    },
+    {
+      "path": "docs/architecture/MODEL_C_HYBRID_COMPATIBILITY.md",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "included",
+      "sha256": "581dab7113bf05f14f0123def9502f3a969fb5a73d21dbd01c739be8b5dde003",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "docs/architecture/MODEL_C_ISOLATION_CONFINEMENT.md",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "included",
+      "sha256": "6768e440bcc2a1e95632e1bf8fe97cbb66bd46889edd88f0829dbdec5526a9cc",
+      "reason": "Exact source bytes; no algorithm or safety changes"
+    },
+    {
+      "path": "frontend/src/app/App.test.tsx",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "deferred",
+      "reason": "Application composition deferred: transport/local-entry contracts and helpers, API tests, UI/fixtures and stale-response fix must be integrated together"
+    },
+    {
+      "path": "frontend/src/app/App.tsx",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "deferred",
+      "reason": "Application composition deferred: transport/local-entry contracts and helpers, API tests, UI/fixtures and stale-response fix must be integrated together"
+    },
+    {
+      "path": "frontend/src/app/modules.ts",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "deferred",
+      "reason": "Application composition deferred: transport/local-entry contracts and helpers, API tests, UI/fixtures and stale-response fix must be integrated together"
+    },
+    {
+      "path": "frontend/src/contracts/model-c.ts",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "deferred",
+      "reason": "Application composition deferred: transport/local-entry contracts and helpers, API tests, UI/fixtures and stale-response fix must be integrated together"
+    },
+    {
+      "path": "frontend/src/features/model-c/ModelCPanel.tsx",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "deferred",
+      "reason": "Application composition deferred: transport/local-entry contracts and helpers, API tests, UI/fixtures and stale-response fix must be integrated together"
+    },
+    {
+      "path": "frontend/src/features/model-c/application.ts",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "deferred",
+      "reason": "Application composition deferred: transport/local-entry contracts and helpers, API tests, UI/fixtures and stale-response fix must be integrated together"
+    },
+    {
+      "path": "frontend/src/features/model-c/fixtures/synthetic-abstained.json",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "deferred",
+      "reason": "Application composition deferred: transport/local-entry contracts and helpers, API tests, UI/fixtures and stale-response fix must be integrated together"
+    },
+    {
+      "path": "frontend/src/features/model-c/fixtures/synthetic-assessed.json",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "deferred",
+      "reason": "Application composition deferred: transport/local-entry contracts and helpers, API tests, UI/fixtures and stale-response fix must be integrated together"
+    },
+    {
+      "path": "frontend/src/features/model-c/model-c.test.tsx",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "deferred",
+      "reason": "Application composition deferred: transport/local-entry contracts and helpers, API tests, UI/fixtures and stale-response fix must be integrated together"
+    },
+    {
+      "path": "frontend/src/infrastructure/model-c.ts",
+      "source": "c",
+      "source_commit": "aecc38f7461a5d61f9e5c415cd8d2d9ac985d151",
+      "action": "deferred",
+      "reason": "Application composition deferred: transport/local-entry contracts and helpers, API tests, UI/fixtures and stale-response fix must be integrated together"
+    }
+  ],
+  "changed_file_count": 43,
+  "changed_files": [
+    {
+      "path": ".gitignore",
+      "sha256": "bc155a5e248ddc999c74f8d60500ec9c9c73ae62b86850c259dfa430dda83058",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/app/ai/anomaly.py",
+      "sha256": "97fdfe43f21acf994a5538dd331f8273e52ccc95856c2b1273cd1e41904ae7db",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/app/ai/baseline.py",
+      "sha256": "aa9c0986cb01523f1afbcefa371517e4bc6e3f4f95f00182bb58702848eb54ba",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/app/ai/isolation_confinement.py",
+      "sha256": "a6316ec6efb1f406aba041186aaa206ce8da19279786411e81e75dd4923e1efc",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/app/ai/model_b_anomaly.py",
+      "sha256": "ab44de03737a7a7c2f1f3c7e43e1d5d3f3c3262e7e53616fdca5fa257dbcb464",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/app/research/__init__.py",
+      "sha256": "46ff1fbe2cc8430b7c37cc70e9c268dd361cd916684827a744dea448758b4fa5",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/app/research/model_a_environmental.py",
+      "sha256": "698e5fa0807c1a9f4b97312aeaf003371031b7960422e1ea06edd2eaa950ed5b",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/app/schemas/isolation_confinement.py",
+      "sha256": "5998ee7745ddf864e83902d4edcb600d06e5d81192b545241792555d5c3f6892",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/app/schemas/model_b.py",
+      "sha256": "d6296099ba23b9a447bef4e5f19c81caad008be16dcda9805ffa2f4eda98c7e8",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/app/storage/model_b_smoke.py",
+      "sha256": "2b9cea68d06b14f94ebabff415a30270ddcb8e4052c4bf26d78b3411eb9e3964",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/app/storage/model_b_store.py",
+      "sha256": "1f6fb1657b2f1585fbc37ecea83fa8c44104d608e76b759d7eccbdbb63f82b1c",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/app/storage/model_b_v1.py",
+      "sha256": "df3d79622a3f6c25cffb108be952f3deec6e28f1dcc626ea6bad189b85c78a4e",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/pyproject.toml",
+      "sha256": "1f194de88563cab888ef3752bc1def29e9a8ceb7a324a7f4211021729ea9c518",
+      "classification": "combined_configuration",
+      "hash_note": null
+    },
+    {
+      "path": "backend/requirements-model-b-resolved.txt",
+      "sha256": "2e96949ddd22e65500b3f65cc93d702127ff1d02a41495d798c811c53c9f9e11",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/scripts/__init__.py",
+      "sha256": "d020fc2937b2258b84b13499e44fc24d0ad18e809f31617569ef5db56e96d781",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/scripts/analyze_model_a_environmental.py",
+      "sha256": "5e043972c4100e3a5fb671c47514f789f2312a5b002d1388a2777b42712e5534",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/tests/integration/test_research_assembly_smoke.py",
+      "sha256": "9726a94360244b89993fb23d38a814e2d1cc4f52ed2f1bd394d0c6891b501edb",
+      "classification": "assembly_integration_test",
+      "hash_note": null
+    },
+    {
+      "path": "backend/tests/unit/test_benign_exercise_control.py",
+      "sha256": "1a59fb2bef0ecc885f01649627163d7caaac19230086a7ad25651ba3a3931659",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/tests/unit/test_isolation_confinement.py",
+      "sha256": "125bd4cabecedf39d11d6db01cdc8ce4abfdf69aaf81fea3ae1957ef27391c6e",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/tests/unit/test_model_a_environmental_research.py",
+      "sha256": "dc2a0327709f2a92aeb0912073afc80efc873cf61e21cd22b1e75962cb0d8ace",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/tests/unit/test_model_a_research_pipeline.py",
+      "sha256": "b4e1b07dcdd8dfdcff8704cb8ce96e268be7538df3b076098c53712b45657a1c",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/tests/unit/test_model_b_challenger_experiments.py",
+      "sha256": "64e08677bbfbbc3c85a07972fc87e467484fef4809b20e3969641686752b5d23",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/tests/unit/test_model_b_inference_contract.py",
+      "sha256": "f6621c8853dcb1542576c45c59b45288be857496f6d3ac2b6a6e9693ccfca9ba",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/tests/unit/test_model_b_reconciliation.py",
+      "sha256": "09e80cf4ceda53eeae488925cb759347b651871d246210467e6af9df7f476e62",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "backend/tests/unit/test_model_b_v1_compatibility.py",
+      "sha256": "412f9c0eeaab0cca58036f012954e3f0dc1401e5669a14511646be6b448d6ac3",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "docs/architecture/MODEL_A_ENVIRONMENTAL_RESEARCH.md",
+      "sha256": "1182d1df55fb16e4bd5ff6b0c68c00c35cae3586755d1d50410c21dcf2495c7c",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "docs/architecture/MODEL_A_ENVIRONMENTAL_RESEARCH_CONTRACT_V1.json",
+      "sha256": "8482868cc9391d519f7068c7f24e91ae08751b3013642bbb1043ada88d9ea4f7",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "docs/architecture/MODEL_A_ENVIRONMENTAL_RESEARCH_CONTRACT_V2.json",
+      "sha256": "1eb9bff07b70057bd18c60e63e7cab8d1b15a4627312f76559dfd0dc32957208",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "docs/architecture/MODEL_B_AUDIT.md",
+      "sha256": "e7dd0128f0094eda0aed6db0803cff03cf913802f5ccdadc0cf80914f001562e",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "docs/architecture/MODEL_B_BENIGN_EXERCISE_CONTROL.md",
+      "sha256": "eb2b1cdf57f030a2c92d8885d2a287db5397f88e153693d91a2ef344c36ee3c4",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "docs/architecture/MODEL_B_VALIDATION_PROTOCOL.md",
+      "sha256": "dbcca8fb00ece0d77a1251fba5538973a23d62fb564a21a7bb24a049262bb007",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "docs/architecture/MODEL_C_HYBRID_COMPATIBILITY.md",
+      "sha256": "581dab7113bf05f14f0123def9502f3a969fb5a73d21dbd01c739be8b5dde003",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "docs/architecture/MODEL_C_ISOLATION_CONFINEMENT.md",
+      "sha256": "6768e440bcc2a1e95632e1bf8fe97cbb66bd46889edd88f0829dbdec5526a9cc",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "docs/research/AI_I1_2_MODEL_B_ARTIFACT_VERIFICATION.md",
+      "sha256": "3ba1297f62a896591d55c6bbd97b49eb71d78c2b0a6d027914cc254a67609d99",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "docs/research/AI_I1_MODEL_B_RECONCILIATION.md",
+      "sha256": "b73d598d5cdbeddbd89ebf39a54eaba2480de2c76082f9a61dd9a04123bbd8e0",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "docs/research/AI_I2_CHANGED_FILES.json",
+      "sha256": null,
+      "classification": "assembly_documentation",
+      "hash_note": "Self-referential inventory digest intentionally omitted"
+    },
+    {
+      "path": "docs/research/AI_I2_RESEARCH_ASSEMBLY.md",
+      "sha256": "2a25a24d3d26767a13935dfa853eb074bc160babf5fe4cd7a234f72fc8162f0d",
+      "classification": "assembly_documentation",
+      "hash_note": null
+    },
+    {
+      "path": "docs/research/MODEL_B_PART3_CHALLENGER_EXPERIMENTS.md",
+      "sha256": "5e23ee77efa0b78248275240d0603a0b3719a8cf096531b8a2779f5089d33a46",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "docs/research/MODEL_B_PART4_CANDIDATE_EVALUATION_AND_SELECTION.md",
+      "sha256": "67e762e1d922dea2bc522c7ef7e767dbf6451ff060b4bb9603ad4b2e002d15fd",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "docs/research/MODEL_B_PART5_FINAL_DELIVERY_REPORT.md",
+      "sha256": "50a4dcfd265d240ed5f1a9fcf0a0796f7aecf1c0e0b6952cb3f7ea1b1c5ad0fd",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "simulator/research/__init__.py",
+      "sha256": "bd9204d81e60302330265f9b551ae3968159e62370b3a77736865a5d25e03656",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "simulator/research/benign_exercise_control.py",
+      "sha256": "62ff35c7ae475ab717c26c65e1630ab71de2c521cf948334c24aa9e792503e3a",
+      "classification": "exact_source_import",
+      "hash_note": null
+    },
+    {
+      "path": "simulator/research/model_b_challenger_experiments.py",
+      "sha256": "49d401ca49acd178025afd57a7c52770380eef1f3c3a3a196949714bf3d707de",
+      "classification": "exact_source_import",
+      "hash_note": null
+    }
+  ],
+  "preserved_hybrid_files": [
+    {
+      "path": "backend/app/ai/research/__init__.py",
+      "sha256": "adba8a82538f7f5a3ad098874209174b8b4a6f4159bec1e46f64ca76741af0eb"
+    },
+    {
+      "path": "backend/app/ai/research/evidence_association.py",
+      "sha256": "1a900357bb00b42466bcae2a86ad2e2c608094f188f180526a0b3df65713577e"
+    },
+    {
+      "path": "backend/app/ai/research/hybrid.py",
+      "sha256": "c146c4d258c31c75f180807fa45d3650be4abf347256d13c48c72b45738eefb0"
+    },
+    {
+      "path": "backend/app/ai/temporal_evidence.py",
+      "sha256": "c8746bdcbe2b85b55caae8f781e74918de206d812d55b0faea6b49f7d36b5c3c"
+    },
+    {
+      "path": "backend/app/schemas/hybrid.py",
+      "sha256": "475fa51382540a665111066598b5f70ada3d529349059993dfe3581d54ccf5b0"
+    },
+    {
+      "path": "backend/app/schemas/temporal.py",
+      "sha256": "803ad3ed54eb13f890e366bd61d18c1271e90029679daa52889a986a9e728194"
+    },
+    {
+      "path": "backend/examples/ai_h3_evaluation.py",
+      "sha256": "0a85fd9dcc290e2abfdb2ee8b1a015998732ef007ed2df1cf6c46d1037d7dc1b"
+    },
+    {
+      "path": "backend/examples/hybrid_evidence.py",
+      "sha256": "f2dcf971295dd78040eafee37f54b5d77172cac7302fff3a12ac482405f713c4"
+    },
+    {
+      "path": "backend/examples/hybrid_research_cases.py",
+      "sha256": "a90d9173e7f55653461bd228c28204fd03b216365f3dcf1c8f8f2a93d767a12b"
+    },
+    {
+      "path": "backend/examples/temporal_evidence.py",
+      "sha256": "d4a01558966167f536d34004b1fb62398ebb1896c1ab986a24de3744ab593d44"
+    },
+    {
+      "path": "backend/tests/integration/test_ai_h3_evaluation.py",
+      "sha256": "95628baa93c9964508f0393512e8fc667f457e4daf713ce95e5abe5959b72d7f"
+    },
+    {
+      "path": "backend/tests/integration/test_hybrid_research.py",
+      "sha256": "20db3d7b56cddddadcacf79bd315ea59747650457d37a8c74282e17ab62bb3d8"
+    },
+    {
+      "path": "backend/tests/integration/test_temporal_model_context.py",
+      "sha256": "a6607497722293759dfd2b2214cae67295be74847c427ba77df90de26ebbbe6d"
+    },
+    {
+      "path": "backend/tests/unit/test_hybrid_evidence.py",
+      "sha256": "ac844a2eaec4ae673f9b75af03688ad80ff6902c09c7913748c5b361d0999871"
+    },
+    {
+      "path": "backend/tests/unit/test_temporal_evidence.py",
+      "sha256": "16e7f2e475f4a08488ebe43607e1667b78a4e1a8a407a2b064f5a45893c21180"
+    },
+    {
+      "path": "docs/architecture/AI_H1_TEMPORAL_EVIDENCE.md",
+      "sha256": "17dd4fcab1b6e698986aecb912b0c678d96b24e35e6784b027d19d62854d614a"
+    },
+    {
+      "path": "docs/research/AI_H2_HYBRID_EVIDENCE.md",
+      "sha256": "2594a6643427a9f672e918dcc4b463a86ef8ab9066b1b5edab1a756024c4b1f9"
+    },
+    {
+      "path": "docs/research/AI_H2_SYNTHETIC_EVALUATION.json",
+      "sha256": "104f19e771a5e3c66c31f8cd73782f4632e137e57b8c60666aaa696e2c489f38"
+    },
+    {
+      "path": "docs/research/AI_H3_ABLATION.md",
+      "sha256": "b7517e0a104e328d86db604ff2bbf9866f93108a0928c709b786332349d5f91e"
+    },
+    {
+      "path": "docs/research/AI_H3_CHALLENGE_SPEC.json",
+      "sha256": "e77a8f5ed47add63aa35fcf9632d564ec7388dfafcb6519397271139e7fca6a2"
+    },
+    {
+      "path": "docs/research/AI_H3_MODEL_B_COMPATIBILITY.md",
+      "sha256": "00d3752ada7e25545ceaee291ecfd7e74c06877cf7eef778b16b49b033107e59"
+    },
+    {
+      "path": "docs/research/AI_H3_PROTOCOL.md",
+      "sha256": "00316abf6a0078283f94f094b68d1d8aba32dcb2468b47ebbc77f8e981e9fe6c"
+    },
+    {
+      "path": "docs/research/AI_H3_RESULTS.json",
+      "sha256": "00d18070c5356a8ccbef8f1922840348a5998382300c6513d0b37ef551b22256"
+    }
+  ],
+  "verification": {
+    "focused_passed": 307,
+    "focused_skipped": 7,
+    "backend_passed": 725,
+    "backend_skipped": 9,
+    "backend_deselected": 1,
+    "h3_exact_json_match": true,
+    "canonical_model_b_approval": "pending",
+    "integration_smoke_passed": 8,
+    "mypy_source_files": 106,
+    "ruff_format_files": 107
+  }
+}

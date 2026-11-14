@@ -1,0 +1,2 @@
+# Existing compatible Model A numerical/runtime resolution; no new install.
+-r requirements-model-a-integration.txt
