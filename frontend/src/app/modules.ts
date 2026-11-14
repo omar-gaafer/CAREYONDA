@@ -11,13 +11,24 @@ import {
   Database,
   Box,
   History,
-  Moon,
 } from "lucide-react";
 export const modules = [
   {
+    path: "/account",
+    title: "Authorized records",
+    short: "Authorized records",
+    icon: Users,
+  },
+  {
+    path: "/sleep-fatigue",
+    title: "Sleep/Fatigue Monitor",
+    short: "Sleep/Fatigue Monitor",
+    icon: HeartPulse,
+  },
+  {
     path: "/overview",
-    title: "Mission Command Center",
-    short: "Command Center",
+    title: "Mission Dashboard",
+    short: "Mission Dashboard",
     icon: LayoutDashboard,
     phase1: true,
   },
@@ -30,52 +41,44 @@ export const modules = [
   },
   {
     path: "/environment",
-    title: "Space Environment",
-    short: "Space Environment",
+    title: "Environmental Monitoring",
+    short: "Environmental Monitoring",
     icon: Globe2,
     phase1: true,
   },
   {
     path: "/ai-intelligence",
     phase2: true,
-    title: "AI Health Intelligence",
+    title: "AI Intelligence",
     short: "AI Intelligence",
     icon: BrainCircuit,
     detail:
-      "Precomputed synthetic M2 compatibility rankings, evidence inspection, and abstention; synthetic research evidence; local API mode runs M2 on request.",
+      "Operational model access requires verified capabilities, compatible evidence contracts and explicit research limitations.",
   },
   {
     path: "/incidents",
     phase2: true,
-    title: "Alerts & Incidents",
-    short: "Alerts & Incidents",
+    title: "Incidents",
+    short: "Incidents",
     icon: Siren,
     detail:
-      "Synthetic incident review with session-only acknowledgement, notes, and closure. No operational alert policy or medical resolution is implied.",
+      "No operational incident API or approved alert policy is exposed by the current backend.",
   },
   {
     path: "/assistant",
-    title: "CAREYONDA AI Assistant",
+    title: "AI Assistant",
     short: "AI Assistant",
     icon: MessagesSquare,
     detail:
       "No language model or conversational service is connected. This module cannot provide diagnoses, treatment instructions, or spacecraft commands.",
   },
   {
-    // Local, transient Model C self-report flow; rendered by its own route.
-    path: "/model-c",
-    title: "Sleep/Fatigue Research Monitor",
-    short: "Sleep/Fatigue Monitor",
-    icon: Moon,
-    local: true,
-  },
-  {
     path: "/crew",
-    title: "Crew Health Profiles",
-    short: "Crew Profiles",
+    title: "Crew",
+    short: "Crew",
     icon: Users,
     detail:
-      "Synthetic crew selectors are available in Phase 1. Longitudinal profiles, authorized record access, and profile persistence require future contracts.",
+      "Authorized subject context, profile retrieval and authentication are required before enabling health profiles.",
   },
   {
     path: "/analytics",
@@ -106,12 +109,12 @@ export const modules = [
     short: "Digital Twin",
     icon: Box,
     detail:
-      "No spacecraft geometry, subsystem simulation, or digital-twin service is connected. The synthetic habitat context is an observation scope only.",
+      "This route contains an illustrative reference schematic only. It is not connected to spacecraft geometry, crew profiles, telemetry, or an operational digital-twin service.",
   },
   {
     path: "/reports",
-    title: "Reports & Mission Replay",
-    short: "Reports & Replay",
+    title: "Reports",
+    short: "Reports",
     icon: History,
     detail:
       "Report generation, saved investigations, and mission replay persistence are not implemented. Evidence can be inspected in the read-only Data Explorer.",

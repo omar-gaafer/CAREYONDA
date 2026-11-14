@@ -1,8 +1,5 @@
 import { describe, expect, it } from "vitest";
-import {
-  createFixtures,
-  filterObservations,
-} from "../infrastructure/observations";
+import { createFixtures, filterObservations } from "../testing/observations";
 import { parseObservations } from "./observation";
 const sample = () => structuredClone(createFixtures()[0]);
 describe("versioned observation boundary", () => {

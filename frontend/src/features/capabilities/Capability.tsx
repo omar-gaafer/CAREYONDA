@@ -34,7 +34,7 @@ export function Capability({
             quality reasons, and traceable provenance.
           </p>
           <Link className="text-link" to="/overview">
-            Return to Mission Command Center <ArrowRight size={15} />
+            Return to Mission Dashboard <ArrowRight size={15} />
           </Link>
         </Panel>
         <Panel title="Before this capability can operate">

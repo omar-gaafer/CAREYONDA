@@ -1,30 +1,19 @@
-import { ModelAPanel } from "../model-a/ModelAPanel";
 import type { Observation } from "../../contracts/observation";
 import { Badge, PageIntro, Panel, Trend } from "../../shared/ui";
-export function Environment({
-  rows,
-  mode = "fixture",
-  modelAApiUrl,
-}: {
-  rows: Observation[];
-  mode?: "fixture" | "api";
-  modelAApiUrl?: string;
-}) {
+export function Environment({ rows }: { rows: Observation[] }) {
   return (
     <>
       <PageIntro
         eyebrow="HABITAT / ENVIRONMENTAL EVIDENCE"
-        title="Space Environment"
+        title="Environmental Monitoring"
       >
         Explore synthetic habitat measurements with explicit units and quality
         limitations.
       </PageIntro>
       <div className="notice">
         <Badge>SYNTHETIC ONLY</Badge> All plotted series are generated fixtures.
-        No NASA measurements are plotted in these charts. Model A context
-        appears separately below.
+        No NASA measurements are loaded.
       </div>
-      <ModelAPanel key={mode} mode={mode} apiUrl={modelAApiUrl} />
       <div className="two-columns">
         <Trend rows={rows} metric="cabin_co2_concentration" />
         <Trend rows={rows} metric="cabin_co2_partial_pressure" />

@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { Link, useSearchParams } from "react-router-dom";
 import type { InvestigationCase } from "../../contracts/investigation";
-import { PageIntro, Panel, Badge, State, utc } from "../../shared/ui";
-import { crew } from "../../infrastructure/observations";
+import { PageIntro, Panel, Badge, State, Toast, utc } from "../../shared/ui";
+import { crew } from "../../testing/observations";
 import {
   EvidenceDetailPanel,
   EvidenceReference,
@@ -20,6 +20,11 @@ export function Incidents({
   reviews: Record<string, IncidentReview>;
   onReview: (id: string, next: IncidentReview) => void;
 }) {
+  const [feedback, setFeedback] = useState<string | null>(null);
+  const updateReview = (id: string, next: IncidentReview) => {
+    onReview(id, next);
+    setFeedback("Session review updated. Not saved to a server.");
+  };
   const [params, setParams] = useSearchParams(),
     [filter, setFilter] = useState("all"),
     [draft, setDraft] = useState(""),
@@ -44,10 +49,10 @@ export function Incidents({
   const review = item ? getReview(item.result.investigation_id) : null;
   return (
     <>
-      <PageIntro
-        eyebrow="SYNTHETIC / HUMAN REVIEW WORKFLOW"
-        title="Alerts & Incidents"
-      >
+      {feedback && (
+        <Toast message={feedback} onDismiss={() => setFeedback(null)} />
+      )}
+      <PageIntro eyebrow="SYNTHETIC / HUMAN REVIEW WORKFLOW" title="Incidents">
         Review synthetic incident annotations and associated precomputed
         investigations.
       </PageIntro>
@@ -130,7 +135,7 @@ export function Incidents({
                 {review.status === "open" && (
                   <button
                     onClick={() =>
-                      onReview(
+                      updateReview(
                         item.result.investigation_id,
                         reviewIncident(review, { type: "acknowledge" }),
                       )
@@ -142,7 +147,7 @@ export function Incidents({
                 {review.status !== "closed" ? (
                   <button
                     onClick={() =>
-                      onReview(
+                      updateReview(
                         item.result.investigation_id,
                         reviewIncident(review, { type: "close" }),
                       )
@@ -153,7 +158,7 @@ export function Incidents({
                 ) : (
                   <button
                     onClick={() =>
-                      onReview(
+                      updateReview(
                         item.result.investigation_id,
                         reviewIncident(review, { type: "reopen" }),
                       )
@@ -176,7 +181,7 @@ export function Incidents({
               <form
                 onSubmit={(e) => {
                   e.preventDefault();
-                  onReview(
+                  updateReview(
                     item.result.investigation_id,
                     reviewIncident(review, {
                       type: "note",

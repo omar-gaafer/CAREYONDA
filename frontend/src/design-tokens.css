@@ -1,0 +1,27 @@
+/* CAREYONDA v2: offline, system-font scientific workspace. */
+:root {
+  --background: #080a09;
+  --surface: #141716;
+  --surface-raised: #1b201d;
+  --surface-hover: #242b26;
+  --text-primary: #f5f7f5;
+  --text-secondary: #8e9690;
+  --accent: #a3ff5f;
+  --accent-surface: #1c2b16;
+  --border: #292f2b;
+  --control-border: #6b766e;
+  --warning: #f2c781;
+  --warning-surface: #302719;
+  --error: #ffaaa6;
+  --error-surface: #351e20;
+  --critical: #ffc4dc;
+  --critical-surface: #381b2a;
+  --radius: 12px;
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --space-12: 48px;
+}

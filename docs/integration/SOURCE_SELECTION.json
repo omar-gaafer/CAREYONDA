@@ -1,0 +1,316 @@
+[
+  {
+    "path": "frontend/README.md",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "d8ef9e5e6927cb335f1e796534015e1aeac948db47c264c9046ea71ead2c290e"
+  },
+  {
+    "path": "frontend/index.html",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "2f1811933271ae70eb081ebbd21bff7499739a7c63446469077fee71951e0d9f"
+  },
+  {
+    "path": "frontend/package.json",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "055098a996d0cffbfb511ab38332d132f3df42e671e487a490f7ef5b246c6945"
+  },
+  {
+    "path": "frontend/public/brand/careyonda-icon-transparent.png",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "906e0fbf4ee2cc6b6d55df2c724293e812bba05e7a3b2b9baebac1442855b29b"
+  },
+  {
+    "path": "frontend/public/brand/careyonda-logo-transparent.png",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "a212fd219909bfd561d5fa1ffc0b8c752dd7ffd6c01beac0058c7c06c5fcc2df"
+  },
+  {
+    "path": "frontend/src/app/App.interactions.test.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "c75b8bb7cd69db22dbe5c48a2a2dbadc924d447a7564ab04118c658cf238ea07"
+  },
+  {
+    "path": "frontend/src/app/App.test.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "b88430a94a62eea9548c64258121497c3c08bc8bc18b7782d0c81192d1883a17"
+  },
+  {
+    "path": "frontend/src/app/App.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "5e5c59a232662577408c21a6f0396683d58cb40dd21e3adc70c8870e2221e6d6"
+  },
+  {
+    "path": "frontend/src/app/ConnectedWorkspace.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "12adbe45550cbcc03f42ac12a4fd9cde52d8fed44f1d14c6f55ef6807e6eb4a1"
+  },
+  {
+    "path": "frontend/src/app/moduleAccess.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "73ab0db0f4fd7c7ef6b80e5c4667d1ad99dfc15eeb1211fa0c46a470d4af04f4"
+  },
+  {
+    "path": "frontend/src/app/modules.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "a4ee32428035bf98c76bb261cd8c9c33f813737226e0e9ab014a857656e035aa"
+  },
+  {
+    "path": "frontend/src/app/operational.test.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "227f1480d759996606507171198ffb5f421fcacd2efd56e2e2471b91d45cdfa6"
+  },
+  {
+    "path": "frontend/src/app/redesign.test.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "85d7191f9f211cf203495e8fed720305ac5bc70f41729deb80087b163378c2b3"
+  },
+  {
+    "path": "frontend/src/app/useCapabilities.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "22c2382b6aea5a6d3ee95341d285cc180fda9506310fa5e445002ff17c60f1d8"
+  },
+  {
+    "path": "frontend/src/contracts/api.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "f55085ad341e4dd04afab4474d51f113e1f421e16dab7ff8545c06c6f522bbc1"
+  },
+  {
+    "path": "frontend/src/contracts/capabilities.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "faacf63a9b8be74d5fd4ce42f72cbe7780eab5eb4ad6bc10fb46f34b9e81ee11"
+  },
+  {
+    "path": "frontend/src/contracts/investigation.test.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "9b07fe78987fbb63aacba1db15b8e21f0e73b25418f87a72c334ebecb4b04513"
+  },
+  {
+    "path": "frontend/src/contracts/investigation.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "9f42e4cb893cf274925a60d1a0e78c05bd83aa7c9624dc7ea3d9bc2f0dedda8d"
+  },
+  {
+    "path": "frontend/src/contracts/observation.test.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "d914319a151d19fd3fac32697c83dbdbe586aee72c30d88f8c25db872f7fa25f"
+  },
+  {
+    "path": "frontend/src/contracts/observation.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "a894f3c870df13cc1bb4f5b8bcd9e2751c8c9edb42a0060e7f22d7eb463ae98a"
+  },
+  {
+    "path": "frontend/src/design-tokens.css",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "9d85ddcbe941f127ae5e7bb9010330163c709de3a32dc156e2116f7923846d3a"
+  },
+  {
+    "path": "frontend/src/features/capabilities/Capability.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "7e30aa7fa685d7e100ffdb10c4f47bd1a88e7bf6549dab00242c71350f33ce1a"
+  },
+  {
+    "path": "frontend/src/features/digital-twin/SpacecraftTwin.test.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "542ea2085d3f5ec0bd99f38315cc498ec67ad4a8cdd42720f90d078212c4dcc1"
+  },
+  {
+    "path": "frontend/src/features/digital-twin/SpacecraftTwin.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "3e477859153ef67d6775f89a5d2b608ba0180929554b9e5af1c46aede6c3c648"
+  },
+  {
+    "path": "frontend/src/features/environment/Environment.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "e9ef8c8dbf3a13e63318fd2a5603686cb3c89d4ecd4568450414a1b81f5ef00a"
+  },
+  {
+    "path": "frontend/src/features/explorer/Explorer.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "e6c4f5910b97b090016337274ccfce5fd710e4bd923321a8a6df78aa5f26e01f"
+  },
+  {
+    "path": "frontend/src/features/health/Health.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "0ed601de54d05d67c2b2f23007349ee3fa75ddb653d04a84740a007273154640"
+  },
+  {
+    "path": "frontend/src/features/incidents/Incidents.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "d61ca049399f9170c0a7057bc035a22e9e8eef6e88b1f423537ccfdaf7436f74"
+  },
+  {
+    "path": "frontend/src/features/incidents/application.test.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "66ff44e28018f82d267375f5dac2ea3142a1c40dde58d943797d680f5ffe2ffa"
+  },
+  {
+    "path": "frontend/src/features/incidents/application.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "568fdcb234d3a930522b0c57ac66e030b8f057b1f4e71e584fcf3a32d9e25585"
+  },
+  {
+    "path": "frontend/src/features/investigations/Intelligence.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "040fe3688a47b04b4e0be56f8eb027a344e78ce25d731ce359cc6161fc65ad45"
+  },
+  {
+    "path": "frontend/src/features/investigations/application.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "fcb6709a36ffab5baf3380b285112811b86fb5ac4f02d068a708f9e341987632"
+  },
+  {
+    "path": "frontend/src/features/investigations/phase2.test.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "ec5adfc9b972204f237f2ad517aba59627d827ad00d1d504b890f132f1d30225"
+  },
+  {
+    "path": "frontend/src/features/overview/Overview.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "94751d393e12afb1fda008c33643575648f5e9f4a8413fc3776b29b8cae53856"
+  },
+  {
+    "path": "frontend/src/infrastructure/capabilities.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "5abf5f6e3dea73272660d8582a274c657624f0b44f0ade78718a2bf193811587"
+  },
+  {
+    "path": "frontend/src/infrastructure/fixtures/investigations.json",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "196687d77501cea755585378a0af3eb44863f19694c3864ffd8c96940e15e6f9"
+  },
+  {
+    "path": "frontend/src/infrastructure/http.test.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "97a92bb4d2ad33d9c0f32ab3ec1ed10cf692e7e54612bf07bacc2c05b482172a"
+  },
+  {
+    "path": "frontend/src/infrastructure/http.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "8e20da8be51859e64babb4627bdbf93096e033baeede9418df1cbf31f99ae141"
+  },
+  {
+    "path": "frontend/src/infrastructure/investigations.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "2fa257961cfa35d7ae2886dc11d8c7d719f032f527b211a735b298138425d21f"
+  },
+  {
+    "path": "frontend/src/infrastructure/observations.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "e2f3dce698e3835fdbcca4f4d5a4d43aa799dc511e1cf37458c80a2b504d5381"
+  },
+  {
+    "path": "frontend/src/main.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "eb27ef4d9b29bddf599590df599d52e51e2d183375f2fc3f88dba3442cda3dde"
+  },
+  {
+    "path": "frontend/src/shared/BrandLogo.test.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "a5b3020d0af049480fe1309994f2b8a944b976dded0aaeaef2e555edbd8119ed"
+  },
+  {
+    "path": "frontend/src/shared/BrandLogo.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "1ad6cfc6de1912309625ef230088e177691df2ffd257a57f47e1c11a1bb1b9f2"
+  },
+  {
+    "path": "frontend/src/shared/Drawer.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "44d3902c4286db146693896f920ee3c4a41991e89ca22733a0f2cf4d965cdf81"
+  },
+  {
+    "path": "frontend/src/shared/investigation/components.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "d72c65bd6099aeaadc7460030fd84aef8b02c35f132c976fae8023cf1f2b9eec"
+  },
+  {
+    "path": "frontend/src/shared/ui.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "2569b394136c87cd3136553465004666e0946d03c8b6cbdae315cd21426057fa"
+  },
+  {
+    "path": "frontend/src/styles.css",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "ab9f669e6979a1271dc5dd5e06a4223dd7fc60229d5b8e95b5288f3ced569c33"
+  },
+  {
+    "path": "frontend/src/test-setup.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "f935dcd38f64b87dfee3505cb429a10c4f1bd9cd2ccea5509ec8caec43c04a25"
+  },
+  {
+    "path": "frontend/src/testing/ConnectedResearchWorkspace.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "b9bbf2687d99e6ee41f3c4ed5044c2e995262aee95274194321cb8e5b9d694c0"
+  },
+  {
+    "path": "frontend/src/testing/ResearchWorkspace.tsx",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "670cc71e803e1ff4a087bc237aac04773bb9af08e34a6dc683ee380965e3712b"
+  },
+  {
+    "path": "frontend/src/testing/investigations.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "06ea7035d7ebd834e563d103ebc788b5ea1f696bb1aac7c597ce46000be2eb32"
+  },
+  {
+    "path": "frontend/src/testing/observations.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "c062acd55d499d98776352f54f63f5c5b8ec497163db71cbd04f1028a6244909"
+  },
+  {
+    "path": "frontend/src/vite-env.d.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "65996936fbb042915f7b74a200fcdde7e410f32a669b1ab9597cfaa4b0faddb5"
+  },
+  {
+    "path": "frontend/vite.config.ts",
+    "source": "original reviewed frontend snapshot based on a292941",
+    "sha256": "fa2343bc9e27002ed538ea902e8aa31cdd33d1bd0c4e3952654d949e75f47f5c"
+  },
+  {
+    "path": "backend/app/real_data_main.py",
+    "source": "protected uncommitted real-data snapshot",
+    "sha256": "f77ef34c4b0caeb8b3ef4708486a7a545186de6e6266c01b7932e10917a76ba0"
+  },
+  {
+    "path": "backend/app/storage/nasa_replay_catalog.py",
+    "source": "protected uncommitted real-data snapshot",
+    "sha256": "ba6b70803cc01b2b498f987da2e51d75078f7e2a7116a47a0037675c0d99ff39"
+  },
+  {
+    "path": "backend/tests/integration/test_local_replay_catalog.py",
+    "source": "protected uncommitted real-data snapshot",
+    "sha256": "bfe8a5cf8291d7f737942d1e273e8363a9f51a20b0897fe5e712453d2d9a6acd"
+  },
+  {
+    "path": "docs/research/REAL_DATA_DEMO.md",
+    "source": "protected uncommitted real-data snapshot",
+    "sha256": "cf997c45b79a77380ce693bcfd70552f3a3dcae90d5006985d9d345504162c8a"
+  },
+  {
+    "path": "docs/database/DATA_DICTIONARY.md",
+    "source": "7d16b6a"
+  },
+  {
+    "path": "docs/database/DESIGN_REVIEW_REPORT.md",
+    "source": "7d16b6a"
+  },
+  {
+    "path": "docs/database/ERD.md",
+    "source": "7d16b6a"
+  },
+  {
+    "path": "docs/database/RELATIONSHIPS.md",
+    "source": "7d16b6a"
+  },
+  {
+    "path": "supabase/migrations/20261114120000_initial_schema.sql",
+    "source": "7d16b6a"
+  },
+  {
+    "path": "supabase/verify_initial_schema.sql",
+    "source": "7d16b6a"
+  }
+]

@@ -1,3 +1,4 @@
+import { Drawer } from "../../shared/Drawer";
 import { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import { metrics, type Observation } from "../../contracts/observation";
@@ -13,12 +14,17 @@ export function Explorer({ rows }: { rows: Observation[] }) {
   const [params, setParams] = useSearchParams();
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [page, setPage] = useState(0);
+  const [search, setSearch] = useState("");
   const metric = params.get("metric") ?? "all",
     quality = params.get("quality") ?? "all";
   const filtered = rows
     .filter(
       (o) =>
         (metric === "all" || o.metric === metric) &&
+        (!search.trim() ||
+          `${o.observation_id} ${o.metric} ${o.provenance.source_id}`
+            .toLowerCase()
+            .includes(search.trim().toLowerCase())) &&
         (quality === "all" ||
           (quality === "limited"
             ? o.quality.status !== "valid"
@@ -51,6 +57,19 @@ export function Explorer({ rows }: { rows: Observation[] }) {
         provenance.
       </PageIntro>
       <div className="filter-bar">
+        <label className="search-field">
+          Search evidence
+          <input
+            type="search"
+            placeholder="Evidence ID, metric or source"
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value);
+              setPage(0);
+              setSelectedId(null);
+            }}
+          />
+        </label>
         <label>
           Metric
           <select
@@ -94,7 +113,12 @@ export function Explorer({ rows }: { rows: Observation[] }) {
           </State>
         ) : (
           <>
-            <div className="table-scroll">
+            <div
+              className="table-scroll"
+              tabIndex={0}
+              role="region"
+              aria-label="Observation evidence table"
+            >
               <table>
                 <thead>
                   <tr>
@@ -168,63 +192,67 @@ export function Explorer({ rows }: { rows: Observation[] }) {
         )}
       </Panel>
       {selected && (
-        <section
-          className="evidence-detail"
-          aria-label="Evidence details"
-          aria-live="polite"
-        >
-          <Panel
-            title="Evidence & provenance"
-            action={
-              <button onClick={() => setSelectedId(null)}>Close details</button>
-            }
+        <Drawer label="Evidence inspection" onClose={() => setSelectedId(null)}>
+          <section
+            className="evidence-detail"
+            aria-label="Evidence details"
+            aria-live="polite"
           >
-            <Badge>SYNTHETIC</Badge>
-            <dl>
-              <dt>Evidence identifier</dt>
-              <dd>{selected.observation_id}</dd>
-              <dt>Event time</dt>
-              <dd>{utc(selected.timestamp)}</dd>
-              <dt>Ingestion time</dt>
-              <dd>
-                {selected.ingested_at
-                  ? utc(selected.ingested_at)
-                  : "Not supplied"}
-              </dd>
-              <dt>Measurement</dt>
-              <dd>
-                <ObservationValue observation={selected} />
-              </dd>
-              {selected.measurement.kind === "unavailable" && (
-                <>
-                  <dt>Absence reason</dt>
-                  <dd>{selected.measurement.reason}</dd>
-                </>
-              )}
-              <dt>Quality reasons</dt>
-              <dd>
-                {selected.quality.reason_codes.join(", ") ||
-                  "None reported; not a safety determination"}
-              </dd>
-              <dt>Origin / source</dt>
-              <dd>
-                {selected.provenance.origin} / {selected.provenance.source_id}
-              </dd>
-              <dt>Generation method</dt>
-              <dd>{selected.provenance.method}</dd>
-              <dt>Generator / seed</dt>
-              <dd>
-                {selected.provenance.simulation?.generator_version ??
-                  "Not applicable"}{" "}
-                / {selected.provenance.simulation?.seed ?? "Not applicable"}
-              </dd>
-              <dt>Parent observations</dt>
-              <dd>None · original synthetic fixture</dd>
-              <dt>Contract version</dt>
-              <dd>{selected.schema_version}</dd>
-            </dl>
-          </Panel>
-        </section>
+            <Panel
+              title="Evidence & provenance"
+              action={
+                <button onClick={() => setSelectedId(null)}>
+                  Close details
+                </button>
+              }
+            >
+              <Badge>SYNTHETIC</Badge>
+              <dl>
+                <dt>Evidence identifier</dt>
+                <dd>{selected.observation_id}</dd>
+                <dt>Event time</dt>
+                <dd>{utc(selected.timestamp)}</dd>
+                <dt>Ingestion time</dt>
+                <dd>
+                  {selected.ingested_at
+                    ? utc(selected.ingested_at)
+                    : "Not supplied"}
+                </dd>
+                <dt>Measurement</dt>
+                <dd>
+                  <ObservationValue observation={selected} />
+                </dd>
+                {selected.measurement.kind === "unavailable" && (
+                  <>
+                    <dt>Absence reason</dt>
+                    <dd>{selected.measurement.reason}</dd>
+                  </>
+                )}
+                <dt>Quality reasons</dt>
+                <dd>
+                  {selected.quality.reason_codes.join(", ") ||
+                    "None reported; not a safety determination"}
+                </dd>
+                <dt>Origin / source</dt>
+                <dd>
+                  {selected.provenance.origin} / {selected.provenance.source_id}
+                </dd>
+                <dt>Generation method</dt>
+                <dd>{selected.provenance.method}</dd>
+                <dt>Generator / seed</dt>
+                <dd>
+                  {selected.provenance.simulation?.generator_version ??
+                    "Not applicable"}{" "}
+                  / {selected.provenance.simulation?.seed ?? "Not applicable"}
+                </dd>
+                <dt>Parent observations</dt>
+                <dd>None · original synthetic fixture</dd>
+                <dt>Contract version</dt>
+                <dd>{selected.schema_version}</dd>
+              </dl>
+            </Panel>
+          </section>
+        </Drawer>
       )}
     </>
   );

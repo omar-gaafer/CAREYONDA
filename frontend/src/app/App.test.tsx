@@ -8,12 +8,12 @@ import {
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it } from "vitest";
-import { App } from "./App";
+import { App } from "../testing/ResearchWorkspace";
 import { modules } from "./modules";
 import {
   createFixtures,
   type ObservationRepository,
-} from "../infrastructure/observations";
+} from "../testing/observations";
 function mount(path = "/", repository?: ObservationRepository) {
   return render(
     <MemoryRouter initialEntries={[path]}>
@@ -30,7 +30,7 @@ describe("mission workspace", () => {
     expect(
       screen.getByText(/Deterministic synthetic demonstration/),
     ).toBeInTheDocument();
-    if (!m.phase1 && !m.phase2 && !m.local)
+    if (!m.phase1 && !m.phase2)
       expect(
         screen.getByText("NOT IMPLEMENTED IN PHASE 1"),
       ).toBeInTheDocument();
@@ -39,7 +39,7 @@ describe("mission workspace", () => {
     mount();
     await screen.findByRole("heading", {
       level: 1,
-      name: "Mission Command Center",
+      name: "Mission Dashboard",
     });
     await userEvent.click(screen.getByRole("link", { name: /Data Explorer/ }));
     expect(
@@ -94,7 +94,7 @@ describe("mission workspace", () => {
     expect(
       await screen.findByRole("heading", {
         level: 1,
-        name: "Mission Command Center",
+        name: "Mission Dashboard",
       }),
     ).toBeInTheDocument();
   });
@@ -168,7 +168,7 @@ describe("mission workspace", () => {
   it("closes the mobile navigation with Escape and restores its trigger focus", async () => {
     mount("/assistant");
     await screen.findByRole("heading", {
-      name: "CAREYONDA AI Assistant",
+      name: "AI Assistant",
       level: 1,
     });
     await userEvent.click(
@@ -186,7 +186,7 @@ describe("mission workspace", () => {
   it("supports keyboard sidebar navigation and collapse controls", async () => {
     mount("/assistant");
     await screen.findByRole("heading", {
-      name: "CAREYONDA AI Assistant",
+      name: "AI Assistant",
       level: 1,
     });
     const toggle = screen.getByRole("button", { name: "Collapse sidebar" });

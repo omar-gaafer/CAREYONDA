@@ -1,77 +1,97 @@
-# CAREYONDA frontend — Phases 1–3
+# CAREYONDA frontend — API-only operational workspace
 
-Local, offline-capable research demonstration in the existing CAREYONDA repository. All displayed observations and crew identities are synthetic. Fixture mode runs locally without a backend; API mode connects to the configured synthetic local M2 service. No trained model, clinical assessment, or spacecraft command is connected.
+The production frontend discovers the existing local backend's capabilities and
+fails closed for unsupported data sources. It displays **no generated telemetry,
+fictional crew, demo incidents or precomputed model outputs**. The current backend
+advertises synthetic-only observations/M2 and no authentication, so operational
+monitoring and real-person health access remain unavailable. All twelve routes show
+explicit capability, connection, source and authorization states.
 
-## Runtime and setup
+The official navy/teal brand assets, black/white/neon-green design, responsive sidebar,
+keyboard navigation and route titles are preserved. Nothing is stored in localStorage,
+sessionStorage, IndexedDB or cookies. No runtime CDN, telemetry, cloud model or
+external dependency download is used.
 
-Node.js **22.12–24.x** and npm are supported by the declared engine range. Development verification uses Node 24.21.0 and npm 12.2.0. Dependencies use compatible major-version ranges; `package-lock.json` pins the resolved graph and integrity hashes. Use `npm ci` to reproduce it.
+## Runtime and commands
 
-From the repository root:
+Use Node **22.12–24.x** (verified on Node 24.21.0). The existing `package-lock.json`
+pins dependencies. Provision dependencies before offline execution; this audit did
+not install or change dependency versions.
 
 ```sh
 cd frontend
-npm ci
-npm run dev
-```
-
-Open the printed local address (normally http://127.0.0.1:5173). Direct navigation to all twelve application routes works with Vite. For production, configure the local static host to return `index.html` for application paths. Do not rewrite missing asset requests as HTML.
-
-```sh
+npm ci       # installation step only when provisioning is authorized
+npm run dev -- --port 5173 --strictPort
 npm run typecheck
 npm test
+npm run format:check
 npm run build
 ```
 
-The build writes ignored `dist/` artifacts. Dependencies and build tooling must be provisioned before offline execution. Installation needs registry access unless the required package cache or equivalent offline bundle has been supplied. No runtime CDN, external font, telemetry, network request, or runtime dependency download is used. Keep serving the bundled application from a local HTTP server when disconnected; this phase does not install a service worker or support cold launch without a running local server.
+`npm run build` performs strict TypeScript/build checks and production-bundle review.
+It writes ignored `dist/` artifacts and a relative `production-modules.json` inventory.
+Build fails if test harnesses/fixture modules enter the runtime graph; the post-build
+review additionally rejects retained demo presentations and fixture sentinel strings.
+Re-run the artifact review with `node scripts/verify-production-bundle.mjs`.
 
-## Modules
+Serve locally from a documented backend CORS origin, normally
+`http://127.0.0.1:5173` or preview port `4173`. Production static hosting must return
+`index.html` for all application routes, but not for missing assets. No service worker
+or cold-launch cache is installed. Backend disconnection yields explicit unavailable
+views, never a fixture fallback.
 
-Functional Phase 1 modules: `/overview`, `/health`, `/environment`, `/data-explorer`.
+## Backend connection and safety
 
-Phase 2 workspaces: `/ai-intelligence` and `/incidents`.
+`VITE_API_URL` defaults to `http://127.0.0.1:8000`; provision another approved loopback
+origin via `.env.local` or the build environment. Only credential-free HTTP origins on
+`127.0.0.1`/`localhost` are accepted, without path/query/fragment. This is public build
+configuration, not secret storage. Start the existing backend according to
+[LOCAL_API_V1.md](../docs/api/LOCAL_API_V1.md).
 
-Capability-status views: `/assistant`, `/crew`, `/analytics`, `/recommendations`, `/digital-twin`, `/reports`. These explicitly describe missing capabilities. `/` redirects to `/overview`; unknown routes have an honest recovery view.
+Production requests only GET `/api/v1/capabilities`, with no credentials, no-store,
+redirect refusal and a ten-second timeout. It validates contract version 1.0.0,
+capability names/availability, `medically_validated=false` and `none_local_only` auth.
+The UI distinguishes available components from simulation-only research components
+and absent/unimplemented capabilities. A component reported available does not
+establish authorization, measured-source compatibility or clinical validation.
 
-## Architecture
+Refresh is explicit; there is no continuous-connectivity claim. Retrieval time is
+browser metadata-fetch time, not acquisition time. A failed refresh invalidates stale
+metadata. There is no invented observation freshness threshold. Crew/time controls
+are disabled until supported authorized context and observations exist.
 
-- `src/app/`: shell, composition through an injected repository, route catalogue and shared crew/time context.
-- `src/features/`: overview, health, environment, explorer, and capability-status presentations.
-- `src/contracts/`: strict runtime boundary and inferred TypeScript types, informed by `backend/app/schemas/observation.py`.
-- `src/infrastructure/`: deterministic fixture repository and event-time filtering. Future HTTP integration implements `ObservationRepository`; no URL or endpoint is assumed.
-- `src/shared/`: reusable evidence values, quality badges, panels, chart rendering, UTC formatting, source labels, and system states.
+## Routes and architecture
 
-The Phase 1 boundary supports six numeric metrics: heart rate, reported sleep, CO₂ concentration, CO₂ partial pressure, temperature, and relative humidity. Other metric identifiers fail explicitly. Source origins, scope variants, provenance rules, quality/absence consistency, canonical units, timestamps, and schema versions are validated. This is a supported subset, not a complete port of every backend contract. Future API adapters must be reviewed against the actual server contract. Backend validation remains authoritative. No safety, clinical, or AI reasoning is duplicated in the browser.
+All twelve approved paths remain: `/overview`, `/health`, `/environment`,
+`/ai-intelligence`, `/incidents`, `/assistant`, `/crew`, `/analytics`,
+`/recommendations`, `/data-explorer`, `/digital-twin`, `/reports`.
+`/` redirects to `/overview`; unknown paths show an unavailable route view.
 
-## Synthetic fixture semantics
+- `src/app/`: production shell, capability discovery state, explicit module gates,
+  API-only composition and route metadata.
+- `src/contracts/capabilities.ts`, `src/infrastructure/capabilities.ts`: strict
+  current API capability boundary and safe read-only client.
+- Existing observation/M2 contracts and HTTP research adapter are preserved without
+  expanding their synthetic-only source envelope to measured records.
+- `src/testing/`: isolated deterministic fixtures and historical research workspaces.
+  These are imported by tests only; no production route or environment switch exposes
+  them. The retained research feature files are also outside the production graph.
+- `src/shared/`: reusable layout, official branding, UTC formatting and existing
+  tested evidence/chart widgets. No source values or diagnoses are invented.
 
-The dataset has 480 original observations over 48 half-hour timestamps, ending **2026-11-13 12:00 UTC**, for three fictional crew members and one habitat. It is generated by fixed arithmetic functions; seed 42 is identifying metadata, not a random-number generator. Fixture generator version is `1.0.0`. It is independent of the Python simulator and must not be presented as its output.
+## Tests, limitations and audit
 
-Event time and ingestion time are retained separately (12-second synthetic ingestion delay). Filters are inclusive of the window's lower bound and the fixed demonstration end time. Mission elapsed time is frozen at 12 days 12 hours, not wall-clock operational time. Reported sleep values are repeated synthetic reports, not independent measured sleep episodes. The overview's event log is a fixed demonstration annotation, not a filtered incident service.
+Tests distinguish API-only operational behavior from preserved research regressions.
+They cover all routes, strict capability validation, network/permission/schema
+failures, missing capabilities, stale refresh/retry, empty pages, synthetic-only
+transport limitations, no browser persistence, original evidence/provenance,
+chart gaps, M2 abstention/safety, official branding and keyboard focus.
+Browser acceptance exercises the production build against the existing local API.
+No successful measured-data or fitted-model execution is claimed.
 
-A missing heart-rate sample, a suspect CO₂ sample, and a physically invalid humidity value exercise quality handling. Charts omit non-valid values without connecting gaps. Data Explorer retains original measurements, absence reasons, quality reasons, and evidence IDs. A valid software-quality flag is not a clinical safety determination.
-
-CO₂ ppm and Pa are separate illustrative series with no conversion or paired-measurement claim. NASA reference notes summarize repository documentation only; NASA datasets are neither bundled nor fetched. Radiation is not plotted because this phase has no radiation fixture and the documented source limitations must remain visible.
-
-## Accessibility, privacy, and tests
-
-Semantic navigation, active-route announcements, skip link, visible keyboard focus, labeled selectors, keyboard buttons, and reduced-motion styling are provided. Chart evidence is also accessible through the Data Explorer table. Responsive layouts collapse to a mobile navigation drawer and horizontally scrollable evidence table. Basic desktop/mobile Chrome rendering checks are recorded in [the implementation report](IMPLEMENTATION_REPORT.md). Full browser interaction and assistive-technology accessibility still require manual verification.
-
-Nothing is written to localStorage, sessionStorage, IndexedDB, or cookies. No secrets, identifiable health records, private mission data, or source payloads are logged. Only metric and quality filters enter the URL. The offline banner uses browser connectivity status, not a backend reachability check.
-
-Tests use deterministic synthetic data and jsdom. They cover all routes, root redirection, keyboard navigation, filtering, provenance, invalid and missing evidence, strict contracts, duplicate IDs, units, timezone/ingestion semantics, offline behavior, loading, safe errors, and retry. ResizeObserver and container dimensions are substituted because jsdom has no real layout. These tests do not establish browser rendering quality or medical suitability.
-
-Implementation details, verification results, known limitations, and the next task are recorded in [IMPLEMENTATION_REPORT.md](IMPLEMENTATION_REPORT.md).
-
-## Phase 2: synthetic investigations and incidents
-
-Open `/ai-intelligence` for original precomputed M2 compatibility results, explanations, supporting/contradicting/missing evidence, complete lineage, clickable observation inspection, uncertainty, safety status and a labeled synthetic timeline. Four fixtures exercise selected, insufficient, ambiguous and conflicting outcomes. Shared crew selection filters both new workspaces; archived evidence keeps its exact windows instead of being trimmed by the global observation-time filter.
-
-Open `/incidents` to acknowledge a synthetic incident, record a bounded manual note, close the review workflow or reopen it. Status and notes remain in React memory across navigation and disappear on reload. They are not persisted or sent anywhere. Closing a review is not medical resolution and never changes `not_evaluated` safety status.
-
-The investigation repository is injected separately from Phase 1 observations. It loads and validates local JSON; no HTTP endpoint, backend service or live AI is connected. Observation validation now also supports the existing backend fatigue, exercise and communication-delay contracts. No new dependencies were needed.
-
-Read [the backend-to-frontend mapping](PHASE2_CONTRACT_MAPPING.md) for exact wire fields, semantic checks, fixture regeneration and compatibility limits, and [the Phase 2 report](PHASE2_IMPLEMENTATION_REPORT.md) for verification.
-
-## Phase 3 local API
-
-The application now supports explicit **Offline fixtures** and **Local API · synthetic** modes. The local API can execute the unchanged M2 engine on configured synthetic contexts. No authentication, clinical validation or persistent retrieval is claimed. Earlier Phase 1/2 sections describe their original fixture behavior. Follow [PHASE3_INTEGRATION.md](PHASE3_INTEGRATION.md) for startup, mode switching, contracts and limitations.
+Read the [full dependency inventory](FRONTEND_DATA_AUDIT.md),
+[model readiness and backend blockers](MODEL_READINESS.md), and
+[implementation/verification report](OPERATIONAL_VERIFICATION_REPORT.md).
+The recorded [pre-change Git status](audit/working-tree-before.txt) identifies preserved
+uncommitted work. Phase 1/2/3 and UI/branding reports are historical records; their
+fixture-mode startup instructions no longer describe the production entry point.

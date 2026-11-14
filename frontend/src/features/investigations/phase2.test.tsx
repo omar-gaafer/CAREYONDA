@@ -2,7 +2,7 @@ import { render, screen, within } from "@testing-library/react";
 import userEvent from "@testing-library/user-event";
 import { MemoryRouter } from "react-router-dom";
 import { describe, expect, it } from "vitest";
-import { App } from "../../app/App";
+import { App } from "../../testing/ResearchWorkspace";
 import data from "../../infrastructure/fixtures/investigations.json";
 import type { InvestigationRepository } from "../../infrastructure/investigations";
 const mount = (
@@ -18,11 +18,15 @@ describe("Phase 2 research workspaces", () => {
   it("renders ranked compatibility, safety and traceable clickable evidence", async () => {
     mount();
     await screen.findByRole("heading", {
-      name: "AI Health Intelligence",
+      name: "AI Intelligence",
       level: 1,
     });
     expect(screen.getByText("PATTERN SELECTED")).toBeInTheDocument();
-    expect(screen.getByText("not_evaluated")).toBeInTheDocument();
+    expect(screen.getByText("not_evaluated")).toBeVisible();
+    expect(screen.getByText("SYNTHETIC INVESTIGATIONS")).toBeVisible();
+    expect(
+      screen.getByText("About this analysis").closest("details"),
+    ).not.toHaveAttribute("open");
     expect(screen.getByText("reference-rules-1.0.0")).toBeInTheDocument();
     expect(screen.getByText("SELECTED PATTERN")).toBeInTheDocument();
     const oid =
@@ -58,7 +62,7 @@ describe("Phase 2 research workspaces", () => {
   it("synchronizes crew context and exposes complete missing evidence", async () => {
     mount();
     await screen.findByRole("heading", {
-      name: "AI Health Intelligence",
+      name: "AI Intelligence",
       level: 1,
     });
     await userEvent.selectOptions(screen.getByLabelText("Crew"), "crew-02");
@@ -71,7 +75,7 @@ describe("Phase 2 research workspaces", () => {
   it("retains workflow acknowledgement, notes, closure and reopening across navigation", async () => {
     mount("/incidents");
     await screen.findByRole("heading", {
-      name: "Alerts & Incidents",
+      name: "Incidents",
       level: 1,
     });
     await userEvent.click(
@@ -115,7 +119,7 @@ describe("Phase 2 research workspaces", () => {
   it("filters incidents by shared crew and workflow status", async () => {
     mount("/incidents");
     await screen.findByRole("heading", {
-      name: "Alerts & Incidents",
+      name: "Incidents",
       level: 1,
     });
     await userEvent.selectOptions(screen.getByLabelText("Crew"), "crew-03");

@@ -1,5 +1,11 @@
 import type { ReactNode } from "react";
-import { Activity, ArrowUpRight, Database, AlertCircle } from "lucide-react";
+import {
+  Activity,
+  ArrowUpRight,
+  Database,
+  AlertCircle,
+  LoaderCircle,
+} from "lucide-react";
 import { Link } from "react-router-dom";
 import {
   ResponsiveContainer,
@@ -57,8 +63,16 @@ export function State({
   retry?: () => void;
 }) {
   return (
-    <div className="state" role={kind === "error" ? "alert" : "status"}>
-      <AlertCircle size={28} />
+    <div
+      className="state"
+      data-kind={kind}
+      role={kind === "error" ? "alert" : "status"}
+    >
+      {kind === "loading" ? (
+        <LoaderCircle size={28} />
+      ) : (
+        <AlertCircle size={28} />
+      )}
       <h2>
         {kind === "loading"
           ? "Loading observations"
@@ -167,7 +181,7 @@ export function Trend({
                 margin={{ top: 20, right: 20, bottom: 0, left: -12 }}
               >
                 <CartesianGrid
-                  stroke="#233146"
+                  stroke="var(--border)"
                   strokeDasharray="3 5"
                   vertical={false}
                 />
@@ -175,13 +189,13 @@ export function Trend({
                   dataKey="time"
                   tickFormatter={clock}
                   minTickGap={45}
-                  stroke="#8293ac"
+                  stroke="var(--text-secondary)"
                   tickLine={false}
                   axisLine={false}
                 />
                 <YAxis
                   domain={["auto", "auto"]}
-                  stroke="#8293ac"
+                  stroke="var(--text-secondary)"
                   tickLine={false}
                   axisLine={false}
                 />
@@ -192,15 +206,15 @@ export function Trend({
                     metrics[metric].label,
                   ]}
                   contentStyle={{
-                    background: "#101c2e",
-                    border: "1px solid #32465e",
+                    background: "var(--surface-raised)",
+                    border: "1px solid var(--control-border)",
                     borderRadius: 8,
                   }}
                 />
                 <Line
-                  type="monotone"
+                  type="linear"
                   dataKey="value"
-                  stroke="#3bdbed"
+                  stroke="var(--accent)"
                   strokeWidth={2}
                   dot={false}
                   connectNulls={false}
@@ -233,18 +247,38 @@ export function PageIntro({
   title,
   children,
 }: {
-  eyebrow: string;
+  eyebrow?: string;
   title: string;
-  children: ReactNode;
+  children?: ReactNode;
 }) {
   return (
     <header className="page-intro">
-      <div className="eyebrow">
-        <Activity size={13} />
-        {eyebrow}
-      </div>
+      {eyebrow && (
+        <div className="eyebrow">
+          <Activity size={13} />
+          {eyebrow}
+        </div>
+      )}
       <h1>{title}</h1>
-      <p>{children}</p>
+      {children && <p>{children}</p>}
     </header>
+  );
+}
+
+/** Persistent, dismissible session feedback; never implies server persistence. */
+export function Toast({
+  message,
+  onDismiss,
+}: {
+  message: string;
+  onDismiss: () => void;
+}) {
+  return (
+    <div className="toast">
+      <span role="status">{message}</span>
+      <button onClick={onDismiss} aria-label="Dismiss notification">
+        Dismiss
+      </button>
+    </div>
   );
 }

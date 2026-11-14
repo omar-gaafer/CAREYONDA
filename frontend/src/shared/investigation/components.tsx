@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { Drawer } from "../Drawer";
 import type {
   Investigation,
   InvestigationCase,
@@ -56,81 +56,73 @@ export function EvidenceDetailPanel({
   observation: Observation | undefined;
   onClose: () => void;
 }) {
-  const ref = useRef<HTMLElement>(null);
-  useEffect(() => {
-    const previous = document.activeElement as HTMLElement | null;
-    ref.current?.focus();
-    return () => previous?.focus();
-  }, []);
   return (
-    <section
-      ref={ref}
-      tabIndex={-1}
-      className="evidence-detail"
-      aria-label="Investigation evidence details"
-      onKeyDown={(e) => {
-        if (e.key === "Escape") onClose();
-      }}
-    >
-      <Panel
-        title="Original synthetic observation"
-        action={<button onClick={onClose}>Close evidence</button>}
+    <Drawer label="Evidence inspection" onClose={onClose}>
+      <section
+        className="evidence-detail"
+        aria-label="Investigation evidence details"
       >
-        {!observation ? (
-          <p role="alert">
-            Evidence unavailable. No substitute measurement is shown.
-          </p>
-        ) : (
-          <>
-            <Badge>SYNTHETIC OBSERVATION</Badge>
-            <dl>
-              <dt>Evidence ID</dt>
-              <dd>{observation.observation_id}</dd>
-              <dt>Metric</dt>
-              <dd>{humanize(observation.metric)}</dd>
-              <dt>Measurement</dt>
-              <dd>
-                <ObservationValue observation={observation} />
-              </dd>
-              <dt>Event time</dt>
-              <dd>{utc(observation.timestamp)}</dd>
-              <dt>Ingestion time</dt>
-              <dd>
-                {observation.ingested_at
-                  ? utc(observation.ingested_at)
-                  : "Not supplied"}
-              </dd>
-              <dt>Quality / reasons</dt>
-              <dd>
-                {observation.quality.status} /{" "}
-                {observation.quality.reason_codes.join(", ") || "None reported"}
-              </dd>
-              <dt>Absence reason</dt>
-              <dd>
-                {observation.measurement.kind === "unavailable"
-                  ? observation.measurement.reason
-                  : "Not absent"}
-              </dd>
-              <dt>Scope</dt>
-              <dd>{JSON.stringify(observation.scope)}</dd>
-              <dt>Origin / source</dt>
-              <dd>
-                {observation.provenance.origin} /{" "}
-                {observation.provenance.source_id}
-              </dd>
-              <dt>Method / generator</dt>
-              <dd>
-                {observation.provenance.method} /{" "}
-                {observation.provenance.simulation?.generator_version ??
-                  "Not supplied"}
-              </dd>
-              <dt>Contract</dt>
-              <dd>{observation.schema_version}</dd>
-            </dl>
-          </>
-        )}
-      </Panel>
-    </section>
+        <Panel
+          title="Original synthetic observation"
+          action={<button onClick={onClose}>Close evidence</button>}
+        >
+          {!observation ? (
+            <p role="alert">
+              Evidence unavailable. No substitute measurement is shown.
+            </p>
+          ) : (
+            <>
+              <Badge>SYNTHETIC OBSERVATION</Badge>
+              <dl>
+                <dt>Evidence ID</dt>
+                <dd>{observation.observation_id}</dd>
+                <dt>Metric</dt>
+                <dd>{humanize(observation.metric)}</dd>
+                <dt>Measurement</dt>
+                <dd>
+                  <ObservationValue observation={observation} />
+                </dd>
+                <dt>Event time</dt>
+                <dd>{utc(observation.timestamp)}</dd>
+                <dt>Ingestion time</dt>
+                <dd>
+                  {observation.ingested_at
+                    ? utc(observation.ingested_at)
+                    : "Not supplied"}
+                </dd>
+                <dt>Quality / reasons</dt>
+                <dd>
+                  {observation.quality.status} /{" "}
+                  {observation.quality.reason_codes.join(", ") ||
+                    "None reported"}
+                </dd>
+                <dt>Absence reason</dt>
+                <dd>
+                  {observation.measurement.kind === "unavailable"
+                    ? observation.measurement.reason
+                    : "Not absent"}
+                </dd>
+                <dt>Scope</dt>
+                <dd>{JSON.stringify(observation.scope)}</dd>
+                <dt>Origin / source</dt>
+                <dd>
+                  {observation.provenance.origin} /{" "}
+                  {observation.provenance.source_id}
+                </dd>
+                <dt>Method / generator</dt>
+                <dd>
+                  {observation.provenance.method} /{" "}
+                  {observation.provenance.simulation?.generator_version ??
+                    "Not supplied"}
+                </dd>
+                <dt>Contract</dt>
+                <dd>{observation.schema_version}</dd>
+              </dl>
+            </>
+          )}
+        </Panel>
+      </section>
+    </Drawer>
   );
 }
 export function QualityLimitationPanel({

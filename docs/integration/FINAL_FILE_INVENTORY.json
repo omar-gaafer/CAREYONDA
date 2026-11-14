@@ -1,0 +1,424 @@
+{
+  "base_commit": "2b073fcfe63a53c9af02ea048501f5c19faeae7b",
+  "branch": "feature/final-integration",
+  "files": [
+    {
+      "path": "backend/app/api/authorized_records.py",
+      "bytes": 3121,
+      "sha256": "e923142fc4057606a06914940dae83c5a82c90332b205264079f1d499db65487",
+      "state": "new"
+    },
+    {
+      "path": "backend/app/application/authorized_records.py",
+      "bytes": 3126,
+      "sha256": "b9931a70213a5cef201282f1772ad02e5d9577e88e63f7fb45bd3a5257018dc0",
+      "state": "new"
+    },
+    {
+      "path": "backend/app/final_main.py",
+      "bytes": 1753,
+      "sha256": "782c4e4768c741e095cd2f19a1bdaa2e4520e183c428dd359d1a8d53ab5dcb6c",
+      "state": "new"
+    },
+    {
+      "path": "backend/app/real_data_main.py",
+      "bytes": 2803,
+      "sha256": "f77ef34c4b0caeb8b3ef4708486a7a545186de6e6266c01b7932e10917a76ba0",
+      "state": "new"
+    },
+    {
+      "path": "backend/app/storage/authorized_postgres.py",
+      "bytes": 9601,
+      "sha256": "3f2c8917f490ddf6a54d2fe0720f8115a9f1bf1525758835cc10e13351ad4681",
+      "state": "new"
+    },
+    {
+      "path": "backend/app/storage/nasa_replay_catalog.py",
+      "bytes": 7207,
+      "sha256": "ba6b70803cc01b2b498f987da2e51d75078f7e2a7116a47a0037675c0d99ff39",
+      "state": "new"
+    },
+    {
+      "path": "backend/app/storage/supabase_identity.py",
+      "bytes": 1829,
+      "sha256": "3b39b08909d912845f11c3b35b33ecb87bbf41029a48a19f0f0f8571c8760ccd",
+      "state": "new"
+    },
+    {
+      "path": "backend/pyproject.toml",
+      "bytes": 1806,
+      "sha256": "1fce4679981fe4dd8c03ca1a3035a5fa1147b8b94b255f5dbfe82218ef1aaa52",
+      "state": "modified"
+    },
+    {
+      "path": "backend/tests/integration/test_authorized_postgres.py",
+      "bytes": 8976,
+      "sha256": "16254f9b6f63bb9c90922bb8e7f3dd7f8d393f57fb4128d079efe59d7a721f44",
+      "state": "new"
+    },
+    {
+      "path": "backend/tests/integration/test_local_replay_catalog.py",
+      "bytes": 4963,
+      "sha256": "bfe8a5cf8291d7f737942d1e273e8363a9f51a20b0897fe5e712453d2d9a6acd",
+      "state": "new"
+    },
+    {
+      "path": "backend/tests/unit/test_supabase_identity.py",
+      "bytes": 2472,
+      "sha256": "9bb1e5d2117045d1974fa08de04292b34c192b5aa4586ba3a475ced3997a31cf",
+      "state": "new"
+    },
+    {
+      "path": "docs/database/DATA_DICTIONARY.md",
+      "bytes": 35555,
+      "sha256": "3a94bbc95f87bf3924e31774e906282e068ec2b3dbcfae63e644e39f51a6a0ed",
+      "state": "new"
+    },
+    {
+      "path": "docs/database/DESIGN_REVIEW_REPORT.md",
+      "bytes": 15825,
+      "sha256": "50fbc376dc4e0ce7c4062dfadad8f9060b6726493cfa30620d8bb92f6ecb958b",
+      "state": "new"
+    },
+    {
+      "path": "docs/database/ERD.md",
+      "bytes": 37043,
+      "sha256": "ddc01113294e34f60c290a653839205c84a85095c146d2a9f498ad0177a843f5",
+      "state": "new"
+    },
+    {
+      "path": "docs/database/RELATIONSHIPS.md",
+      "bytes": 15574,
+      "sha256": "afa2d6058dcf602451fef0d103aaa4579937e50b641819306d74863a4f94f4d3",
+      "state": "new"
+    },
+    {
+      "path": "docs/integration/FINAL_INTEGRATION_REPORT.md",
+      "bytes": 17016,
+      "sha256": "e394559bab2ca3d5292be925350c1e75e78afa23947354a525ef1f31f9c0b489",
+      "state": "new"
+    },
+    {
+      "path": "docs/integration/SOURCE_SELECTION.json",
+      "bytes": 12895,
+      "sha256": "384a3a507465c45ceca1dc2aef2a0871a4824e7ac1bede1d7439bcd1fd1cc5b3",
+      "state": "new"
+    },
+    {
+      "path": "docs/research/AI_PHASE1_MODEL_QUALIFICATION.md",
+      "bytes": 24445,
+      "sha256": "10637f5e288d799924d3ce3e3068f4e717b0042b615f10cc24bbe1d93cd33244",
+      "state": "new"
+    },
+    {
+      "path": "docs/research/REAL_DATA_DEMO.md",
+      "bytes": 7903,
+      "sha256": "cf997c45b79a77380ce693bcfd70552f3a3dcae90d5006985d9d345504162c8a",
+      "state": "new"
+    },
+    {
+      "path": "frontend/README.md",
+      "bytes": 5458,
+      "sha256": "d8ef9e5e6927cb335f1e796534015e1aeac948db47c264c9046ea71ead2c290e",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/index.html",
+      "bytes": 730,
+      "sha256": "2f1811933271ae70eb081ebbd21bff7499739a7c63446469077fee71951e0d9f",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/package.json",
+      "bytes": 1215,
+      "sha256": "055098a996d0cffbfb511ab38332d132f3df42e671e487a490f7ef5b246c6945",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/public/brand/careyonda-icon-transparent.png",
+      "bytes": 249092,
+      "sha256": "906e0fbf4ee2cc6b6d55df2c724293e812bba05e7a3b2b9baebac1442855b29b",
+      "state": "new"
+    },
+    {
+      "path": "frontend/public/brand/careyonda-logo-transparent.png",
+      "bytes": 583581,
+      "sha256": "a212fd219909bfd561d5fa1ffc0b8c752dd7ffd6c01beac0058c7c06c5fcc2df",
+      "state": "new"
+    },
+    {
+      "path": "frontend/scripts/verify-production-bundle.mjs",
+      "bytes": 1542,
+      "sha256": "dba53a20be8b8e8ab2b5c5c0a6d43e07134aaea7df6001457acd04ff044d6905",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/app/App.interactions.test.tsx",
+      "bytes": 2286,
+      "sha256": "c75b8bb7cd69db22dbe5c48a2a2dbadc924d447a7564ab04118c658cf238ea07",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/app/App.test.tsx",
+      "bytes": 7507,
+      "sha256": "b88430a94a62eea9548c64258121497c3c08bc8bc18b7782d0c81192d1883a17",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/src/app/App.tsx",
+      "bytes": 18958,
+      "sha256": "64314cedba975747179002d592a0ed1f851590c811e988c4b460eaec645e88e7",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/src/app/ConnectedWorkspace.tsx",
+      "bytes": 256,
+      "sha256": "12adbe45550cbcc03f42ac12a4fd9cde52d8fed44f1d14c6f55ef6807e6eb4a1",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/src/app/moduleAccess.ts",
+      "bytes": 4986,
+      "sha256": "73ab0db0f4fd7c7ef6b80e5c4667d1ad99dfc15eeb1211fa0c46a470d4af04f4",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/app/modules.ts",
+      "bytes": 3207,
+      "sha256": "c9d15a8f875f49ad8a4eb09603389a1f55a83ab4bc4ce8870e2afe32ea507ff5",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/src/app/operational.test.tsx",
+      "bytes": 13044,
+      "sha256": "012e061665c7ee196ed5c997c37d42f5a75ff5e48da96110477a50be5ed92a36",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/app/redesign.test.tsx",
+      "bytes": 3425,
+      "sha256": "6fc947d39267a9467c0ba36fbf3c1d838d9a4dcbd9d5797af8767aeef5a1087b",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/app/useCapabilities.ts",
+      "bytes": 1881,
+      "sha256": "22c2382b6aea5a6d3ee95341d285cc180fda9506310fa5e445002ff17c60f1d8",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/contracts/capabilities.ts",
+      "bytes": 881,
+      "sha256": "62a858753db101208589fc50db8f49d0254ba4d3397299cf7fd88dd7bb55e6ef",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/contracts/observation.test.ts",
+      "bytes": 3586,
+      "sha256": "d914319a151d19fd3fac32697c83dbdbe586aee72c30d88f8c25db872f7fa25f",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/src/design-tokens.css",
+      "bytes": 637,
+      "sha256": "9d85ddcbe941f127ae5e7bb9010330163c709de3a32dc156e2116f7923846d3a",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/features/account/Account.test.tsx",
+      "bytes": 2712,
+      "sha256": "fb073b55eaceb175cd3297c3ab96f135add72f597ae2b023f212f37650523539",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/features/account/Account.tsx",
+      "bytes": 7245,
+      "sha256": "342aebcf7110b369a4b26b638b50704c9bea155bd5a7dea16412594e951ab346",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/features/capabilities/Capability.tsx",
+      "bytes": 1707,
+      "sha256": "7e30aa7fa685d7e100ffdb10c4f47bd1a88e7bf6549dab00242c71350f33ce1a",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/src/features/digital-twin/SpacecraftTwin.test.tsx",
+      "bytes": 1050,
+      "sha256": "542ea2085d3f5ec0bd99f38315cc498ec67ad4a8cdd42720f90d078212c4dcc1",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/features/digital-twin/SpacecraftTwin.tsx",
+      "bytes": 9501,
+      "sha256": "3e477859153ef67d6775f89a5d2b608ba0180929554b9e5af1c46aede6c3c648",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/features/environment/Environment.tsx",
+      "bytes": 2140,
+      "sha256": "e9ef8c8dbf3a13e63318fd2a5603686cb3c89d4ecd4568450414a1b81f5ef00a",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/src/features/explorer/Explorer.tsx",
+      "bytes": 8649,
+      "sha256": "e6c4f5910b97b090016337274ccfce5fd710e4bd923321a8a6df78aa5f26e01f",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/src/features/health/Health.tsx",
+      "bytes": 1162,
+      "sha256": "0ed601de54d05d67c2b2f23007349ee3fa75ddb653d04a84740a007273154640",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/src/features/incidents/Incidents.tsx",
+      "bytes": 8597,
+      "sha256": "d61ca049399f9170c0a7057bc035a22e9e8eef6e88b1f423537ccfdaf7436f74",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/src/features/investigations/Intelligence.tsx",
+      "bytes": 10022,
+      "sha256": "040fe3688a47b04b4e0be56f8eb027a344e78ce25d731ce359cc6161fc65ad45",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/src/features/investigations/phase2.test.tsx",
+      "bytes": 7058,
+      "sha256": "ec5adfc9b972204f237f2ad517aba59627d827ad00d1d504b890f132f1d30225",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/src/features/model-a/ModelAContextPanel.tsx",
+      "bytes": 10521,
+      "sha256": "abcc1f99bbdf9d0c1ed17db916c9e3173461bd290393930a5111e999213eeea3",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/features/model-a/ModelAPanel.tsx",
+      "bytes": 470,
+      "sha256": "405068bb6594b0046a3e309a4fd0c239c7c54b436398a3936813c00cc986c1d9",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/src/features/overview/Overview.tsx",
+      "bytes": 7352,
+      "sha256": "94751d393e12afb1fda008c33643575648f5e9f4a8413fc3776b29b8cae53856",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/src/features/research/M2Research.tsx",
+      "bytes": 4135,
+      "sha256": "de0eb714017de5e295ff223202a7b921323117986efeb981d0b39d313de4bf0d",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/infrastructure/capabilities.ts",
+      "bytes": 1646,
+      "sha256": "5abf5f6e3dea73272660d8582a274c657624f0b44f0ade78718a2bf193811587",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/infrastructure/http.test.tsx",
+      "bytes": 8188,
+      "sha256": "97a92bb4d2ad33d9c0f32ab3ec1ed10cf692e7e54612bf07bacc2c05b482172a",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/src/infrastructure/investigations.ts",
+      "bytes": 208,
+      "sha256": "2fa257961cfa35d7ae2886dc11d8c7d719f032f527b211a735b298138425d21f",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/src/infrastructure/observations.ts",
+      "bytes": 151,
+      "sha256": "e2f3dce698e3835fdbcca4f4d5a4d43aa799dc511e1cf37458c80a2b504d5381",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/src/shared/BrandLogo.test.tsx",
+      "bytes": 2173,
+      "sha256": "a5b3020d0af049480fe1309994f2b8a944b976dded0aaeaef2e555edbd8119ed",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/shared/BrandLogo.tsx",
+      "bytes": 980,
+      "sha256": "1ad6cfc6de1912309625ef230088e177691df2ffd257a57f47e1c11a1bb1b9f2",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/shared/Drawer.tsx",
+      "bytes": 2745,
+      "sha256": "44d3902c4286db146693896f920ee3c4a41991e89ca22733a0f2cf4d965cdf81",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/shared/investigation/components.tsx",
+      "bytes": 11052,
+      "sha256": "d72c65bd6099aeaadc7460030fd84aef8b02c35f132c976fae8023cf1f2b9eec",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/src/shared/ui.tsx",
+      "bytes": 7040,
+      "sha256": "2569b394136c87cd3136553465004666e0946d03c8b6cbdae315cd21426057fa",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/src/styles.css",
+      "bytes": 47640,
+      "sha256": "ab9f669e6979a1271dc5dd5e06a4223dd7fc60229d5b8e95b5288f3ced569c33",
+      "state": "modified"
+    },
+    {
+      "path": "frontend/src/testing/ConnectedResearchWorkspace.tsx",
+      "bytes": 1265,
+      "sha256": "b9bbf2687d99e6ee41f3c4ed5044c2e995262aee95274194321cb8e5b9d694c0",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/testing/ResearchWorkspace.tsx",
+      "bytes": 14815,
+      "sha256": "670cc71e803e1ff4a087bc237aac04773bb9af08e34a6dc683ee380965e3712b",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/testing/investigations.ts",
+      "bytes": 441,
+      "sha256": "06ea7035d7ebd834e563d103ebc788b5ea1f696bb1aac7c597ce46000be2eb32",
+      "state": "new"
+    },
+    {
+      "path": "frontend/src/testing/observations.ts",
+      "bytes": 4003,
+      "sha256": "c062acd55d499d98776352f54f63f5c5b8ec497163db71cbd04f1028a6244909",
+      "state": "new"
+    },
+    {
+      "path": "frontend/vite.config.ts",
+      "bytes": 1551,
+      "sha256": "fa2343bc9e27002ed538ea902e8aa31cdd33d1bd0c4e3952654d949e75f47f5c",
+      "state": "modified"
+    },
+    {
+      "path": "supabase/migrations/20261114120000_initial_schema.sql",
+      "bytes": 41720,
+      "sha256": "1ef0d939bec205860527c68d3f2cd0b5ee80cb95bd6d08c380e2d4bec5e5e4b4",
+      "state": "new"
+    },
+    {
+      "path": "supabase/verify_initial_schema.sql",
+      "bytes": 10643,
+      "sha256": "fe0f7f76500aa38e32dc323a918dbfba2c5a5bf0c0dbc7a37d3d46f918b5410a",
+      "state": "new"
+    }
+  ],
+  "excluded_local_dependencies": [
+    "frontend/node_modules"
+  ],
+  "review_alerts": []
+}

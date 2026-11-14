@@ -4,7 +4,7 @@ import userEvent from "@testing-library/user-event";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import data from "./fixtures/investigations.json";
 import { createHttpRepositories, type Fetcher } from "./http";
-import { ConnectedWorkspace } from "../app/ConnectedWorkspace";
+import { ConnectedWorkspace } from "../testing/ConnectedResearchWorkspace";
 const rows = data.flatMap<unknown>((c) => c.observations);
 const response = (body: unknown, status = 200) =>
   new Response(JSON.stringify(body), {
@@ -121,7 +121,7 @@ describe("local HTTP integration", () => {
     mount();
     await screen.findByRole("heading", {
       level: 1,
-      name: "AI Health Intelligence",
+      name: "AI Intelligence",
     });
     await userEvent.selectOptions(screen.getByLabelText("Data source"), "api");
     await screen.findByRole("button", { name: "Submit investigation" });
@@ -141,7 +141,7 @@ describe("local HTTP integration", () => {
     mount();
     await screen.findByRole("heading", {
       level: 1,
-      name: "AI Health Intelligence",
+      name: "AI Intelligence",
     });
     await userEvent.selectOptions(screen.getByLabelText("Data source"), "api");
     await userEvent.click(
@@ -189,6 +189,44 @@ describe("local HTTP integration", () => {
       });
     await expect(
       createHttpRepositories("http://localhost:8000", mock).observations.list(),
+    ).rejects.toThrow();
+  });
+});
+
+// Synthetic research transport remains tested separately from production discovery.
+describe("bounded research transport limitations", () => {
+  it("preserves an empty observation page without generating records", async () => {
+    const fetcher: Fetcher = async () =>
+      response({
+        api_version: "1.0.0",
+        source: "configured_synthetic",
+        items: [],
+        total: 0,
+        offset: 0,
+        limit: 100,
+      });
+    expect(
+      await createHttpRepositories(
+        "http://localhost:8000",
+        fetcher,
+      ).observations.list(),
+    ).toEqual([]);
+  });
+  it("does not broaden the source envelope to measured telemetry", async () => {
+    const fetcher: Fetcher = async () =>
+      response({
+        api_version: "1.0.0",
+        source: "measured",
+        items: [],
+        total: 0,
+        offset: 0,
+        limit: 100,
+      });
+    await expect(
+      createHttpRepositories(
+        "http://localhost:8000",
+        fetcher,
+      ).observations.list(),
     ).rejects.toThrow();
   });
 });

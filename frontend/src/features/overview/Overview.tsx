@@ -1,10 +1,6 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Orbit, Radio, ShieldCheck } from "lucide-react";
-import {
-  crew,
-  DEMO_NOW,
-  MISSION_START,
-} from "../../infrastructure/observations";
+import { crew, DEMO_NOW, MISSION_START } from "../../testing/observations";
 import {
   Badge,
   MetricCard,
@@ -31,7 +27,7 @@ export function Overview({
     <>
       <PageIntro
         eyebrow="MISSION OPERATIONS / ARES-07"
-        title="Mission Command Center"
+        title="Mission Dashboard"
       >
         A connected view of crew observations, habitat conditions, and the
         evidence behind them.

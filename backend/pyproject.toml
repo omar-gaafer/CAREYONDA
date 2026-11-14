@@ -3,7 +3,7 @@ name = "careyonda-backend"
 version = "0.0.0"
 description = "Offline-first astronaut health and spaceflight hazard decision support"
 requires-python = ">=3.11"
-dependencies = ["pydantic>=2,<3", "fastapi>=0.162.7,<0.163", "uvicorn>=0.34,<1"]
+dependencies = ["httpx>=0.28,<1", "pydantic>=2,<3", "fastapi>=0.162.7,<0.163", "uvicorn>=0.34,<1"]
 
 [project.optional-dependencies]
 model-a = ["numpy>=2.0,<2.5", "scikit-learn==1.9.1", "joblib==1.6.0"]

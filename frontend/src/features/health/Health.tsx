@@ -1,5 +1,5 @@
 import type { Observation } from "../../contracts/observation";
-import { crew } from "../../infrastructure/observations";
+import { crew } from "../../testing/observations";
 import { Badge, PageIntro, Trend } from "../../shared/ui";
 export function Health({
   rows,
