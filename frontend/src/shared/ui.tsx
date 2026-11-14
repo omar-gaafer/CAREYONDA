@@ -136,10 +136,12 @@ export function Trend({
   rows,
   metric,
   person,
+  evidenceTo,
 }: {
   rows: Observation[];
   metric: Metric;
   person?: string;
+  evidenceTo?: string;
 }) {
   const selected = rows.filter(
     (o) =>
@@ -223,7 +225,10 @@ export function Trend({
               </LineChart>
             </ResponsiveContainer>
           </div>
-          <Link className="text-link" to={`/data-explorer?metric=${metric}`}>
+          <Link
+            className="text-link"
+            to={evidenceTo ?? `/data-explorer?metric=${metric}`}
+          >
             Inspect chart evidence <ArrowUpRight size={14} />
           </Link>
         </>

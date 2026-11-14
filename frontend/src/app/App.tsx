@@ -1,3 +1,5 @@
+import { SyntheticDatabase } from "../features/synthetic-database/SyntheticDatabase";
+import { Database as DatabaseIcon } from "lucide-react";
 import { M2Research } from "../features/research/M2Research";
 import { ModelAContextPanel } from "../features/model-a/ModelAContextPanel";
 import { ModelCPanel } from "../features/model-c/ModelCPanel";
@@ -39,12 +41,16 @@ function CapabilityContent({
   state,
   refresh,
   apiUrl,
+  enableSyntheticViewer = false,
 }: {
   apiUrl: string;
+  enableSyntheticViewer?: boolean;
   path: string;
   state: CapabilityState;
   refresh: () => void;
 }) {
+  if (path === "/synthetic-database" && enableSyntheticViewer)
+    return <SyntheticDatabase apiUrl={apiUrl} />;
   if (path === "/ai-intelligence") return <M2Research apiUrl={apiUrl} />;
   if (path === "/account") return <Account apiUrl={apiUrl} />;
   if (path === "/sleep-fatigue")
@@ -194,7 +200,24 @@ function CapabilityContent({
   );
 }
 
-export function App({ apiUrl = "http://127.0.0.1:8000" }: { apiUrl?: string }) {
+export function App({
+  apiUrl = "http://127.0.0.1:8000",
+  enableSyntheticViewer = false,
+}: {
+  apiUrl?: string;
+  enableSyntheticViewer?: boolean;
+}) {
+  const navigationModules = enableSyntheticViewer
+    ? [
+        ...modules,
+        {
+          path: "/synthetic-database",
+          title: "Synthetic Research Dataset",
+          short: "Local Synthetic Data",
+          icon: DatabaseIcon,
+        },
+      ]
+    : modules;
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [paletteOpen, setPaletteOpen] = useState(false);
@@ -205,7 +228,7 @@ export function App({ apiUrl = "http://127.0.0.1:8000" }: { apiUrl?: string }) {
   const { state, refresh } = useCapabilities(apiUrl);
   useEffect(() => {
     setMobileOpen(false);
-    document.title = `${modules.find((m) => m.path === location.pathname)?.title ?? "Page not found"} · CAREYONDA`;
+    document.title = `${navigationModules.find((m) => m.path === location.pathname)?.title ?? "Page not found"} · CAREYONDA`;
     document.getElementById("main-content")?.focus();
   }, [location.pathname]);
   useEffect(() => {
@@ -243,7 +266,7 @@ export function App({ apiUrl = "http://127.0.0.1:8000" }: { apiUrl?: string }) {
     window.addEventListener("keydown", onKeyDown);
     return () => window.removeEventListener("keydown", onKeyDown);
   }, [paletteOpen]);
-  const paletteItems = modules.filter((module) =>
+  const paletteItems = navigationModules.filter((module) =>
     `${module.title} ${module.short}`
       .toLowerCase()
       .includes(paletteQuery.trim().toLowerCase()),
@@ -306,7 +329,7 @@ export function App({ apiUrl = "http://127.0.0.1:8000" }: { apiUrl?: string }) {
         </div>
         <div className="nav-caption">MISSION WORKSPACE</div>
         <nav aria-label="Workspace modules">
-          {modules.map((m, i) => (
+          {navigationModules.map((m, i) => (
             <Fragment key={m.path}>
               {[0, 5, 9].includes(i) && (
                 <div className="nav-group-label">
@@ -396,8 +419,8 @@ export function App({ apiUrl = "http://127.0.0.1:8000" }: { apiUrl?: string }) {
         )}
         <div className="context-bar">
           <span>
-            {modules.find((m) => m.path === location.pathname)?.short ??
-              "Workspace"}
+            {navigationModules.find((m) => m.path === location.pathname)
+              ?.short ?? "Workspace"}
           </span>
           <div className="context-filters">
             <label>
@@ -417,13 +440,14 @@ export function App({ apiUrl = "http://127.0.0.1:8000" }: { apiUrl?: string }) {
         <main id="main-content" tabIndex={-1}>
           <Routes>
             <Route path="/" element={<Navigate replace to="/overview" />} />
-            {modules.map((m) => (
+            {navigationModules.map((m) => (
               <Route
                 key={m.path}
                 path={m.path}
                 element={
                   <CapabilityContent
                     apiUrl={apiUrl}
+                    enableSyntheticViewer={enableSyntheticViewer}
                     path={m.path}
                     state={state}
                     refresh={refresh}
@@ -436,6 +460,7 @@ export function App({ apiUrl = "http://127.0.0.1:8000" }: { apiUrl?: string }) {
               element={
                 <CapabilityContent
                   apiUrl={apiUrl}
+                  enableSyntheticViewer={enableSyntheticViewer}
                   path={location.pathname}
                   state={state}
                   refresh={refresh}

@@ -27,8 +27,11 @@ def error_response(code: str, correlation: str, status: int) -> JSONResponse:
 
 
 class RequestGuard:
-    def __init__(self, app: ASGIApp) -> None:
+    def __init__(
+        self, app: ASGIApp, allowed_origins: tuple[str, ...] = ALLOWED_ORIGINS
+    ) -> None:
         self.app = app
+        self.allowed_origins = allowed_origins
 
     async def __call__(self, scope: Scope, receive: Receive, send: Send) -> None:
         if scope["type"] != "http":
@@ -41,7 +44,7 @@ class RequestGuard:
         async def reject(code: str, status: int) -> None:
             response = error_response(code, correlation, status)
             allowed_origin = dict(scope["headers"]).get(b"origin", b"").decode("latin1")
-            if allowed_origin in ALLOWED_ORIGINS:
+            if allowed_origin in self.allowed_origins:
                 response.headers["Access-Control-Allow-Origin"] = allowed_origin
                 response.headers["Access-Control-Expose-Headers"] = "X-Correlation-ID"
             await response(scope, receive, send)
@@ -50,7 +53,7 @@ class RequestGuard:
             await reject("host_not_allowed", 400)
             return
         origin = headers.get(b"origin")
-        if origin is not None and origin.decode("latin1") not in ALLOWED_ORIGINS:
+        if origin is not None and origin.decode("latin1") not in self.allowed_origins:
             await reject("origin_not_allowed", 403)
             return
         if len(scope.get("query_string", b"")) > 2048:
