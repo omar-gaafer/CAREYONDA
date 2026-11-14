@@ -1,0 +1,2384 @@
+{
+  "baseline_commit": "7b56152c5bad72dd9446f17c301dcc466b16bd6a",
+  "boundary_rejections": 1,
+  "cases": [
+    {
+      "A": {
+        "ranks": [
+          [
+            "sleep_deprivation",
+            1
+          ],
+          [
+            "baseline",
+            2
+          ],
+          [
+            "elevated_co2",
+            3
+          ],
+          [
+            "recent_exercise",
+            3
+          ]
+        ],
+        "selected_hypothesis": "sleep_deprivation",
+        "sha256": "7194d93e8aff97d6599cf557de501d05dd60b8a9a305b2555fb2865cfc138848",
+        "status": "ranked",
+        "target_findings": {
+          "compatibility": "supported",
+          "contradictory_evidence": [],
+          "expected_relations": {
+            "fatigue_self_report": "fatigue_reported",
+            "sleep_duration": "below_reference"
+          },
+          "explanation": "sleep_deprivation: supported under reference-rules-1.0.0. Supporting: sleep_duration: window mean is below reference (empirical comparator, not a clinical limit); fatigue_self_report: latest usable report is fatigue reported. Pattern compatibility does not establish causation, diagnosis, or safety.",
+          "hypothesis_id": "sleep_deprivation",
+          "missing_evidence": [],
+          "rank": 1,
+          "supporting_evidence": [
+            {
+              "explanation": "sleep_duration: window mean is below reference (empirical comparator, not a clinical limit)",
+              "metric": "sleep_duration",
+              "observation_ids": [
+                "h3-sleep-1",
+                "h3-sleep-2",
+                "h3-sleep-3",
+                "h3-sleep-4",
+                "h3-sleep-5",
+                "h3-sleep-6"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": 9.0,
+              "reference_minimum": 7.0,
+              "reference_observation_ids": [
+                "h3-reference-1",
+                "h3-reference-2",
+                "h3-reference-3"
+              ],
+              "relation": "below_reference",
+              "unit": "h"
+            },
+            {
+              "explanation": "fatigue_self_report: latest usable report is fatigue reported",
+              "metric": "fatigue_self_report",
+              "observation_ids": [
+                "h3-fatigue"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": null,
+              "reference_minimum": null,
+              "reference_observation_ids": [],
+              "relation": "fatigue_reported",
+              "unit": "1"
+            }
+          ],
+          "uncertainty": [
+            "Compatibility is qualitative; no probability or causal certainty is estimated."
+          ]
+        }
+      },
+      "B": {
+        "abstention_reasons": [],
+        "temporal_pattern": "persistent_anomaly",
+        "valid_count": 6
+      },
+      "C": {
+        "abstention_reasons": [],
+        "contradicting_ids": [],
+        "model_reasoning_steps": [],
+        "reasoning_steps": [
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: fatigue_self_report fatigue_reported.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-fatigue"
+            ],
+            "expected_relation": "fatigue_reported",
+            "explanation": "Resolved observations and the configured association rule support this descriptive metric expectation; they do not establish medical or causal truth.",
+            "metric": "fatigue_self_report",
+            "observed_relation": "fatigue_reported",
+            "outcome": "supports",
+            "reason_codes": [],
+            "reference_evidence_ids": [],
+            "rule_id": "h3-fatigue",
+            "temporal_pattern": null
+          },
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: sleep_duration below_reference.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-sleep-1",
+              "h3-sleep-2",
+              "h3-sleep-3",
+              "h3-sleep-4",
+              "h3-sleep-5",
+              "h3-sleep-6"
+            ],
+            "expected_relation": "below_reference",
+            "explanation": "Resolved observations and the configured association rule support this descriptive metric expectation; they do not establish medical or causal truth.",
+            "metric": "sleep_duration",
+            "observed_relation": "below_reference",
+            "outcome": "supports",
+            "reason_codes": [],
+            "reference_evidence_ids": [
+              "h3-reference-1",
+              "h3-reference-2",
+              "h3-reference-3"
+            ],
+            "rule_id": "h3-sleep",
+            "temporal_pattern": "persistent_anomaly"
+          }
+        ],
+        "snapshot_ids": [
+          "h3-fatigue",
+          "h3-reference-1",
+          "h3-reference-2",
+          "h3-reference-3",
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6"
+        ],
+        "status": "supported_by_available_evidence",
+        "supporting_ids": [
+          "h3-fatigue",
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6"
+        ]
+      },
+      "abstention_correct": true,
+      "association_correct": true,
+      "case": "persistent",
+      "contradiction_correct": null,
+      "determinism": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "directional_references": 10,
+      "eligible": true,
+      "expected": {
+        "contradicting_ids": [],
+        "hybrid_status": "supported_by_available_evidence",
+        "supporting_ids": [
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6",
+          "h3-fatigue"
+        ],
+        "temporal_pattern": "persistent_anomaly"
+      },
+      "m2_unchanged": true,
+      "temporal_correct": true,
+      "temporal_unchanged": true,
+      "traced_references": 10,
+      "unsupported_directional_assertions": 0
+    },
+    {
+      "A": {
+        "ranks": [
+          [
+            "sleep_deprivation",
+            1
+          ],
+          [
+            "baseline",
+            2
+          ],
+          [
+            "elevated_co2",
+            3
+          ],
+          [
+            "recent_exercise",
+            3
+          ]
+        ],
+        "selected_hypothesis": "sleep_deprivation",
+        "sha256": "4217e4a30d5eb9631901282202718daff942ae1699f1d5921a9cdcacec17b80c",
+        "status": "ranked",
+        "target_findings": {
+          "compatibility": "supported",
+          "contradictory_evidence": [],
+          "expected_relations": {
+            "fatigue_self_report": "fatigue_reported",
+            "sleep_duration": "below_reference"
+          },
+          "explanation": "sleep_deprivation: supported under reference-rules-1.0.0. Supporting: sleep_duration: window mean is below reference (empirical comparator, not a clinical limit); fatigue_self_report: latest usable report is fatigue reported. Pattern compatibility does not establish causation, diagnosis, or safety.",
+          "hypothesis_id": "sleep_deprivation",
+          "missing_evidence": [],
+          "rank": 1,
+          "supporting_evidence": [
+            {
+              "explanation": "sleep_duration: window mean is below reference (empirical comparator, not a clinical limit)",
+              "metric": "sleep_duration",
+              "observation_ids": [
+                "h3-sleep-1",
+                "h3-sleep-2",
+                "h3-sleep-3",
+                "h3-sleep-4",
+                "h3-sleep-5",
+                "h3-sleep-6"
+              ],
+              "observed_value": 6.833333333333333,
+              "reference_maximum": 9.0,
+              "reference_minimum": 7.0,
+              "reference_observation_ids": [
+                "h3-reference-1",
+                "h3-reference-2",
+                "h3-reference-3"
+              ],
+              "relation": "below_reference",
+              "unit": "h"
+            },
+            {
+              "explanation": "fatigue_self_report: latest usable report is fatigue reported",
+              "metric": "fatigue_self_report",
+              "observation_ids": [
+                "h3-fatigue"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": null,
+              "reference_minimum": null,
+              "reference_observation_ids": [],
+              "relation": "fatigue_reported",
+              "unit": "1"
+            }
+          ],
+          "uncertainty": [
+            "Compatibility is qualitative; no probability or causal certainty is estimated."
+          ]
+        }
+      },
+      "B": {
+        "abstention_reasons": [],
+        "temporal_pattern": "isolated_spike",
+        "valid_count": 6
+      },
+      "C": {
+        "abstention_reasons": [
+          "sleep_duration",
+          "temporal_pattern_not_eligible"
+        ],
+        "contradicting_ids": [],
+        "model_reasoning_steps": [],
+        "reasoning_steps": [
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: fatigue_self_report fatigue_reported.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-fatigue"
+            ],
+            "expected_relation": "fatigue_reported",
+            "explanation": "Resolved observations and the configured association rule support this descriptive metric expectation; they do not establish medical or causal truth.",
+            "metric": "fatigue_self_report",
+            "observed_relation": "fatigue_reported",
+            "outcome": "supports",
+            "reason_codes": [],
+            "reference_evidence_ids": [],
+            "rule_id": "h3-fatigue",
+            "temporal_pattern": null
+          },
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: sleep_duration below_reference.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-sleep-1",
+              "h3-sleep-2",
+              "h3-sleep-3",
+              "h3-sleep-4",
+              "h3-sleep-5",
+              "h3-sleep-6"
+            ],
+            "expected_relation": "below_reference",
+            "explanation": "The association checks cannot establish an eligible metric relationship; the recorded reasons identify missing, unavailable or excluded evidence.",
+            "metric": "sleep_duration",
+            "observed_relation": "below_reference",
+            "outcome": "cannot_establish",
+            "reason_codes": [
+              "temporal_pattern_not_eligible"
+            ],
+            "reference_evidence_ids": [
+              "h3-reference-1",
+              "h3-reference-2",
+              "h3-reference-3"
+            ],
+            "rule_id": "h3-sleep",
+            "temporal_pattern": "isolated_spike"
+          }
+        ],
+        "snapshot_ids": [
+          "h3-fatigue",
+          "h3-reference-1",
+          "h3-reference-2",
+          "h3-reference-3",
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6"
+        ],
+        "status": "insufficient_evidence",
+        "supporting_ids": [
+          "h3-fatigue"
+        ]
+      },
+      "abstention_correct": true,
+      "association_correct": true,
+      "case": "isolated",
+      "contradiction_correct": null,
+      "determinism": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "directional_references": 1,
+      "eligible": true,
+      "expected": {
+        "contradicting_ids": [],
+        "hybrid_status": "insufficient_evidence",
+        "supporting_ids": [
+          "h3-fatigue"
+        ],
+        "temporal_pattern": "isolated_spike"
+      },
+      "m2_unchanged": true,
+      "temporal_correct": true,
+      "temporal_unchanged": true,
+      "traced_references": 1,
+      "unsupported_directional_assertions": 0
+    },
+    {
+      "A": {
+        "ranks": [
+          [
+            "sleep_deprivation",
+            1
+          ],
+          [
+            "baseline",
+            2
+          ],
+          [
+            "elevated_co2",
+            3
+          ],
+          [
+            "recent_exercise",
+            3
+          ]
+        ],
+        "selected_hypothesis": "sleep_deprivation",
+        "sha256": "f968a83ebaea3197c4509b4ae5f5ce17a71ffa5f4517282919d84cac79fe5d54",
+        "status": "ranked",
+        "target_findings": {
+          "compatibility": "supported",
+          "contradictory_evidence": [],
+          "expected_relations": {
+            "fatigue_self_report": "fatigue_reported",
+            "sleep_duration": "below_reference"
+          },
+          "explanation": "sleep_deprivation: supported under reference-rules-1.0.0. Supporting: sleep_duration: window mean is below reference (empirical comparator, not a clinical limit); fatigue_self_report: latest usable report is fatigue reported. Pattern compatibility does not establish causation, diagnosis, or safety.",
+          "hypothesis_id": "sleep_deprivation",
+          "missing_evidence": [],
+          "rank": 1,
+          "supporting_evidence": [
+            {
+              "explanation": "sleep_duration: window mean is below reference (empirical comparator, not a clinical limit)",
+              "metric": "sleep_duration",
+              "observation_ids": [
+                "h3-sleep-1",
+                "h3-sleep-2",
+                "h3-sleep-4",
+                "h3-sleep-5",
+                "h3-sleep-6"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": 9.0,
+              "reference_minimum": 7.0,
+              "reference_observation_ids": [
+                "h3-reference-1",
+                "h3-reference-2",
+                "h3-reference-3"
+              ],
+              "relation": "below_reference",
+              "unit": "h"
+            },
+            {
+              "explanation": "fatigue_self_report: latest usable report is fatigue reported",
+              "metric": "fatigue_self_report",
+              "observation_ids": [
+                "h3-fatigue"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": null,
+              "reference_minimum": null,
+              "reference_observation_ids": [],
+              "relation": "fatigue_reported",
+              "unit": "1"
+            }
+          ],
+          "uncertainty": [
+            "Compatibility is qualitative; no probability or causal certainty is estimated."
+          ]
+        }
+      },
+      "B": {
+        "abstention_reasons": [
+          "incomplete_valid_sequence",
+          "observation_gap"
+        ],
+        "temporal_pattern": "abstained",
+        "valid_count": 5
+      },
+      "C": {
+        "abstention_reasons": [
+          "incomplete_valid_sequence",
+          "observation_gap",
+          "sleep_duration",
+          "temporal_pattern_not_eligible"
+        ],
+        "contradicting_ids": [],
+        "model_reasoning_steps": [],
+        "reasoning_steps": [
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: fatigue_self_report fatigue_reported.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-fatigue"
+            ],
+            "expected_relation": "fatigue_reported",
+            "explanation": "Resolved observations and the configured association rule support this descriptive metric expectation; they do not establish medical or causal truth.",
+            "metric": "fatigue_self_report",
+            "observed_relation": "fatigue_reported",
+            "outcome": "supports",
+            "reason_codes": [],
+            "reference_evidence_ids": [],
+            "rule_id": "h3-fatigue",
+            "temporal_pattern": null
+          },
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: sleep_duration below_reference.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-sleep-1",
+              "h3-sleep-2",
+              "h3-sleep-4",
+              "h3-sleep-5",
+              "h3-sleep-6"
+            ],
+            "expected_relation": "below_reference",
+            "explanation": "The association checks cannot establish an eligible metric relationship; the recorded reasons identify missing, unavailable or excluded evidence.",
+            "metric": "sleep_duration",
+            "observed_relation": "below_reference",
+            "outcome": "cannot_establish",
+            "reason_codes": [
+              "incomplete_valid_sequence",
+              "observation_gap",
+              "temporal_pattern_not_eligible"
+            ],
+            "reference_evidence_ids": [
+              "h3-reference-1",
+              "h3-reference-2",
+              "h3-reference-3"
+            ],
+            "rule_id": "h3-sleep",
+            "temporal_pattern": "abstained"
+          }
+        ],
+        "snapshot_ids": [
+          "h3-fatigue",
+          "h3-reference-1",
+          "h3-reference-2",
+          "h3-reference-3",
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6"
+        ],
+        "status": "insufficient_evidence",
+        "supporting_ids": [
+          "h3-fatigue"
+        ]
+      },
+      "abstention_correct": true,
+      "association_correct": true,
+      "case": "missing",
+      "contradiction_correct": null,
+      "determinism": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "directional_references": 1,
+      "eligible": true,
+      "expected": {
+        "contradicting_ids": [],
+        "hybrid_status": "insufficient_evidence",
+        "supporting_ids": [
+          "h3-fatigue"
+        ],
+        "temporal_pattern": "abstained"
+      },
+      "m2_unchanged": true,
+      "temporal_correct": true,
+      "temporal_unchanged": true,
+      "traced_references": 1,
+      "unsupported_directional_assertions": 0
+    },
+    {
+      "A": {
+        "ranks": [
+          [
+            "sleep_deprivation",
+            1
+          ],
+          [
+            "baseline",
+            2
+          ],
+          [
+            "elevated_co2",
+            3
+          ],
+          [
+            "recent_exercise",
+            3
+          ]
+        ],
+        "selected_hypothesis": null,
+        "sha256": "df180e51951349a803f9744db01efe79872ac13656f802dc82340f7b095f2439",
+        "status": "insufficient_evidence",
+        "target_findings": {
+          "compatibility": "mixed",
+          "contradictory_evidence": [
+            {
+              "explanation": "fatigue_self_report: latest usable report is rested reported",
+              "metric": "fatigue_self_report",
+              "observation_ids": [
+                "h3-fatigue"
+              ],
+              "observed_value": 0.0,
+              "reference_maximum": null,
+              "reference_minimum": null,
+              "reference_observation_ids": [],
+              "relation": "rested_reported",
+              "unit": "1"
+            }
+          ],
+          "expected_relations": {
+            "fatigue_self_report": "fatigue_reported",
+            "sleep_duration": "below_reference"
+          },
+          "explanation": "sleep_deprivation: mixed under reference-rules-1.0.0. Supporting: sleep_duration: window mean is below reference (empirical comparator, not a clinical limit). Contradictory: fatigue_self_report: latest usable report is rested reported. Pattern compatibility does not establish causation, diagnosis, or safety.",
+          "hypothesis_id": "sleep_deprivation",
+          "missing_evidence": [],
+          "rank": 1,
+          "supporting_evidence": [
+            {
+              "explanation": "sleep_duration: window mean is below reference (empirical comparator, not a clinical limit)",
+              "metric": "sleep_duration",
+              "observation_ids": [
+                "h3-sleep-1",
+                "h3-sleep-2",
+                "h3-sleep-3",
+                "h3-sleep-4",
+                "h3-sleep-5",
+                "h3-sleep-6"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": 9.0,
+              "reference_minimum": 7.0,
+              "reference_observation_ids": [
+                "h3-reference-1",
+                "h3-reference-2",
+                "h3-reference-3"
+              ],
+              "relation": "below_reference",
+              "unit": "h"
+            }
+          ],
+          "uncertainty": [
+            "Compatibility is qualitative; no probability or causal certainty is estimated.",
+            "Observed pattern contradicts one or more expectations."
+          ]
+        }
+      },
+      "B": {
+        "abstention_reasons": [],
+        "temporal_pattern": "persistent_anomaly",
+        "valid_count": 6
+      },
+      "C": {
+        "abstention_reasons": [],
+        "contradicting_ids": [
+          "h3-fatigue"
+        ],
+        "model_reasoning_steps": [],
+        "reasoning_steps": [
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: fatigue_self_report fatigue_reported.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-fatigue"
+            ],
+            "expected_relation": "fatigue_reported",
+            "explanation": "Resolved observations contradict this descriptive metric expectation; they do not establish hazard absence.",
+            "metric": "fatigue_self_report",
+            "observed_relation": "rested_reported",
+            "outcome": "contradicts",
+            "reason_codes": [],
+            "reference_evidence_ids": [],
+            "rule_id": "h3-fatigue",
+            "temporal_pattern": null
+          },
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: sleep_duration below_reference.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-sleep-1",
+              "h3-sleep-2",
+              "h3-sleep-3",
+              "h3-sleep-4",
+              "h3-sleep-5",
+              "h3-sleep-6"
+            ],
+            "expected_relation": "below_reference",
+            "explanation": "Resolved observations and the configured association rule support this descriptive metric expectation; they do not establish medical or causal truth.",
+            "metric": "sleep_duration",
+            "observed_relation": "below_reference",
+            "outcome": "supports",
+            "reason_codes": [],
+            "reference_evidence_ids": [
+              "h3-reference-1",
+              "h3-reference-2",
+              "h3-reference-3"
+            ],
+            "rule_id": "h3-sleep",
+            "temporal_pattern": "persistent_anomaly"
+          }
+        ],
+        "snapshot_ids": [
+          "h3-fatigue",
+          "h3-reference-1",
+          "h3-reference-2",
+          "h3-reference-3",
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6"
+        ],
+        "status": "mixed_evidence",
+        "supporting_ids": [
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6"
+        ]
+      },
+      "abstention_correct": true,
+      "association_correct": true,
+      "case": "contradiction",
+      "contradiction_correct": true,
+      "determinism": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "directional_references": 10,
+      "eligible": true,
+      "expected": {
+        "contradicting_ids": [
+          "h3-fatigue"
+        ],
+        "hybrid_status": "mixed_evidence",
+        "supporting_ids": [
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6"
+        ],
+        "temporal_pattern": "persistent_anomaly"
+      },
+      "m2_unchanged": true,
+      "temporal_correct": true,
+      "temporal_unchanged": true,
+      "traced_references": 10,
+      "unsupported_directional_assertions": 0
+    },
+    {
+      "A": {
+        "ranks": [
+          [
+            "sleep_deprivation",
+            1
+          ],
+          [
+            "baseline",
+            2
+          ],
+          [
+            "elevated_co2",
+            3
+          ],
+          [
+            "recent_exercise",
+            3
+          ]
+        ],
+        "selected_hypothesis": "sleep_deprivation",
+        "sha256": "41cb365065843ca1646fb62905cba80ec5c5fe7d1a7c3b1965cfc7e39e637a84",
+        "status": "ranked",
+        "target_findings": {
+          "compatibility": "supported",
+          "contradictory_evidence": [],
+          "expected_relations": {
+            "fatigue_self_report": "fatigue_reported",
+            "sleep_duration": "below_reference"
+          },
+          "explanation": "sleep_deprivation: supported under reference-rules-1.0.0. Supporting: sleep_duration: window mean is below reference (empirical comparator, not a clinical limit); fatigue_self_report: latest usable report is fatigue reported. Pattern compatibility does not establish causation, diagnosis, or safety.",
+          "hypothesis_id": "sleep_deprivation",
+          "missing_evidence": [],
+          "rank": 1,
+          "supporting_evidence": [
+            {
+              "explanation": "sleep_duration: window mean is below reference (empirical comparator, not a clinical limit)",
+              "metric": "sleep_duration",
+              "observation_ids": [
+                "h3-sleep-1",
+                "h3-sleep-2",
+                "h3-sleep-3",
+                "h3-sleep-4",
+                "h3-sleep-5",
+                "h3-sleep-6"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": 9.0,
+              "reference_minimum": 7.0,
+              "reference_observation_ids": [
+                "h3-reference-1",
+                "h3-reference-2",
+                "h3-reference-3"
+              ],
+              "relation": "below_reference",
+              "unit": "h"
+            },
+            {
+              "explanation": "fatigue_self_report: latest usable report is fatigue reported",
+              "metric": "fatigue_self_report",
+              "observation_ids": [
+                "h3-fatigue"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": null,
+              "reference_minimum": null,
+              "reference_observation_ids": [],
+              "relation": "fatigue_reported",
+              "unit": "1"
+            }
+          ],
+          "uncertainty": [
+            "Compatibility is qualitative; no probability or causal certainty is estimated."
+          ]
+        }
+      },
+      "B": {
+        "abstention_reasons": [],
+        "temporal_pattern": "persistent_anomaly",
+        "valid_count": 6
+      },
+      "C": {
+        "abstention_reasons": [
+          "scope_or_source_mismatch",
+          "sleep_duration"
+        ],
+        "contradicting_ids": [],
+        "model_reasoning_steps": [],
+        "reasoning_steps": [
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: fatigue_self_report fatigue_reported.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-fatigue"
+            ],
+            "expected_relation": "fatigue_reported",
+            "explanation": "Resolved observations and the configured association rule support this descriptive metric expectation; they do not establish medical or causal truth.",
+            "metric": "fatigue_self_report",
+            "observed_relation": "fatigue_reported",
+            "outcome": "supports",
+            "reason_codes": [],
+            "reference_evidence_ids": [],
+            "rule_id": "h3-fatigue",
+            "temporal_pattern": null
+          },
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: sleep_duration below_reference.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-sleep-1",
+              "h3-sleep-2",
+              "h3-sleep-3",
+              "h3-sleep-4",
+              "h3-sleep-5",
+              "h3-sleep-6"
+            ],
+            "expected_relation": "below_reference",
+            "explanation": "The association checks cannot establish an eligible metric relationship; the recorded reasons identify missing, unavailable or excluded evidence.",
+            "metric": "sleep_duration",
+            "observed_relation": null,
+            "outcome": "incompatible",
+            "reason_codes": [
+              "scope_or_source_mismatch"
+            ],
+            "reference_evidence_ids": [
+              "h3-reference-1",
+              "h3-reference-2",
+              "h3-reference-3"
+            ],
+            "rule_id": "h3-sleep",
+            "temporal_pattern": "persistent_anomaly"
+          }
+        ],
+        "snapshot_ids": [
+          "h3-fatigue",
+          "h3-reference-1",
+          "h3-reference-2",
+          "h3-reference-3",
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6"
+        ],
+        "status": "incompatible_evidence",
+        "supporting_ids": [
+          "h3-fatigue"
+        ]
+      },
+      "abstention_correct": true,
+      "association_correct": true,
+      "case": "wrong-mission",
+      "contradiction_correct": null,
+      "determinism": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "directional_references": 1,
+      "eligible": true,
+      "expected": {
+        "contradicting_ids": [],
+        "hybrid_status": "incompatible_evidence",
+        "supporting_ids": [
+          "h3-fatigue"
+        ],
+        "temporal_pattern": "persistent_anomaly"
+      },
+      "m2_unchanged": true,
+      "temporal_correct": true,
+      "temporal_unchanged": true,
+      "traced_references": 1,
+      "unsupported_directional_assertions": 0
+    },
+    {
+      "A": {
+        "ranks": [
+          [
+            "sleep_deprivation",
+            1
+          ],
+          [
+            "baseline",
+            2
+          ],
+          [
+            "elevated_co2",
+            3
+          ],
+          [
+            "recent_exercise",
+            3
+          ]
+        ],
+        "selected_hypothesis": "sleep_deprivation",
+        "sha256": "c23ac4d8978052cb8aeaa707e7f6b4e0896a9dde938e3001a530ebf9ca96e091",
+        "status": "ranked",
+        "target_findings": {
+          "compatibility": "supported",
+          "contradictory_evidence": [],
+          "expected_relations": {
+            "fatigue_self_report": "fatigue_reported",
+            "sleep_duration": "below_reference"
+          },
+          "explanation": "sleep_deprivation: supported under reference-rules-1.0.0. Supporting: sleep_duration: window mean is below reference (empirical comparator, not a clinical limit); fatigue_self_report: latest usable report is fatigue reported. Pattern compatibility does not establish causation, diagnosis, or safety.",
+          "hypothesis_id": "sleep_deprivation",
+          "missing_evidence": [],
+          "rank": 1,
+          "supporting_evidence": [
+            {
+              "explanation": "sleep_duration: window mean is below reference (empirical comparator, not a clinical limit)",
+              "metric": "sleep_duration",
+              "observation_ids": [
+                "h3-sleep-1",
+                "h3-sleep-2",
+                "h3-sleep-3",
+                "h3-sleep-4",
+                "h3-sleep-5",
+                "h3-sleep-6"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": 9.0,
+              "reference_minimum": 7.0,
+              "reference_observation_ids": [
+                "h3-reference-1",
+                "h3-reference-2",
+                "h3-reference-3"
+              ],
+              "relation": "below_reference",
+              "unit": "h"
+            },
+            {
+              "explanation": "fatigue_self_report: latest usable report is fatigue reported",
+              "metric": "fatigue_self_report",
+              "observation_ids": [
+                "h3-fatigue"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": null,
+              "reference_minimum": null,
+              "reference_observation_ids": [],
+              "relation": "fatigue_reported",
+              "unit": "1"
+            }
+          ],
+          "uncertainty": [
+            "Compatibility is qualitative; no probability or causal certainty is estimated."
+          ]
+        }
+      },
+      "B": {
+        "abstention_reasons": [],
+        "temporal_pattern": "persistent_anomaly",
+        "valid_count": 6
+      },
+      "C": {
+        "abstention_reasons": [
+          "scope_or_source_mismatch",
+          "sleep_duration"
+        ],
+        "contradicting_ids": [],
+        "model_reasoning_steps": [],
+        "reasoning_steps": [
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: fatigue_self_report fatigue_reported.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-fatigue"
+            ],
+            "expected_relation": "fatigue_reported",
+            "explanation": "Resolved observations and the configured association rule support this descriptive metric expectation; they do not establish medical or causal truth.",
+            "metric": "fatigue_self_report",
+            "observed_relation": "fatigue_reported",
+            "outcome": "supports",
+            "reason_codes": [],
+            "reference_evidence_ids": [],
+            "rule_id": "h3-fatigue",
+            "temporal_pattern": null
+          },
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: sleep_duration below_reference.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-sleep-1",
+              "h3-sleep-2",
+              "h3-sleep-3",
+              "h3-sleep-4",
+              "h3-sleep-5",
+              "h3-sleep-6"
+            ],
+            "expected_relation": "below_reference",
+            "explanation": "The association checks cannot establish an eligible metric relationship; the recorded reasons identify missing, unavailable or excluded evidence.",
+            "metric": "sleep_duration",
+            "observed_relation": null,
+            "outcome": "incompatible",
+            "reason_codes": [
+              "scope_or_source_mismatch"
+            ],
+            "reference_evidence_ids": [
+              "h3-reference-1",
+              "h3-reference-2",
+              "h3-reference-3"
+            ],
+            "rule_id": "h3-sleep",
+            "temporal_pattern": "persistent_anomaly"
+          }
+        ],
+        "snapshot_ids": [
+          "h3-fatigue",
+          "h3-reference-1",
+          "h3-reference-2",
+          "h3-reference-3",
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6"
+        ],
+        "status": "incompatible_evidence",
+        "supporting_ids": [
+          "h3-fatigue"
+        ]
+      },
+      "abstention_correct": true,
+      "association_correct": true,
+      "case": "wrong-subject",
+      "contradiction_correct": null,
+      "determinism": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "directional_references": 1,
+      "eligible": true,
+      "expected": {
+        "contradicting_ids": [],
+        "hybrid_status": "incompatible_evidence",
+        "supporting_ids": [
+          "h3-fatigue"
+        ],
+        "temporal_pattern": "persistent_anomaly"
+      },
+      "m2_unchanged": true,
+      "temporal_correct": true,
+      "temporal_unchanged": true,
+      "traced_references": 1,
+      "unsupported_directional_assertions": 0
+    },
+    {
+      "boundary_error": "duplicate observation IDs",
+      "case": "duplicate",
+      "determinism": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "eligible": false,
+      "expected_boundary_rejection": true
+    },
+    {
+      "A": {
+        "ranks": [
+          [
+            "sleep_deprivation",
+            1
+          ],
+          [
+            "baseline",
+            2
+          ],
+          [
+            "elevated_co2",
+            3
+          ],
+          [
+            "recent_exercise",
+            3
+          ]
+        ],
+        "selected_hypothesis": "sleep_deprivation",
+        "sha256": "7194d93e8aff97d6599cf557de501d05dd60b8a9a305b2555fb2865cfc138848",
+        "status": "ranked",
+        "target_findings": {
+          "compatibility": "supported",
+          "contradictory_evidence": [],
+          "expected_relations": {
+            "fatigue_self_report": "fatigue_reported",
+            "sleep_duration": "below_reference"
+          },
+          "explanation": "sleep_deprivation: supported under reference-rules-1.0.0. Supporting: sleep_duration: window mean is below reference (empirical comparator, not a clinical limit); fatigue_self_report: latest usable report is fatigue reported. Pattern compatibility does not establish causation, diagnosis, or safety.",
+          "hypothesis_id": "sleep_deprivation",
+          "missing_evidence": [],
+          "rank": 1,
+          "supporting_evidence": [
+            {
+              "explanation": "sleep_duration: window mean is below reference (empirical comparator, not a clinical limit)",
+              "metric": "sleep_duration",
+              "observation_ids": [
+                "h3-sleep-1",
+                "h3-sleep-2",
+                "h3-sleep-3",
+                "h3-sleep-4",
+                "h3-sleep-5",
+                "h3-sleep-6"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": 9.0,
+              "reference_minimum": 7.0,
+              "reference_observation_ids": [
+                "h3-reference-1",
+                "h3-reference-2",
+                "h3-reference-3"
+              ],
+              "relation": "below_reference",
+              "unit": "h"
+            },
+            {
+              "explanation": "fatigue_self_report: latest usable report is fatigue reported",
+              "metric": "fatigue_self_report",
+              "observation_ids": [
+                "h3-fatigue"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": null,
+              "reference_minimum": null,
+              "reference_observation_ids": [],
+              "relation": "fatigue_reported",
+              "unit": "1"
+            }
+          ],
+          "uncertainty": [
+            "Compatibility is qualitative; no probability or causal certainty is estimated."
+          ]
+        }
+      },
+      "B": {
+        "abstention_reasons": [],
+        "temporal_pattern": "persistent_anomaly",
+        "valid_count": 6
+      },
+      "C": {
+        "abstention_reasons": [
+          "evidence_unavailable_at_assessment",
+          "sleep_duration"
+        ],
+        "contradicting_ids": [],
+        "model_reasoning_steps": [],
+        "reasoning_steps": [
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: fatigue_self_report fatigue_reported.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-fatigue"
+            ],
+            "expected_relation": "fatigue_reported",
+            "explanation": "Resolved observations and the configured association rule support this descriptive metric expectation; they do not establish medical or causal truth.",
+            "metric": "fatigue_self_report",
+            "observed_relation": "fatigue_reported",
+            "outcome": "supports",
+            "reason_codes": [],
+            "reference_evidence_ids": [],
+            "rule_id": "h3-fatigue",
+            "temporal_pattern": null
+          },
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: sleep_duration below_reference.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-sleep-1",
+              "h3-sleep-2",
+              "h3-sleep-3",
+              "h3-sleep-4",
+              "h3-sleep-5",
+              "h3-sleep-6"
+            ],
+            "expected_relation": "below_reference",
+            "explanation": "The association checks cannot establish an eligible metric relationship; the recorded reasons identify missing, unavailable or excluded evidence.",
+            "metric": "sleep_duration",
+            "observed_relation": null,
+            "outcome": "cannot_establish",
+            "reason_codes": [
+              "evidence_unavailable_at_assessment"
+            ],
+            "reference_evidence_ids": [
+              "h3-reference-1",
+              "h3-reference-2",
+              "h3-reference-3"
+            ],
+            "rule_id": "h3-sleep",
+            "temporal_pattern": "persistent_anomaly"
+          }
+        ],
+        "snapshot_ids": [
+          "h3-fatigue",
+          "h3-reference-1",
+          "h3-reference-2",
+          "h3-reference-3",
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6"
+        ],
+        "status": "insufficient_evidence",
+        "supporting_ids": [
+          "h3-fatigue"
+        ]
+      },
+      "abstention_correct": true,
+      "association_correct": true,
+      "case": "future-unavailable",
+      "contradiction_correct": null,
+      "determinism": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "directional_references": 1,
+      "eligible": true,
+      "expected": {
+        "contradicting_ids": [],
+        "hybrid_status": "insufficient_evidence",
+        "supporting_ids": [
+          "h3-fatigue"
+        ],
+        "temporal_pattern": "persistent_anomaly"
+      },
+      "m2_unchanged": true,
+      "temporal_correct": true,
+      "temporal_unchanged": true,
+      "traced_references": 1,
+      "unsupported_directional_assertions": 0
+    },
+    {
+      "A": {
+        "ranks": [
+          [
+            "sleep_deprivation",
+            1
+          ],
+          [
+            "baseline",
+            2
+          ],
+          [
+            "elevated_co2",
+            3
+          ],
+          [
+            "recent_exercise",
+            3
+          ]
+        ],
+        "selected_hypothesis": "sleep_deprivation",
+        "sha256": "7194d93e8aff97d6599cf557de501d05dd60b8a9a305b2555fb2865cfc138848",
+        "status": "ranked",
+        "target_findings": {
+          "compatibility": "supported",
+          "contradictory_evidence": [],
+          "expected_relations": {
+            "fatigue_self_report": "fatigue_reported",
+            "sleep_duration": "below_reference"
+          },
+          "explanation": "sleep_deprivation: supported under reference-rules-1.0.0. Supporting: sleep_duration: window mean is below reference (empirical comparator, not a clinical limit); fatigue_self_report: latest usable report is fatigue reported. Pattern compatibility does not establish causation, diagnosis, or safety.",
+          "hypothesis_id": "sleep_deprivation",
+          "missing_evidence": [],
+          "rank": 1,
+          "supporting_evidence": [
+            {
+              "explanation": "sleep_duration: window mean is below reference (empirical comparator, not a clinical limit)",
+              "metric": "sleep_duration",
+              "observation_ids": [
+                "h3-sleep-1",
+                "h3-sleep-2",
+                "h3-sleep-3",
+                "h3-sleep-4",
+                "h3-sleep-5",
+                "h3-sleep-6"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": 9.0,
+              "reference_minimum": 7.0,
+              "reference_observation_ids": [
+                "h3-reference-1",
+                "h3-reference-2",
+                "h3-reference-3"
+              ],
+              "relation": "below_reference",
+              "unit": "h"
+            },
+            {
+              "explanation": "fatigue_self_report: latest usable report is fatigue reported",
+              "metric": "fatigue_self_report",
+              "observation_ids": [
+                "h3-fatigue"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": null,
+              "reference_minimum": null,
+              "reference_observation_ids": [],
+              "relation": "fatigue_reported",
+              "unit": "1"
+            }
+          ],
+          "uncertainty": [
+            "Compatibility is qualitative; no probability or causal certainty is estimated."
+          ]
+        }
+      },
+      "B": {
+        "abstention_reasons": [],
+        "temporal_pattern": "persistent_anomaly",
+        "valid_count": 6
+      },
+      "C": {
+        "abstention_reasons": [
+          "required_compatible_model_context"
+        ],
+        "contradicting_ids": [],
+        "model_reasoning_steps": [
+          {
+            "context_sha256": "c7c0d13d2ef241816b334ac314362b85fe0c8e66256a4994fbd08225fb26c417",
+            "eligible_context": false,
+            "evidence_ids": [
+              "synthetic-env-cabin_co2_concentration",
+              "synthetic-env-environment_temperature",
+              "synthetic-env-relative_humidity"
+            ],
+            "explanation": "Model context is descriptive statistical evidence only; no hazard-specific support, absence, causal mechanism or faithful feature attribution follows from its flag.",
+            "outcome": "cannot_establish",
+            "reason_codes": [
+              "model_context_lineage_unavailable",
+              "model_context_scope_mismatch",
+              "model_finding_cannot_establish_claim",
+              "model_finding_unavailable_or_abstained"
+            ]
+          }
+        ],
+        "reasoning_steps": [
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: fatigue_self_report fatigue_reported.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-fatigue"
+            ],
+            "expected_relation": "fatigue_reported",
+            "explanation": "Resolved observations and the configured association rule support this descriptive metric expectation; they do not establish medical or causal truth.",
+            "metric": "fatigue_self_report",
+            "observed_relation": "fatigue_reported",
+            "outcome": "supports",
+            "reason_codes": [],
+            "reference_evidence_ids": [],
+            "rule_id": "h3-fatigue",
+            "temporal_pattern": null
+          },
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: sleep_duration below_reference.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-sleep-1",
+              "h3-sleep-2",
+              "h3-sleep-3",
+              "h3-sleep-4",
+              "h3-sleep-5",
+              "h3-sleep-6"
+            ],
+            "expected_relation": "below_reference",
+            "explanation": "Resolved observations and the configured association rule support this descriptive metric expectation; they do not establish medical or causal truth.",
+            "metric": "sleep_duration",
+            "observed_relation": "below_reference",
+            "outcome": "supports",
+            "reason_codes": [],
+            "reference_evidence_ids": [
+              "h3-reference-1",
+              "h3-reference-2",
+              "h3-reference-3"
+            ],
+            "rule_id": "h3-sleep",
+            "temporal_pattern": "persistent_anomaly"
+          }
+        ],
+        "snapshot_ids": [
+          "h3-fatigue",
+          "h3-reference-1",
+          "h3-reference-2",
+          "h3-reference-3",
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6"
+        ],
+        "status": "insufficient_evidence",
+        "supporting_ids": [
+          "h3-fatigue",
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6"
+        ]
+      },
+      "abstention_correct": true,
+      "association_correct": true,
+      "case": "model-abstention",
+      "contradiction_correct": null,
+      "determinism": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "directional_references": 10,
+      "eligible": true,
+      "expected": {
+        "contradicting_ids": [],
+        "hybrid_status": "insufficient_evidence",
+        "supporting_ids": [
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6",
+          "h3-fatigue"
+        ],
+        "temporal_pattern": "persistent_anomaly"
+      },
+      "m2_unchanged": true,
+      "temporal_correct": true,
+      "temporal_unchanged": true,
+      "traced_references": 10,
+      "unsupported_directional_assertions": 0
+    },
+    {
+      "A": {
+        "ranks": [
+          [
+            "sleep_deprivation",
+            1
+          ],
+          [
+            "baseline",
+            2
+          ],
+          [
+            "elevated_co2",
+            3
+          ],
+          [
+            "recent_exercise",
+            3
+          ]
+        ],
+        "selected_hypothesis": "sleep_deprivation",
+        "sha256": "61bfa2e0752d8553f65392800962bbf3866af4427146c86d26ba11e9497d6d95",
+        "status": "ranked",
+        "target_findings": {
+          "compatibility": "supported",
+          "contradictory_evidence": [],
+          "expected_relations": {
+            "fatigue_self_report": "fatigue_reported",
+            "sleep_duration": "below_reference"
+          },
+          "explanation": "sleep_deprivation: supported under reference-rules-1.0.0. Supporting: sleep_duration: window mean is below reference (empirical comparator, not a clinical limit); fatigue_self_report: latest usable report is fatigue reported. Pattern compatibility does not establish causation, diagnosis, or safety.",
+          "hypothesis_id": "sleep_deprivation",
+          "missing_evidence": [],
+          "rank": 1,
+          "supporting_evidence": [
+            {
+              "explanation": "sleep_duration: window mean is below reference (empirical comparator, not a clinical limit)",
+              "metric": "sleep_duration",
+              "observation_ids": [
+                "h3-sleep-1",
+                "h3-sleep-2",
+                "h3-sleep-3",
+                "h3-sleep-4",
+                "h3-sleep-5",
+                "h3-sleep-6"
+              ],
+              "observed_value": 5.0,
+              "reference_maximum": 9.0,
+              "reference_minimum": 7.0,
+              "reference_observation_ids": [
+                "h3-reference-1",
+                "h3-reference-2",
+                "h3-reference-3"
+              ],
+              "relation": "below_reference",
+              "unit": "h"
+            },
+            {
+              "explanation": "fatigue_self_report: latest usable report is fatigue reported",
+              "metric": "fatigue_self_report",
+              "observation_ids": [
+                "h3-fatigue"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": null,
+              "reference_minimum": null,
+              "reference_observation_ids": [],
+              "relation": "fatigue_reported",
+              "unit": "1"
+            }
+          ],
+          "uncertainty": [
+            "Compatibility is qualitative; no probability or causal certainty is estimated."
+          ]
+        }
+      },
+      "B": {
+        "abstention_reasons": [],
+        "temporal_pattern": "recovery",
+        "valid_count": 6
+      },
+      "C": {
+        "abstention_reasons": [],
+        "contradicting_ids": [],
+        "model_reasoning_steps": [],
+        "reasoning_steps": [
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: fatigue_self_report fatigue_reported.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-fatigue"
+            ],
+            "expected_relation": "fatigue_reported",
+            "explanation": "Resolved observations and the configured association rule support this descriptive metric expectation; they do not establish medical or causal truth.",
+            "metric": "fatigue_self_report",
+            "observed_relation": "fatigue_reported",
+            "outcome": "supports",
+            "reason_codes": [],
+            "reference_evidence_ids": [],
+            "rule_id": "h3-fatigue",
+            "temporal_pattern": null
+          },
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: sleep_duration below_reference.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-sleep-1",
+              "h3-sleep-2",
+              "h3-sleep-3",
+              "h3-sleep-4",
+              "h3-sleep-5",
+              "h3-sleep-6"
+            ],
+            "expected_relation": "below_reference",
+            "explanation": "Resolved observations and the configured association rule support this descriptive metric expectation; they do not establish medical or causal truth.",
+            "metric": "sleep_duration",
+            "observed_relation": "below_reference",
+            "outcome": "supports",
+            "reason_codes": [],
+            "reference_evidence_ids": [
+              "h3-reference-1",
+              "h3-reference-2",
+              "h3-reference-3"
+            ],
+            "rule_id": "h3-sleep",
+            "temporal_pattern": "recovery"
+          }
+        ],
+        "snapshot_ids": [
+          "h3-fatigue",
+          "h3-reference-1",
+          "h3-reference-2",
+          "h3-reference-3",
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6"
+        ],
+        "status": "supported_by_available_evidence",
+        "supporting_ids": [
+          "h3-fatigue",
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6"
+        ]
+      },
+      "abstention_correct": true,
+      "association_correct": true,
+      "case": "recovery",
+      "contradiction_correct": null,
+      "determinism": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "directional_references": 10,
+      "eligible": true,
+      "expected": {
+        "contradicting_ids": [],
+        "hybrid_status": "supported_by_available_evidence",
+        "supporting_ids": [
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6",
+          "h3-fatigue"
+        ],
+        "temporal_pattern": "recovery"
+      },
+      "m2_unchanged": true,
+      "temporal_correct": true,
+      "temporal_unchanged": true,
+      "traced_references": 10,
+      "unsupported_directional_assertions": 0
+    },
+    {
+      "A": {
+        "ranks": [
+          [
+            "sleep_deprivation",
+            1
+          ],
+          [
+            "baseline",
+            2
+          ],
+          [
+            "elevated_co2",
+            3
+          ],
+          [
+            "recent_exercise",
+            3
+          ]
+        ],
+        "selected_hypothesis": "sleep_deprivation",
+        "sha256": "7194d93e8aff97d6599cf557de501d05dd60b8a9a305b2555fb2865cfc138848",
+        "status": "ranked",
+        "target_findings": {
+          "compatibility": "supported",
+          "contradictory_evidence": [],
+          "expected_relations": {
+            "fatigue_self_report": "fatigue_reported",
+            "sleep_duration": "below_reference"
+          },
+          "explanation": "sleep_deprivation: supported under reference-rules-1.0.0. Supporting: sleep_duration: window mean is below reference (empirical comparator, not a clinical limit); fatigue_self_report: latest usable report is fatigue reported. Pattern compatibility does not establish causation, diagnosis, or safety.",
+          "hypothesis_id": "sleep_deprivation",
+          "missing_evidence": [],
+          "rank": 1,
+          "supporting_evidence": [
+            {
+              "explanation": "sleep_duration: window mean is below reference (empirical comparator, not a clinical limit)",
+              "metric": "sleep_duration",
+              "observation_ids": [
+                "h3-sleep-1",
+                "h3-sleep-2",
+                "h3-sleep-3",
+                "h3-sleep-4",
+                "h3-sleep-5",
+                "h3-sleep-6"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": 9.0,
+              "reference_minimum": 7.0,
+              "reference_observation_ids": [
+                "h3-reference-1",
+                "h3-reference-2",
+                "h3-reference-3"
+              ],
+              "relation": "below_reference",
+              "unit": "h"
+            },
+            {
+              "explanation": "fatigue_self_report: latest usable report is fatigue reported",
+              "metric": "fatigue_self_report",
+              "observation_ids": [
+                "h3-fatigue"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": null,
+              "reference_minimum": null,
+              "reference_observation_ids": [],
+              "relation": "fatigue_reported",
+              "unit": "1"
+            }
+          ],
+          "uncertainty": [
+            "Compatibility is qualitative; no probability or causal certainty is estimated."
+          ]
+        }
+      },
+      "B": {
+        "abstention_reasons": [],
+        "temporal_pattern": "persistent_anomaly",
+        "valid_count": 6
+      },
+      "C": {
+        "abstention_reasons": [
+          "duplicate_or_conflicting_provenance",
+          "sleep_duration"
+        ],
+        "contradicting_ids": [],
+        "model_reasoning_steps": [],
+        "reasoning_steps": [
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: fatigue_self_report fatigue_reported.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-fatigue"
+            ],
+            "expected_relation": "fatigue_reported",
+            "explanation": "Resolved observations and the configured association rule support this descriptive metric expectation; they do not establish medical or causal truth.",
+            "metric": "fatigue_self_report",
+            "observed_relation": "fatigue_reported",
+            "outcome": "supports",
+            "reason_codes": [],
+            "reference_evidence_ids": [],
+            "rule_id": "h3-fatigue",
+            "temporal_pattern": null
+          },
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: sleep_duration below_reference.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-sleep-1",
+              "h3-sleep-2",
+              "h3-sleep-3",
+              "h3-sleep-4",
+              "h3-sleep-5",
+              "h3-sleep-6"
+            ],
+            "expected_relation": "below_reference",
+            "explanation": "The association checks cannot establish an eligible metric relationship; the recorded reasons identify missing, unavailable or excluded evidence.",
+            "metric": "sleep_duration",
+            "observed_relation": null,
+            "outcome": "incompatible",
+            "reason_codes": [
+              "duplicate_or_conflicting_provenance"
+            ],
+            "reference_evidence_ids": [
+              "h3-reference-1",
+              "h3-reference-2",
+              "h3-reference-3"
+            ],
+            "rule_id": "h3-sleep",
+            "temporal_pattern": "persistent_anomaly"
+          }
+        ],
+        "snapshot_ids": [
+          "h3-fatigue",
+          "h3-reference-1",
+          "h3-reference-2",
+          "h3-reference-3",
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6"
+        ],
+        "status": "incompatible_evidence",
+        "supporting_ids": [
+          "h3-fatigue"
+        ]
+      },
+      "abstention_correct": true,
+      "association_correct": true,
+      "case": "conflicting-provenance",
+      "contradiction_correct": null,
+      "determinism": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "directional_references": 1,
+      "eligible": true,
+      "expected": {
+        "contradicting_ids": [],
+        "hybrid_status": "incompatible_evidence",
+        "supporting_ids": [
+          "h3-fatigue"
+        ],
+        "temporal_pattern": "persistent_anomaly"
+      },
+      "m2_unchanged": true,
+      "temporal_correct": true,
+      "temporal_unchanged": true,
+      "traced_references": 1,
+      "unsupported_directional_assertions": 0
+    },
+    {
+      "A": {
+        "ranks": [
+          [
+            "sleep_deprivation",
+            1
+          ],
+          [
+            "baseline",
+            2
+          ],
+          [
+            "elevated_co2",
+            3
+          ],
+          [
+            "recent_exercise",
+            3
+          ]
+        ],
+        "selected_hypothesis": "sleep_deprivation",
+        "sha256": "7194d93e8aff97d6599cf557de501d05dd60b8a9a305b2555fb2865cfc138848",
+        "status": "ranked",
+        "target_findings": {
+          "compatibility": "supported",
+          "contradictory_evidence": [],
+          "expected_relations": {
+            "fatigue_self_report": "fatigue_reported",
+            "sleep_duration": "below_reference"
+          },
+          "explanation": "sleep_deprivation: supported under reference-rules-1.0.0. Supporting: sleep_duration: window mean is below reference (empirical comparator, not a clinical limit); fatigue_self_report: latest usable report is fatigue reported. Pattern compatibility does not establish causation, diagnosis, or safety.",
+          "hypothesis_id": "sleep_deprivation",
+          "missing_evidence": [],
+          "rank": 1,
+          "supporting_evidence": [
+            {
+              "explanation": "sleep_duration: window mean is below reference (empirical comparator, not a clinical limit)",
+              "metric": "sleep_duration",
+              "observation_ids": [
+                "h3-sleep-1",
+                "h3-sleep-2",
+                "h3-sleep-3",
+                "h3-sleep-4",
+                "h3-sleep-5",
+                "h3-sleep-6"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": 9.0,
+              "reference_minimum": 7.0,
+              "reference_observation_ids": [
+                "h3-reference-1",
+                "h3-reference-2",
+                "h3-reference-3"
+              ],
+              "relation": "below_reference",
+              "unit": "h"
+            },
+            {
+              "explanation": "fatigue_self_report: latest usable report is fatigue reported",
+              "metric": "fatigue_self_report",
+              "observation_ids": [
+                "h3-fatigue"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": null,
+              "reference_minimum": null,
+              "reference_observation_ids": [],
+              "relation": "fatigue_reported",
+              "unit": "1"
+            }
+          ],
+          "uncertainty": [
+            "Compatibility is qualitative; no probability or causal certainty is estimated."
+          ]
+        }
+      },
+      "B": {
+        "abstention_reasons": [],
+        "temporal_pattern": "persistent_anomaly",
+        "valid_count": 6
+      },
+      "C": {
+        "abstention_reasons": [
+          "required_compatible_model_context"
+        ],
+        "contradicting_ids": [],
+        "model_reasoning_steps": [
+          {
+            "context_sha256": "c13b31d5be084a46d36e9eb1a82a89a1a38e8bce5f93baddc0b2c421e132863c",
+            "eligible_context": false,
+            "evidence_ids": [
+              "synthetic-env-cabin_co2_concentration",
+              "synthetic-env-environment_temperature",
+              "synthetic-env-relative_humidity"
+            ],
+            "explanation": "Model context is descriptive statistical evidence only; no hazard-specific support, absence, causal mechanism or faithful feature attribution follows from its flag.",
+            "outcome": "cannot_establish",
+            "reason_codes": [
+              "historical_replay_not_prospective",
+              "model_context_lineage_unavailable",
+              "model_context_scope_mismatch",
+              "model_finding_cannot_establish_claim",
+              "model_finding_unavailable_or_abstained"
+            ]
+          }
+        ],
+        "reasoning_steps": [
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: fatigue_self_report fatigue_reported.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-fatigue"
+            ],
+            "expected_relation": "fatigue_reported",
+            "explanation": "Resolved observations and the configured association rule support this descriptive metric expectation; they do not establish medical or causal truth.",
+            "metric": "fatigue_self_report",
+            "observed_relation": "fatigue_reported",
+            "outcome": "supports",
+            "reason_codes": [],
+            "reference_evidence_ids": [],
+            "rule_id": "h3-fatigue",
+            "temporal_pattern": null
+          },
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: sleep_duration below_reference.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-sleep-1",
+              "h3-sleep-2",
+              "h3-sleep-3",
+              "h3-sleep-4",
+              "h3-sleep-5",
+              "h3-sleep-6"
+            ],
+            "expected_relation": "below_reference",
+            "explanation": "Resolved observations and the configured association rule support this descriptive metric expectation; they do not establish medical or causal truth.",
+            "metric": "sleep_duration",
+            "observed_relation": "below_reference",
+            "outcome": "supports",
+            "reason_codes": [],
+            "reference_evidence_ids": [
+              "h3-reference-1",
+              "h3-reference-2",
+              "h3-reference-3"
+            ],
+            "rule_id": "h3-sleep",
+            "temporal_pattern": "persistent_anomaly"
+          }
+        ],
+        "snapshot_ids": [
+          "h3-fatigue",
+          "h3-reference-1",
+          "h3-reference-2",
+          "h3-reference-3",
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6"
+        ],
+        "status": "insufficient_evidence",
+        "supporting_ids": [
+          "h3-fatigue",
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6"
+        ]
+      },
+      "abstention_correct": true,
+      "association_correct": true,
+      "case": "nasa-replay-scope",
+      "contradiction_correct": null,
+      "determinism": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "directional_references": 10,
+      "eligible": true,
+      "expected": {
+        "contradicting_ids": [],
+        "hybrid_status": "insufficient_evidence",
+        "supporting_ids": [
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6",
+          "h3-fatigue"
+        ],
+        "temporal_pattern": "persistent_anomaly"
+      },
+      "m2_unchanged": true,
+      "temporal_correct": true,
+      "temporal_unchanged": true,
+      "traced_references": 10,
+      "unsupported_directional_assertions": 0
+    },
+    {
+      "A": {
+        "ranks": [
+          [
+            "sleep_deprivation",
+            1
+          ],
+          [
+            "baseline",
+            2
+          ],
+          [
+            "elevated_co2",
+            3
+          ],
+          [
+            "recent_exercise",
+            3
+          ]
+        ],
+        "selected_hypothesis": "sleep_deprivation",
+        "sha256": "7194d93e8aff97d6599cf557de501d05dd60b8a9a305b2555fb2865cfc138848",
+        "status": "ranked",
+        "target_findings": {
+          "compatibility": "supported",
+          "contradictory_evidence": [],
+          "expected_relations": {
+            "fatigue_self_report": "fatigue_reported",
+            "sleep_duration": "below_reference"
+          },
+          "explanation": "sleep_deprivation: supported under reference-rules-1.0.0. Supporting: sleep_duration: window mean is below reference (empirical comparator, not a clinical limit); fatigue_self_report: latest usable report is fatigue reported. Pattern compatibility does not establish causation, diagnosis, or safety.",
+          "hypothesis_id": "sleep_deprivation",
+          "missing_evidence": [],
+          "rank": 1,
+          "supporting_evidence": [
+            {
+              "explanation": "sleep_duration: window mean is below reference (empirical comparator, not a clinical limit)",
+              "metric": "sleep_duration",
+              "observation_ids": [
+                "h3-sleep-1",
+                "h3-sleep-2",
+                "h3-sleep-3",
+                "h3-sleep-4",
+                "h3-sleep-5",
+                "h3-sleep-6"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": 9.0,
+              "reference_minimum": 7.0,
+              "reference_observation_ids": [
+                "h3-reference-1",
+                "h3-reference-2",
+                "h3-reference-3"
+              ],
+              "relation": "below_reference",
+              "unit": "h"
+            },
+            {
+              "explanation": "fatigue_self_report: latest usable report is fatigue reported",
+              "metric": "fatigue_self_report",
+              "observation_ids": [
+                "h3-fatigue"
+              ],
+              "observed_value": 2.0,
+              "reference_maximum": null,
+              "reference_minimum": null,
+              "reference_observation_ids": [],
+              "relation": "fatigue_reported",
+              "unit": "1"
+            }
+          ],
+          "uncertainty": [
+            "Compatibility is qualitative; no probability or causal certainty is estimated."
+          ]
+        }
+      },
+      "B": {
+        "abstention_reasons": [
+          "stale_observations"
+        ],
+        "temporal_pattern": "abstained",
+        "valid_count": 6
+      },
+      "C": {
+        "abstention_reasons": [
+          "fatigue_self_report",
+          "sleep_duration",
+          "stale_current_evidence",
+          "stale_observations",
+          "stale_temporal_evidence",
+          "temporal_pattern_not_eligible"
+        ],
+        "contradicting_ids": [],
+        "model_reasoning_steps": [],
+        "reasoning_steps": [
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: fatigue_self_report fatigue_reported.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-fatigue"
+            ],
+            "expected_relation": "fatigue_reported",
+            "explanation": "The association checks cannot establish an eligible metric relationship; the recorded reasons identify missing, unavailable or excluded evidence.",
+            "metric": "fatigue_self_report",
+            "observed_relation": null,
+            "outcome": "cannot_establish",
+            "reason_codes": [
+              "stale_current_evidence"
+            ],
+            "reference_evidence_ids": [],
+            "rule_id": "h3-fatigue",
+            "temporal_pattern": null
+          },
+          {
+            "claim": "M2 sleep_deprivation descriptive expectation: sleep_duration below_reference.",
+            "event_window": {
+              "end": "2032-04-05T00:06:00Z",
+              "start": "2032-04-05T00:00:00Z"
+            },
+            "evidence_ids": [
+              "h3-sleep-1",
+              "h3-sleep-2",
+              "h3-sleep-3",
+              "h3-sleep-4",
+              "h3-sleep-5",
+              "h3-sleep-6"
+            ],
+            "expected_relation": "below_reference",
+            "explanation": "The association checks cannot establish an eligible metric relationship; the recorded reasons identify missing, unavailable or excluded evidence.",
+            "metric": "sleep_duration",
+            "observed_relation": null,
+            "outcome": "cannot_establish",
+            "reason_codes": [
+              "stale_current_evidence",
+              "stale_observations",
+              "stale_temporal_evidence",
+              "temporal_pattern_not_eligible"
+            ],
+            "reference_evidence_ids": [
+              "h3-reference-1",
+              "h3-reference-2",
+              "h3-reference-3"
+            ],
+            "rule_id": "h3-sleep",
+            "temporal_pattern": "abstained"
+          }
+        ],
+        "snapshot_ids": [
+          "h3-fatigue",
+          "h3-reference-1",
+          "h3-reference-2",
+          "h3-reference-3",
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6"
+        ],
+        "status": "insufficient_evidence",
+        "supporting_ids": []
+      },
+      "abstention_correct": true,
+      "association_correct": true,
+      "case": "stale",
+      "contradiction_correct": null,
+      "determinism": {
+        "A": true,
+        "B": true,
+        "C": true
+      },
+      "directional_references": 0,
+      "eligible": true,
+      "expected": {
+        "contradicting_ids": [],
+        "hybrid_status": "insufficient_evidence",
+        "supporting_ids": [],
+        "temporal_pattern": "abstained"
+      },
+      "m2_unchanged": true,
+      "temporal_correct": true,
+      "temporal_unchanged": true,
+      "traced_references": 0,
+      "unsupported_directional_assertions": 0
+    }
+  ],
+  "challenge_count": 13,
+  "development_cases": {
+    "count": 12,
+    "included_in_challenge_metrics": false,
+    "source": "examples.hybrid_research_cases"
+  },
+  "eligible_count": 12,
+  "interpretation": "post-implementation pre-specified contract challenge; not blind external validation",
+  "m2_invariance": {
+    "correct": 12,
+    "total": 12
+  },
+  "metrics": {
+    "A": {
+      "abstention_correctness": {
+        "reason": "N/A: configuration does not emit this research sidecar contract",
+        "value": null
+      },
+      "contradiction_handling": {
+        "reason": "N/A: configuration does not emit this research sidecar contract",
+        "value": null
+      },
+      "deterministic_reproducibility": {
+        "correct": 13,
+        "total": 13
+      },
+      "evidence_association_correctness": {
+        "reason": "N/A: configuration does not emit this research sidecar contract",
+        "value": null
+      },
+      "provenance_trace_completeness": {
+        "reason": "N/A: configuration does not emit this research sidecar contract",
+        "value": null
+      },
+      "temporal_pattern_recognition": {
+        "reason": "N/A: configuration does not emit this research sidecar contract",
+        "value": null
+      },
+      "unsupported_directional_assertions": {
+        "reason": "N/A: configuration does not emit this research sidecar contract",
+        "value": null
+      }
+    },
+    "B": {
+      "abstention_correctness": {
+        "reason": "N/A: configuration does not emit this research sidecar contract",
+        "value": null
+      },
+      "contradiction_handling": {
+        "reason": "N/A: configuration does not emit this research sidecar contract",
+        "value": null
+      },
+      "deterministic_reproducibility": {
+        "correct": 13,
+        "total": 13
+      },
+      "evidence_association_correctness": {
+        "reason": "N/A: configuration does not emit this research sidecar contract",
+        "value": null
+      },
+      "provenance_trace_completeness": {
+        "reason": "N/A: configuration does not emit this research sidecar contract",
+        "value": null
+      },
+      "temporal_pattern_recognition": {
+        "correct": 12,
+        "total": 12
+      },
+      "unsupported_directional_assertions": {
+        "reason": "N/A: configuration does not emit this research sidecar contract",
+        "value": null
+      }
+    },
+    "C": {
+      "abstention_correctness": {
+        "correct": 12,
+        "total": 12
+      },
+      "contradiction_handling": {
+        "correct": 1,
+        "total": 1
+      },
+      "deterministic_reproducibility": {
+        "correct": 13,
+        "total": 13
+      },
+      "evidence_association_correctness": {
+        "correct": 12,
+        "total": 12
+      },
+      "provenance_trace_completeness": {
+        "resolved": 56,
+        "total": 56
+      },
+      "temporal_pattern_recognition": {
+        "correct": 12,
+        "total": 12
+      },
+      "unsupported_directional_assertions": 0
+    }
+  },
+  "schema_version": "1.0.0",
+  "specification_sha256": "e77a8f5ed47add63aa35fcf9632d564ec7388dfafcb6519397271139e7fca6a2"
+}

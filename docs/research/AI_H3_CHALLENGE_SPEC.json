@@ -1,0 +1,264 @@
+{
+  "schema_version": "1.0.0",
+  "baseline_commit": "7b56152c5bad72dd9446f17c301dcc466b16bd6a",
+  "classification": "post-implementation pre-specified contract challenge; not blind external validation",
+  "fixture": {
+    "start_utc": "2032-04-05T00:00:00Z",
+    "cadence_seconds": 60,
+    "current_values": [
+      2,
+      2,
+      2,
+      2,
+      2,
+      2
+    ],
+    "reference_values": [
+      7,
+      8,
+      9
+    ],
+    "reference_offset_seconds": -600,
+    "subject": "h3-subject",
+    "mission": "h3-mission",
+    "hypothesis": "sleep_deprivation",
+    "fatigue": "very_tired",
+    "band": [
+      6,
+      10
+    ],
+    "minimum_run": 3,
+    "minimum_observations": 4,
+    "maximum_gap_seconds": 90,
+    "maximum_age_seconds": 120,
+    "window_seconds": 360,
+    "trend": "lower_is_worsening",
+    "minimum_slope_per_second": 0.01
+  },
+  "cases": [
+    {
+      "id": "persistent",
+      "inputs": {},
+      "expected": {
+        "temporal_pattern": "persistent_anomaly",
+        "hybrid_status": "supported_by_available_evidence",
+        "supporting_ids": [
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6",
+          "h3-fatigue"
+        ],
+        "contradicting_ids": []
+      }
+    },
+    {
+      "id": "isolated",
+      "inputs": {
+        "values": [
+          8,
+          8,
+          1,
+          8,
+          8,
+          8
+        ]
+      },
+      "expected": {
+        "temporal_pattern": "isolated_spike",
+        "hybrid_status": "insufficient_evidence",
+        "supporting_ids": [
+          "h3-fatigue"
+        ],
+        "contradicting_ids": []
+      }
+    },
+    {
+      "id": "missing",
+      "inputs": {
+        "missing": true
+      },
+      "expected": {
+        "temporal_pattern": "abstained",
+        "hybrid_status": "insufficient_evidence",
+        "supporting_ids": [
+          "h3-fatigue"
+        ],
+        "contradicting_ids": []
+      }
+    },
+    {
+      "id": "contradiction",
+      "inputs": {
+        "rested": true
+      },
+      "expected": {
+        "temporal_pattern": "persistent_anomaly",
+        "hybrid_status": "mixed_evidence",
+        "supporting_ids": [
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6"
+        ],
+        "contradicting_ids": [
+          "h3-fatigue"
+        ]
+      }
+    },
+    {
+      "id": "wrong-mission",
+      "inputs": {
+        "reference_mission": "h3-other-mission"
+      },
+      "expected": {
+        "temporal_pattern": "persistent_anomaly",
+        "hybrid_status": "incompatible_evidence",
+        "supporting_ids": [
+          "h3-fatigue"
+        ],
+        "contradicting_ids": []
+      }
+    },
+    {
+      "id": "wrong-subject",
+      "inputs": {
+        "reference_subject": "h3-other-subject"
+      },
+      "expected": {
+        "temporal_pattern": "persistent_anomaly",
+        "hybrid_status": "incompatible_evidence",
+        "supporting_ids": [
+          "h3-fatigue"
+        ],
+        "contradicting_ids": []
+      }
+    },
+    {
+      "id": "duplicate",
+      "inputs": {
+        "duplicate": true
+      },
+      "expected": {
+        "temporal_pattern": null,
+        "hybrid_status": null,
+        "supporting_ids": [],
+        "contradicting_ids": []
+      }
+    },
+    {
+      "id": "future-unavailable",
+      "inputs": {
+        "future_reference": true
+      },
+      "expected": {
+        "temporal_pattern": "persistent_anomaly",
+        "hybrid_status": "insufficient_evidence",
+        "supporting_ids": [
+          "h3-fatigue"
+        ],
+        "contradicting_ids": []
+      }
+    },
+    {
+      "id": "model-abstention",
+      "inputs": {
+        "require_model": true,
+        "context": "abstained"
+      },
+      "expected": {
+        "temporal_pattern": "persistent_anomaly",
+        "hybrid_status": "insufficient_evidence",
+        "supporting_ids": [
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6",
+          "h3-fatigue"
+        ],
+        "contradicting_ids": []
+      }
+    },
+    {
+      "id": "recovery",
+      "inputs": {
+        "values": [
+          2,
+          2,
+          2,
+          8,
+          8,
+          8
+        ],
+        "allow_recovery": true
+      },
+      "expected": {
+        "temporal_pattern": "recovery",
+        "hybrid_status": "supported_by_available_evidence",
+        "supporting_ids": [
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6",
+          "h3-fatigue"
+        ],
+        "contradicting_ids": []
+      }
+    },
+    {
+      "id": "conflicting-provenance",
+      "inputs": {
+        "conflicting_provenance": true
+      },
+      "expected": {
+        "temporal_pattern": "persistent_anomaly",
+        "hybrid_status": "incompatible_evidence",
+        "supporting_ids": [
+          "h3-fatigue"
+        ],
+        "contradicting_ids": []
+      }
+    },
+    {
+      "id": "nasa-replay-scope",
+      "inputs": {
+        "require_model": true,
+        "context": "replay"
+      },
+      "expected": {
+        "temporal_pattern": "persistent_anomaly",
+        "hybrid_status": "insufficient_evidence",
+        "supporting_ids": [
+          "h3-sleep-1",
+          "h3-sleep-2",
+          "h3-sleep-3",
+          "h3-sleep-4",
+          "h3-sleep-5",
+          "h3-sleep-6",
+          "h3-fatigue"
+        ],
+        "contradicting_ids": []
+      }
+    },
+    {
+      "id": "stale",
+      "inputs": {
+        "stale": true
+      },
+      "expected": {
+        "temporal_pattern": "abstained",
+        "hybrid_status": "insufficient_evidence",
+        "supporting_ids": [],
+        "contradicting_ids": []
+      }
+    }
+  ]
+}
