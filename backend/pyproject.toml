@@ -8,6 +8,9 @@ dependencies = ["pydantic>=2,<3", "fastapi>=0.162.7,<0.163", "uvicorn>=0.34,<1"]
 [project.optional-dependencies]
 model-a = ["numpy>=2.0,<2.5", "scikit-learn==1.9.1", "joblib==1.6.0"]
 
+# Optional CPU-only Model B runtime, verified on CPython 3.12.10.
+model-b = ["numpy==2.4.6", "scipy==1.17.1", "scikit-learn==1.9.1", "joblib==1.6.0"]
+
 [dependency-groups]
 dev = [
     "ruff>=0.9,<1",
