@@ -38,7 +38,7 @@ const errorText = (error: ModelCError) =>
     ? `The local API rejected the entries (${error.code ?? "invalid_request"}). Nothing was assessed or stored.`
     : error.kind === "contract"
       ? "The local API returned an unsupported or inconsistent result. Nothing is shown in its place."
-      : "The local Isolation & Confinement API is unavailable. Start the backend with app.model_c_main; no result is substituted.";
+      : "The local sleep/fatigue research API is unavailable. Start the backend with app.model_c_main; no result is substituted.";
 
 export function ModelCPanel({
   title,
@@ -141,20 +141,21 @@ export function ModelCPanel({
   return (
     <div className="model-c">
       <PageIntro
-        eyebrow="Isolation & Confinement · local research prototype"
+        eyebrow="Model C · deterministic research prototype · isolation & confinement domain"
         title={title}
       >
         Compare one pseudonymous participant's own daily sleep duration and
         fatigue self-reports with that same participant's earlier entries.
       </PageIntro>
       <div className="workflow-warning" role="note">
-        <strong>Local demonstration only — not diagnostic.</strong> This
-        analysis does not diagnose any condition, judge health, recommend
-        treatment or actions, or compute risk, severity or probability. It is
-        not suitable for operational astronaut monitoring. Only two indicators
-        are supported: sleep duration (hours) and fatigue self-report (rested /
-        tired / very tired). Mood, stress, social, cognitive and activity data
-        are not supported.
+        <strong>Local demonstration only — not diagnostic.</strong> Model C is a
+        deterministic sleep/fatigue research monitor, not a clinically validated
+        isolation or confinement detector. It does not diagnose any condition,
+        judge health, recommend treatment or actions, or compute risk, severity
+        or probability. It is not suitable for operational astronaut monitoring.
+        Only two indicators are supported: sleep duration (hours) and fatigue
+        self-report (rested / tired / very tired). Mood, stress, social,
+        cognitive and activity data are not supported.
       </div>
       <div className="notice" role="note" aria-label="Data handling">
         <strong>Nothing is saved.</strong> Entries live only in this page's
@@ -364,7 +365,7 @@ function Reasons({ codes }: { codes: string[] }) {
 export function ModelCResult({ response }: { response: ModelCResponse }) {
   const r = response.result;
   return (
-    <section aria-label="Isolation & Confinement result">
+    <section aria-label="Sleep/fatigue research result">
       <Panel title="Result">
         <p>
           Status:{" "}

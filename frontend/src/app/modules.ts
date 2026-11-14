@@ -64,8 +64,8 @@ export const modules = [
   {
     // Local, transient Model C self-report flow; rendered by its own route.
     path: "/model-c",
-    title: "Isolation & Confinement",
-    short: "Isolation & Confinement",
+    title: "Sleep/Fatigue Research Monitor",
+    short: "Sleep/Fatigue Monitor",
     icon: Moon,
     local: true,
   },

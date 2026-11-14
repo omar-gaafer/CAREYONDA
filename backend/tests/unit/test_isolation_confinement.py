@@ -630,3 +630,175 @@ def test_reversed_support_interval_rejected_before_inference() -> None:
     }
     with pytest.raises(ValidationError, match="interval start must not follow end"):
         request(rows)
+
+
+# ------------------------------------- categorical temporal support & missingness
+
+
+def _fatigue_history() -> list[dict[str, Any]]:
+    return [fatigue(f"syn-f-{d:02d}", "rested", d) for d in range(10)]
+
+
+def test_fatigue_support_outside_either_period_is_excluded_not_counted() -> None:
+    rows = _fatigue_history()
+    original = request(
+        rows + [fatigue("syn-f-w0", "tired", REFERENCE_DAYS)],
+        indicators=("fatigue_self_report",),
+    )
+    ref_end = original.reference_interval.end
+    leaking_reference = fatigue("syn-f-13", "very_tired", REFERENCE_DAYS - 1)
+    leaking_reference["temporal_support"]["end"] = ref_end + timedelta(hours=1)
+    overlapping_window = fatigue("syn-f-w1", "very_tired", REFERENCE_DAYS + 1)
+    overlapping_window["temporal_support"]["start"] = ref_end - timedelta(hours=1)
+    beyond_window = fatigue("syn-f-w2", "very_tired", REFERENCE_DAYS + 2)
+    beyond_window["temporal_support"]["end"] = original.assessed_at + timedelta(days=1)
+    item = categorical(
+        assess_isolation_confinement(
+            request(
+                rows
+                + [
+                    leaking_reference,
+                    fatigue("syn-f-w0", "tired", REFERENCE_DAYS),
+                    overlapping_window,
+                    beyond_window,
+                ],
+                indicators=("fatigue_self_report",),
+            )
+        )
+    )
+    assert item.assessment_report_ids == ("syn-f-w0",)
+    assert "syn-f-13" not in item.reference_report_ids
+    excluded = {
+        e.evidence.observation.observation_id: e.reason_codes for e in item.excluded
+    }
+    for oid in ("syn-f-13", "syn-f-w1", "syn-f-w2"):
+        assert "support_outside_period" in excluded[oid], oid
+    counts = {
+        c.category: (c.reference_count, c.assessment_count) for c in item.categories
+    }
+    assert counts["very_tired"] == (0, 0)
+
+
+def test_missing_and_suspect_fatigue_reports_are_never_counted_as_valid() -> None:
+    rows = _fatigue_history()
+    rows.append(
+        evidence(
+            "syn-f-missing",
+            "fatigue_self_report",
+            {"kind": "unavailable", "reason": "not_received"},
+            10,
+            quality={"status": "missing", "reason_codes": ["syn_not_received"]},
+        )
+    )
+    rows.append(
+        fatigue(
+            "syn-f-suspect",
+            "very_tired",
+            11,
+            quality={"status": "suspect", "reason_codes": ["syn_artifact"]},
+        )
+    )
+    rows.append(
+        evidence(
+            "syn-f-w-missing",
+            "fatigue_self_report",
+            {"kind": "unavailable", "reason": "sensor_offline"},
+            REFERENCE_DAYS,
+            quality={"status": "unavailable", "reason_codes": ["sensor_offline"]},
+        )
+    )
+    item = categorical(
+        assess_isolation_confinement(request(rows, indicators=("fatigue_self_report",)))
+    )
+    assert len(item.reference_report_ids) == 10
+    assert item.assessment_report_ids == ()
+    excluded = {
+        e.evidence.observation.observation_id: e.reason_codes for e in item.excluded
+    }
+    assert {"quality_missing", "measurement_unavailable"} <= set(
+        excluded["syn-f-missing"]
+    )
+    assert excluded["syn-f-suspect"] == ("quality_suspect",)
+    assert "measurement_unavailable" in excluded["syn-f-w-missing"]
+    assert item.status == "abstained"
+    assert item.abstention_reasons == ("no_valid_assessment_reports",)
+
+
+def test_prospective_fatigue_report_without_ingestion_time_is_excluded() -> None:
+    params = {
+        **DEFAULT_RESEARCH_PARAMETERS.model_dump(),
+        "availability_mode": "prospective",
+    }
+    rows = _fatigue_history() + [
+        fatigue("syn-f-w0", "tired", REFERENCE_DAYS, ingest_delay=None)
+    ]
+    item = categorical(
+        assess_isolation_confinement(
+            request(rows, indicators=("fatigue_self_report",), parameters=params)
+        )
+    )
+    excluded = {
+        e.evidence.observation.observation_id: e.reason_codes for e in item.excluded
+    }
+    assert "unavailable_at_assessment" in excluded["syn-f-w0"]
+    assert item.status == "abstained"
+
+
+@pytest.mark.parametrize("mode", ["retrospective", "prospective"])
+def test_unavailable_sleep_target_is_never_scored(mode: str) -> None:
+    rows = history()
+    rows[-1] = evidence(
+        "syn-sleep-w2",
+        "sleep_duration",
+        {"kind": "unavailable", "reason": "not_received"},
+        REFERENCE_DAYS + 2,
+        quality={"status": "missing", "reason_codes": ["syn_not_received"]},
+    )
+    parameters = {**DEFAULT_RESEARCH_PARAMETERS.model_dump(), "availability_mode": mode}
+    item = numeric(assess_isolation_confinement(request(rows, parameters=parameters)))
+    finding = item.findings[-1]
+    assert finding.score_status == "unsupported"
+    assert finding.original_value is None and finding.raw_mad_score is None
+    assert finding.abstention_reasons == ("target_measurement_unavailable",)
+    assert finding.quality_limitations == ("syn_not_received",)
+    assert item.summary.scored == len(item.findings) - 1
+
+
+# ------------------------------------------------------------- provenance retained
+
+
+def test_result_retains_scope_time_source_and_evidence_provenance() -> None:
+    rows = (
+        history() + _fatigue_history() + [fatigue("syn-f-w0", "tired", REFERENCE_DAYS)]
+    )
+    req = request(rows, indicators=("sleep_duration", "fatigue_self_report"))
+    result = assess_isolation_confinement(req)
+    assert (result.subject_id, result.mission_id) == (SUBJECT, "syn-mission")
+    assert (result.dataset_id, result.run_id, result.data_origin) == (
+        "syn-dataset",
+        "syn-run",
+        "synthetic",
+    )
+    assert result.assessed_at == req.assessed_at
+    assert result.reference_interval == req.reference_interval
+    assert result.assessment_interval == req.assessment_interval
+    sleep_item = numeric(result)
+    assert sleep_item.unit == "h"
+    for finding in sleep_item.findings:
+        obs = finding.evidence.observation
+        assert finding.evidence_ids == (obs.observation_id,)
+        assert obs.ingested_at is not None and obs.timestamp <= obs.ingested_at
+        assert obs.provenance.source_id == "syn-source"
+        assert (finding.evidence.sensor_id, finding.evidence.sensor_epoch) == (
+            "syn-sensor",
+            "epoch-1",
+        )
+        assert obs.scope.kind == "astronaut"
+    fatigue_item = categorical(result)
+    assert [c.category for c in fatigue_item.categories] == [
+        "rested",
+        "tired",
+        "very_tired",
+    ]
+    assert fatigue_item.assessment_report_ids == ("syn-f-w0",)
+    assert result.safety_status == "not_evaluated"

@@ -1,6 +1,8 @@
-# Model C — Isolation & Confinement longitudinal research monitor
+# Model C — deterministic sleep/fatigue research monitor (isolation & confinement domain)
 
 Date: 2026-11-14. Branch: `feature/omar-model-c`, based on `origin/feature/model-a-integration` at `1ebdd03`, a fast-forward of the previously empty `origin/feature/omar-model-c` at `bdb29e5`. Status: **research prototype; published implementation with P0 reliability remediation.** The `instrument_kind` contract change (§8) was approved by the project owner on 2026-11-14; the overall implementation still awaits review.
+
+Model C is a **deterministic sleep/fatigue research monitor**. It is **not** a clinically validated isolation or confinement detector: it measures only sleep duration and fatigue self-reports, and never infers isolation, confinement or any other cause.
 
 Model C compares a single crew member's supported behavioural indicators with **that same person's own earlier reference period**. It is research decision support only. It does **not** diagnose depression, anxiety, sleep disorders or any other condition. It does not prescribe treatment or operational action, does not infer causes (including isolation or confinement themselves), and produces no risk, severity or composite score.
 
@@ -172,7 +174,7 @@ Unknown fields (for example mood) are rejected, and an entry with neither value 
 - `app/api/model_c.py`: `POST /api/v1/model-c/local-assessments` returns `ModelCLocalResponse` with `source="transient_local_self_report"`, `persistence="none"`, the time convention and the full result. Errors return only a safe code and the correlation ID, never values. The existing `RequestGuard` limits apply: loopback host, 16 KiB body, JSON only.
 - `app/model_c_main.py`: optional composition root (base app plus this route). Run it with `uvicorn app.model_c_main:create_app --factory --host 127.0.0.1`.
 
-### Frontend (`/model-c`, "Isolation & Confinement · Model C")
+### Frontend (`/model-c`, "Sleep/Fatigue Research Monitor")
 
 - **Session:** the participant ID locks once a day is added; "Clear session" discards all entries, so two participants are never mixed.
 - **Entry:** date (UTC), sleep hours and fatigue per row, with "Add day" and remove. Client-side validation mirrors the server, which stays authoritative.

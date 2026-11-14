@@ -1,4 +1,4 @@
-"""Model C — isolation & confinement longitudinal research contracts (v1.1.0).
+"""Model C — deterministic sleep/fatigue research monitor contracts (v1.1.0).
 
 Per-subject comparison of supported behavioural indicators against that subject's
 own declared reference period. Research decision support only: no diagnosis,

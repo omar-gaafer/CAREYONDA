@@ -125,6 +125,11 @@ describe("Model C local entry page", () => {
       />,
     );
     expect(screen.getByText(/not diagnostic/)).toBeInTheDocument();
+    expect(
+      screen.getByText(
+        /deterministic sleep\/fatigue research monitor, not a clinically\s+validated isolation or confinement detector/,
+      ),
+    ).toBeInTheDocument();
     expect(screen.getByText(/Nothing is saved/)).toBeInTheDocument();
     expect(
       screen.getByText(/Only two indicators are supported/),
@@ -195,7 +200,7 @@ describe("Model C local entry page", () => {
       ],
     });
     const result = await screen.findByRole("region", {
-      name: "Isolation & Confinement result",
+      name: "Sleep/fatigue research result",
     });
     expect(
       within(result).getByText("Reference period", { selector: "dt" }),
@@ -246,7 +251,7 @@ describe("Model C local entry page", () => {
     });
     await userEvent.click(screen.getByRole("button", { name: /Submit/ }));
     const result = await screen.findByRole("region", {
-      name: "Isolation & Confinement result",
+      name: "Sleep/fatigue research result",
     });
     expect(
       within(result).getByText(/The analysis abstained/),
@@ -420,7 +425,7 @@ describe("pending assessment generation", () => {
       "synthetic-p2",
     );
     expect(
-      screen.queryByRole("region", { name: "Isolation & Confinement result" }),
+      screen.queryByRole("region", { name: "Sleep/fatigue research result" }),
     ).not.toBeInTheDocument();
     expect(
       screen.queryByRole("button", { name: "Assessing…" }),
@@ -454,7 +459,7 @@ describe("pending assessment generation", () => {
       });
       expect(
         screen.queryByRole("region", {
-          name: "Isolation & Confinement result",
+          name: "Sleep/fatigue research result",
         }),
       ).not.toBeInTheDocument();
     },
@@ -481,7 +486,7 @@ describe("pending assessment generation", () => {
       await current.promise;
     });
     expect(
-      screen.getByRole("region", { name: "Isolation & Confinement result" }),
+      screen.getByRole("region", { name: "Sleep/fatigue research result" }),
     ).toBeInTheDocument();
   });
   it("invalidates on API mode change", async () => {
@@ -501,7 +506,7 @@ describe("pending assessment generation", () => {
       await pending.promise;
     });
     expect(
-      screen.queryByRole("region", { name: "Isolation & Confinement result" }),
+      screen.queryByRole("region", { name: "Sleep/fatigue research result" }),
     ).not.toBeInTheDocument();
   });
 });
