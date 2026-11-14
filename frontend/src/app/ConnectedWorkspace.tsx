@@ -4,17 +4,20 @@ import { createHttpRepositories } from "../infrastructure/http";
 import { State } from "../shared/ui";
 export function ConnectedWorkspace({
   apiUrl = "http://127.0.0.1:8000",
+  publicDemo = false,
 }: {
   apiUrl?: string;
+  publicDemo?: boolean;
 }) {
   const [mode, setMode] = useState<"fixture" | "api">("fixture");
   const connection = useMemo(() => {
+    if (publicDemo) return { repositories: undefined, error: false };
     try {
       return { repositories: createHttpRepositories(apiUrl), error: false };
     } catch {
       return { repositories: undefined, error: true };
     }
-  }, [apiUrl]);
+  }, [apiUrl, publicDemo]);
   if (mode === "api" && connection.error)
     return (
       <main>
@@ -26,6 +29,7 @@ export function ConnectedWorkspace({
     );
   return (
     <App
+      publicDemo={publicDemo}
       key={mode}
       modelAApiUrl={apiUrl}
       repository={
@@ -35,7 +39,7 @@ export function ConnectedWorkspace({
         mode === "api" ? connection.repositories?.investigations : undefined
       }
       dataMode={mode}
-      onModeChange={setMode}
+      onModeChange={publicDemo ? undefined : setMode}
     />
   );
 }

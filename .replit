@@ -1,0 +1,15 @@
+entrypoint = "deployment/server.mjs"
+modules = ["nodejs-24"]
+run = ["node", "deployment/server.mjs"]
+
+[deployment]
+build = ["sh", "-c", "npm --prefix frontend ci && node deployment/build.mjs"]
+run = ["node", "deployment/server.mjs"]
+deploymentTarget = "autoscale"
+
+[[ports]]
+localPort = 5000
+externalPort = 80
+
+[env]
+PORT = "5000"

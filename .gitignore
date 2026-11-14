@@ -55,3 +55,6 @@ service-account*.json
 *.log
 *.swp
 .DS_Store
+
+# Compiled public demo assets; build separately
+/deployment/public/

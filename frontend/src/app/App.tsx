@@ -40,13 +40,17 @@ import {
   type InvestigationRepository,
 } from "../infrastructure/investigations";
 import type { IncidentReview } from "../features/incidents/application";
+import { PublicDemoNotice, PrivateModelC } from "./PublicDemo";
+
 export function App({
+  publicDemo = false,
   modelAApiUrl = "http://127.0.0.1:8000",
   dataMode = "fixture",
   onModeChange,
   repository = fixtureRepository,
   investigationRepository = syntheticInvestigationRepository,
 }: {
+  publicDemo?: boolean;
   modelAApiUrl?: string;
   dataMode?: "fixture" | "api";
   onModeChange?: (mode: "fixture" | "api") => void;
@@ -304,6 +308,7 @@ export function App({
           </div>
         </div>
         <main id="main-content" tabIndex={-1}>
+          {publicDemo && <PublicDemoNotice />}
           {status === "loading" ? (
             <State kind="loading">
               Validating the synthetic evidence contract.
@@ -329,6 +334,7 @@ export function App({
                 path="/environment"
                 element={
                   <Environment
+                    publicDemo={publicDemo}
                     rows={filtered}
                     mode={dataMode}
                     modelAApiUrl={modelAApiUrl}
@@ -370,14 +376,18 @@ export function App({
               <Route
                 path="/model-c"
                 element={
-                  <ModelCPanel
-                    title={
-                      modules.find((m) => m.path === "/model-c")?.title ??
-                      "Sleep/Fatigue Research Monitor"
-                    }
-                    mode={dataMode}
-                    apiUrl={modelAApiUrl}
-                  />
+                  publicDemo ? (
+                    <PrivateModelC />
+                  ) : (
+                    <ModelCPanel
+                      title={
+                        modules.find((m) => m.path === "/model-c")?.title ??
+                        "Sleep/Fatigue Research Monitor"
+                      }
+                      mode={dataMode}
+                      apiUrl={modelAApiUrl}
+                    />
+                  )
                 }
               />
               {modules

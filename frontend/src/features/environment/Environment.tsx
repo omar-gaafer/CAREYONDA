@@ -1,12 +1,15 @@
+import { PublicModelA } from "../../app/PublicDemo";
 import { ModelAPanel } from "../model-a/ModelAPanel";
 import type { Observation } from "../../contracts/observation";
 import { Badge, PageIntro, Panel, Trend } from "../../shared/ui";
 export function Environment({
   rows,
+  publicDemo = false,
   mode = "fixture",
   modelAApiUrl,
 }: {
   rows: Observation[];
+  publicDemo?: boolean;
   mode?: "fixture" | "api";
   modelAApiUrl?: string;
 }) {
@@ -24,7 +27,11 @@ export function Environment({
         No NASA measurements are plotted in these charts. Model A context
         appears separately below.
       </div>
-      <ModelAPanel key={mode} mode={mode} apiUrl={modelAApiUrl} />
+      {publicDemo ? (
+        <PublicModelA />
+      ) : (
+        <ModelAPanel key={mode} mode={mode} apiUrl={modelAApiUrl} />
+      )}
       <div className="two-columns">
         <Trend rows={rows} metric="cabin_co2_concentration" />
         <Trend rows={rows} metric="cabin_co2_partial_pressure" />
