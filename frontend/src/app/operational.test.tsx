@@ -60,6 +60,25 @@ describe("API-only operational workspace", () => {
       );
       vi.stubGlobal("fetch", fetcher);
       mount(module.path);
+      if (module.path === "/digital-twin") {
+        expect(
+          await screen.findByRole("heading", {
+            level: 1,
+            name: module.title,
+          }),
+        ).toBeInTheDocument();
+        expect(
+          screen.getByRole("img", { name: /illustrative orbital habitat/i }),
+        ).toBeInTheDocument();
+        expect(
+          screen.getByText(/No spacecraft telemetry connected/),
+        ).toBeInTheDocument();
+        expect(fetcher).toHaveBeenCalledTimes(1);
+        expect(String(fetcher.mock.calls[0]?.[0])).toContain(
+          "/api/v1/capabilities",
+        );
+        return;
+      }
       await screen.findByText(/Authentication: none/);
       expect(
         screen.getByRole("heading", { level: 1, name: module.title }),

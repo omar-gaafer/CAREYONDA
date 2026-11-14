@@ -97,7 +97,7 @@ export const modules = [
     short: "Digital Twin",
     icon: Box,
     detail:
-      "No spacecraft geometry, subsystem simulation, or digital-twin service is connected. No sensor status is inferred from a static diagram.",
+      "This route contains an illustrative reference schematic only. It is not connected to spacecraft geometry, crew profiles, telemetry, or an operational digital-twin service.",
   },
   {
     path: "/reports",

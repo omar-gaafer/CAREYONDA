@@ -1,4 +1,4 @@
-import { Fragment, useEffect, useState } from "react";
+import { Fragment, useEffect, useRef, useState } from "react";
 import {
   Navigate,
   NavLink,
@@ -6,12 +6,13 @@ import {
   Routes,
   useLocation,
 } from "react-router-dom";
-import { ChevronLeft, ChevronRight, Menu, X } from "lucide-react";
+import { ChevronLeft, ChevronRight, Menu, Search, X } from "lucide-react";
 import { BrandLogo } from "../shared/BrandLogo";
 import { PageIntro, Panel, utc } from "../shared/ui";
 import { modules } from "./modules";
 import { useCapabilities, type CapabilityState } from "./useCapabilities";
 import { moduleAccess } from "./moduleAccess";
+import { SpacecraftTwin } from "../features/digital-twin/SpacecraftTwin";
 
 const connectionLabels = {
   disconnected: "Connection unavailable",
@@ -38,61 +39,70 @@ function CapabilityContent({
   state: CapabilityState;
   refresh: () => void;
 }) {
+  if (path === "/digital-twin") return <SpacecraftTwin />;
   const module = modules.find((m) => m.path === path);
   const access =
     state.status === "ready" ? moduleAccess(path, state.data) : null;
   return (
     <>
-      <PageIntro title={module?.title ?? "Page not found"} />
       {!module ? (
-        <div className="state" role="status">
-          <h2>Page unavailable</h2>
-          <p>Choose a page from the navigation.</p>
-        </div>
+        <>
+          <PageIntro title="Page not found" />
+          <div className="state" role="status">
+            <h2>Page unavailable</h2>
+            <p>Choose a page from the navigation.</p>
+          </div>
+        </>
       ) : state.status === "loading" ? (
         <div className="state" role="status" aria-live="polite">
           <h2>Loading…</h2>
         </div>
       ) : state.status === "error" ? (
-        <div className="state" role="alert" data-kind={state.kind}>
-          <h2>{connectionLabels[state.kind]}</h2>
-          <p>
-            {state.kind === "permission_denied"
-              ? "You don’t have access to this content."
-              : "Please try again."}
-          </p>
-          {state.previousSnapshotInvalidated && (
-            <p>Previously loaded information is no longer current.</p>
-          )}
-          <button onClick={refresh}>Retry</button>
-          <details className="technical-details">
-            <summary>Technical details</summary>
-            <p>{errorDetails[state.kind]}</p>
+        <>
+          <PageIntro title={module.title} />
+          <div className="state" role="alert" data-kind={state.kind}>
+            <h2>{connectionLabels[state.kind]}</h2>
+            <p>
+              {state.kind === "permission_denied"
+                ? "You don’t have access to this content."
+                : "Please try again."}
+            </p>
             {state.previousSnapshotInvalidated && (
-              <p>
-                The previous capability snapshot was invalidated after refresh
-                failed.
-              </p>
+              <p>Previously loaded information is no longer current.</p>
             )}
-          </details>
-        </div>
+            <button onClick={refresh}>Retry</button>
+            <details className="technical-details">
+              <summary>Technical details</summary>
+              <p>{errorDetails[state.kind]}</p>
+              {state.previousSnapshotInvalidated && (
+                <p>
+                  The previous capability snapshot was invalidated after refresh
+                  failed.
+                </p>
+              )}
+            </details>
+          </div>
+        </>
       ) : (
         <>
+          <PageIntro title={module.title} />
           {path === "/overview" ? (
-            <div className="dashboard-empty-grid">
-              <Panel title="Mission">
-                <p>No mission data available.</p>
-              </Panel>
-              <Panel title="Crew health">
-                <p>No health observations available.</p>
-              </Panel>
-              <Panel title="Environment">
-                <p>No environmental observations available.</p>
-              </Panel>
-              <Panel title="Incidents">
-                <p>No incident data available.</p>
-              </Panel>
-            </div>
+            <>
+              <div className="dashboard-empty-grid">
+                <Panel title="Mission">
+                  <p>No mission data available.</p>
+                </Panel>
+                <Panel title="Crew health">
+                  <p>No health observations available.</p>
+                </Panel>
+                <Panel title="Environment">
+                  <p>No environmental observations available.</p>
+                </Panel>
+                <Panel title="Incidents">
+                  <p>No incident data available.</p>
+                </Panel>
+              </div>
+            </>
           ) : (
             <div
               className="capability-hero"
@@ -149,6 +159,9 @@ function CapabilityContent({
 export function App({ apiUrl = "http://127.0.0.1:8000" }: { apiUrl?: string }) {
   const [collapsed, setCollapsed] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [paletteOpen, setPaletteOpen] = useState(false);
+  const [paletteQuery, setPaletteQuery] = useState("");
+  const paletteTriggerRef = useRef<HTMLButtonElement>(null);
   const [offline, setOffline] = useState(!navigator.onLine);
   const location = useLocation();
   const { state, refresh } = useCapabilities(apiUrl);
@@ -166,6 +179,37 @@ export function App({ apiUrl = "http://127.0.0.1:8000" }: { apiUrl?: string }) {
       window.removeEventListener("offline", update);
     };
   }, []);
+  useEffect(() => {
+    const onKeyDown = (event: KeyboardEvent) => {
+      if ((event.ctrlKey || event.metaKey) && event.key.toLowerCase() === "k") {
+        event.preventDefault();
+        setPaletteOpen((open) => {
+          if (open)
+            requestAnimationFrame(() => paletteTriggerRef.current?.focus());
+          return !open;
+        });
+        setPaletteQuery("");
+      } else if (event.key === "Escape" && paletteOpen) {
+        setPaletteOpen(false);
+        requestAnimationFrame(() => paletteTriggerRef.current?.focus());
+      } else if (
+        event.key === "/" &&
+        !(event.target instanceof HTMLInputElement) &&
+        !(event.target instanceof HTMLTextAreaElement)
+      ) {
+        event.preventDefault();
+        setPaletteOpen(true);
+        setPaletteQuery("");
+      }
+    };
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [paletteOpen]);
+  const paletteItems = modules.filter((module) =>
+    `${module.title} ${module.short}`
+      .toLowerCase()
+      .includes(paletteQuery.trim().toLowerCase()),
+  );
   useEffect(() => {
     if (!mobileOpen) return;
     const drawer = document.getElementById("mission-navigation");
@@ -283,6 +327,20 @@ export function App({ apiUrl = "http://127.0.0.1:8000" }: { apiUrl?: string }) {
             <span>Mission workspace</span>
           </div>
           <div className="mode-controls">
+            <button
+              ref={paletteTriggerRef}
+              className="command-search-trigger"
+              onClick={() => {
+                setPaletteOpen(true);
+                setPaletteQuery("");
+              }}
+              aria-haspopup="dialog"
+              aria-label="Search and navigate modules"
+            >
+              <Search size={15} />
+              <span>Search</span>
+              <kbd>Ctrl K</kbd>
+            </button>
             {state.status === "error" && (
               <span className="connection-status" role="status">
                 {connectionLabels[state.kind]}
@@ -352,6 +410,91 @@ export function App({ apiUrl = "http://127.0.0.1:8000" }: { apiUrl?: string }) {
           </div>
         </footer>
       </div>
+      {paletteOpen && (
+        <div
+          className="command-palette-backdrop"
+          onMouseDown={(event) => {
+            if (event.target === event.currentTarget) {
+              setPaletteOpen(false);
+              requestAnimationFrame(() => paletteTriggerRef.current?.focus());
+            }
+          }}
+        >
+          <section
+            className="command-palette"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="command-palette-title"
+            onKeyDown={(event) => {
+              if (event.key !== "Tab") return;
+              const controls =
+                event.currentTarget.querySelectorAll<HTMLElement>(
+                  'input, button, a[href]:not([tabindex="-1"])',
+                );
+              if (!controls.length) return;
+              const first = controls[0];
+              const last = controls[controls.length - 1];
+              if (event.shiftKey && document.activeElement === first) {
+                event.preventDefault();
+                last.focus();
+              } else if (!event.shiftKey && document.activeElement === last) {
+                event.preventDefault();
+                first.focus();
+              }
+            }}
+          >
+            <h2 id="command-palette-title" className="sr-only">
+              Search workspace modules
+            </h2>
+            <div className="command-palette-input">
+              <Search size={18} aria-hidden="true" />
+              <input
+                autoFocus
+                type="search"
+                placeholder="Where would you like to go?"
+                aria-label="Search pages"
+                value={paletteQuery}
+                onChange={(event) => setPaletteQuery(event.target.value)}
+              />
+              <button
+                onClick={() => {
+                  setPaletteOpen(false);
+                  requestAnimationFrame(() =>
+                    paletteTriggerRef.current?.focus(),
+                  );
+                }}
+                aria-label="Close search"
+              >
+                <X size={17} />
+              </button>
+            </div>
+            <p className="command-palette-label">WORKSPACE PAGES</p>
+            <div className="command-palette-results">
+              {paletteItems.length ? (
+                paletteItems.map((module) => (
+                  <NavLink
+                    key={module.path}
+                    to={module.path}
+                    onClick={() => setPaletteOpen(false)}
+                    className="command-palette-item"
+                  >
+                    <module.icon size={17} />
+                    <span>{module.title}</span>
+                    <kbd>↵</kbd>
+                  </NavLink>
+                ))
+              ) : (
+                <p className="command-palette-empty" role="status">
+                  No pages match “{paletteQuery}”.
+                </p>
+              )}
+            </div>
+            <div className="command-palette-hint">
+              Press <kbd>Esc</kbd> to close · Search uses page names only
+            </div>
+          </section>
+        </div>
+      )}
     </div>
   );
 }
