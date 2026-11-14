@@ -192,7 +192,7 @@ describe("Model C local entry page", () => {
       ],
     });
     const result = await screen.findByRole("region", {
-      name: "Model C result",
+      name: "Isolation & Confinement result",
     });
     expect(
       within(result).getByText("Reference period", { selector: "dt" }),
@@ -243,9 +243,11 @@ describe("Model C local entry page", () => {
     });
     await userEvent.click(screen.getByRole("button", { name: /Submit/ }));
     const result = await screen.findByRole("region", {
-      name: "Model C result",
+      name: "Isolation & Confinement result",
     });
-    expect(within(result).getByText(/Model C abstained/)).toBeInTheDocument();
+    expect(
+      within(result).getByText(/The analysis abstained/),
+    ).toBeInTheDocument();
     expect(
       within(result).getByText(
         /too few days with valid entries in the reference period/,

@@ -373,7 +373,7 @@ export function App({
                   <ModelCPanel
                     title={
                       modules.find((m) => m.path === "/model-c")?.title ??
-                      "Model C"
+                      "Isolation & Confinement"
                     }
                     mode={dataMode}
                     apiUrl={modelAApiUrl}

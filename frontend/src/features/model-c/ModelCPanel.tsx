@@ -38,7 +38,7 @@ const errorText = (error: ModelCError) =>
     ? `The local API rejected the entries (${error.code ?? "invalid_request"}). Nothing was assessed or stored.`
     : error.kind === "contract"
       ? "The local API returned an unsupported or inconsistent result. Nothing is shown in its place."
-      : "The local Model C API is unavailable. Start the backend with app.model_c_main; no result is substituted.";
+      : "The local Isolation & Confinement API is unavailable. Start the backend with app.model_c_main; no result is substituted.";
 
 export function ModelCPanel({
   title,
@@ -123,18 +123,21 @@ export function ModelCPanel({
 
   return (
     <div className="model-c">
-      <PageIntro eyebrow="Model C · local research prototype" title={title}>
+      <PageIntro
+        eyebrow="Isolation & Confinement · local research prototype"
+        title={title}
+      >
         Compare one pseudonymous participant's own daily sleep duration and
         fatigue self-reports with that same participant's earlier entries.
       </PageIntro>
       <div className="workflow-warning" role="note">
-        <strong>Local demonstration only — not diagnostic.</strong> Model C does
-        not diagnose any condition, judge health, recommend treatment or
-        actions, or compute risk, severity or probability. It is not suitable
-        for operational astronaut monitoring. Only two indicators are supported:
-        sleep duration (hours) and fatigue self-report (rested / tired / very
-        tired). Mood, stress, social, cognitive and activity data are not
-        supported.
+        <strong>Local demonstration only — not diagnostic.</strong> This
+        analysis does not diagnose any condition, judge health, recommend
+        treatment or actions, or compute risk, severity or probability. It is
+        not suitable for operational astronaut monitoring. Only two indicators
+        are supported: sleep duration (hours) and fatigue self-report (rested /
+        tired / very tired). Mood, stress, social, cognitive and activity data
+        are not supported.
       </div>
       <div className="notice" role="note" aria-label="Data handling">
         <strong>Nothing is saved.</strong> Entries live only in this page's
@@ -307,8 +310,8 @@ export function ModelCPanel({
         {mode !== "api" && (
           <p role="status">
             Submission needs “Local API” mode with the backend started from
-            app.model_c_main. Offline fixture mode does not run Model C and no
-            result is fabricated.
+            app.model_c_main. Offline fixture mode does not run the analysis and
+            no result is fabricated.
           </p>
         )}
         <button
@@ -316,7 +319,7 @@ export function ModelCPanel({
           onClick={submit}
           disabled={busy || mode !== "api" || drafts.length === 0}
         >
-          {busy ? "Assessing…" : "Submit to local Model C"}
+          {busy ? "Assessing…" : "Submit for local analysis"}
         </button>
         {showIssues && checked.issues.length > 0 && (
           <p role="alert">Fix the highlighted entries before submitting.</p>
@@ -343,7 +346,7 @@ function Reasons({ codes }: { codes: string[] }) {
 export function ModelCResult({ response }: { response: ModelCResponse }) {
   const r = response.result;
   return (
-    <section aria-label="Model C result">
+    <section aria-label="Isolation & Confinement result">
       <Panel title="Result">
         <p>
           Status:{" "}
@@ -355,8 +358,8 @@ export function ModelCResult({ response }: { response: ModelCResponse }) {
         </p>
         {r.status === "abstained" && (
           <p role="status">
-            Model C abstained: no result is shown because the history did not
-            meet the declared requirements.
+            The analysis abstained: no result is shown because the history did
+            not meet the declared requirements.
           </p>
         )}
         <Reasons codes={r.abstention_reasons} />
