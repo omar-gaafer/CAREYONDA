@@ -1,6 +1,11 @@
+> Local Model A integration checkpoint: this branch includes a documented snapshot
+> of previously uncommitted M2/M3/M4.2/frontend development over `bfc19cb`, plus
+> M-A.1–M-A.5 integration. It is not a merged upstream baseline. See
+> [checkpoint provenance and reproduction](docs/architecture/MODEL_A_CHECKPOINT.md).
+
 # CAREYONDA
 
-Offline-first astronaut health and spaceflight hazard research platform. M1.1 provides validated observation contracts; M1.2 provides a deterministic synthetic mission simulator and causal feature export. AI reasoning, medical validation, API, and frontend implementations are not included yet.
+Offline-first astronaut health and spaceflight hazard research platform. M1.1 provides validated observation contracts; M1.2 provides a deterministic synthetic mission simulator and causal feature export. The local working tree also includes deterministic M2 reasoning, a synthetic local REST API, and a React frontend with fixture/API modes. Trained models and medical validation are not provided.
 
 ## Clone and prepare
 
@@ -40,3 +45,21 @@ cd backend
 ```
 
 Read [AGENTS.md](AGENTS.md), [coding standards](docs/architecture/CODING_STANDARDS.md), the [M1.1 contract report](docs/architecture/M1.1_UNIFIED_OBSERVATION.md), and the [M1.2 training handoff](docs/architecture/M1.2_TRAINING_PIPELINE.md) before development. The milestone reports retain historical local delivery results; generated artifacts described there are regenerated locally rather than included in the repository.
+
+## NASA RR-1 and training handoff
+
+The development branch `feature/hazard-reasoning` also contains the D2/D3 local NASA adapters and a separate ISS environmental feature exporter. See the [actual implementation inventory](docs/architecture/AI_IMPLEMENTATION_STATUS.md) and [training handoff](docs/architecture/TRAINING_HANDOFF.md) for exact schemas, commands, and model readiness. Branch changes require review/merge before becoming available on `main`.
+
+The three original NASA CSVs must be provisioned separately under `datasets/raw/nasa_eda/`; redistribution permission for the supplied copies has not been verified, so they are not committed. Once appropriately authorized copies are available:
+
+```sh
+PYTHONPATH=backend backend/.venv/bin/python -m app.ingestion.nasa_rr1_export \
+  --raw datasets/raw/nasa_eda \
+  --output datasets/processed/nasa_rr1_eda_d2d3_validated
+```
+
+Use a new output directory. Real NASA environment features and synthetic scenario features remain separate; no paired human-health dataset or trained model is claimed. Local M2 reasoning work is intentionally excluded from this data-integration synchronization.
+
+## Local API and connected frontend (M3)
+
+The working tree includes a loopback-only synthetic FastAPI service and explicit fixture/API frontend modes. See [local API v1](docs/api/LOCAL_API_V1.md) for backend startup and [frontend integration](frontend/PHASE3_INTEGRATION.md) for the connected demonstration. This extends the historical milestone status above; no trained models, medical validation, authentication or persistent investigation retrieval is claimed.

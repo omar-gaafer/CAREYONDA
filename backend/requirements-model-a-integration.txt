@@ -1,0 +1,3 @@
+# Combined offline-provisioning target: preserves Model A and existing M3 pins.
+-r requirements-model-a.txt
+-r requirements-m3-resolved.txt

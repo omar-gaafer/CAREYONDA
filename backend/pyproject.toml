@@ -3,13 +3,17 @@ name = "careyonda-backend"
 version = "0.0.0"
 description = "Offline-first astronaut health and spaceflight hazard decision support"
 requires-python = ">=3.11"
-dependencies = ["pydantic>=2,<3"]
+dependencies = ["pydantic>=2,<3", "fastapi>=0.162.7,<0.163", "uvicorn>=0.34,<1"]
+
+[project.optional-dependencies]
+model-a = ["numpy>=2.0,<2.5", "scikit-learn==1.9.1", "joblib==1.6.0"]
 
 [dependency-groups]
 dev = [
     "ruff>=0.9,<1",
     "mypy>=1.14,<2",
     "pytest>=8,<10",
+    "httpx>=0.28,<1",
 ]
 
 [tool.ruff]
@@ -44,4 +48,5 @@ markers = [
     "unit: isolated module behavior",
     "integration: interaction between components using local or synthetic resources",
 ]
-filterwarnings = ["error"]
+# Starlette 1.10 retains HTTPX compatibility; scoped until its httpx2 transition.
+filterwarnings = ["error", 'ignore:Using `httpx` with `starlette\.testclient` is deprecated; install `httpx2` instead\.:starlette.exceptions.StarletteDeprecationWarning']

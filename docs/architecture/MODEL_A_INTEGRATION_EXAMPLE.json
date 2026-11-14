@@ -1,0 +1,271 @@
+{
+  "schema_version": "1.0.0",
+  "interpretation": "research_only",
+  "sample": {
+    "sample_id": "aa4c32951f8bc71192d119581694e895",
+    "scope": {
+      "mission_id": "NASA-RR1",
+      "spacecraft_id": "ISS",
+      "data_origin": "real",
+      "dataset_id": "artificial",
+      "run_id": "test"
+    },
+    "event_time_utc": "2030-01-01T00:00:00Z",
+    "available_at": "2030-01-01T00:00:01Z",
+    "transformation_version": "environmental-1.0.0",
+    "features": [
+      {
+        "name": "cabin_co2_concentration_value",
+        "unit": "ppm",
+        "value": 100.0,
+        "observation_ids": [
+          "artificial-0-cabin_co2_concentration"
+        ]
+      },
+      {
+        "name": "cabin_co2_concentration_mean_30m",
+        "unit": "ppm",
+        "value": 100.0,
+        "observation_ids": [
+          "artificial-0-cabin_co2_concentration"
+        ]
+      },
+      {
+        "name": "cabin_co2_concentration_delta",
+        "unit": "ppm",
+        "value": null,
+        "observation_ids": [
+          "artificial-0-cabin_co2_concentration"
+        ]
+      },
+      {
+        "name": "cabin_co2_concentration_count_30m",
+        "unit": "1",
+        "value": 1.0,
+        "observation_ids": [
+          "artificial-0-cabin_co2_concentration"
+        ]
+      },
+      {
+        "name": "cabin_co2_concentration_missing",
+        "unit": "1",
+        "value": 0.0,
+        "observation_ids": [
+          "artificial-0-cabin_co2_concentration"
+        ]
+      },
+      {
+        "name": "environment_temperature_value",
+        "unit": "degC",
+        "value": 10.0,
+        "observation_ids": [
+          "artificial-0-environment_temperature"
+        ]
+      },
+      {
+        "name": "environment_temperature_mean_30m",
+        "unit": "degC",
+        "value": 10.0,
+        "observation_ids": [
+          "artificial-0-environment_temperature"
+        ]
+      },
+      {
+        "name": "environment_temperature_delta",
+        "unit": "degC",
+        "value": null,
+        "observation_ids": [
+          "artificial-0-environment_temperature"
+        ]
+      },
+      {
+        "name": "environment_temperature_count_30m",
+        "unit": "1",
+        "value": 1.0,
+        "observation_ids": [
+          "artificial-0-environment_temperature"
+        ]
+      },
+      {
+        "name": "environment_temperature_missing",
+        "unit": "1",
+        "value": 0.0,
+        "observation_ids": [
+          "artificial-0-environment_temperature"
+        ]
+      },
+      {
+        "name": "relative_humidity_value",
+        "unit": "%",
+        "value": 20.0,
+        "observation_ids": [
+          "artificial-0-relative_humidity"
+        ]
+      },
+      {
+        "name": "relative_humidity_mean_30m",
+        "unit": "%",
+        "value": 20.0,
+        "observation_ids": [
+          "artificial-0-relative_humidity"
+        ]
+      },
+      {
+        "name": "relative_humidity_delta",
+        "unit": "%",
+        "value": null,
+        "observation_ids": [
+          "artificial-0-relative_humidity"
+        ]
+      },
+      {
+        "name": "relative_humidity_count_30m",
+        "unit": "1",
+        "value": 1.0,
+        "observation_ids": [
+          "artificial-0-relative_humidity"
+        ]
+      },
+      {
+        "name": "relative_humidity_missing",
+        "unit": "1",
+        "value": 0.0,
+        "observation_ids": [
+          "artificial-0-relative_humidity"
+        ]
+      },
+      {
+        "name": "gap_seconds",
+        "unit": "s",
+        "value": null,
+        "observation_ids": []
+      }
+    ],
+    "observations": [
+      {
+        "schema_version": "1.0.0",
+        "observation_id": "artificial-0-cabin_co2_concentration",
+        "timestamp": "2030-01-01T00:00:00Z",
+        "ingested_at": "2030-01-01T00:00:01Z",
+        "domain": "environmental",
+        "metric": "cabin_co2_concentration",
+        "scope": {
+          "kind": "spacecraft",
+          "spacecraft_id": "ISS",
+          "mission_id": "NASA-RR1"
+        },
+        "measurement": {
+          "kind": "numeric",
+          "value": 100.0,
+          "unit": "ppm"
+        },
+        "provenance": {
+          "source_type": "mission_log",
+          "source_id": "artificial-environment",
+          "method": "artificial-test",
+          "origin": "measured",
+          "parent_observation_ids": [],
+          "transformation_version": null,
+          "simulation": null
+        },
+        "quality": {
+          "status": "valid",
+          "reason_codes": [],
+          "sensor_confidence": null
+        }
+      },
+      {
+        "schema_version": "1.0.0",
+        "observation_id": "artificial-0-environment_temperature",
+        "timestamp": "2030-01-01T00:00:00Z",
+        "ingested_at": "2030-01-01T00:00:01Z",
+        "domain": "environmental",
+        "metric": "environment_temperature",
+        "scope": {
+          "kind": "spacecraft",
+          "spacecraft_id": "ISS",
+          "mission_id": "NASA-RR1"
+        },
+        "measurement": {
+          "kind": "numeric",
+          "value": 10.0,
+          "unit": "degC"
+        },
+        "provenance": {
+          "source_type": "mission_log",
+          "source_id": "artificial-environment",
+          "method": "artificial-test",
+          "origin": "measured",
+          "parent_observation_ids": [],
+          "transformation_version": null,
+          "simulation": null
+        },
+        "quality": {
+          "status": "valid",
+          "reason_codes": [],
+          "sensor_confidence": null
+        }
+      },
+      {
+        "schema_version": "1.0.0",
+        "observation_id": "artificial-0-relative_humidity",
+        "timestamp": "2030-01-01T00:00:00Z",
+        "ingested_at": "2030-01-01T00:00:01Z",
+        "domain": "environmental",
+        "metric": "relative_humidity",
+        "scope": {
+          "kind": "spacecraft",
+          "spacecraft_id": "ISS",
+          "mission_id": "NASA-RR1"
+        },
+        "measurement": {
+          "kind": "numeric",
+          "value": 20.0,
+          "unit": "%"
+        },
+        "provenance": {
+          "source_type": "mission_log",
+          "source_id": "artificial-environment",
+          "method": "artificial-test",
+          "origin": "measured",
+          "parent_observation_ids": [],
+          "transformation_version": null,
+          "simulation": null
+        },
+        "quality": {
+          "status": "valid",
+          "reason_codes": [],
+          "sensor_confidence": null
+        }
+      }
+    ]
+  },
+  "assessed_at": "2030-01-01T00:00:01Z",
+  "model": {
+    "model_id": "careyonda-model-a-nasa-rr1-environment-iforest",
+    "model_version": "1.1.0",
+    "feature_schema_version": "1.0.0",
+    "artifact_sha256": "0000000000000000000000000000000000000000000000000000000000000000",
+    "dataset_manifest_sha256": "1111111111111111111111111111111111111111111111111111111111111111"
+  },
+  "availability": "available",
+  "compatibility": "compatible",
+  "status": "flagged",
+  "anomaly_score": 0.5,
+  "threshold": 0.5,
+  "threshold_method": "training_score_quantile",
+  "imputed_features": [
+    "cabin_co2_concentration_delta",
+    "environment_temperature_delta",
+    "relative_humidity_delta",
+    "gap_seconds"
+  ],
+  "abstention_reasons": [],
+  "limitations": [
+    "Research only: statistical unusualness is not a diagnosis, probability, severity or hazard determination.",
+    "RR-1 environment is not paired with human physiology; no exposure attribution is established.",
+    "Training quantile is a review convention, not an approved clinical threshold.",
+    "Availability and source provenance are caller declarations, not independently authenticated.",
+    "M2 ranking, M4.2 findings and safety policies are not evaluated or modified."
+  ]
+}
