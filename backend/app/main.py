@@ -1,5 +1,6 @@
 """Local API composition root; use uvicorn app.main:create_app --factory."""
 
+from collections.abc import Callable
 from pathlib import Path
 
 from fastapi import FastAPI, Request
@@ -9,13 +10,18 @@ from starlette.middleware.cors import CORSMiddleware
 from starlette.responses import JSONResponse
 
 from app.ai.hazard_reasoning import ReasoningInputError
+from app.api.contracts import Capability
 from app.api.routes import build_router
 from app.api.security import ALLOWED_ORIGINS, RequestGuard, error_response
 from app.application.evidence import ContextUnavailable, EvidenceSource
 from app.storage.local_evidence import LocalSyntheticSource
 
 
-def create_app(source: EvidenceSource | None = None) -> FastAPI:
+def create_app(
+    source: EvidenceSource | None = None,
+    *,
+    capability_overrides: Callable[[], tuple[Capability, ...]] | None = None,
+) -> FastAPI:
     configured = (
         source
         if source is not None
@@ -42,7 +48,7 @@ def create_app(source: EvidenceSource | None = None) -> FastAPI:
         docs_url=None,
         redoc_url=None,
     )
-    app.include_router(build_router(configured))
+    app.include_router(build_router(configured, capability_overrides))
 
     @app.exception_handler(RequestValidationError)
     async def validation_error(

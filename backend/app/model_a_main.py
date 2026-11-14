@@ -9,6 +9,7 @@ from pathlib import Path
 
 from fastapi import FastAPI
 
+from app.api.contracts import Capability
 from app.api.environmental_anomaly import build_environmental_router
 from app.application.environmental_api import (
     AuthorizedEnvironmentalInference,
@@ -87,12 +88,26 @@ def _read_receipts(files: tuple[Path, ...]) -> tuple[ReplayAcquisition, ...]:
 def create_app(
     config: ModelAConfig | None = None,
     *,
+    additional_capabilities: tuple[Capability, ...] = (),
     model_loader: Callable[[ModelAConfig], ModelABinding] = _load_model,
     clock: Callable[[], datetime] = lambda: datetime.now(UTC),
 ) -> FastAPI:
     configured = config if config is not None else ModelAConfig()
     gateway = AuthorizedEnvironmentalInference(clock)
-    app = create_base_app()
+
+    def capabilities() -> tuple[Capability, ...]:
+        return (
+            Capability(
+                name="trained_models",
+                availability="available"
+                if gateway.binding.availability == "available"
+                else "unavailable",
+            ),
+            Capability(name="model_a_environmental_api", availability="available"),
+            *additional_capabilities,
+        )
+
+    app = create_base_app(capability_overrides=capabilities)
     previous = app.router.lifespan_context
 
     @asynccontextmanager

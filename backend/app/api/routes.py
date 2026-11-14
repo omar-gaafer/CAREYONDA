@@ -1,5 +1,6 @@
 """HTTP transport only: contract parsing and injected application calls."""
 
+from collections.abc import Callable
 from typing import Annotated
 
 from fastapi import APIRouter, HTTPException, Path, Query
@@ -20,7 +21,10 @@ from app.application.evidence import EvidenceSource, InvestigationService
 from app.schemas.observation import METRIC_REGISTRY, Identifier, Observation
 
 
-def build_router(source: EvidenceSource) -> APIRouter:
+def build_router(
+    source: EvidenceSource,
+    capability_overrides: Callable[[], tuple[Capability, ...]] | None = None,
+) -> APIRouter:
     router = APIRouter(
         prefix="/api/v1",
         responses={
@@ -44,20 +48,22 @@ def build_router(source: EvidenceSource) -> APIRouter:
 
     @router.get("/capabilities", response_model=CapabilitiesResponse)
     def capabilities() -> CapabilitiesResponse:
-        return CapabilitiesResponse(
-            capabilities=(
-                Capability(
-                    name="observation_contract_validation", availability="available"
-                ),
-                Capability(name="observations", availability="simulation_only"),
-                Capability(name="m2_reasoning", availability="simulation_only"),
-                Capability(name="safety_policies", availability="not_implemented"),
-                Capability(name="trained_models", availability="not_implemented"),
-                Capability(
-                    name="investigation_persistence", availability="not_implemented"
-                ),
-            )
+        defaults = (
+            Capability(
+                name="observation_contract_validation", availability="available"
+            ),
+            Capability(name="observations", availability="simulation_only"),
+            Capability(name="m2_reasoning", availability="simulation_only"),
+            Capability(name="safety_policies", availability="not_implemented"),
+            Capability(name="trained_models", availability="not_implemented"),
+            Capability(
+                name="investigation_persistence", availability="not_implemented"
+            ),
         )
+        merged = {item.name: item for item in defaults}
+        if capability_overrides is not None:
+            merged.update((item.name, item) for item in capability_overrides())
+        return CapabilitiesResponse(capabilities=tuple(merged.values()))
 
     @router.get("/contexts", response_model=ContextsResponse)
     def contexts() -> ContextsResponse:

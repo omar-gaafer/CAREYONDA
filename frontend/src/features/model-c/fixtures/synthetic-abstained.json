@@ -1,0 +1,550 @@
+{
+  "api_version": "1.0.0",
+  "correlation_id": "synthetic0correlation0id0000000",
+  "persistence": "none",
+  "result": {
+    "abstention_reasons": ["no_indicator_assessed"],
+    "assessed_at": "2030-03-03T18:00:00Z",
+    "assessment_id": "model-c-assessment-70c2569539e807e5fa91a92a63e14de6",
+    "assessment_interval": {
+      "end": "2030-03-03T12:00:00Z",
+      "start": "2030-03-02T12:00:00Z"
+    },
+    "data_origin": "real",
+    "dataset_id": "model-c-local-entry",
+    "indicators": [
+      {
+        "abstention_reasons": [
+          "insufficient_occupied_bins",
+          "insufficient_observed_span",
+          "insufficient_occupancy_fraction"
+        ],
+        "baseline": {
+          "abstention_reasons": [
+            "insufficient_occupied_bins",
+            "insufficient_observed_span",
+            "insufficient_occupancy_fraction"
+          ],
+          "assessed_at": "2030-03-03T18:00:00Z",
+          "excluded": [],
+          "included": [
+            {
+              "data_origin": "real",
+              "dataset_id": "model-c-local-entry",
+              "observation": {
+                "domain": "behavioral",
+                "ingested_at": "2030-03-03T18:00:00Z",
+                "measurement": {
+                  "kind": "numeric",
+                  "unit": "h",
+                  "value": 7.0
+                },
+                "metric": "sleep_duration",
+                "observation_id": "synthetic-p1.sleep_duration.2030-03-01",
+                "provenance": {
+                  "method": "manual-daily-entry",
+                  "origin": "self_reported",
+                  "parent_observation_ids": [],
+                  "simulation": null,
+                  "source_id": "model-c-local-entry-form",
+                  "source_type": "crew_report",
+                  "transformation_version": null
+                },
+                "quality": {
+                  "reason_codes": [],
+                  "sensor_confidence": null,
+                  "status": "valid"
+                },
+                "schema_version": "1.0.0",
+                "scope": {
+                  "astronaut_id": "synthetic-p1",
+                  "kind": "astronaut",
+                  "mission_id": "no-mission-declared"
+                },
+                "timestamp": "2030-03-01T12:00:00Z"
+              },
+              "run_id": "session-49d56749afa947bc6e9a1007",
+              "sensor_epoch": "form-1.0.0",
+              "sensor_id": "model-c-local-entry-form",
+              "temporal_support": {
+                "end": "2030-03-01T12:00:00Z",
+                "start": "2030-02-28T12:00:01Z"
+              }
+            },
+            {
+              "data_origin": "real",
+              "dataset_id": "model-c-local-entry",
+              "observation": {
+                "domain": "behavioral",
+                "ingested_at": "2030-03-03T18:00:00Z",
+                "measurement": {
+                  "kind": "numeric",
+                  "unit": "h",
+                  "value": 7.2
+                },
+                "metric": "sleep_duration",
+                "observation_id": "synthetic-p1.sleep_duration.2030-03-02",
+                "provenance": {
+                  "method": "manual-daily-entry",
+                  "origin": "self_reported",
+                  "parent_observation_ids": [],
+                  "simulation": null,
+                  "source_id": "model-c-local-entry-form",
+                  "source_type": "crew_report",
+                  "transformation_version": null
+                },
+                "quality": {
+                  "reason_codes": [],
+                  "sensor_confidence": null,
+                  "status": "valid"
+                },
+                "schema_version": "1.0.0",
+                "scope": {
+                  "astronaut_id": "synthetic-p1",
+                  "kind": "astronaut",
+                  "mission_id": "no-mission-declared"
+                },
+                "timestamp": "2030-03-02T12:00:00Z"
+              },
+              "run_id": "session-49d56749afa947bc6e9a1007",
+              "sensor_epoch": "form-1.0.0",
+              "sensor_id": "model-c-local-entry-form",
+              "temporal_support": {
+                "end": "2030-03-02T12:00:00Z",
+                "start": "2030-03-01T12:00:01Z"
+              }
+            }
+          ],
+          "interpretation": "research_only",
+          "median_value": null,
+          "method_version": "model-c-bin-median-raw-mad-1.0.0",
+          "policy": {
+            "availability_mode": "retrospective",
+            "bin_duration_seconds": 86400.0,
+            "interpretation": "research_only",
+            "maximum_gap_seconds": 259200.0,
+            "maximum_reference_age_seconds": 604800.0,
+            "metric": "sleep_duration",
+            "minimum_observed_span_seconds": 518400.0,
+            "minimum_occupancy_fraction": 0.5,
+            "minimum_occupied_bins": 7,
+            "policy_id": "model-c-sleep_duration-reference",
+            "policy_version": "1.1.0",
+            "reference_interval": {
+              "end": "2030-03-02T12:00:00Z",
+              "start": "2030-02-23T12:00:00Z"
+            },
+            "schema_version": "1.0.0",
+            "source_scope": {
+              "data_origin": "real",
+              "dataset_id": "model-c-local-entry",
+              "mission_id": "no-mission-declared",
+              "run_id": "session-49d56749afa947bc6e9a1007",
+              "sensor_epoch": "form-1.0.0",
+              "sensor_id": "model-c-local-entry-form",
+              "source_id": "model-c-local-entry-form",
+              "subject_id": "synthetic-p1"
+            },
+            "source_sensor_compatibility": "exact_identity",
+            "unit": "h"
+          },
+          "profile_id": "model-c-profile-256c4c8264f00288dbf37481e43ada48",
+          "raw_mad": null,
+          "schema_version": "1.0.0",
+          "status": "insufficient_reference",
+          "summary": {
+            "bins": [
+              {
+                "index": 5,
+                "observation_ids": ["synthetic-p1.sleep_duration.2030-03-01"]
+              },
+              {
+                "index": 6,
+                "observation_ids": ["synthetic-p1.sleep_duration.2030-03-02"]
+              }
+            ],
+            "maximum_gap_seconds": 86400.0,
+            "observed_span_seconds": 86400.0,
+            "occupancy_fraction": 0.2857142857142857,
+            "occupied_bins": 2,
+            "sample_count": 2,
+            "total_bins": 7
+          }
+        },
+        "evidence_provenance": ["self_report"],
+        "explanation": "Personal reference 2030-02-23T12:00:00Z to 2030-03-02T12:00:00Z: insufficient_reference, 2/7 bins occupied by 2 valid readings. Assessment period 2030-03-02T12:00:00Z to 2030-03-03T12:00:00Z: 0 of 1 readings scored (0 above, 0 below, 0 equal); threshold decisions: 0 exceeded. Abstained: insufficient_occupied_bins, insufficient_observed_span, insufficient_occupancy_fraction. Instrument: self-report form model-c-local-entry-form version form-1.0.0; no physical sensor is involved, and exact matching applies to that form version.",
+        "findings": [
+          {
+            "absolute_deviation": null,
+            "abstention_reasons": ["baseline_insufficient_reference"],
+            "assessed_at": "2030-03-03T18:00:00Z",
+            "baseline": {
+              "abstention_reasons": [
+                "insufficient_occupied_bins",
+                "insufficient_observed_span",
+                "insufficient_occupancy_fraction"
+              ],
+              "assessed_at": "2030-03-03T18:00:00Z",
+              "excluded": [],
+              "included": [
+                {
+                  "data_origin": "real",
+                  "dataset_id": "model-c-local-entry",
+                  "observation": {
+                    "domain": "behavioral",
+                    "ingested_at": "2030-03-03T18:00:00Z",
+                    "measurement": {
+                      "kind": "numeric",
+                      "unit": "h",
+                      "value": 7.0
+                    },
+                    "metric": "sleep_duration",
+                    "observation_id": "synthetic-p1.sleep_duration.2030-03-01",
+                    "provenance": {
+                      "method": "manual-daily-entry",
+                      "origin": "self_reported",
+                      "parent_observation_ids": [],
+                      "simulation": null,
+                      "source_id": "model-c-local-entry-form",
+                      "source_type": "crew_report",
+                      "transformation_version": null
+                    },
+                    "quality": {
+                      "reason_codes": [],
+                      "sensor_confidence": null,
+                      "status": "valid"
+                    },
+                    "schema_version": "1.0.0",
+                    "scope": {
+                      "astronaut_id": "synthetic-p1",
+                      "kind": "astronaut",
+                      "mission_id": "no-mission-declared"
+                    },
+                    "timestamp": "2030-03-01T12:00:00Z"
+                  },
+                  "run_id": "session-49d56749afa947bc6e9a1007",
+                  "sensor_epoch": "form-1.0.0",
+                  "sensor_id": "model-c-local-entry-form",
+                  "temporal_support": {
+                    "end": "2030-03-01T12:00:00Z",
+                    "start": "2030-02-28T12:00:01Z"
+                  }
+                },
+                {
+                  "data_origin": "real",
+                  "dataset_id": "model-c-local-entry",
+                  "observation": {
+                    "domain": "behavioral",
+                    "ingested_at": "2030-03-03T18:00:00Z",
+                    "measurement": {
+                      "kind": "numeric",
+                      "unit": "h",
+                      "value": 7.2
+                    },
+                    "metric": "sleep_duration",
+                    "observation_id": "synthetic-p1.sleep_duration.2030-03-02",
+                    "provenance": {
+                      "method": "manual-daily-entry",
+                      "origin": "self_reported",
+                      "parent_observation_ids": [],
+                      "simulation": null,
+                      "source_id": "model-c-local-entry-form",
+                      "source_type": "crew_report",
+                      "transformation_version": null
+                    },
+                    "quality": {
+                      "reason_codes": [],
+                      "sensor_confidence": null,
+                      "status": "valid"
+                    },
+                    "schema_version": "1.0.0",
+                    "scope": {
+                      "astronaut_id": "synthetic-p1",
+                      "kind": "astronaut",
+                      "mission_id": "no-mission-declared"
+                    },
+                    "timestamp": "2030-03-02T12:00:00Z"
+                  },
+                  "run_id": "session-49d56749afa947bc6e9a1007",
+                  "sensor_epoch": "form-1.0.0",
+                  "sensor_id": "model-c-local-entry-form",
+                  "temporal_support": {
+                    "end": "2030-03-02T12:00:00Z",
+                    "start": "2030-03-01T12:00:01Z"
+                  }
+                }
+              ],
+              "interpretation": "research_only",
+              "median_value": null,
+              "method_version": "model-c-bin-median-raw-mad-1.0.0",
+              "policy": {
+                "availability_mode": "retrospective",
+                "bin_duration_seconds": 86400.0,
+                "interpretation": "research_only",
+                "maximum_gap_seconds": 259200.0,
+                "maximum_reference_age_seconds": 604800.0,
+                "metric": "sleep_duration",
+                "minimum_observed_span_seconds": 518400.0,
+                "minimum_occupancy_fraction": 0.5,
+                "minimum_occupied_bins": 7,
+                "policy_id": "model-c-sleep_duration-reference",
+                "policy_version": "1.1.0",
+                "reference_interval": {
+                  "end": "2030-03-02T12:00:00Z",
+                  "start": "2030-02-23T12:00:00Z"
+                },
+                "schema_version": "1.0.0",
+                "source_scope": {
+                  "data_origin": "real",
+                  "dataset_id": "model-c-local-entry",
+                  "mission_id": "no-mission-declared",
+                  "run_id": "session-49d56749afa947bc6e9a1007",
+                  "sensor_epoch": "form-1.0.0",
+                  "sensor_id": "model-c-local-entry-form",
+                  "source_id": "model-c-local-entry-form",
+                  "subject_id": "synthetic-p1"
+                },
+                "source_sensor_compatibility": "exact_identity",
+                "unit": "h"
+              },
+              "profile_id": "model-c-profile-256c4c8264f00288dbf37481e43ada48",
+              "raw_mad": null,
+              "schema_version": "1.0.0",
+              "status": "insufficient_reference",
+              "summary": {
+                "bins": [
+                  {
+                    "index": 5,
+                    "observation_ids": [
+                      "synthetic-p1.sleep_duration.2030-03-01"
+                    ]
+                  },
+                  {
+                    "index": 6,
+                    "observation_ids": [
+                      "synthetic-p1.sleep_duration.2030-03-02"
+                    ]
+                  }
+                ],
+                "maximum_gap_seconds": 86400.0,
+                "observed_span_seconds": 86400.0,
+                "occupancy_fraction": 0.2857142857142857,
+                "occupied_bins": 2,
+                "sample_count": 2,
+                "total_bins": 7
+              }
+            },
+            "direction": "unassessed",
+            "evidence": {
+              "data_origin": "real",
+              "dataset_id": "model-c-local-entry",
+              "observation": {
+                "domain": "behavioral",
+                "ingested_at": "2030-03-03T18:00:00Z",
+                "measurement": {
+                  "kind": "numeric",
+                  "unit": "h",
+                  "value": 5.0
+                },
+                "metric": "sleep_duration",
+                "observation_id": "synthetic-p1.sleep_duration.2030-03-03",
+                "provenance": {
+                  "method": "manual-daily-entry",
+                  "origin": "self_reported",
+                  "parent_observation_ids": [],
+                  "simulation": null,
+                  "source_id": "model-c-local-entry-form",
+                  "source_type": "crew_report",
+                  "transformation_version": null
+                },
+                "quality": {
+                  "reason_codes": [],
+                  "sensor_confidence": null,
+                  "status": "valid"
+                },
+                "schema_version": "1.0.0",
+                "scope": {
+                  "astronaut_id": "synthetic-p1",
+                  "kind": "astronaut",
+                  "mission_id": "no-mission-declared"
+                },
+                "timestamp": "2030-03-03T12:00:00Z"
+              },
+              "run_id": "session-49d56749afa947bc6e9a1007",
+              "sensor_epoch": "form-1.0.0",
+              "sensor_id": "model-c-local-entry-form",
+              "temporal_support": {
+                "end": "2030-03-03T12:00:00Z",
+                "start": "2030-03-02T12:00:01Z"
+              }
+            },
+            "evidence_ids": ["synthetic-p1.sleep_duration.2030-03-03"],
+            "explanation": "sleep_duration reading not scored: baseline_insufficient_reference. No deviation score is reported for this reading.",
+            "finding_id": "model-c-finding-353457f0378044ad12331fdccf082b4a",
+            "interpretation": "research_only",
+            "method_version": "model-c-bin-median-raw-mad-1.0.0",
+            "original_value": 5.0,
+            "policy": {
+              "calibration": null,
+              "governance_source": "Model C 1.1.0 default: no approved research threshold",
+              "interpretation": "research_only",
+              "metric": "sleep_duration",
+              "policy_id": "model-c-sleep_duration-deviation",
+              "policy_version": "1.1.0",
+              "schema_version": "1.0.0",
+              "score_definition": "absolute_deviation_over_raw_mad",
+              "threshold": null,
+              "threshold_governance": "unassessed",
+              "unit": "h"
+            },
+            "profile_lineage_ids": [
+              "model-c-profile-256c4c8264f00288dbf37481e43ada48"
+            ],
+            "quality_limitations": [],
+            "raw_mad_score": null,
+            "schema_version": "1.0.0",
+            "score_status": "insufficient_reference",
+            "signed_deviation": null,
+            "threshold_status": "unassessed"
+          }
+        ],
+        "indicator": "sleep_duration",
+        "instrument_kind": "self_report_form",
+        "kind": "numeric_personal_baseline",
+        "registry_reporting_mode": "unspecified_by_contract",
+        "status": "abstained",
+        "summary": {
+          "above_reference": 0,
+          "abstained": 1,
+          "below_reference": 0,
+          "equal_to_reference": 0,
+          "findings": 1,
+          "maximum_raw_mad_score": null,
+          "median_raw_mad_score": null,
+          "scored": 0,
+          "threshold_exceeded": 0
+        },
+        "unit": "h"
+      },
+      {
+        "abstention_reasons": [
+          "insufficient_reference_reports",
+          "no_valid_assessment_reports"
+        ],
+        "assessment_report_ids": [],
+        "categories": [
+          {
+            "assessment_count": 0,
+            "category": "rested",
+            "reference_count": 1
+          },
+          {
+            "assessment_count": 0,
+            "category": "tired",
+            "reference_count": 1
+          },
+          {
+            "assessment_count": 0,
+            "category": "very_tired",
+            "reference_count": 0
+          }
+        ],
+        "evidence_provenance": ["self_report"],
+        "excluded": [
+          {
+            "evidence": {
+              "data_origin": "real",
+              "dataset_id": "model-c-local-entry",
+              "observation": {
+                "domain": "behavioral",
+                "ingested_at": "2030-03-03T18:00:00Z",
+                "measurement": {
+                  "kind": "unavailable",
+                  "reason": "not_collected"
+                },
+                "metric": "fatigue_self_report",
+                "observation_id": "synthetic-p1.fatigue_self_report.2030-03-03",
+                "provenance": {
+                  "method": "manual-daily-entry",
+                  "origin": "self_reported",
+                  "parent_observation_ids": [],
+                  "simulation": null,
+                  "source_id": "model-c-local-entry-form",
+                  "source_type": "crew_report",
+                  "transformation_version": null
+                },
+                "quality": {
+                  "reason_codes": ["not_entered"],
+                  "sensor_confidence": null,
+                  "status": "unavailable"
+                },
+                "schema_version": "1.0.0",
+                "scope": {
+                  "astronaut_id": "synthetic-p1",
+                  "kind": "astronaut",
+                  "mission_id": "no-mission-declared"
+                },
+                "timestamp": "2030-03-03T12:00:00Z"
+              },
+              "run_id": "session-49d56749afa947bc6e9a1007",
+              "sensor_epoch": "form-1.0.0",
+              "sensor_id": "model-c-local-entry-form",
+              "temporal_support": {
+                "end": "2030-03-03T12:00:00Z",
+                "start": "2030-03-03T12:00:00Z"
+              }
+            },
+            "reason_codes": ["quality_unavailable", "measurement_unavailable"]
+          }
+        ],
+        "explanation": "Reference period: rested 1, tired 1, very_tired 0 (2 valid reports). Assessment period: rested 0, tired 0, very_tired 0 (0 valid reports). Counts are descriptive self-reports; no score, distance or threshold is applied. Abstained: insufficient_reference_reports, no_valid_assessment_reports. Instrument: self-report form model-c-local-entry-form version form-1.0.0; no physical sensor is involved, and exact matching applies to that form version.",
+        "indicator": "fatigue_self_report",
+        "instrument_kind": "self_report_form",
+        "kind": "categorical_report_distribution",
+        "reference_report_ids": [
+          "synthetic-p1.fatigue_self_report.2030-03-01",
+          "synthetic-p1.fatigue_self_report.2030-03-02"
+        ],
+        "registry_reporting_mode": "self_report",
+        "status": "abstained"
+      }
+    ],
+    "interpretation": "research_only",
+    "limitations": [
+      "Research only: within-person statistical deviation is not a diagnosis, condition label, probability, severity or risk.",
+      "Comparisons use only this subject's own declared reference period; no population norm or universal normal range is applied.",
+      "All statistical parameters are configurable research defaults, not validated clinical, NASA-approved or operational limits.",
+      "Indicators are reported separately and never combined into a composite score.",
+      "Change relative to a reference period does not establish a cause; isolation, confinement or any other factor is not inferred as the reason.",
+      "Missing, invalid or unavailable records are preserved as abstentions or exclusions, never treated as normal values.",
+      "No recommendation, treatment or operational action is produced; outputs require qualified human review."
+    ],
+    "method_version": "model-c-bin-median-raw-mad-1.0.0",
+    "mission_id": "no-mission-declared",
+    "model_id": "careyonda-model-c-isolation-confinement",
+    "model_version": "1.1.0",
+    "parameters": {
+      "availability_mode": "retrospective",
+      "bin_duration_seconds": 86400.0,
+      "maximum_gap_seconds": 259200.0,
+      "maximum_reference_age_seconds": 604800.0,
+      "minimum_observed_span_seconds": 518400.0,
+      "minimum_occupancy_fraction": 0.5,
+      "minimum_occupied_bins": 7,
+      "minimum_reference_reports": 7,
+      "parameter_status": "unvalidated_research_default"
+    },
+    "reference_interval": {
+      "end": "2030-03-02T12:00:00Z",
+      "start": "2030-02-23T12:00:00Z"
+    },
+    "run_id": "session-49d56749afa947bc6e9a1007",
+    "safety_status": "not_evaluated",
+    "schema_version": "1.0.0",
+    "status": "abstained",
+    "subject_id": "synthetic-p1",
+    "unused_evidence_ids": []
+  },
+  "source": "transient_local_self_report",
+  "time_convention": "Each entry dated D is a daily self-report anchored at 12:00 UTC on D. Sleep duration covers the 24 hours ending at that report, (D-1 12:00, D 12:00] UTC; fatigue is a point report at 12:00 UTC. The last assessment_days dated entries form the assessment period; earlier dates form the personal reference period, declared at least as long as the research parameters need."
+}

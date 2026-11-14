@@ -237,3 +237,17 @@ describe("Model A panel", () => {
     ).not.toBeInTheDocument();
   });
 });
+
+it("does not display simulated scope as real NASA/ISS evidence", async () => {
+  render(<ModelAPanel mode="fixture" />);
+  expect(
+    await screen.findByText(
+      "Synthetic demo mission / simulated habitat / synthetic",
+    ),
+  ).toBeInTheDocument();
+  expect(
+    screen.getByText("Not established — simulated fixture"),
+  ).toBeInTheDocument();
+  expect(screen.queryByText(/NASA-RR1 \/ ISS \/ real/)).not.toBeInTheDocument();
+  expect(screen.queryByText("known")).not.toBeInTheDocument();
+});

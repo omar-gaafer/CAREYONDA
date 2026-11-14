@@ -17,7 +17,9 @@ class HealthResponse(Contract):
 
 class Capability(Contract):
     name: str
-    availability: Literal["available", "simulation_only", "not_implemented"]
+    availability: Literal[
+        "available", "simulation_only", "not_implemented", "unavailable"
+    ]
     medically_validated: Literal[False] = False
 
 

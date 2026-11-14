@@ -206,7 +206,11 @@ export function ModelAPanel({
                 {context.model?.model_version ?? "—"}
               </dd>
               <dt>Assessment mode</dt>
-              <dd>{context.assessment_mode}</dd>
+              <dd>
+                {mode === "fixture"
+                  ? "Simulated fixture — not live evidence"
+                  : context.assessment_mode}
+              </dd>
               <dt>Statistical status</dt>
               <dd>{context.status}</dd>
               <dt>Statistical anomaly score</dt>
@@ -223,9 +227,17 @@ export function ModelAPanel({
               <dt>Replay acquisition time</dt>
               <dd>{context.replay_acquired_at ?? "Not a replay"}</dd>
               <dt>Historical source availability</dt>
-              <dd>{context.historical_source_availability}</dd>
+              <dd>
+                {mode === "fixture"
+                  ? "Not established — simulated fixture"
+                  : context.historical_source_availability}
+              </dd>
               <dt>Evidence availability scope</dt>
-              <dd>{context.evidence_availability_scope}</dd>
+              <dd>
+                {mode === "fixture"
+                  ? "Simulated only"
+                  : context.evidence_availability_scope}
+              </dd>
               <dt>Missing-data / abstention reasons</dt>
               <dd>{context.abstention_reasons.join(", ") || "None"}</dd>
               <dt>Imputed features</dt>
@@ -234,9 +246,9 @@ export function ModelAPanel({
               <dd>{result?.correlation_id}</dd>
               <dt>Mission / environment</dt>
               <dd>
-                {context.sample.scope.mission_id} /{" "}
-                {context.sample.scope.spacecraft_id} /{" "}
-                {context.sample.scope.data_origin}
+                {mode === "fixture"
+                  ? "Synthetic demo mission / simulated habitat / synthetic"
+                  : `${context.sample.scope.mission_id} / ${context.sample.scope.spacecraft_id} / ${context.sample.scope.data_origin}`}
               </dd>
               <dt>Dataset / run</dt>
               <dd>
@@ -272,9 +284,10 @@ export function ModelAPanel({
                 {context.sample.observations.map((o) => (
                   <li key={o.observation_id}>
                     {o.observation_id} · {o.provenance.source_id} ·{" "}
-                    {o.provenance.origin} · {o.provenance.method} · quality:{" "}
-                    {o.quality.status} {o.quality.reason_codes.join(", ")} ·
-                    source ingestion: {o.ingested_at ?? "unknown"}
+                    {mode === "fixture" ? "simulated" : o.provenance.origin} ·{" "}
+                    {o.provenance.method} · quality: {o.quality.status}{" "}
+                    {o.quality.reason_codes.join(", ")} · source ingestion:{" "}
+                    {o.ingested_at ?? "unknown"}
                   </li>
                 ))}
               </ul>

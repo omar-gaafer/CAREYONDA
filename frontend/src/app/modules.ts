@@ -11,6 +11,7 @@ import {
   Database,
   Box,
   History,
+  Moon,
 } from "lucide-react";
 export const modules = [
   {
@@ -41,7 +42,7 @@ export const modules = [
     short: "AI Intelligence",
     icon: BrainCircuit,
     detail:
-      "Precomputed synthetic M2 compatibility rankings, evidence inspection, and abstention; no live inference or HTTP integration.",
+      "Precomputed synthetic M2 compatibility rankings, evidence inspection, and abstention; synthetic research evidence; local API mode runs M2 on request.",
   },
   {
     path: "/incidents",
@@ -59,6 +60,14 @@ export const modules = [
     icon: MessagesSquare,
     detail:
       "No language model or conversational service is connected. This module cannot provide diagnoses, treatment instructions, or spacecraft commands.",
+  },
+  {
+    // Local, transient Model C self-report flow; rendered by its own route.
+    path: "/model-c",
+    title: "Sleep/Fatigue Research Monitor",
+    short: "Sleep/Fatigue Monitor",
+    icon: Moon,
+    local: true,
   },
   {
     path: "/crew",
