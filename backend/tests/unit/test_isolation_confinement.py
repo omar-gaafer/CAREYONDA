@@ -594,3 +594,39 @@ def test_evidence_outside_both_periods_is_listed_as_unused() -> None:
     rows = history() + [sleep("syn-sleep-late", 7.0, REFERENCE_DAYS + 4)]
     result = assess_isolation_confinement(request(rows))
     assert result.unused_evidence_ids == ("syn-sleep-late",)
+
+
+@pytest.mark.parametrize("mode", ["retrospective", "prospective"])
+@pytest.mark.parametrize("outside", ["future", "reference_overlap", "before_window"])
+def test_numeric_target_support_must_fit_assessment(mode: str, outside: str) -> None:
+    rows = history()
+    original = request(rows)
+    target = rows[-1]
+    if outside == "future":
+        target["temporal_support"]["end"] = original.assessed_at + timedelta(days=1)
+    else:
+        target["temporal_support"]["start"] = (
+            original.reference_interval.start + timedelta(seconds=1)
+            if outside == "reference_overlap"
+            else original.assessment_interval.start
+        )
+    parameters = DEFAULT_RESEARCH_PARAMETERS.model_dump()
+    parameters["availability_mode"] = mode
+    result = assess_isolation_confinement(request(rows, parameters=parameters))
+    finding = numeric(result).findings[-1]
+    assert finding.score_status == "unsupported"
+    assert finding.raw_mad_score is None
+    assert finding.signed_deviation is None
+    assert finding.threshold_status == "unassessed"
+    assert finding.abstention_reasons == ("target_support_outside_assessment",)
+
+
+def test_reversed_support_interval_rejected_before_inference() -> None:
+    rows = history()
+    target = rows[-1]
+    target["temporal_support"] = {
+        "start": target["observation"]["timestamp"] + timedelta(seconds=1),
+        "end": target["observation"]["timestamp"],
+    }
+    with pytest.raises(ValidationError, match="interval start must not follow end"):
+        request(rows)

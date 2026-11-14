@@ -139,8 +139,8 @@ def _in_period(e: ResearchEvidence, period: TimeInterval) -> bool:
 
 
 def _support_fits(e: ResearchEvidence, period: TimeInterval) -> bool:
-    return period.start < e.temporal_support.start and e.temporal_support.end <= (
-        period.end
+    return (
+        period.start < e.temporal_support.start <= e.temporal_support.end <= period.end
     )
 
 
@@ -362,11 +362,16 @@ def _baseline(
 
 
 def _target_compatible(
-    e: ResearchEvidence, baseline: BaselineProfile, assessed_at: datetime
+    e: ResearchEvidence,
+    baseline: BaselineProfile,
+    assessed_at: datetime,
+    assessment_interval: TimeInterval,
 ) -> bool:
     policy = baseline.policy
     return (
-        policy.source_sensor_compatibility == "exact_identity"
+        _support_fits(e, assessment_interval)
+        and e.temporal_support.end <= assessed_at
+        and policy.source_sensor_compatibility == "exact_identity"
         and e.matches(policy.source_scope, policy.metric, policy.unit)
         and e.available_at(assessed_at, policy.availability_mode)
         and (assessed_at - policy.reference_interval.end).total_seconds()
@@ -379,6 +384,7 @@ def _finding(
     baseline: BaselineProfile,
     policy: AnomalyPolicy,
     assessed_at: datetime,
+    assessment_interval: TimeInterval,
 ) -> AnomalyFinding:
     obs = e.observation
     value = (
@@ -392,9 +398,14 @@ def _finding(
     score: float | None = None
     reasons: tuple[str, ...] = ()
     status: ScoreStatus
-    if not _target_compatible(e, baseline, assessed_at):
+    if not _target_compatible(e, baseline, assessed_at, assessment_interval):
         status = "unsupported"
-        if value is None:
+        if (
+            not _support_fits(e, assessment_interval)
+            or e.temporal_support.end > assessed_at
+        ):
+            reasons = ("target_support_outside_assessment",)
+        elif value is None:
             reasons = ("target_measurement_unavailable",)
         elif baseline.policy.source_sensor_compatibility != "exact_identity":
             reasons = ("sensor_identity_unavailable",)
@@ -499,7 +510,8 @@ def _numeric_assessment(
     baseline = _baseline(request, source, reference)
     policy = request.anomaly_policy or _default_anomaly_policy()
     findings = tuple(
-        _finding(e, baseline, policy, request.assessed_at) for e in targets
+        _finding(e, baseline, policy, request.assessed_at, request.assessment_interval)
+        for e in targets
     )
     summary = _summary(findings)
     reasons = list(baseline.abstention_reasons)

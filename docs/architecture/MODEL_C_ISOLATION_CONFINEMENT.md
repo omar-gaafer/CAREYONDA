@@ -1,6 +1,6 @@
 # Model C — Isolation & Confinement longitudinal research monitor
 
-Date: 2026-11-14. Branch: `feature/omar-model-c`, based on `origin/feature/model-a-integration` at `1ebdd03`, a fast-forward of the previously empty `origin/feature/omar-model-c` at `bdb29e5`. Status: **research prototype, uncommitted.** The `instrument_kind` contract change (§8) was approved by the project owner on 2026-11-14; the overall implementation still awaits review.
+Date: 2026-11-14. Branch: `feature/omar-model-c`, based on `origin/feature/model-a-integration` at `1ebdd03`, a fast-forward of the previously empty `origin/feature/omar-model-c` at `bdb29e5`. Status: **research prototype; published implementation with P0 reliability remediation.** The `instrument_kind` contract change (§8) was approved by the project owner on 2026-11-14; the overall implementation still awaits review.
 
 Model C compares a single crew member's supported behavioural indicators with **that same person's own earlier reference period**. It is research decision support only. It does **not** diagnose depression, anxiety, sleep disorders or any other condition. It does not prescribe treatment or operational action, does not infer causes (including isolation or confinement themselves), and produces no risk, severity or composite score.
 
@@ -89,7 +89,7 @@ Deterministic text names the indicator, both periods (UTC), the reference median
 
 ## 5. How to run
 
-There is no CLI or endpoint; callers supply validated evidence. From `backend/` with the project interpreter:
+The pure Python entry point accepts validated evidence; the optional local HTTP route is described in §8. From `backend/` with the project interpreter:
 
 ```python
 from app.ai.isolation_confinement import (
@@ -204,3 +204,36 @@ Open `http://127.0.0.1:5173/model-c`, switch the header data mode to **Local API
 - **Backend (worktree venv from the repository pins, unmodified config):** Ruff lint and format pass; strict mypy passes on 82 files; pytest gives 491 passed and 2 skipped (local NASA-data opt-ins), including the Model C HTTP route tests.
 - **Frontend (Node 24.22.3 from the official ZIP, SHA-256 verified, worktree-local; `npm ci` from the committed lockfile):** `npm run typecheck` passes; `npm test` gives 133 passed and 1 skipped (pre-existing Model A local opt-in); `npm run format:check` passes on the LF content Git stores. In a Windows checkout with `core.autocrlf=true`, Prettier's default `endOfLine: "lf"` flags CRLF working copies; that is a line-ending artifact, not a style issue. No lint script is defined.
 - **End to end (local servers, built-in browser, synthetic participants only):** a 17-day history with one blank sleep day was assessed, and the blank day was excluded with reasons rather than zeroed. A 3-day history abstained with every coverage reason and no fabricated statistics. Invalid sleep values, empty days and a future date were refused before any request. Only `127.0.0.1` requests were made; browser storage, cookies, IndexedDB and service workers stayed empty; the server logged no entry values.
+
+## P0 reliability remediation
+
+Numeric targets now require ordered temporal support wholly within the declared
+assessment period (exclusive start, inclusive end), with support end no later
+than `assessed_at`. This check is independent of prospective/retrospective
+availability. Support crossing the reference period, outside the assessment
+window or after assessment produces an unsupported finding with
+`target_support_outside_assessment`, without a score/deviation/threshold decision.
+Reversed intervals are rejected by the existing input contract. M4.2 schemas,
+median/raw-MAD calculations, thresholds and model version remain unchanged.
+
+The manual-entry UI uses request generations. Clear session, participant/input
+changes, row addition/removal, assessment-period changes, API configuration/mode
+changes and unmount invalidate earlier requests. Earlier success/error/finally
+handlers cannot update the current session or clear a newer request's loading
+state. This discards late responses; it does not cancel work already accepted by
+the backend. No persistence or frontend redesign is introduced.
+
+Regressions include future and reference-overlapping support in both availability
+modes, reversed interval ordering, deferred A → Clear → B → A-response behavior,
+all editable inputs, mode changes, stale errors and a newer request's loading
+state. All test values are artificial; these fixes establish software temporal
+and session isolation, not isolation/confinement or behavioral-health validity.
+
+Remediation verification (Python 3.12.10, existing repository-pinned packages):
+79 focused backend tests passed; full backend 498 passed, 2 expected local-data
+skips. Frontend Model C 35 passed; full frontend 142 passed, 1 expected local
+Model A smoke skip. Ruff lint/format, strict mypy (82 files), TypeScript,
+Prettier, production build and dependency/whitespace checks passed. The build
+retains two upstream nonfatal Zod annotation warnings. No new packages were
+installed; already provisioned dependencies were reused in isolated temporary
+copies. No real artifact or NASA measurement was loaded for these regressions.

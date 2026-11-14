@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   fatigueCategories,
   MAX_ASSESSMENT_DAYS,
@@ -54,6 +54,7 @@ export function ModelCPanel({
   now?: () => number;
 }) {
   const nextKey = useRef(1);
+  const generation = useRef(0);
   const [participant, setParticipant] = useState("");
   const [assessmentDays, setAssessmentDays] = useState(3);
   const [drafts, setDrafts] = useState<EntryDraft[]>([]);
@@ -61,6 +62,18 @@ export function ModelCPanel({
   const [busy, setBusy] = useState(false);
   const [failure, setFailure] = useState("");
   const [response, setResponse] = useState<ModelCResponse | null>(null);
+  function invalidate() {
+    generation.current += 1;
+    setResponse(null);
+    setFailure("");
+    setBusy(false);
+  }
+  useEffect(() => {
+    invalidate();
+    return () => {
+      generation.current += 1;
+    };
+  }, [mode, apiUrl, injected]);
   const checked = useMemo(
     () => validateDraft(participant, assessmentDays, drafts, now()),
     [participant, assessmentDays, drafts, now],
@@ -73,13 +86,13 @@ export function ModelCPanel({
       : [];
 
   function edit(key: number, change: Partial<EntryDraft>) {
-    setResponse(null);
+    invalidate();
     setDrafts((rows) =>
       rows.map((r) => (r.key === key ? { ...r, ...change } : r)),
     );
   }
   function addDay() {
-    setResponse(null);
+    invalidate();
     setDrafts((rows) => {
       const last = rows.at(-1)?.date;
       let date = "";
@@ -95,6 +108,7 @@ export function ModelCPanel({
     });
   }
   function clearSession() {
+    invalidate();
     setDrafts([]);
     setParticipant("");
     setResponse(null);
@@ -106,18 +120,21 @@ export function ModelCPanel({
     setFailure("");
     setResponse(null);
     if (!checked.submission || mode !== "api") return;
+    const requestGeneration = ++generation.current;
     setBusy(true);
     try {
       const client = injected ?? createModelCClient(apiUrl);
-      setResponse(await client.assess(checked.submission));
+      const result = await client.assess(checked.submission);
+      if (generation.current === requestGeneration) setResponse(result);
     } catch (error) {
+      if (generation.current !== requestGeneration) return;
       setFailure(
         error instanceof ModelCError
           ? errorText(error)
           : "The request could not be prepared. Nothing was sent.",
       );
     } finally {
-      setBusy(false);
+      if (generation.current === requestGeneration) setBusy(false);
     }
   }
 
@@ -163,8 +180,8 @@ export function ModelCPanel({
               value={participant}
               disabled={drafts.length > 0}
               onChange={(e) => {
+                invalidate();
                 setParticipant(e.target.value.trim());
-                setResponse(null);
               }}
               placeholder="e.g. crew-x7"
               autoComplete="off"
@@ -176,8 +193,8 @@ export function ModelCPanel({
               aria-label="Assessment period"
               value={assessmentDays}
               onChange={(e) => {
+                invalidate();
                 setAssessmentDays(Number(e.target.value));
-                setResponse(null);
               }}
             >
               {Array.from({ length: MAX_ASSESSMENT_DAYS }, (_, i) => i + 1).map(
@@ -270,11 +287,12 @@ export function ModelCPanel({
                     <button
                       type="button"
                       aria-label={`Remove day ${index + 1}`}
-                      onClick={() =>
+                      onClick={() => {
+                        invalidate();
                         setDrafts((rows) =>
                           rows.filter((r) => r.key !== row.key),
-                        )
-                      }
+                        );
+                      }}
                     >
                       ×
                     </button>
