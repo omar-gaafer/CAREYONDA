@@ -50,3 +50,24 @@ def test_persistence_rejects_future_or_duplicate_timestamps() -> None:
     start = datetime(2025, 1, 1, tzinfo=UTC)
     with pytest.raises(ValueError, match="strictly increasing"):
         causal_persistence([start, start], [False, False])
+
+
+def test_persistence_bounds_total_lookback_not_just_adjacent_gaps() -> None:
+    start = datetime(2025, 1, 1, tzinfo=UTC)
+    times = [start + timedelta(minutes=20 * i) for i in range(3)]
+    assert causal_persistence(times, [True, False, True]) == [False, False, False]
+    boundary = [start, start + timedelta(minutes=15), start + timedelta(minutes=30)]
+    assert causal_persistence(boundary, [True, False, True])[-1] is True
+    assert causal_persistence(boundary, [True, False, None])[-1] is None
+
+
+@pytest.mark.parametrize("missing", [True, False])
+def test_recovery_is_censored_before_later_valid_rows(missing: bool) -> None:
+    start = datetime(2025, 1, 1, tzinfo=UTC)
+    times = [start + timedelta(minutes=5 * i) for i in range(6)]
+    flags: list[bool | None] = [True, False, False, False, False, False]
+    if missing:
+        flags[1] = None
+    else:
+        times = [times[0], *(t + timedelta(hours=5) for t in times[1:])]
+    assert recovery_seconds(times, flags, 0) is None

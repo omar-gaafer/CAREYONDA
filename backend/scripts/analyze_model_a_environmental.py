@@ -13,12 +13,13 @@ import json
 import math
 import statistics
 from collections import Counter, defaultdict
+from collections.abc import Sequence
 from pathlib import Path
 from typing import Any
 
 import numpy as np
-from scipy.stats import spearmanr
-from sklearn.ensemble import IsolationForest
+from scipy.stats import spearmanr  # type: ignore[import-untyped]  # pinned SciPy lacks stubs; result normalized to float
+from sklearn.ensemble import IsolationForest  # type: ignore[import-untyped]  # pinned sklearn lacks py.typed
 
 from app.ai.nasa_environment_anomaly import (
     apply_preprocessing,
@@ -91,7 +92,7 @@ def _number(value: Any) -> float | None:
     return parsed if math.isfinite(parsed) else None
 
 
-def _quantiles(scores: list[float | None]) -> dict[str, float | None]:
+def _quantiles(scores: Sequence[float | None]) -> dict[str, float | None]:
     values = np.asarray(
         [value for value in scores if value is not None], dtype=np.float64
     )
@@ -103,7 +104,7 @@ def _quantiles(scores: list[float | None]) -> dict[str, float | None]:
     }
 
 
-def _distribution(values: list[float | None]) -> dict[str, Any]:
+def _distribution(values: Sequence[float | None]) -> dict[str, Any]:
     finite = [value for value in values if value is not None]
     return {
         "count": len(values),
@@ -163,11 +164,8 @@ def _mad_baseline(
     for row in rows:
         components = []
         for name, (median, mad) in parameters.items():
-            score = robust_mad_score(
-                _number(row[name]) if _number(row[name]) is not None else math.nan,
-                median,
-                mad,
-            )
+            value = _number(row[name])
+            score = robust_mad_score(math.nan if value is None else value, median, mad)
             per_feature[name].append(score)
             if score is not None:
                 components.append(score)
@@ -204,7 +202,7 @@ def _seed_scores(
     estimator.fit(prepared_train.matrix[prepared_train.scorable])
     parsed = parse_records(rows)
     prepared = apply_preprocessing(preprocessing, parsed.matrix)
-    scores = [None] * len(rows)
+    scores: list[float | None] = [None] * len(rows)
     scored = -estimator.score_samples(prepared.matrix[prepared.scorable])
     cursor = 0
     for index, can_score in enumerate(prepared.scorable):
@@ -221,6 +219,7 @@ def _split_summary(
     persistence: list[bool | None],
     baseline_scores: list[float | None],
     baseline_threshold: float | None,
+    threshold_available: bool,
 ) -> dict[str, Any]:
     scores = [result.anomaly_score for result in results]
     flags = [result.is_flagged for result in results]
@@ -303,10 +302,19 @@ def _split_summary(
         "imputed_feature_cells": sum(
             len(result.imputed_features) for result in results
         ),
-        "flagged_at_original_threshold": sum(flag is True for flag in flags),
+        "threshold_decision_status": "assessed"
+        if threshold_available
+        else "unassessed",
+        "flagged_at_original_threshold": sum(flag is True for flag in flags)
+        if threshold_available
+        else None,
         "flagged_fraction_of_scored": sum(flag is True for flag in flags)
-        / max(1, len(scored_flags)),
-        "causal_persistence_2_of_3_flagged": sum(flag is True for flag in persistence),
+        / max(1, len(scored_flags))
+        if threshold_available
+        else None,
+        "causal_persistence_2_of_3_flagged": sum(flag is True for flag in persistence)
+        if threshold_available
+        else None,
         "model_a_score_distribution": _distribution(scores),
         "sampling_gap_seconds": _distribution(gaps),
         "sampling_gaps_over_15_minutes": long_gaps_15m,
@@ -315,7 +323,7 @@ def _split_summary(
         "missing_primary_measurement_fraction": missing_rate,
         "consecutive_duplicate_feature_rows": idempotent,
         "longest_consecutive_duplicate_feature_run": max_identical,
-        "model_a_flagged_episodes": episodes,
+        "model_a_flagged_episodes": episodes if threshold_available else None,
         "daily_model_a_score_distribution": {
             day: _distribution(values) for day, values in sorted(day_bins.items())
         },
@@ -334,7 +342,8 @@ def run_analysis(
 ) -> dict[str, Any]:
     """Verify trusted local inputs, run chronological analysis and write local outputs."""
     metadata = read_metadata(artifact_dir)
-    detector = load_model_a(artifact_dir)
+    threshold = metadata.threshold
+    original_cutoff = None if threshold is None else threshold.value
     if metadata.model_version != "1.1.0":
         raise ValueError("this research run is pinned to the existing Model A v1.1.0")
     manifest_path = dataset_dir / "manifest.json"
@@ -342,9 +351,17 @@ def run_analysis(
     if manifest_hash != metadata.dataset.manifest_sha256:
         raise ValueError("dataset manifest hash does not match artifact provenance")
     manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
-    evidence = _load_evidence(dataset_dir / "feature_evidence.jsonl")
+    evidence_path = dataset_dir / "feature_evidence.jsonl"
+    expected_evidence_hash = manifest.get("sha256", {}).get(evidence_path.name)
+    if not expected_evidence_hash or _sha256(evidence_path) != expected_evidence_hash:
+        raise ValueError(
+            "feature evidence hash does not match verified dataset manifest"
+        )
+    evidence = _load_evidence(evidence_path)
+    detector = load_model_a(artifact_dir)
     rows_by_split: dict[str, list[dict[str, Any]]] = {}
     results_by_split: dict[str, tuple[Any, ...]] = {}
+    previous_end = None
     for split in SPLIT_ORDER:
         split_record = metadata.dataset.splits[split]
         path = dataset_dir / split_record.file
@@ -356,6 +373,11 @@ def run_analysis(
         if len(rows) != split_record.rows:
             raise ValueError(f"{split} row count does not match model metadata")
         parsed = parse_records(rows)
+        if not parsed.event_times:
+            raise ValueError(f"{split} split is empty")
+        if previous_end is not None and parsed.event_times[0] <= previous_end:
+            raise ValueError("chronological splits overlap or are out of order")
+        previous_end = parsed.event_times[-1]
         if any(
             a >= b
             for a, b in zip(parsed.event_times, parsed.event_times[1:], strict=False)
@@ -398,6 +420,7 @@ def run_analysis(
             persistence,
             baseline_scores[split],
             baseline_threshold,
+            threshold_available=threshold is not None,
         )
 
     train_scores = [result.anomaly_score for result in results_by_split["train"]]
@@ -441,10 +464,15 @@ def run_analysis(
                     [result.anomaly_score for result in results_by_split[split]],
                     alternate,
                 ),
-                "flagged_at_original_threshold": sum(
-                    score is not None and score >= float(metadata.threshold.value)
+                "flagged_at_original_threshold": None
+                if original_cutoff is None
+                else sum(
+                    score is not None and score >= original_cutoff
                     for score in alternate
                 ),
+                "threshold_decision_status": "unassessed"
+                if original_cutoff is None
+                else "assessed",
                 "training_rows_used": len(rows_by_split["train"]),
                 "alternate_model_persisted": False,
             }
@@ -468,11 +496,17 @@ def run_analysis(
             status = (
                 "abstained"
                 if result.status == "abstained"
-                else ("flagged" if result.is_flagged else "not_flagged")
+                else (
+                    "unassessed"
+                    if result.is_flagged is None
+                    else "flagged"
+                    if result.is_flagged
+                    else "not_flagged"
+                )
             )
             contexts.append(
                 {
-                    "contract_version": "careyonda.environmental_anomaly_research.v1",
+                    "contract_version": "careyonda.environmental_anomaly_research.v2",
                     "run_mode": "retrospective_research_only",
                     "scope": RESEARCH_SCOPE,
                     "model": {
@@ -481,7 +515,7 @@ def run_analysis(
                         "metadata_version": metadata.metadata_version,
                         "artifact_created_at_utc": metadata.created_at_utc.isoformat(),
                         "artifact_sha256": metadata.artifact_sha256,
-                        "artifact_path": str(artifact_dir.resolve()),
+                        "artifact_file": Path(metadata.artifact_file).name,
                         "source_dataset": metadata.dataset.dataset_name,
                         "dataset_version": metadata.dataset.dataset_version,
                         "dataset_manifest_sha256": manifest_hash,
@@ -510,11 +544,15 @@ def run_analysis(
                     "model_result": {
                         "score_name": "isolation_forest_path_length_score",
                         "score": result.anomaly_score,
-                        "threshold": metadata.threshold.value,
-                        "threshold_method": "training_score_quantile",
-                        "comparison": ">=",
+                        "threshold": original_cutoff,
+                        "threshold_method": None
+                        if threshold is None
+                        else threshold.method,
+                        "comparison": None if threshold is None else ">=",
                         "status": status,
-                        "temporal_persistence_2_of_3": "abstained"
+                        "temporal_persistence_2_of_3": "unassessed"
+                        if threshold is None
+                        else "abstained"
                         if persistent_flag is None
                         else ("flagged" if persistent_flag else "not_flagged"),
                     },
@@ -529,6 +567,7 @@ def run_analysis(
 
     report: dict[str, Any] = {
         "research_only": True,
+        "research_method_version": "2.0.0",
         "model": {
             "model_id": metadata.model_id,
             "model_version": metadata.model_version,
@@ -539,24 +578,34 @@ def run_analysis(
             "training_random_state": metadata.estimator.params.get("random_state"),
             "feature_schema_version": metadata.dataset.schema_version,
             "dataset_manifest_sha256": manifest_hash,
-            "threshold": metadata.threshold.model_dump(mode="json"),
+            "threshold": None
+            if threshold is None
+            else threshold.model_dump(mode="json"),
+            "threshold_decision_status": "unassessed"
+            if threshold is None
+            else "assessed",
         },
         "dataset": {
             "dataset_name": metadata.dataset.dataset_name,
             "dataset_version": metadata.dataset.dataset_version,
-            "manifest": str(manifest_path.resolve()),
+            "manifest": manifest_path.name,
             "manifest_sha256": manifest_hash,
             "split_order": list(SPLIT_ORDER),
             "source_scope": RESEARCH_SCOPE,
             "split_timestamps": manifest["splits"],
         },
         "methodology": {
-            "model_a": "Unchanged v1.1.0 artifact, preprocessing and >= training q99 threshold; train scores in-sample.",
+            "model_a": "Unchanged v1.1.0 artifact and preprocessing; train scores in-sample. "
+            + (
+                "Original threshold absent; threshold decisions unassessed."
+                if threshold is None
+                else "Original training threshold and >= comparison retained."
+            ),
             "threshold_sensitivity": "Alternative thresholds are empirical quantiles of training scores only; validation/test are descriptive and never select a threshold.",
             "statistical_baseline": baseline_fit,
             "statistical_baseline_training_q99_threshold": baseline_threshold,
-            "temporal_persistence": "At least 2 of current/prior 2 scored rows, within 30 minutes; history resets per split and after >30-minute gaps.",
-            "episode_definition": "Directly consecutive flagged observations with <=30-minute event-time separation; recovery is three subsequent scored non-flagged rows, else right-censored.",
+            "temporal_persistence": "At least 2 of current/prior 2 scored rows, within a total 30-minute lookback; history resets per split and after >30-minute gaps.",
+            "episode_definition": "Directly consecutive flagged observations with <=30-minute event-time separation; recovery is three subsequent scored non-flagged rows; any missing follow-up or >30-minute gap censors the episode.",
             "drift": "Daily score distributions and chronological split distributions; differences are statistical observations, not confirmed hazards.",
             "seed_experiments": "Refit fresh IsolationForest instances on training only with random_state 7 and 1234; no alternate artifacts persisted.",
             "labels": "No verified anomaly labels. No accuracy, precision, recall, F1, or ROC AUC computed.",
@@ -584,6 +633,9 @@ def _markdown_report(report: dict[str, Any]) -> str:
     def fmt(value: float | None) -> str:
         return "n/a" if value is None else f"{value:.6f}"
 
+    def decision(value: int | None) -> str:
+        return "unassessed" if value is None else str(value)
+
     lines = [
         "# Model A Environmental Temporal Research",
         "",
@@ -591,6 +643,8 @@ def _markdown_report(report: dict[str, Any]) -> str:
         "",
         f"Model: `{report['model']['model_id']}` v`{report['model']['model_version']}`; artifact SHA-256 `{report['model']['artifact_sha256']}`.",
         f"Dataset manifest SHA-256 `{report['dataset']['manifest_sha256']}`; schema `{report['model']['feature_schema_version']}`.",
+        "",
+        f"Original threshold decision status: {report['model']['threshold_decision_status']}. Missing thresholds never imply not_flagged.",
         "",
         "## Chronological split results",
         "",
@@ -600,7 +654,7 @@ def _markdown_report(report: dict[str, Any]) -> str:
     for split, result in report["splits"].items():
         quantiles = result["model_a_score_distribution"]["quantiles"]
         lines.append(
-            f"| {split} | {result['rows']} | {result['scored']} | {result['abstained']} | {result['flagged_at_original_threshold']} | {result['flagged_fraction_of_scored']:.4f} | {fmt(quantiles['q50'])} | {fmt(quantiles['q95'])} | {fmt(quantiles['q99'])} | {result['statistical_baseline']['flagged_at_training_q99']} |"
+            f"| {split} | {result['rows']} | {result['scored']} | {result['abstained']} | {decision(result['flagged_at_original_threshold'])} | {fmt(result['flagged_fraction_of_scored'])} | {fmt(quantiles['q50'])} | {fmt(quantiles['q95'])} | {fmt(quantiles['q99'])} | {result['statistical_baseline']['flagged_at_training_q99']} |"
         )
     lines.extend(
         [
@@ -614,12 +668,12 @@ def _markdown_report(report: dict[str, Any]) -> str:
     for split, result in report["splits"].items():
         recovery = [
             float(episode["stable_recovery_seconds"])
-            for episode in result["model_a_flagged_episodes"]
+            for episode in result["model_a_flagged_episodes"] or []
             if episode["stable_recovery_seconds"] is not None
         ]
         mean_recovery = statistics.fmean(recovery) / 60 if recovery else None
         lines.append(
-            f"| {split} | {len(result['model_a_flagged_episodes'])} | {len(recovery)} | {fmt(mean_recovery)} | {result['sampling_gaps_over_15_minutes']} | {result['sampling_gaps_over_30_minutes']} | {result['consecutive_duplicate_feature_rows']} | {result['longest_consecutive_duplicate_feature_run']} |"
+            f"| {split} | {decision(None if result['model_a_flagged_episodes'] is None else len(result['model_a_flagged_episodes']))} | {decision(None if result['model_a_flagged_episodes'] is None else len(recovery))} | {fmt(mean_recovery)} | {result['sampling_gaps_over_15_minutes']} | {result['sampling_gaps_over_30_minutes']} | {result['consecutive_duplicate_feature_rows']} | {result['longest_consecutive_duplicate_feature_run']} |"
         )
     lines.extend(
         [
@@ -644,7 +698,7 @@ def _markdown_report(report: dict[str, Any]) -> str:
     )
     for seed, splits in report["random_seed_robustness"].items():
         lines.append(
-            f"| {seed} | {fmt(splits['validation']['spearman_rank_correlation_to_v1_1_0'])} | {fmt(splits['test']['spearman_rank_correlation_to_v1_1_0'])} | {splits['validation']['flagged_at_original_threshold']} | {splits['test']['flagged_at_original_threshold']} |"
+            f"| {seed} | {fmt(splits['validation']['spearman_rank_correlation_to_v1_1_0'])} | {fmt(splits['test']['spearman_rank_correlation_to_v1_1_0'])} | {decision(splits['validation']['flagged_at_original_threshold'])} | {decision(splits['test']['flagged_at_original_threshold'])} |"
         )
     lines.extend(
         [
@@ -665,8 +719,8 @@ def _markdown_report(report: dict[str, Any]) -> str:
             "## Interpretation limits",
             "",
             "- The statistical baseline is max feature-wise absolute deviation/raw MAD, with median and raw MAD fitted on training only. It ignores joint covariance and does not establish a hazard.",
-            "- Persistence uses the current and preceding two rows, resets after a gap over 30 minutes, and is a research summary only.",
-            "- Episodes and recovery describe score behavior only. A recovery time is reported only after three below-threshold scored rows; otherwise the follow-up is censored.",
+            "- Persistence uses current/prior two rows inside a total 30-minute lookback (inclusive boundary), resets per split and after long gaps, and is research only.",
+            "- Episodes and recovery describe score behavior only. Three non-flagged scored rows confirm recovery; missing readings or a gap over 30 minutes censor follow-up immediately.",
             "- Train scores are in-sample. Validation and test remain chronological; thresholds were derived from train only.",
             "- NASA RR-1 environmental telemetry is ISS experiment environment data, not linked to synthetic astronauts or human physiology.",
             "- Report and event output contain measurement-derived results. Keep the output directory local until redistribution is cleared.",
@@ -688,7 +742,7 @@ def main() -> None:
     print(
         json.dumps(
             {
-                "output": str(args.output.resolve()),
+                "output": args.output.name,
                 "splits": {
                     name: {
                         "rows": value["rows"],

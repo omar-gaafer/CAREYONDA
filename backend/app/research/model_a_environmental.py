@@ -48,7 +48,7 @@ def causal_persistence(
         raise ValueError("times and flags must have equal lengths")
     if window_rows < 1 or not 1 <= minimum_flags <= window_rows:
         raise ValueError("persistence counts are inconsistent")
-    if reset_gap_seconds <= 0:
+    if reset_gap_seconds <= 0 or not math.isfinite(reset_gap_seconds):
         raise ValueError("reset_gap_seconds must be positive")
     output: list[bool | None] = []
     history: list[tuple[datetime, bool | None]] = []
@@ -64,7 +64,11 @@ def causal_persistence(
         ):
             history.clear()
         history.append((timestamp, flag))
-        history = history[-window_rows:]
+        history = [
+            (time, value)
+            for time, value in history[-window_rows:]
+            if (timestamp - time).total_seconds() <= reset_gap_seconds
+        ]
         assessed = [value for _, value in history if value is not None]
         output.append(None if flag is None else sum(assessed) >= minimum_flags)
         prior_time = timestamp
@@ -124,12 +128,21 @@ def recovery_seconds(
         raise ValueError("times and flags must have equal lengths")
     if not 0 <= episode_end_index < len(times) or stable_rows < 1:
         raise ValueError("invalid episode end or stable_rows")
+    if reset_gap_seconds <= 0 or not math.isfinite(reset_gap_seconds):
+        raise ValueError("reset_gap_seconds must be finite and positive")
+    if any(t.tzinfo is None or t.utcoffset() is None for t in times):
+        raise ValueError("timestamps must be timezone-aware")
+    if any(a >= b for a, b in zip(times, times[1:], strict=False)):
+        raise ValueError("timestamps must be strictly increasing")
     count = 0
     for index in range(episode_end_index + 1, len(flags)):
         gap = (times[index] - times[index - 1]).total_seconds()
         if gap <= 0:
             raise ValueError("timestamps must be strictly increasing")
-        if gap > reset_gap_seconds or flags[index] is None or flags[index] is True:
+        # Missing follow-up censors this episode; later rows cannot bridge it.
+        if gap > reset_gap_seconds or flags[index] is None:
+            return None
+        if flags[index] is True:
             count = 0
         else:
             count += 1
