@@ -25,9 +25,20 @@ def setup_run(
     root: Path, monkeypatch: pytest.MonkeyPatch, *, has_threshold: bool = True
 ) -> tuple[Path, ModelAMetadata]:
     dataset = build_dataset(root / "synthetic")
-    (dataset / "feature_evidence.jsonl").write_text("", encoding="utf-8")
-    write_manifest(dataset)
     train = analysis._read_csv(dataset / "train.csv")
+    (dataset / "feature_evidence.jsonl").write_text(
+        json.dumps(
+            {
+                "sample_id": train[0]["sample_id"],
+                "feature_observation_ids": {
+                    "cabin_co2_concentration_value": ["synthetic-observation-1"]
+                },
+            }
+        )
+        + "\n",
+        encoding="utf-8",
+    )
+    write_manifest(dataset)
     spec = fit_preprocessing(expected_features(), parse_records(train).matrix)
     metadata = ModelAMetadata.model_validate(
         {
@@ -130,6 +141,11 @@ def test_report_and_events_preserve_threshold_semantics(
     for path in output.iterdir():
         assert str(tmp_path) not in path.read_text()
     assert report["model"]["artifact_sha256"] == metadata.artifact_sha256
+    assert events[0]["event"]["feature_observation_ids"] == {
+        "cabin_co2_concentration_value": ["synthetic-observation-1"]
+    }
+    assert events[0]["event"]["historical_source_availability"] == "unknown"
+    assert events[1]["event"]["feature_observation_ids"] == {}
 
 
 def test_evidence_integrity_before_artifact_loading(
@@ -173,3 +189,111 @@ def test_cross_split_overlap_rejected_with_updated_hashes(
     )
     with pytest.raises(ValueError, match="splits overlap"):
         analysis.run_analysis(dataset, tmp_path / "artifact", tmp_path / "output")
+
+
+def replace_metadata(
+    dataset: Path, metadata: ModelAMetadata, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    """Refresh synthetic integrity records after an intentional fixture mutation."""
+    write_manifest(dataset)
+    splits = {
+        name: record.model_copy(
+            update={"sha256": analysis._sha256(dataset / record.file)}
+        )
+        for name, record in metadata.dataset.splits.items()
+    }
+    metadata = metadata.model_copy(
+        update={
+            "dataset": metadata.dataset.model_copy(
+                update={
+                    "splits": splits,
+                    "manifest_sha256": analysis._sha256(dataset / "manifest.json"),
+                }
+            )
+        }
+    )
+    monkeypatch.setattr(analysis, "read_metadata", lambda _: metadata)
+    monkeypatch.setattr(
+        analysis,
+        "load_model_a",
+        lambda _: NasaEnvironmentAnomalyDetector(
+            FirstFeatureEstimator(),
+            metadata.preprocessing,
+            metadata.threshold,
+            provenance_from(metadata),
+        ),
+    )
+
+
+def test_threshold_equality_is_flagged_in_serialized_event(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch
+) -> None:
+    dataset, metadata = setup_run(tmp_path, monkeypatch)
+    cutoff = float(
+        analysis._read_csv(dataset / "train.csv")[0]["cabin_co2_concentration_value"]
+    )
+    replace_metadata(
+        dataset,
+        metadata.model_copy(update={"threshold": threshold(cutoff)}),
+        monkeypatch,
+    )
+    output = tmp_path / "report"
+    analysis.run_analysis(dataset, tmp_path / "artifact", output)
+    first = json.loads((output / "temporal_events.jsonl").read_text().splitlines()[0])
+    assert (
+        first["model_result"]["score"] == first["model_result"]["threshold"] == cutoff
+    )
+    assert first["model_result"]["status"] == "flagged"
+    assert first["model_result"]["comparison"] == ">="
+
+
+@pytest.mark.parametrize("has_threshold", [True, False])
+def test_missing_measurement_remains_abstained_with_original_event_time(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, has_threshold: bool
+) -> None:
+    import csv
+
+    dataset, metadata = setup_run(tmp_path, monkeypatch, has_threshold=has_threshold)
+    path = dataset / "train.csv"
+    with path.open(newline="") as handle:
+        reader = csv.DictReader(handle)
+        columns, rows = reader.fieldnames, list(reader)
+    original_time = rows[0]["event_time_utc"]
+    rows[0]["cabin_co2_concentration_value"] = ""
+    rows[0]["cabin_co2_concentration_missing"] = "1"
+    with path.open("w", newline="") as handle:
+        assert columns is not None
+        writer = csv.DictWriter(handle, fieldnames=columns)
+        writer.writeheader()
+        writer.writerows(rows)
+    replace_metadata(dataset, metadata, monkeypatch)
+    output = tmp_path / "report"
+    analysis.run_analysis(dataset, tmp_path / "artifact", output)
+    first = json.loads((output / "temporal_events.jsonl").read_text().splitlines()[0])
+    assert first["event"]["event_time_utc"] == original_time
+    assert first["model_result"]["status"] == "abstained"
+    assert first["model_result"]["score"] is None
+    assert first["event"]["abstention_reasons"]
+    assert first["event"]["historical_source_availability"] == "unknown"
+    assert "ingested_at" not in first["event"]
+    assert "replay_acquired_at" not in first["event"]
+
+
+@pytest.mark.parametrize("fault", ["duplicate", "bad_ids", "nonobject"])
+def test_invalid_or_ambiguous_lineage_rejected(
+    tmp_path: Path, monkeypatch: pytest.MonkeyPatch, fault: str
+) -> None:
+    dataset, metadata = setup_run(tmp_path, monkeypatch)
+    path = dataset / "feature_evidence.jsonl"
+    first = path.read_text()
+    if fault == "duplicate":
+        path.write_text(first + first)
+    elif fault == "nonobject":
+        path.write_text("[]\n")
+    else:
+        record = json.loads(first)
+        record["feature_observation_ids"] = {"co2": [42]}
+        path.write_text(json.dumps(record) + "\n")
+    replace_metadata(dataset, metadata, monkeypatch)
+    with pytest.raises(ValueError, match="feature evidence record"):
+        analysis.run_analysis(dataset, tmp_path / "artifact", tmp_path / "out")

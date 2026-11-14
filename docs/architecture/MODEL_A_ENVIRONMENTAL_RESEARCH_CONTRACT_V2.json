@@ -189,6 +189,22 @@
           "items": {
             "type": "string"
           }
+        },
+        "feature_observation_ids": {
+          "type": "object",
+          "additionalProperties": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "historical_source_availability": {
+          "const": "unknown"
+        },
+        "evidence_availability_scope": {
+          "const": "lineage_reference_presence_only"
         }
       },
       "additionalProperties": false

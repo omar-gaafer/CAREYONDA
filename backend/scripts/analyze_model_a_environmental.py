@@ -137,7 +137,24 @@ def _load_evidence(path: Path) -> dict[str, dict[str, Any]]:
     with path.open(encoding="utf-8") as handle:
         for line in handle:
             record = json.loads(line)
-            evidence[str(record["sample_id"])] = record
+            if not isinstance(record, dict):
+                raise ValueError("invalid feature evidence record")
+            sample_id = record.get("sample_id")
+            references = record.get("feature_observation_ids", {})
+            if (
+                not isinstance(sample_id, str)
+                or not sample_id
+                or sample_id in evidence
+                or not isinstance(references, dict)
+                or any(
+                    not isinstance(feature, str)
+                    or not isinstance(ids, list)
+                    or any(not isinstance(oid, str) or not oid for oid in ids)
+                    for feature, ids in references.items()
+                )
+            ):
+                raise ValueError("invalid or duplicate feature evidence record")
+            evidence[sample_id] = record
     return evidence
 
 
@@ -534,6 +551,9 @@ def run_analysis(
                         if supporting
                         else "unavailable",
                         "feature_evidence_reference_count": supporting,
+                        "feature_observation_ids": evidence_ids,
+                        "historical_source_availability": "unknown",
+                        "evidence_availability_scope": "lineage_reference_presence_only",
                         "data_quality": "incomplete"
                         if missing or result.status == "abstained"
                         else "complete_for_model_inputs",

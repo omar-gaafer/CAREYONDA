@@ -129,3 +129,48 @@ mypy including the script passed (78 files); all ten previously reproduced
 script typing errors are resolved. Dependency consistency and Git whitespace
 checks passed. No packages were installed. Real NASA analysis/seed experiments
 were not run, and the original artifact was verified by hashing without loading.
+
+## AI-A3 follow-up
+
+The audited baseline `35cfd99` had already advanced to `9c17223` before AI-A3.
+That existing P0 commit contains the threshold, strict typing, chronology,
+persistence, recovery-censoring, evidence-hash and path-disclosure fixes described
+above. AI-A3 preserves them and adds the following narrowly scoped verification
+and provenance behavior:
+
+- Every new event retains the original `feature_observation_ids` mapping when
+  available, rather than publishing reference counts alone. An absent record
+  yields an empty mapping, not fabricated observation IDs. Duplicate sample IDs,
+  malformed mappings and non-string/empty observation IDs are rejected before
+  detector loading. The sidecar's manifest hash is still verified first.
+- New events explicitly state `historical_source_availability="unknown"` and
+  `evidence_availability_scope="lineage_reference_presence_only"`. Reference
+  presence is not proof that NASA data was available during its mission; no
+  ingestion time, acquisition receipt or replay authorization is manufactured.
+- These three event properties are optional additive fields in the v2 JSON
+  schema so previously written v2 records remain valid. Current writers always
+  emit them. This does not make the event an AI-H1/H2 or Model A API sidecar.
+- Synthetic regressions now cover exact threshold equality (`>=` remains
+  inclusive), both threshold states with missing measurements, original UTC
+  event timestamps, resolvable reference IDs, invalid/ambiguous lineage, the
+  inclusive 1800-second adjacent-gap boundary, and censoring beyond that bound.
+  Existing tests retain total-lookback, cross-split ordering, absent-threshold
+  serialization and report path-disclosure coverage.
+- "Stale" in these offline temporal summaries means history outside the declared
+  30-minute lookback or follow-up beyond the gap limit. No wall-clock freshness
+  or contemporary-exposure claim is made for archived NASA records; there is no
+  invented age cutoff relative to today's date.
+
+No algorithm, existing threshold/policy value, dependency pin, trained artifact,
+API, frontend or hybrid engine is changed by AI-A3. The analysis still requires
+trusted local inputs. Regression fixtures are artificial and stub artifact
+loading and alternate-estimator fitting.
+
+AI-A3 verification: 21 focused research regressions passed; the full backend
+suite passed 440 tests with 2 expected local-data opt-in skips. Ruff lint and
+formatting passed; direct strict mypy including the script passed on 78 files.
+`pip check` reported no broken requirements and Git whitespace checks passed.
+SciPy remains 1.17.1 under the existing research extra/pins; no dependency was
+installed or upgraded. All four trusted artifact-directory files retained their
+pre-test SHA-256 hashes. Only synthetic tests were executed; no NASA analysis,
+model retraining, trusted artifact loading, API or frontend changes occurred.

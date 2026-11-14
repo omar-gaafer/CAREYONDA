@@ -71,3 +71,23 @@ def test_recovery_is_censored_before_later_valid_rows(missing: bool) -> None:
     else:
         times = [times[0], *(t + timedelta(hours=5) for t in times[1:])]
     assert recovery_seconds(times, flags, 0) is None
+
+
+@pytest.mark.parametrize("seconds,expected", [(1800, True), (1801, False)])
+def test_adjacent_gap_boundary_is_explicit(seconds: int, expected: bool) -> None:
+    start = datetime(2025, 1, 1, tzinfo=UTC)
+    assert (
+        causal_persistence([start, start + timedelta(seconds=seconds)], [True, True])[
+            -1
+        ]
+        is expected
+    )
+
+
+@pytest.mark.parametrize("seconds", [1800, 1801])
+def test_recovery_gap_boundary(seconds: int) -> None:
+    start = datetime(2025, 1, 1, tzinfo=UTC)
+    times = [start + timedelta(seconds=seconds * i) for i in range(4)]
+    assert recovery_seconds(times, [True, False, False, False], 0) == (
+        3 * seconds if seconds == 1800 else None
+    )
