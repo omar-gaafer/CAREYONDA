@@ -11,6 +11,7 @@ import {
   Database,
   Box,
   History,
+  Moon,
 } from "lucide-react";
 export const modules = [
   {
@@ -59,6 +60,14 @@ export const modules = [
     icon: MessagesSquare,
     detail:
       "No language model or conversational service is connected. This module cannot provide diagnoses, treatment instructions, or spacecraft commands.",
+  },
+  {
+    // Local, transient Model C self-report flow; rendered by its own route.
+    path: "/model-c",
+    title: "Isolation & Confinement · Model C",
+    short: "Model C (local)",
+    icon: Moon,
+    local: true,
   },
   {
     path: "/crew",

@@ -30,7 +30,7 @@ describe("mission workspace", () => {
     expect(
       screen.getByText(/Deterministic synthetic demonstration/),
     ).toBeInTheDocument();
-    if (!m.phase1 && !m.phase2)
+    if (!m.phase1 && !m.phase2 && !m.local)
       expect(
         screen.getByText("NOT IMPLEMENTED IN PHASE 1"),
       ).toBeInTheDocument();

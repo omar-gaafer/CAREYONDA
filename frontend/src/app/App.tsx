@@ -33,6 +33,7 @@ import { Explorer } from "../features/explorer/Explorer";
 import { Capability } from "../features/capabilities/Capability";
 import { Intelligence } from "../features/investigations/Intelligence";
 import { Incidents } from "../features/incidents/Incidents";
+import { ModelCPanel } from "../features/model-c/ModelCPanel";
 import { useInvestigations } from "../features/investigations/application";
 import {
   syntheticInvestigationRepository,
@@ -366,8 +367,21 @@ export function App({
                   />,
                 )}
               />
+              <Route
+                path="/model-c"
+                element={
+                  <ModelCPanel
+                    title={
+                      modules.find((m) => m.path === "/model-c")?.title ??
+                      "Model C"
+                    }
+                    mode={dataMode}
+                    apiUrl={modelAApiUrl}
+                  />
+                }
+              />
               {modules
-                .filter((m) => !m.phase1 && !m.phase2)
+                .filter((m) => !m.phase1 && !m.phase2 && !m.local)
                 .map((m) => (
                   <Route
                     key={m.path}
